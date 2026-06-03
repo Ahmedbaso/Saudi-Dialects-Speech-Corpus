@@ -28,12 +28,12 @@
 
     header p {
       font-size: 18px;
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
     }
 
     main {
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -66,11 +66,36 @@
       white-space: pre-line;
     }
 
+    .diagram-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #e2e8f0;
+    }
+
+    .note {
+      background-color: #fff8e1;
+      border-left: 5px solid #f0ad4e;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
     footer {
       text-align: center;
       padding: 25px;
       color: #666;
       font-size: 14px;
+    }
+
+    a {
+      color: #0f5132;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -109,14 +134,132 @@
     <section>
       <h2>Telegram Bot Workflow</h2>
       <ol>
-        <li>Display privacy policy and collect participant consent.</li>
-        <li>Collect participant metadata such as age, gender, dialect region, and device type.</li>
-        <li>Display recording instructions and microphone guidance.</li>
-        <li>Ask the participant to record 30 predefined sentences.</li>
-        <li>Allow an optional free-speech recording.</li>
-        <li>Ask for final confirmation before processing and uploading files.</li>
-        <li>Process and store the data in local storage, Cloudinary, and Airtable.</li>
+        <li>The participant starts the bot using <code>/start</code>.</li>
+        <li>The bot displays the privacy policy and requires explicit consent.</li>
+        <li>The bot collects participant metadata such as age, gender, dialect region, education level, and device type.</li>
+        <li>The bot displays a recording notice asking the participant to remove headphones and record directly using the phone microphone.</li>
+        <li>The participant records 30 predefined phonetically balanced sentences.</li>
+        <li>For each sentence, the participant can approve the recording or re-record it.</li>
+        <li>The participant may optionally record a free-speech sample or skip this step.</li>
+        <li>The bot shows a final confirmation button before processing and uploading the files.</li>
+        <li>After final confirmation, the audio files are converted, renamed, compressed, uploaded, and stored.</li>
       </ol>
+    </section>
+
+    <section>
+      <h2>Bot State Diagram</h2>
+      <p>
+        The following diagram shows the main states and transitions of the Telegram Bot workflow.
+      </p>
+
+      <div class="diagram-box">
+        <div class="mermaid">
+flowchart TD
+    Start(["Start / /start"]) --> Welcome["Welcome Message"]
+    Welcome --> Privacy["Privacy Policy & Consent"]
+
+    Privacy -- "Agree" --> Nickname["Nickname / Pseudonym"]
+    Privacy -- "Decline" --> End(["End Session"])
+
+    Nickname --> Age["Age Group"]
+    Age --> Gender["Gender"]
+    Gender --> Nationality["Nationality / Saudi Dialect Speaker Status"]
+    Nationality --> LivedMost["City Lived in Most"]
+    LivedMost --> Residence["Current Residence"]
+    Residence --> DialectRegion["Main Dialect Region"]
+    DialectRegion --> AdminRegion["Administrative Region"]
+    AdminRegion --> ExactDialect["Exact Dialect Classification"]
+    ExactDialect --> MotherCity["Mother's City"]
+    MotherCity --> FatherCity["Father's City"]
+    FatherCity --> Education["Education Level"]
+    Education --> PreviousResearch["Previous Research Participation"]
+    PreviousResearch --> Acting["Acting / Radio Performance Background"]
+    Acting --> Cold["Cold or Congestion"]
+    Cold --> Smoking["Smoking Status"]
+    Smoking --> Medication["Medication Affecting Voice"]
+    Medication --> Mood["Mood Rating"]
+    Mood --> Device["Device Type"]
+
+    Device --> StartNotice["Recording Notice<br/>Remove headphones and use phone microphone"]
+
+    StartNotice -- "Cancel" --> CancelBefore["Cancel Before Recording<br/>Delete temporary session data"]
+    CancelBefore --> End
+
+    StartNotice -- "Start Recording" --> SentenceLoop["Sentence Recording Loop<br/>S01 to S30"]
+
+    SentenceLoop --> ShowSentence["Display Sentence"]
+    ShowSentence --> WaitVoice["Wait for Voice Recording"]
+
+    WaitVoice -- "Text Sent" --> TextError["Ask participant to send a voice recording"]
+    TextError --> WaitVoice
+
+    WaitVoice -- "Voice Longer Than 15s" --> DurationError["Reject Recording<br/>Normal sentence limit: 15 seconds"]
+    DurationError --> WaitVoice
+
+    WaitVoice -- "Valid Voice" --> Approval["Approve or Re-record"]
+
+    Approval -- "Re-record" --> WaitVoice
+    Approval -- "Approve" --> MoreSentences{"More Sentences?"}
+
+    Approval -- "Another Voice Before Choosing" --> ApprovalReminder["Reminder: Choose Approve or Re-record<br/>Ignore latest voice"]
+    ApprovalReminder --> Approval
+
+    Approval -- "Text Before Choosing" --> ButtonReminder["Reminder: Press the buttons only"]
+    ButtonReminder --> Approval
+
+    MoreSentences -- "Yes" --> ShowSentence
+    MoreSentences -- "No" --> FreeChoice["Free-Speech Topic Choice"]
+
+    FreeChoice -- "Send Text or Voice Instead of Button" --> FreeChoiceReminder["Reminder: Press one of the topic buttons or skip"]
+    FreeChoiceReminder --> FreeChoice
+
+    FreeChoice -- "Skip Free Speech" --> FinalConfirm["Final Upload Confirmation"]
+
+    FreeChoice -- "Choose Topic" --> FreeRecord["Record Free-Speech Sample"]
+    FreeRecord --> WaitFreeVoice["Wait for Free-Speech Voice"]
+
+    WaitFreeVoice -- "Text Sent" --> FreeTextError["Ask participant to send a voice recording"]
+    FreeTextError --> WaitFreeVoice
+
+    WaitFreeVoice -- "Voice Longer Than 35s" --> FreeDurationError["Reject Recording<br/>Free-speech limit: 35 seconds"]
+    FreeDurationError --> WaitFreeVoice
+
+    WaitFreeVoice -- "Valid Voice" --> FreeApproval["Approve or Re-record Free Speech"]
+
+    FreeApproval -- "Re-record" --> WaitFreeVoice
+    FreeApproval -- "Approve" --> FinalConfirm
+
+    FreeApproval -- "Another Voice Before Choosing" --> FreeApprovalReminder["Reminder: Choose Approve or Re-record<br/>Ignore latest voice"]
+    FreeApprovalReminder --> FreeApproval
+
+    FreeApproval -- "Text Before Choosing" --> FreeButtonReminder["Reminder: Press the buttons only"]
+    FreeButtonReminder --> FreeApproval
+
+    FinalConfirm -- "Text or Voice Instead of Button" --> FinalReminder["Reminder: Press the final upload button only"]
+    FinalReminder --> FinalConfirm
+
+    FinalConfirm -- "End Recording and Upload Files" --> Uploading["Final Processing and Upload Started<br/>Cancellation Disabled"]
+
+    Uploading --> DownloadOGG["Download Telegram OGG to data/tmp"]
+    DownloadOGG --> ConvertWAV["Convert OGG to WAV<br/>44.1kHz, Mono, PCM 16-bit"]
+    ConvertWAV --> Rename["Rename Files Using Naming Convention"]
+    Rename --> InfoFile["Create info.txt Metadata File"]
+    InfoFile --> Zip["Create ZIP Archive"]
+    Zip --> Cloudinary["Upload Audio Files to Cloudinary"]
+    Cloudinary --> Airtable["Save Metadata and File Links in Airtable"]
+    Airtable --> LocalStorage["Keep Local ZIP and info.txt"]
+    LocalStorage --> ThankYou["Send Final Thank You Message"]
+    ThankYou --> End
+
+    SentenceLoop -- "/cancel before final upload" --> CancelDuring["Cancel Session<br/>Delete temporary WAV files and user session data"]
+    CancelDuring --> End
+
+    FinalConfirm -- "/cancel before final upload" --> CancelDuring
+
+    Uploading -- "/cancel after final upload started" --> NoCancel["Cancellation Not Allowed<br/>Upload already started"]
+    NoCancel --> Uploading
+        </div>
+      </div>
     </section>
 
     <section>
@@ -128,11 +271,15 @@ Telegram Bot
    ↓
 Voice Note in OGG Format
    ↓
+Temporary OGG Storage in data/tmp
+   ↓
 FFmpeg Audio Processing
    ↓
 Standardized WAV File
    ↓
 File Renaming
+   ↓
+ZIP Archive + info.txt
    ↓
 Local Storage + Cloudinary + Airtable
       </div>
@@ -153,10 +300,19 @@ Local Storage + Cloudinary + Airtable
     </section>
 
     <section>
+      <h2>Recording Duration Rules</h2>
+      <ul>
+        <li>Each predefined sentence has a maximum recording duration of 15 seconds.</li>
+        <li>The optional free-speech recording has a technical maximum duration of 35 seconds.</li>
+        <li>If the participant exceeds the allowed duration, the bot asks them to re-record.</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Storage Architecture</h2>
       <p>The system uses a triple-storage approach:</p>
       <ul>
-        <li><strong>Local Storage:</strong> stores ZIP files and metadata files.</li>
+        <li><strong>Local Storage:</strong> stores the generated ZIP archive and metadata file.</li>
         <li><strong>Cloudinary:</strong> stores uploaded audio files for cloud accessibility.</li>
         <li><strong>Airtable:</strong> stores participant metadata and recording references.</li>
       </ul>
@@ -190,6 +346,10 @@ Local Storage + Cloudinary + Airtable
         explicitly agree before continuing. The system avoids collecting phone numbers and allows
         participants to use a nickname or pseudonym.
       </p>
+      <div class="note">
+        Participants can cancel before the final upload confirmation. Once the final upload process starts,
+        the submission is considered approved and cancellation is disabled inside the bot.
+      </div>
     </section>
 
     <section>
@@ -209,6 +369,18 @@ Local Storage + Cloudinary + Airtable
   <footer>
     Saudi Dialects Speech Corpus — Graduation Project, King Saud University
   </footer>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true
+      }
+    });
+  </script>
 
 </body>
 </html>
