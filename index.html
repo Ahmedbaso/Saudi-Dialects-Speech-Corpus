@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saudi Dialects Speech Corpus</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7f9fb;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    header {
+      background-color: #0f5132;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 34px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    h2 {
+      color: #0f5132;
+      margin-top: 0;
+    }
+
+    code {
+      background-color: #eef2f5;
+      padding: 3px 6px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .workflow {
+      background-color: #eef7f1;
+      border-left: 5px solid #0f5132;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-line;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Saudi Dialects Speech Corpus</h1>
+    <p>
+      A graduation project focused on building a structured Saudi dialect speech corpus
+      using an automated Telegram Bot for voice data collection, processing, and storage.
+    </p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        This project aims to build a Saudi dialect speech corpus by collecting voice recordings
+        from participants across different Saudi dialect regions. The system uses a Telegram Bot
+        to guide participants through privacy approval, demographic questions, dialect information,
+        and voice recording steps.
+      </p>
+    </section>
+
+    <section>
+      <h2>Problem Statement</h2>
+      <p>
+        Arabic speech recognition systems often face challenges when processing regional dialects,
+        especially spontaneous Saudi dialects. This project addresses the lack of structured,
+        phonetically balanced, and regionally diverse Saudi speech datasets.
+      </p>
+    </section>
+
+    <section>
+      <h2>Telegram Bot Workflow</h2>
+      <ol>
+        <li>Display privacy policy and collect participant consent.</li>
+        <li>Collect participant metadata such as age, gender, dialect region, and device type.</li>
+        <li>Display recording instructions and microphone guidance.</li>
+        <li>Ask the participant to record 30 predefined sentences.</li>
+        <li>Allow an optional free-speech recording.</li>
+        <li>Ask for final confirmation before processing and uploading files.</li>
+        <li>Process and store the data in local storage, Cloudinary, and Airtable.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>System Workflow</h2>
+      <div class="workflow">
+Participant
+   ↓
+Telegram Bot
+   ↓
+Voice Note in OGG Format
+   ↓
+FFmpeg Audio Processing
+   ↓
+Standardized WAV File
+   ↓
+File Renaming
+   ↓
+Local Storage + Cloudinary + Airtable
+      </div>
+    </section>
+
+    <section>
+      <h2>Audio Processing</h2>
+      <p>
+        Telegram voice notes are received in OGG format. The backend uses Python and FFmpeg
+        to convert each recording into a standardized WAV file.
+      </p>
+      <ul>
+        <li>WAV format</li>
+        <li>44.1kHz sample rate</li>
+        <li>Mono channel</li>
+        <li>PCM 16-bit encoding</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Storage Architecture</h2>
+      <p>The system uses a triple-storage approach:</p>
+      <ul>
+        <li><strong>Local Storage:</strong> stores ZIP files and metadata files.</li>
+        <li><strong>Cloudinary:</strong> stores uploaded audio files for cloud accessibility.</li>
+        <li><strong>Airtable:</strong> stores participant metadata and recording references.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>File Naming Convention</h2>
+      <p>Each audio file follows a structured naming format:</p>
+      <p>
+        <code>KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
+      </p>
+
+      <p>Example:</p>
+      <p>
+        <code>KSU_DIA_D01_SPK10023_S05_T11.wav</code>
+      </p>
+
+      <ul>
+        <li><strong>KSU_DIA:</strong> project prefix.</li>
+        <li><strong>D[Dialect_Code]:</strong> dialect region code.</li>
+        <li><strong>SPK:</strong> speaker identifier.</li>
+        <li><strong>S[Sentence_ID]:</strong> sentence number.</li>
+        <li><strong>T:</strong> device type and attempt number.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Privacy and Consent</h2>
+      <p>
+        The bot displays the privacy policy before collecting participant data. Participants must
+        explicitly agree before continuing. The system avoids collecting phone numbers and allows
+        participants to use a nickname or pseudonym.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technologies Used</h2>
+      <ul>
+        <li>Python</li>
+        <li>Telegram Bot API</li>
+        <li>FFmpeg</li>
+        <li>Airtable</li>
+        <li>Cloudinary</li>
+        <li>GitHub Pages</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    Saudi Dialects Speech Corpus — Graduation Project, King Saud University
+  </footer>
+
+</body>
+</html>
