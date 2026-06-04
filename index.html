@@ -6,19 +6,60 @@
   <title>Saudi Dialects Speech Corpus</title>
 
   <style>
+    :root {
+      --bg-color: #f7f9fb;
+      --text-color: #222;
+      --card-bg: #ffffff;
+      --header-bg: #0f5132;
+      --header-text: #ffffff;
+      --heading-color: #0f5132;
+      --code-bg: #eef2f5;
+      --workflow-bg: #eef7f1;
+      --workflow-border: #0f5132;
+      --note-bg: #fff8e1;
+      --note-border: #f0ad4e;
+      --diagram-border: #334155;
+      --diagram-bg: #0b0f14;
+      --link-color: #0f5132;
+      --footer-color: #666;
+      --shadow-color: rgba(0, 0, 0, 0.06);
+    }
+
+    body.dark-mode {
+      --bg-color: #0b0f14;
+      --text-color: #e5e7eb;
+      --card-bg: #111827;
+      --header-bg: #071a12;
+      --header-text: #ffffff;
+      --heading-color: #34d399;
+      --code-bg: #1f2937;
+      --workflow-bg: #111f18;
+      --workflow-border: #34d399;
+      --note-bg: #2a2111;
+      --note-border: #fbbf24;
+      --diagram-border: #475569;
+      --diagram-bg: #0b0f14;
+      --link-color: #34d399;
+      --footer-color: #9ca3af;
+      --shadow-color: rgba(0, 0, 0, 0.35);
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f7f9fb;
-      color: #222;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.7;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     header {
-      background-color: #0f5132;
-      color: white;
+      background-color: var(--header-bg);
+      color: var(--header-text);
       padding: 55px 20px;
       text-align: center;
+      position: relative;
+      transition: background-color 0.25s ease;
     }
 
     header h1 {
@@ -32,6 +73,62 @@
       margin: auto;
     }
 
+    .theme-toggle-container {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 8px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      font-size: 14px;
+    }
+
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 28px;
+    }
+
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #d1d5db;
+      transition: 0.25s;
+      border-radius: 999px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.25s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #34d399;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
     main {
       max-width: 1100px;
       margin: 40px auto;
@@ -39,29 +136,31 @@
     }
 
     section {
-      background: white;
+      background: var(--card-bg);
       padding: 28px;
       margin-bottom: 28px;
       border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 10px var(--shadow-color);
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     h2 {
-      color: #0f5132;
+      color: var(--heading-color);
       margin-top: 0;
       margin-bottom: 12px;
     }
 
     code {
-      background-color: #eef2f5;
+      background-color: var(--code-bg);
+      color: var(--text-color);
       padding: 3px 6px;
       border-radius: 5px;
       font-size: 14px;
     }
 
     .workflow {
-      background-color: #eef7f1;
-      border-left: 5px solid #0f5132;
+      background-color: var(--workflow-bg);
+      border-left: 5px solid var(--workflow-border);
       padding: 15px;
       border-radius: 8px;
       white-space: pre-line;
@@ -69,8 +168,8 @@
     }
 
     .note {
-      background-color: #fff8e1;
-      border-left: 5px solid #f0ad4e;
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
       padding: 15px;
       border-radius: 8px;
       margin-top: 15px;
@@ -90,9 +189,9 @@
       max-width: 100%;
       height: auto;
       border-radius: 14px;
-      border: 1px solid #334155;
-      background-color: #0b0f14;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.18);
+      border: 1px solid var(--diagram-border);
+      background-color: var(--diagram-bg);
+      box-shadow: 0 4px 16px var(--shadow-color);
     }
 
     .diagram-link {
@@ -102,7 +201,7 @@
     }
 
     a {
-      color: #0f5132;
+      color: var(--link-color);
       font-weight: bold;
       text-decoration: none;
     }
@@ -114,8 +213,27 @@
     footer {
       text-align: center;
       padding: 28px;
-      color: #666;
+      color: var(--footer-color);
       font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding-top: 80px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      .theme-toggle-container {
+        top: 15px;
+        right: 15px;
+      }
+
+      section {
+        padding: 22px;
+      }
     }
   </style>
 </head>
@@ -123,6 +241,14 @@
 <body>
 
   <header>
+    <div class="theme-toggle-container">
+      <span id="themeLabel">Dark Mode</span>
+      <label class="theme-switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
     <h1>Saudi Dialects Speech Corpus</h1>
     <p>
       A graduation project focused on building a structured Saudi dialect speech corpus
@@ -162,7 +288,7 @@
         <li>For each sentence, the participant can approve the recording or re-record it.</li>
         <li>The participant may optionally record a free-speech sample or skip this step.</li>
         <li>The bot shows a final confirmation button before processing and uploading the files.</li>
-        <li>After final confirmation, the audio files are converted, renamed, compressed, uploaded, and stored.</li>
+        <li>After final confirmation, the audio files are processed, renamed, compressed, uploaded, and stored.</li>
       </ol>
     </section>
 
@@ -312,6 +438,32 @@ Local Storage + Cloudinary + Airtable
   <footer>
     Saudi Dialects Speech Corpus — Graduation Project, King Saud University
   </footer>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeToggle.checked = true;
+        themeLabel.textContent = "Light Mode";
+      } else {
+        document.body.classList.remove("dark-mode");
+        themeToggle.checked = false;
+        themeLabel.textContent = "Dark Mode";
+      }
+    }
+
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("change", function () {
+      const newTheme = themeToggle.checked ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      applyTheme(newTheme);
+    });
+  </script>
 
 </body>
 </html>
