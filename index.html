@@ -158,6 +158,14 @@
       font-size: 14px;
     }
 
+    .format-box {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin: 12px 0;
+      padding: 10px;
+    }
+
     .workflow {
       background-color: var(--workflow-bg);
       border-left: 5px solid var(--workflow-border);
@@ -198,6 +206,31 @@
       text-align: center;
       margin-top: 12px;
       font-size: 14px;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    .naming-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    .naming-table th,
+    .naming-table td {
+      border: 1px solid var(--diagram-border);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .naming-table th {
+      background-color: var(--code-bg);
+      color: var(--heading-color);
     }
 
     a {
@@ -388,22 +421,106 @@ Local Storage + Cloudinary + Airtable
 
     <section>
       <h2>File Naming Convention</h2>
-      <p>Each audio file follows a structured naming format:</p>
+
       <p>
-        <code>KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
+        Each audio file follows a structured naming format designed to encode the dialect,
+        speaker identity, sentence number, device type, and recording attempt directly in the filename.
       </p>
 
-      <p>Example:</p>
+      <p>
+        <code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
+      </p>
+
+      <p><strong>Example:</strong></p>
+
       <p>
         <code>KSU_DIA_D01_SPK10023_S05_T11.wav</code>
       </p>
 
+      <div class="table-wrapper">
+        <table class="naming-table">
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Meaning</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>KSU_DIA</code></td>
+              <td>Project prefix for the Saudi Dialects Speech Corpus.</td>
+              <td><code>KSU_DIA</code></td>
+            </tr>
+
+            <tr>
+              <td><code>D[Dialect_Code]</code></td>
+              <td>Dialect region code assigned to the participant's dialect classification.</td>
+              <td><code>D01</code></td>
+            </tr>
+
+            <tr>
+              <td><code>SPK[Gender_Digit][Speaker_ID]</code></td>
+              <td>
+                Speaker identifier. The first digit after <code>SPK</code> represents gender:
+                <br />
+                <strong>1 = Male</strong>
+                <br />
+                <strong>0 = Female</strong>
+                <br />
+                The remaining digits represent the speaker ID.
+              </td>
+              <td>
+                <code>SPK10023</code>
+                <br />
+                Gender = 1, Speaker ID = 0023
+              </td>
+            </tr>
+
+            <tr>
+              <td><code>S[Sentence_ID]</code></td>
+              <td>Sentence number recorded by the participant.</td>
+              <td><code>S05</code> = sentence 5</td>
+            </tr>
+
+            <tr>
+              <td><code>T[Device_Code][Attempt_Counter]</code></td>
+              <td>
+                Device and attempt code. The first digit after <code>T</code> represents device type:
+                <br />
+                <strong>1 = iPhone</strong>
+                <br />
+                <strong>0 = Android</strong>
+                <br />
+                The second digit represents the recording attempt number, with a maximum of 3 attempts.
+              </td>
+              <td>
+                <code>T11</code>
+                <br />
+                Device = iPhone, Attempt = 1
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Based on the example <code>KSU_DIA_D01_SPK10023_S05_T11.wav</code>, the file belongs to
+        dialect code <code>D01</code>, a male speaker with ID <code>0023</code>, sentence number
+        <code>05</code>, recorded using an iPhone on the first attempt.
+      </p>
+
+      <p>
+        Additional examples:
+      </p>
+
       <ul>
-        <li><strong>KSU_DIA:</strong> project prefix.</li>
-        <li><strong>D[Dialect_Code]:</strong> dialect region code.</li>
-        <li><strong>SPK:</strong> speaker identifier.</li>
-        <li><strong>S[Sentence_ID]:</strong> sentence number.</li>
-        <li><strong>T:</strong> device type and attempt number.</li>
+        <li><code>SPK00023</code>: female speaker, speaker ID 0023.</li>
+        <li><code>SPK10023</code>: male speaker, speaker ID 0023.</li>
+        <li><code>T01</code>: Android, first attempt.</li>
+        <li><code>T03</code>: Android, third attempt.</li>
+        <li><code>T11</code>: iPhone, first attempt.</li>
+        <li><code>T13</code>: iPhone, third attempt.</li>
       </ul>
     </section>
 
