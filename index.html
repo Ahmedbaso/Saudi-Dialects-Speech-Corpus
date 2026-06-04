@@ -23,6 +23,8 @@
       --link-color: #0f5132;
       --footer-color: #666;
       --shadow-color: rgba(0, 0, 0, 0.06);
+      --muted-text: #4b5563;
+      --table-border: #cbd5e1;
     }
 
     body.dark-mode {
@@ -42,6 +44,12 @@
       --link-color: #34d399;
       --footer-color: #9ca3af;
       --shadow-color: rgba(0, 0, 0, 0.35);
+      --muted-text: #cbd5e1;
+      --table-border: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -54,17 +62,16 @@
     }
 
     header {
-      background-color: var(--header-bg);
+      background: linear-gradient(135deg, var(--header-bg), #0b2f22);
       color: var(--header-text);
-      padding: 55px 20px;
+      padding: 55px 20px 45px;
       text-align: center;
-      position: relative;
       transition: background-color 0.25s ease;
     }
 
     header h1 {
       margin-bottom: 10px;
-      font-size: 36px;
+      font-size: 38px;
     }
 
     header p {
@@ -73,25 +80,30 @@
       margin: auto;
     }
 
-    .theme-toggle-container {
-      position: absolute;
-      top: 18px;
-      right: 22px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .theme-panel {
+      max-width: 760px;
+      margin: 24px auto 0;
+      padding: 14px 18px;
+      border-radius: 16px;
       background: rgba(255, 255, 255, 0.12);
-      padding: 8px 12px;
-      border-radius: 999px;
-      backdrop-filter: blur(6px);
-      font-size: 14px;
+      backdrop-filter: blur(7px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .theme-panel span {
+      font-weight: bold;
+      font-size: 15px;
     }
 
     .theme-switch {
       position: relative;
       display: inline-block;
-      width: 52px;
-      height: 28px;
+      width: 56px;
+      height: 30px;
     }
 
     .theme-switch input {
@@ -112,8 +124,8 @@
     .slider:before {
       position: absolute;
       content: "";
-      height: 22px;
-      width: 22px;
+      height: 24px;
+      width: 24px;
       left: 3px;
       bottom: 3px;
       background-color: white;
@@ -126,11 +138,11 @@
     }
 
     input:checked + .slider:before {
-      transform: translateX(24px);
+      transform: translateX(26px);
     }
 
     main {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 40px auto;
       padding: 0 20px;
     }
@@ -150,6 +162,19 @@
       margin-bottom: 12px;
     }
 
+    h3 {
+      color: var(--heading-color);
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .muted {
+      color: var(--muted-text);
+    }
+
     code {
       background-color: var(--code-bg);
       color: var(--text-color);
@@ -164,6 +189,26 @@
       white-space: nowrap;
       margin: 12px 0;
       padding: 10px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .highlight-card {
+      background: var(--workflow-bg);
+      border-left: 4px solid var(--workflow-border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .highlight-card strong {
+      display: block;
+      color: var(--heading-color);
+      margin-bottom: 6px;
     }
 
     .workflow {
@@ -183,29 +228,49 @@
       margin-top: 15px;
     }
 
-    .diagram-wrapper {
+    .diagram-frame {
       width: 100%;
-      overflow-x: auto;
-      text-align: center;
-      margin: 22px auto 5px;
-      padding: 10px 0;
-    }
-
-    .diagram-image {
-      display: block;
-      margin: 0 auto;
-      max-width: 100%;
-      height: auto;
+      max-height: 560px;
+      overflow: hidden;
+      margin: 22px auto 10px;
       border-radius: 14px;
       border: 1px solid var(--diagram-border);
       background-color: var(--diagram-bg);
       box-shadow: 0 4px 16px var(--shadow-color);
+      transition: max-height 0.4s ease;
     }
 
-    .diagram-link {
+    .diagram-frame.expanded {
+      max-height: 6000px;
+    }
+
+    .diagram-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      background-color: var(--diagram-bg);
+    }
+
+    .diagram-controls {
       text-align: center;
       margin-top: 12px;
-      font-size: 14px;
+    }
+
+    .diagram-button {
+      border: none;
+      background: var(--heading-color);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .diagram-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .table-wrapper {
@@ -222,7 +287,7 @@
 
     .naming-table th,
     .naming-table td {
-      border: 1px solid var(--diagram-border);
+      border: 1px solid var(--table-border);
       padding: 10px;
       text-align: left;
       vertical-align: top;
@@ -231,6 +296,19 @@
     .naming-table th {
       background-color: var(--code-bg);
       color: var(--heading-color);
+    }
+
+    .metadata-preview {
+      background-color: #1f2937;
+      color: #f9fafb;
+      padding: 18px;
+      border-radius: 12px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.55;
+      border: 1px solid #475569;
     }
 
     a {
@@ -250,22 +328,37 @@
       font-size: 14px;
     }
 
+    .ksu-link {
+      color: var(--link-color);
+      font-weight: bold;
+      border-bottom: 1px dotted var(--link-color);
+    }
+
+    @media (max-width: 900px) {
+      .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 700px) {
-      header {
-        padding-top: 80px;
-      }
-
       header h1 {
-        font-size: 28px;
+        font-size: 29px;
       }
 
-      .theme-toggle-container {
-        top: 15px;
-        right: 15px;
+      header p {
+        font-size: 16px;
       }
 
       section {
         padding: 22px;
+      }
+
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .diagram-frame {
+        max-height: 430px;
       }
     }
   </style>
@@ -274,19 +367,21 @@
 <body>
 
   <header>
-    <div class="theme-toggle-container">
-      <span id="themeLabel">Dark Mode</span>
-      <label class="theme-switch">
-        <input type="checkbox" id="themeToggle" />
-        <span class="slider"></span>
-      </label>
-    </div>
-
     <h1>Saudi Dialects Speech Corpus</h1>
     <p>
       A graduation project focused on building a structured Saudi dialect speech corpus
-      using an automated Telegram Bot for voice data collection, processing, and storage.
+      through linguistically curated prompts, privacy-first data collection, and an automated
+      Telegram-based ingestion pipeline.
     </p>
+
+    <div class="theme-panel">
+      <span>For the best viewing experience, switch to Dark Mode.</span>
+      <label class="theme-switch" title="Switch between light and dark mode">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+      <span id="themeLabel">Dark Mode</span>
+    </div>
   </header>
 
   <main>
@@ -294,30 +389,103 @@
     <section>
       <h2>Project Overview</h2>
       <p>
-        This project aims to build a Saudi dialect speech corpus by collecting voice recordings
-        from participants across different Saudi dialect regions. The system uses a Telegram Bot
-        to guide participants through privacy approval, demographic questions, dialect information,
-        and voice recording steps.
+        The Saudi Dialects Speech Corpus project addresses the shortage of high-quality,
+        dialect-specific Arabic speech data. While many Arabic language technologies perform
+        reasonably well on Modern Standard Arabic, they often struggle with spontaneous daily
+        speech, especially when the speaker uses regional Saudi dialects.
+      </p>
+      <p>
+        The project focuses on creating a structured speech corpus that captures natural Saudi
+        dialectal variation while maintaining a privacy-first and scalable data collection
+        architecture. Instead of treating the Telegram bot as the entire project, the bot is used
+        as the main ingestion tool for a broader linguistic and data engineering pipeline.
       </p>
     </section>
 
     <section>
-      <h2>Problem Statement</h2>
+      <h2>Why This Project Matters</h2>
       <p>
-        Arabic speech recognition systems often face challenges when processing regional dialects,
-        especially spontaneous Saudi dialects. This project addresses the lack of structured,
-        phonetically balanced, and regionally diverse Saudi speech datasets.
+        Saudi Arabia contains a wide range of regional dialects shaped by geography, history,
+        and social variation. Dialects such as Najdi, Hijazi, Southern, Eastern, and Northern
+        varieties can differ in pronunciation, vocabulary, and morphology. This makes speech
+        recognition difficult when models are trained mainly on formal Arabic or non-local data.
       </p>
+      <p>
+        A dedicated Saudi dialect speech corpus can support future improvements in Arabic
+        Automatic Speech Recognition (ASR), voice assistants, digital accessibility, automated
+        customer service, and smart city voice-based services.
+      </p>
+    </section>
+
+    <section>
+      <h2>Corpus Design Methodology</h2>
+      <p>
+        The corpus was not built from random sentences. It was designed through a structured
+        sentence selection process that combines public language input with phonetic curation.
+        The goal is to cover Arabic phonemes and capture common Saudi expressions while
+        reducing reading bias.
+      </p>
+
+      <ol>
+        <li>
+          <strong>Public perception survey:</strong> Participants evaluated common phrases and
+          regional variation.
+        </li>
+        <li>
+          <strong>Phrase nomination:</strong> Volunteers suggested daily Saudi expressions
+          commonly used in their region.
+        </li>
+        <li>
+          <strong>Expert phonetic curation:</strong> The final prompt list was refined to ensure
+          broad phonetic coverage across Arabic sounds and dialectal usage.
+        </li>
+      </ol>
+
+      <p>
+        The finalized textual corpus includes 30 predefined prompts and one optional free-speech
+        prompt, labeled as S31, to capture more natural, unscripted dialectal speech.
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Highlights</h2>
+
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <strong>Privacy-first collection</strong>
+          The system avoids storing phone numbers and supports anonymous participation.
+        </div>
+
+        <div class="highlight-card">
+          <strong>Phonetic coverage</strong>
+          The 30-sentence corpus is curated to cover Arabic phonemes and dialectal variation.
+        </div>
+
+        <div class="highlight-card">
+          <strong>Automated ingestion</strong>
+          A Telegram bot manages participant flow, recordings, validation, and processing.
+        </div>
+
+        <div class="highlight-card">
+          <strong>Triple storage</strong>
+          Outputs are stored locally, in Cloudinary, and in Airtable for redundancy and review.
+        </div>
+      </div>
     </section>
 
     <section>
       <h2>Telegram Bot Workflow</h2>
+      <p>
+        The Telegram bot is the main interface that guides participants through the data
+        collection process.
+      </p>
+
       <ol>
         <li>The participant starts the bot using <code>/start</code>.</li>
         <li>The bot displays the privacy policy and requires explicit consent.</li>
         <li>The bot collects participant metadata such as age, gender, dialect region, education level, and device type.</li>
         <li>The bot displays a recording notice asking the participant to remove headphones and record directly using the phone microphone.</li>
-        <li>The participant records 30 predefined phonetically balanced sentences.</li>
+        <li>The participant records 30 predefined phonetically curated sentences.</li>
         <li>For each sentence, the participant can approve the recording or re-record it.</li>
         <li>The participant may optionally record a free-speech sample or skip this step.</li>
         <li>The bot shows a final confirmation button before processing and uploading the files.</li>
@@ -331,7 +499,7 @@
         This diagram shows the participant journey from consent approval to final file upload.
       </p>
 
-      <div class="diagram-wrapper">
+      <div class="diagram-frame" id="userWorkflowFrame">
         <img 
           src="assets/user-workflow.png" 
           alt="Telegram Bot User Workflow Diagram" 
@@ -339,18 +507,21 @@
         />
       </div>
 
-      <p class="diagram-link">
-        <a href="assets/user-workflow.png" target="_blank">Open diagram in full size</a>
-      </p>
+      <div class="diagram-controls">
+        <button class="diagram-button" onclick="toggleDiagram('userWorkflowFrame', this)">
+          Show full diagram
+        </button>
+      </div>
     </section>
 
     <section>
       <h2>System Architecture & Data Pipeline</h2>
       <p>
-        This diagram shows how approved voice recordings are processed, stored, and linked across backend services.
+        This diagram shows how approved voice recordings are processed, stored, and linked
+        across backend services.
       </p>
 
-      <div class="diagram-wrapper">
+      <div class="diagram-frame" id="systemArchitectureFrame">
         <img 
           src="assets/system-architecture.png" 
           alt="System Architecture and Data Pipeline Diagram" 
@@ -358,9 +529,11 @@
         />
       </div>
 
-      <p class="diagram-link">
-        <a href="assets/system-architecture.png" target="_blank">Open diagram in full size</a>
-      </p>
+      <div class="diagram-controls">
+        <button class="diagram-button" onclick="toggleDiagram('systemArchitectureFrame', this)">
+          Show full diagram
+        </button>
+      </div>
     </section>
 
     <section>
@@ -389,8 +562,8 @@ Local Storage + Cloudinary + Airtable
     <section>
       <h2>Audio Processing</h2>
       <p>
-        Telegram voice notes are received in OGG format. The backend uses Python and FFmpeg
-        to convert each recording into a standardized WAV file.
+        Telegram voice notes are received in OGG format. The Python backend uses FFmpeg
+        to convert each approved recording into a standardized WAV file.
       </p>
       <ul>
         <li>WAV format</li>
@@ -414,8 +587,8 @@ Local Storage + Cloudinary + Airtable
       <p>The system uses a triple-storage approach:</p>
       <ul>
         <li><strong>Local Storage:</strong> stores the generated ZIP archive and metadata file.</li>
-        <li><strong>Cloudinary:</strong> stores uploaded audio files for cloud accessibility.</li>
-        <li><strong>Airtable:</strong> stores participant metadata and recording references.</li>
+        <li><strong>Cloudinary:</strong> stores uploaded audio files and metadata files for cloud accessibility.</li>
+        <li><strong>Airtable:</strong> stores participant metadata and recording records for review and tracking.</li>
       </ul>
     </section>
 
@@ -431,10 +604,10 @@ Local Storage + Cloudinary + Airtable
         <code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
       </p>
 
-      <p><strong>Example:</strong></p>
+      <p><strong>Example only:</strong></p>
 
       <p>
-        <code>KSU_DIA_D01_SPK10023_S05_T11.wav</code>
+        <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>
       </p>
 
       <div class="table-wrapper">
@@ -471,9 +644,11 @@ Local Storage + Cloudinary + Airtable
                 The remaining digits represent the speaker ID.
               </td>
               <td>
-                <code>SPK10023</code>
+                <code>SPK10073</code>
                 <br />
-                Gender = 1, Speaker ID = 0023
+                Gender = 1
+                <br />
+                Speaker ID = 0073
               </td>
             </tr>
 
@@ -497,7 +672,9 @@ Local Storage + Cloudinary + Airtable
               <td>
                 <code>T11</code>
                 <br />
-                Device = iPhone, Attempt = 1
+                Device = iPhone
+                <br />
+                Attempt = 1
               </td>
             </tr>
           </tbody>
@@ -505,8 +682,8 @@ Local Storage + Cloudinary + Airtable
       </div>
 
       <p>
-        Based on the example <code>KSU_DIA_D01_SPK10023_S05_T11.wav</code>, the file belongs to
-        dialect code <code>D01</code>, a male speaker with ID <code>0023</code>, sentence number
+        Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the file belongs to
+        dialect code <code>D01</code>, a male speaker with ID <code>0073</code>, sentence number
         <code>05</code>, recorded using an iPhone on the first attempt.
       </p>
 
@@ -515,13 +692,60 @@ Local Storage + Cloudinary + Airtable
       </p>
 
       <ul>
-        <li><code>SPK00023</code>: female speaker, speaker ID 0023.</li>
-        <li><code>SPK10023</code>: male speaker, speaker ID 0023.</li>
+        <li><code>SPK00073</code>: female speaker, speaker ID 0073.</li>
+        <li><code>SPK10073</code>: male speaker, speaker ID 0073.</li>
         <li><code>T01</code>: Android, first attempt.</li>
         <li><code>T03</code>: Android, third attempt.</li>
         <li><code>T11</code>: iPhone, first attempt.</li>
         <li><code>T13</code>: iPhone, third attempt.</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Metadata File Storage</h2>
+
+      <p>
+        In addition to the audio files, the system generates a local metadata file named
+        <code>info.txt</code> for each participant. This file preserves research-related session
+        information such as demographic categories, dialect classification, device type, free-speech
+        topic, recording date, and dialect code.
+      </p>
+
+      <p>
+        Example only:
+      </p>
+
+      <pre class="metadata-preview">=== SPK0073 ===
+
+Privacy Policy: Accepted
+Nickname: F1
+Age: 18-25
+Gender: Male
+Nationality: Saudi
+Lived Most: Riyadh
+Current Residence: Riyadh
+Region: Southern
+Administrative Region: Riyadh
+Dialect Opinion: Qassimi
+Mother Origin: Al-Qassim
+Father Origin: Al-Qassim
+Education: Bachelor
+Previous Research: No
+Acting Background: Yes
+Cold: No
+Smoking: No
+Medication: No
+Mood: 3/5
+Device Type: iPhone
+Free Topic: Future Plans and Goals
+SPKID: SPK0073
+Recording Date: 2026-06-01 13:45
+Dialect Code: D01</pre>
+
+      <div class="note">
+        This metadata file is intended for research organization and dataset traceability.
+        The collection process avoids storing phone numbers or direct personal identifiers.
+      </div>
     </section>
 
     <section>
@@ -553,7 +777,16 @@ Local Storage + Cloudinary + Airtable
   </main>
 
   <footer>
-    Saudi Dialects Speech Corpus — Graduation Project, King Saud University
+    Saudi Dialects Speech Corpus — Graduation Project,
+    <a 
+      href="https://ksu.edu.sa/en" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="ksu-link"
+      title="Visit King Saud University official website"
+    >
+      King Saud University
+    </a>
   </footer>
 
   <script>
@@ -580,6 +813,19 @@ Local Storage + Cloudinary + Airtable
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
     });
+
+    function toggleDiagram(frameId, button) {
+      const frame = document.getElementById(frameId);
+      const isExpanded = frame.classList.toggle("expanded");
+
+      if (isExpanded) {
+        button.textContent = "Collapse diagram";
+        frame.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        button.textContent = "Show full diagram";
+        frame.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
   </script>
 
 </body>
