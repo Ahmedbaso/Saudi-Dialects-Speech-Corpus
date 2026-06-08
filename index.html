@@ -13,6 +13,7 @@
   
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A graduation project for collecting and processing Saudi dialect speech data using a Telegram bot, FFmpeg, Cloudinary, Airtable, and GitHub Pages." />
   <title>Saudi Dialects Speech Corpus</title>
 
   <style>
@@ -385,7 +386,7 @@
     </p>
 
     <div class="theme-panel">
-      <span>For the best viewing experience, switch to Dark Mode.</span>
+      <span>Choose your preferred viewing mode.</span>
       <label class="theme-switch" title="Switch between light and dark mode">
         <input type="checkbox" id="themeToggle" />
         <span class="slider"></span>
@@ -514,6 +515,7 @@
           src="assets/user-workflow.png" 
           alt="Telegram Bot User Workflow Diagram" 
           class="diagram-image"
+          loading="lazy"
         />
       </div>
 
@@ -536,6 +538,7 @@
           src="assets/system-architecture.png" 
           alt="System Architecture and Data Pipeline Diagram" 
           class="diagram-image"
+          loading="lazy"
         />
       </div>
 
@@ -732,10 +735,10 @@ Nickname: F1
 Age: 18-25
 Gender: Male
 Nationality: Saudi
-Lived Most: Riyadh
-Current Residence: Riyadh
+Lived Most: Al-Qassim
+Current Residence: Al-Qassim
 Region: Central
-Administrative Region: Riyadh
+Administrative Region: Al-Qassim
 Dialect Opinion: Qassimi
 Mother Origin: Al-Qassim
 Father Origin: Al-Qassim
@@ -797,6 +800,14 @@ Dialect Code: D01</pre>
     >
       King Saud University
     </a>
+    <span> • </span>
+    <a
+      href="mailto:Saudi.Dialects@outlook.sa"
+      class="ksu-link"
+      title="Contact the Saudi Dialects Speech Corpus project"
+    >
+      Contact: Saudi.Dialects@outlook.sa
+    </a>
   </footer>
 
   <script>
@@ -815,7 +826,7 @@ Dialect Code: D01</pre>
       }
     }
 
-    const savedTheme = localStorage.getItem("theme") || "light";
+    const savedTheme = localStorage.getItem("theme") || "dark";
     applyTheme(savedTheme);
 
     themeToggle.addEventListener("change", function () {
