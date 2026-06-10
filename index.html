@@ -479,7 +479,7 @@
 
         <div class="highlight-card">
           <strong>Multi-destination storage and tracking</strong>
-          Outputs are stored locally and in Cloudinary, while Airtable is used for participant metadata, recording records, and file tracking.
+          Outputs are stored on the server and in Cloudinary, while Airtable is used for participant metadata, recording records, and file tracking.
         </div>
       </div>
     </section>
@@ -527,7 +527,6 @@
           src="assets/user-workflow.png" 
           alt="Telegram Bot User Workflow Diagram" 
           class="diagram-image"
-          loading="lazy"
         />
       </div>
 
@@ -550,7 +549,6 @@
           src="assets/system-architecture.png" 
           alt="System Architecture and Data Pipeline Diagram" 
           class="diagram-image"
-          loading="lazy"
         />
       </div>
 
@@ -570,7 +568,7 @@ Telegram Bot
    ↓
 Voice Note in OGG Format
    ↓
-Temporary OGG Storage in data/tmp
+Temporary OGG Storage on Server
    ↓
 FFmpeg Audio Processing
    ↓
@@ -580,7 +578,7 @@ File Renaming
    ↓
 ZIP Archive + info.txt
    ↓
-Local Storage + Cloudinary + Airtable
+Server Storage + Cloudinary + Airtable
       </div>
     </section>
 
@@ -595,6 +593,7 @@ Local Storage + Cloudinary + Airtable
         <li>44.1kHz sample rate</li>
         <li>Mono channel</li>
         <li>PCM 16-bit encoding</li>
+        <li>FFprobe is used to calculate the total audio duration for each participant session.</li>
       </ul>
     </section>
 
@@ -611,7 +610,7 @@ Local Storage + Cloudinary + Airtable
       <h2>Storage Architecture</h2>
       <p>The system uses a multi-destination storage and tracking architecture:</p>
       <ul>
-        <li><strong>Local Storage:</strong> stores the generated ZIP archive and metadata file.</li>
+        <li><strong>Server Storage:</strong> stores the generated ZIP archive, processed audio files, and metadata file on the project server.</li>
         <li><strong>Cloudinary:</strong> stores uploaded audio files and metadata files for cloud accessibility.</li>
         <li><strong>Airtable:</strong> stores participant metadata and recording records for review and tracking.</li>
       </ul>
@@ -730,10 +729,10 @@ Local Storage + Cloudinary + Airtable
       <h2>Metadata File Storage</h2>
 
       <p>
-        In addition to the audio files, the system generates a local metadata file named
-        <code>info.txt</code> for each participant. This file preserves research-related session
-        information such as demographic categories, dialect classification, device type, free-speech
-        topic, recording date, and dialect code.
+        In addition to the audio files, the system generates a server-side metadata file named
+        <code>info.txt</code> for each participant. This file preserves session information,
+        participant profile fields, dialect and location details, recording context, and an
+        audio duration summary.
       </p>
 
       <p>
@@ -742,30 +741,41 @@ Local Storage + Cloudinary + Airtable
 
       <pre class="metadata-preview">=== SPK0073 ===
 
+[Session Information]
+SPKID: SPK0073
+Recording Date: 2026-06-01 13:40
 Privacy Policy: Accepted
+
+[Participant Profile]
 Nickname: F1
 Age: 18-25
 Gender: Male
 Nationality: Saudi
-Lived Most: Riyadh
-Current Residence: Riyadh
+Education: Bachelor
+
+[Dialect and Location]
+Dialect Code: D01
 Region: Central
 Administrative Region: Al-Qassim
+Current Residence: Riyadh
+Lived Most: Riyadh
 Dialect Opinion: Qassimi
 Mother Origin: Al-Qassim
 Father Origin: Al-Qassim
-Education: Bachelor
-Previous Research: No
-Acting Background: Yes
+
+[Recording Context]
+Device Type: iPhone
+Mood: 3/5
 Cold: No
 Smoking: No
 Medication: No
-Mood: 3/5
-Device Type: iPhone
+Previous Research: No
+Acting Background: Yes
 Free Topic: Future Plans and Goals
-SPKID: SPK0073
-Recording Date: 2026-06-01 13:40
-Dialect Code: D01</pre>
+
+[Audio Summary]
+Total Audio Duration: 01:59
+Total Audio Duration Seconds: 119.4</pre>
 
       <div class="note">
         This metadata file is intended for research organization and dataset traceability.
@@ -777,8 +787,9 @@ Dialect Code: D01</pre>
       <h2>Privacy and Consent</h2>
       <p>
         The bot displays the privacy policy before collecting participant data. Participants must
-        explicitly agree before continuing. The system avoids collecting phone numbers and allows
-        participants to use a nickname or pseudonym.
+        explicitly agree before continuing. The privacy message also links to this project page so
+        participants can review the bot workflow, storage approach, and data handling process.
+        The system avoids collecting phone numbers and allows participants to use a nickname or pseudonym.
       </p>
       <div class="note">
         Participants can cancel before the final upload confirmation. Once the final upload process starts,
@@ -787,15 +798,32 @@ Dialect Code: D01</pre>
     </section>
 
     <section>
+      <h2>Reliability and Error Handling</h2>
+      <p>
+        The system includes safeguards for upload failures and server availability. If an upload
+        error occurs after recordings have been saved on the server, the participant receives a
+        clear error message, and an admin alert is sent with the error time, SPKID, saved file count,
+        and error details.
+      </p>
+      <p>
+        The server is also monitored using Healthchecks. A periodic ping confirms that the service is
+        running, and an alert is sent if the server remains unavailable for a continuous failure window.
+      </p>
+    </section>
+
+    <section>
       <h2>Technologies Used</h2>
       <ul>
         <li>Python</li>
         <li>Telegram Bot API</li>
         <li>FFmpeg</li>
+        <li>FFprobe</li>
         <li>DigitalOcean</li>
         <li>Airtable</li>
         <li>Cloudinary</li>
         <li>GitHub Pages</li>
+        <li>GitHub Actions</li>
+        <li>Healthchecks</li>
       </ul>
     </section>
 
