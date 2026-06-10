@@ -104,6 +104,67 @@
       flex-wrap: wrap;
     }
 
+    .theme-panel {
+      max-width: 760px;
+      margin: 18px auto 0;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(7px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .theme-panel span {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 56px;
+      height: 30px;
+    }
+
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #d1d5db;
+      transition: 0.25s;
+      border-radius: 999px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.25s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #34d399;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
     .button,
     .copy-button {
       border: none;
@@ -411,6 +472,15 @@
       <a href="index.html" class="button secondary">Back to Project Page</a>
       <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button">Open Telegram Bot</a>
     </div>
+
+    <div class="theme-panel">
+      <span>Choose your preferred viewing mode.</span>
+      <label class="theme-switch" title="Switch between light and dark mode">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+      <span id="themeLabel">Light Mode</span>
+    </div>
   </header>
 
   <main>
@@ -418,15 +488,15 @@
     <section>
       <h2>Corpus Collection Overview</h2>
       <p class="muted">
-        The numbers below are loaded from <code>assets/stats.json</code>. Once connected to Airtable or the server,
-        this page can update automatically without exposing private API tokens.
+        This page shows the current progress of the Saudi Dialects Speech Corpus and how close
+        the project is to reaching its collection goals.
       </p>
 
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-label">Total Participants</div>
           <div class="stat-value" id="totalParticipants">0</div>
-          <div class="stat-sub">Unique completed contributors</div>
+          <div class="stat-sub">Completed contributors</div>
         </div>
 
         <div class="stat-card">
@@ -444,19 +514,19 @@
         <div class="stat-card">
           <div class="stat-label">Completed Sessions</div>
           <div class="stat-value" id="completedSessions">0</div>
-          <div class="stat-sub">Participants who reached final upload</div>
+          <div class="stat-sub">Participants who completed submission</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-label">Male Participants</div>
           <div class="stat-value" id="maleParticipants">0</div>
-          <div class="stat-sub">Aggregated count only</div>
+          <div class="stat-sub">Aggregated statistics</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-label">Female Participants</div>
           <div class="stat-value" id="femaleParticipants">0</div>
-          <div class="stat-sub">Aggregated count only</div>
+          <div class="stat-sub">Aggregated statistics</div>
         </div>
 
         <div class="stat-card">
@@ -474,7 +544,6 @@
 
       <div class="status-row">
         <span id="lastUpdated">Last updated: Not connected yet</span>
-        <span id="dataStatus">Status: waiting for stats file</span>
       </div>
     </section>
 
@@ -587,6 +656,30 @@
   </footer>
 
   <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeToggle.checked = true;
+        themeLabel.textContent = "Light Mode";
+      } else {
+        document.body.classList.remove("dark-mode");
+        themeToggle.checked = false;
+        themeLabel.textContent = "Dark Mode";
+      }
+    }
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("change", function () {
+      const newTheme = themeToggle.checked ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      applyTheme(newTheme);
+    });
+
     const PARTICIPANTS_TARGET = 10000;
     const RECORDINGS_TARGET = 300000;
     const BOT_LINK = "https://t.me/Saudi_Dialects_bot";
@@ -730,10 +823,9 @@
 
         const stats = await response.json();
         renderStats(stats);
-        setText("dataStatus", "Status: loaded from assets/stats.json");
       } catch (error) {
         renderStats(fallbackStats);
-        setText("dataStatus", "Status: using placeholder values until stats.json is connected");
+        setText("lastUpdated", "Statistics are temporarily unavailable.");
       }
     }
 
