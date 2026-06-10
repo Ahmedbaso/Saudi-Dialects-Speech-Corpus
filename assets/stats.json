@@ -1,7 +1,7 @@
 {
   "totalParticipants": 34,
   "totalRecordings": 1009,
-  "totalMinutes": 64.8,
+  "totalMinutes": 64.9,
   "maleParticipants": 26,
   "femaleParticipants": 8,
   "freeSpeechSamples": 19,
@@ -15,5 +15,6 @@
     "Eastern": 1,
     "Northern": 3
   },
-  "lastUpdated": "2026-06-10 14:05 KSA"
+  "lastUpdated": "2026-06-10 14:40 KSA",
+  "lastUpdatedIso": "2026-06-10T14:40:18.150300+03:00"
 }
