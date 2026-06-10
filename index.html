@@ -17,47 +17,47 @@
   <title>Saudi Dialects Speech Corpus</title>
 
   <style>
-   :root {
-  --bg-color: #f6f8fb;
-  --text-color: #1e293b;
-  --card-bg: #ffffff;
-  --header-bg: #006c35;
-  --header-text: #ffffff;
-  --heading-color: #0f5132;
-  --code-bg: #edf2f7;
-  --workflow-bg: #eef7f1;
-  --workflow-border: #0f5132;
-  --note-bg: #fff8e8;
-  --note-border: #d69e2e;
-  --diagram-border: #cbd5e1;
-  --diagram-bg: #0b0f14;
-  --link-color: #0f5132;
-  --footer-color: #64748b;
-  --shadow-color: rgba(15, 23, 42, 0.08);
-  --muted-text: #475569;
-  --table-border: #cbd5e1;
-}
+    :root {
+      --bg-color: #f6f8fb;
+      --text-color: #1e293b;
+      --card-bg: #ffffff;
+      --header-bg: #006c35;
+      --header-text: #ffffff;
+      --heading-color: #0f5132;
+      --code-bg: #edf2f7;
+      --workflow-bg: #eef7f3;
+      --workflow-border: #0f5132;
+      --note-bg: #fff8e8;
+      --note-border: #d69e2e;
+      --diagram-border: #cbd5e1;
+      --diagram-bg: #0b0f14;
+      --link-color: #0f5132;
+      --footer-color: #64748b;
+      --shadow-color: rgba(15, 23, 42, 0.08);
+      --muted-text: #475569;
+      --table-border: #cbd5e1;
+    }
 
-body.dark-mode {
-  --bg-color: #070d14;
-  --text-color: #e2e8f0;
-  --card-bg: #0f172a;
-  --header-bg: #004d2c;
-  --header-text: #ffffff;
-  --heading-color: #34d399;
-  --code-bg: #172033;
-  --workflow-bg: #10251c;
-  --workflow-border: #34d399;
-  --note-bg: #2a2111;
-  --note-border: #f59e0b;
-  --diagram-border: #334155;
-  --diagram-bg: #0b0f14;
-  --link-color: #34d399;
-  --footer-color: #94a3b8;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --muted-text: #cbd5e1;
-  --table-border: #334155;
-}
+    body.dark-mode {
+      --bg-color: #070d14;
+      --text-color: #e2e8f0;
+      --card-bg: #0f172a;
+      --header-bg: #003d2b;
+      --header-text: #ffffff;
+      --heading-color: #34d399;
+      --code-bg: #172033;
+      --workflow-bg: #10221b;
+      --workflow-border: #34d399;
+      --note-bg: #2a2111;
+      --note-border: #f59e0b;
+      --diagram-border: #334155;
+      --diagram-bg: #0b0f14;
+      --link-color: #34d399;
+      --footer-color: #94a3b8;
+      --shadow-color: rgba(0, 0, 0, 0.4);
+      --muted-text: #cbd5e1;
+      --table-border: #334155;
+    }
 
     * {
       box-sizing: border-box;
@@ -73,7 +73,7 @@ body.dark-mode {
     }
 
     header {
-      background: linear-gradient(135deg, var(--header-bg), #0b2f22);
+      background: linear-gradient(135deg, var(--header-bg), #002d22);
       color: var(--header-text);
       padding: 55px 20px 45px;
       text-align: center;
@@ -481,6 +481,18 @@ body.dark-mode {
           <strong>Multi-destination storage and tracking</strong>
           Outputs are stored locally and in Cloudinary, while Airtable is used for participant metadata, recording records, and file tracking.
         </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Live Dataset Statistics</h2>
+      <p>
+        View the current progress of the Saudi Dialects Speech Corpus, including participant count,
+        recording count, collected minutes, and progress toward the project goals.
+      </p>
+
+      <div class="diagram-controls">
+        <a href="stats.html" class="diagram-button">View Live Dataset Statistics</a>
       </div>
     </section>
 
