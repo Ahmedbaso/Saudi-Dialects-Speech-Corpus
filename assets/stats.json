@@ -1,20 +1,20 @@
 {
-  "totalParticipants": 34,
-  "totalRecordings": 1009,
+  "totalParticipants": 35,
+  "totalRecordings": 1011,
   "totalMinutes": 64.9,
-  "maleParticipants": 26,
+  "maleParticipants": 27,
   "femaleParticipants": 8,
   "freeSpeechSamples": 19,
-  "completedSessions": 34,
-  "iphoneUsers": 32,
+  "completedSessions": 35,
+  "iphoneUsers": 33,
   "androidUsers": 2,
   "regions": {
     "Central": 22,
     "Western": 2,
-    "Southern": 6,
+    "Southern": 7,
     "Eastern": 1,
     "Northern": 3
   },
-  "lastUpdated": "2026-06-10 17:39 KSA",
-  "lastUpdatedIso": "2026-06-10T17:39:48.756931+03:00"
+  "lastUpdated": "2026-06-10 20:44 KSA",
+  "lastUpdatedIso": "2026-06-10T20:44:22.374699+03:00"
 }
