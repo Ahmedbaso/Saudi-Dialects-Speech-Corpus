@@ -1,0 +1,19 @@
+{
+  "totalParticipants": 0,
+  "totalRecordings": 0,
+  "totalMinutes": 0,
+  "maleParticipants": 0,
+  "femaleParticipants": 0,
+  "freeSpeechSamples": 0,
+  "completedSessions": 0,
+  "iphoneUsers": 0,
+  "androidUsers": 0,
+  "regions": {
+    "Central": 0,
+    "Western": 0,
+    "Southern": 0,
+    "Eastern": 0,
+    "Northern": 0
+  },
+  "lastUpdated": "Not connected yet"
+}
