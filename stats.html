@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMHRPF86R8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZMHRPF86R8');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Live dataset statistics for the Saudi Dialects Speech Corpus graduation project." />
+  <title>Live Dataset Statistics | Saudi Dialects Speech Corpus</title>
+
+  <style>
+    :root {
+      --bg-color: #f6f8fb;
+      --text-color: #1e293b;
+      --card-bg: #ffffff;
+      --header-bg: #006c35;
+      --header-text: #ffffff;
+      --heading-color: #0f5132;
+      --code-bg: #edf2f7;
+      --workflow-bg: #eef7f1;
+      --workflow-border: #0f5132;
+      --note-bg: #fff8e8;
+      --note-border: #d69e2e;
+      --diagram-border: #cbd5e1;
+      --diagram-bg: #0b0f14;
+      --link-color: #0f5132;
+      --footer-color: #64748b;
+      --shadow-color: rgba(15, 23, 42, 0.08);
+      --muted-text: #475569;
+      --table-border: #cbd5e1;
+      --success-color: #0f5132;
+      --danger-color: #b42318;
+    }
+
+    body.dark-mode {
+      --bg-color: #070d14;
+      --text-color: #e2e8f0;
+      --card-bg: #0f172a;
+      --header-bg: #004d2c;
+      --header-text: #ffffff;
+      --heading-color: #34d399;
+      --code-bg: #172033;
+      --workflow-bg: #10251c;
+      --workflow-border: #34d399;
+      --note-bg: #2a2111;
+      --note-border: #f59e0b;
+      --diagram-border: #334155;
+      --diagram-bg: #0b0f14;
+      --link-color: #34d399;
+      --footer-color: #94a3b8;
+      --shadow-color: rgba(0, 0, 0, 0.4);
+      --muted-text: #cbd5e1;
+      --table-border: #334155;
+      --success-color: #34d399;
+      --danger-color: #f87171;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--header-bg), #003c22);
+      color: var(--header-text);
+      padding: 56px 20px 48px;
+      text-align: center;
+      transition: background-color 0.25s ease;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 40px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .top-actions {
+      max-width: 900px;
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button,
+    .copy-button {
+      border: none;
+      background: var(--heading-color);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover,
+    .copy-button:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--card-bg);
+      padding: 28px;
+      margin-bottom: 28px;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px var(--shadow-color);
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    h2 {
+      color: var(--heading-color);
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      color: var(--heading-color);
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    a {
+      color: var(--link-color);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .muted {
+      color: var(--muted-text);
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .stat-card {
+      background: var(--workflow-bg);
+      border-left: 4px solid var(--workflow-border);
+      border-radius: 12px;
+      padding: 18px;
+      min-height: 120px;
+    }
+
+    .stat-label {
+      color: var(--muted-text);
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      color: var(--heading-color);
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-sub {
+      margin-top: 6px;
+      color: var(--muted-text);
+      font-size: 13px;
+    }
+
+    .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .goal-card {
+      background: var(--workflow-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .goal-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .goal-title {
+      font-weight: bold;
+      color: var(--heading-color);
+      font-size: 18px;
+    }
+
+    .goal-percent {
+      font-weight: bold;
+      color: var(--heading-color);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background: var(--code-bg);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--table-border);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--heading-color);
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+
+    .distribution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .distribution-card {
+      border: 1px solid var(--table-border);
+      border-radius: 14px;
+      padding: 20px;
+      background: var(--card-bg);
+    }
+
+    .bar-row {
+      margin-top: 14px;
+    }
+
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    .bar-track {
+      height: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--heading-color);
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+
+    .share-card {
+      background: linear-gradient(135deg, var(--workflow-bg), var(--card-bg));
+      border: 1px solid var(--table-border);
+    }
+
+    .bot-link-box {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .bot-url {
+      flex: 1;
+      min-width: 260px;
+      background: var(--code-bg);
+      color: var(--text-color);
+      border: 1px solid var(--table-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .copy-status {
+      color: var(--heading-color);
+      font-weight: bold;
+      margin-top: 10px;
+      min-height: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      color: var(--footer-color);
+      font-size: 14px;
+    }
+
+    .ksu-link {
+      color: var(--link-color);
+      font-weight: bold;
+      border-bottom: 1px dotted var(--link-color);
+    }
+
+    @media (max-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .goal-grid,
+      .distribution-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 31px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 22px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-value {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body class="dark-mode">
+
+  <header>
+    <h1>Live Dataset Statistics</h1>
+    <p>
+      A live overview of the Saudi Dialects Speech Corpus collection progress,
+      including participants, recordings, recorded minutes, and progress toward the project goal.
+    </p>
+
+    <div class="top-actions">
+      <a href="index.html" class="button secondary">Back to Project Page</a>
+      <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button">Open Telegram Bot</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Corpus Collection Overview</h2>
+      <p class="muted">
+        The numbers below are loaded from <code>assets/stats.json</code>. Once connected to Airtable or the server,
+        this page can update automatically without exposing private API tokens.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Participants</div>
+          <div class="stat-value" id="totalParticipants">0</div>
+          <div class="stat-sub">Unique completed contributors</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Total Recordings</div>
+          <div class="stat-value" id="totalRecordings">0</div>
+          <div class="stat-sub">Approved audio files</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Recorded Minutes</div>
+          <div class="stat-value" id="totalMinutes">0</div>
+          <div class="stat-sub">Total approved duration</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Completed Sessions</div>
+          <div class="stat-value" id="completedSessions">0</div>
+          <div class="stat-sub">Participants who reached final upload</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Male Participants</div>
+          <div class="stat-value" id="maleParticipants">0</div>
+          <div class="stat-sub">Aggregated count only</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Female Participants</div>
+          <div class="stat-value" id="femaleParticipants">0</div>
+          <div class="stat-sub">Aggregated count only</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Free Speech Samples</div>
+          <div class="stat-value" id="freeSpeechSamples">0</div>
+          <div class="stat-sub">Optional S31 recordings</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Average Minutes / Participant</div>
+          <div class="stat-value" id="avgMinutes">0</div>
+          <div class="stat-sub">Based on current totals</div>
+        </div>
+      </div>
+
+      <div class="status-row">
+        <span id="lastUpdated">Last updated: Not connected yet</span>
+        <span id="dataStatus">Status: waiting for stats file</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Project Goal</h2>
+      <p>
+        The long-term target is to collect voice contributions from <strong>10,000 participants</strong>
+        and build a corpus of <strong>300,000 recordings</strong>.
+      </p>
+
+      <div class="goal-grid">
+        <div class="goal-card">
+          <div class="goal-header">
+            <div>
+              <div class="goal-title">Participants Goal</div>
+              <div class="muted"><span id="participantsCurrent">0</span> / 10,000 participants</div>
+            </div>
+            <div class="goal-percent" id="participantsPercent">0%</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="participantsProgress"></div>
+          </div>
+        </div>
+
+        <div class="goal-card">
+          <div class="goal-header">
+            <div>
+              <div class="goal-title">Recordings Goal</div>
+              <div class="muted"><span id="recordingsCurrent">0</span> / 300,000 recordings</div>
+            </div>
+            <div class="goal-percent" id="recordingsPercent">0%</div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="recordingsProgress"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Participant Distribution</h2>
+      <p class="muted">
+        These distributions show only aggregated statistics and do not expose participant identities.
+      </p>
+
+      <div class="distribution-grid">
+        <div class="distribution-card">
+          <h3>Gender Distribution</h3>
+          <div id="genderBars"></div>
+        </div>
+
+        <div class="distribution-card">
+          <h3>Device Distribution</h3>
+          <div id="deviceBars"></div>
+        </div>
+
+        <div class="distribution-card">
+          <h3>Region Distribution</h3>
+          <div id="regionBars"></div>
+        </div>
+
+        <div class="distribution-card">
+          <h3>Collection Quality</h3>
+          <div id="qualityBars"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="share-card">
+      <h2>Help Us Grow the Corpus</h2>
+      <p>
+        Help us grow the Saudi Dialects Speech Corpus. By sharing the bot link with friends
+        and family across different Saudi regions, you can support the creation of a richer and
+        more representative dataset for Arabic speech technologies.
+      </p>
+      <p>
+        Every voice contribution brings the project closer to its goal. Share the bot and be part
+        of building better Arabic voice technology.
+      </p>
+
+      <div class="bot-link-box">
+        <div class="bot-url" id="botUrl">https://t.me/Saudi_Dialects_bot</div>
+        <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button">Open Bot</a>
+        <button class="copy-button" onclick="copyBotLink()">Copy Link</button>
+      </div>
+      <div class="copy-status" id="copyStatus"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    Saudi Dialects Speech Corpus — Graduation Project,
+    <a
+      href="https://ksu.edu.sa/en"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="ksu-link"
+      title="Visit King Saud University official website"
+    >
+      King Saud University
+    </a>
+    <span> • </span>
+    <a
+      href="mailto:Saudi.Dialects@outlook.sa"
+      class="ksu-link"
+      title="Contact the Saudi Dialects Speech Corpus project"
+    >
+      Contact: Saudi.Dialects@outlook.sa
+    </a>
+  </footer>
+
+  <script>
+    const PARTICIPANTS_TARGET = 10000;
+    const RECORDINGS_TARGET = 300000;
+    const BOT_LINK = "https://t.me/Saudi_Dialects_bot";
+
+    const fallbackStats = {
+      totalParticipants: 0,
+      totalRecordings: 0,
+      totalMinutes: 0,
+      maleParticipants: 0,
+      femaleParticipants: 0,
+      freeSpeechSamples: 0,
+      completedSessions: 0,
+      iphoneUsers: 0,
+      androidUsers: 0,
+      regions: {
+        "Central": 0,
+        "Western": 0,
+        "Southern": 0,
+        "Eastern": 0,
+        "Northern": 0
+      },
+      lastUpdated: "Not connected yet"
+    };
+
+    function formatNumber(value) {
+      return Number(value || 0).toLocaleString("en-US");
+    }
+
+    function formatMinutes(value) {
+      const minutes = Number(value || 0);
+      if (minutes >= 1000) {
+        return minutes.toLocaleString("en-US", { maximumFractionDigits: 0 });
+      }
+      return minutes.toLocaleString("en-US", { maximumFractionDigits: 1 });
+    }
+
+    function percent(value, target) {
+      if (!target) return 0;
+      return Math.min((Number(value || 0) / target) * 100, 100);
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    }
+
+    function setProgress(id, value) {
+      const element = document.getElementById(id);
+      if (element) element.style.width = `${Math.max(0, Math.min(value, 100))}%`;
+    }
+
+    function createBars(containerId, items) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const maxValue = Math.max(...items.map(item => Number(item.value || 0)), 1);
+
+      container.innerHTML = items.map(item => {
+        const width = Math.max((Number(item.value || 0) / maxValue) * 100, item.value > 0 ? 3 : 0);
+        return `
+          <div class="bar-row">
+            <div class="bar-meta">
+              <span>${item.label}</span>
+              <strong>${formatNumber(item.value)}</strong>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: ${width}%"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderStats(stats) {
+      const totalParticipants = Number(stats.totalParticipants || 0);
+      const totalRecordings = Number(stats.totalRecordings || 0);
+      const totalMinutes = Number(stats.totalMinutes || 0);
+      const completedSessions = Number(stats.completedSessions || 0);
+      const maleParticipants = Number(stats.maleParticipants || 0);
+      const femaleParticipants = Number(stats.femaleParticipants || 0);
+      const freeSpeechSamples = Number(stats.freeSpeechSamples || 0);
+      const iphoneUsers = Number(stats.iphoneUsers || 0);
+      const androidUsers = Number(stats.androidUsers || 0);
+
+      const participantsGoalPercent = percent(totalParticipants, PARTICIPANTS_TARGET);
+      const recordingsGoalPercent = percent(totalRecordings, RECORDINGS_TARGET);
+      const avgMinutes = totalParticipants > 0 ? totalMinutes / totalParticipants : 0;
+      const completionRate = totalParticipants > 0 ? (completedSessions / totalParticipants) * 100 : 0;
+
+      setText("totalParticipants", formatNumber(totalParticipants));
+      setText("totalRecordings", formatNumber(totalRecordings));
+      setText("totalMinutes", formatMinutes(totalMinutes));
+      setText("completedSessions", formatNumber(completedSessions));
+      setText("maleParticipants", formatNumber(maleParticipants));
+      setText("femaleParticipants", formatNumber(femaleParticipants));
+      setText("freeSpeechSamples", formatNumber(freeSpeechSamples));
+      setText("avgMinutes", avgMinutes.toLocaleString("en-US", { maximumFractionDigits: 1 }));
+
+      setText("participantsCurrent", formatNumber(totalParticipants));
+      setText("recordingsCurrent", formatNumber(totalRecordings));
+      setText("participantsPercent", `${participantsGoalPercent.toFixed(2)}%`);
+      setText("recordingsPercent", `${recordingsGoalPercent.toFixed(2)}%`);
+
+      setProgress("participantsProgress", participantsGoalPercent);
+      setProgress("recordingsProgress", recordingsGoalPercent);
+
+      setText("lastUpdated", `Last updated: ${stats.lastUpdated || "Not connected yet"}`);
+
+      createBars("genderBars", [
+        { label: "Male", value: maleParticipants },
+        { label: "Female", value: femaleParticipants }
+      ]);
+
+      createBars("deviceBars", [
+        { label: "iPhone", value: iphoneUsers },
+        { label: "Android", value: androidUsers }
+      ]);
+
+      const regionItems = Object.entries(stats.regions || {}).map(([label, value]) => ({ label, value }));
+      createBars("regionBars", regionItems.length ? regionItems : [
+        { label: "Central", value: 0 },
+        { label: "Western", value: 0 },
+        { label: "Southern", value: 0 },
+        { label: "Eastern", value: 0 },
+        { label: "Northern", value: 0 }
+      ]);
+
+      createBars("qualityBars", [
+        { label: "Completed Sessions", value: completedSessions },
+        { label: "Free Speech Samples", value: freeSpeechSamples },
+        { label: "Completion Rate (%)", value: Number(completionRate.toFixed(1)) }
+      ]);
+    }
+
+    async function loadStats() {
+      try {
+        const response = await fetch("assets/stats.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("stats.json not found");
+        }
+
+        const stats = await response.json();
+        renderStats(stats);
+        setText("dataStatus", "Status: loaded from assets/stats.json");
+      } catch (error) {
+        renderStats(fallbackStats);
+        setText("dataStatus", "Status: using placeholder values until stats.json is connected");
+      }
+    }
+
+    async function copyBotLink() {
+      const status = document.getElementById("copyStatus");
+
+      try {
+        await navigator.clipboard.writeText(BOT_LINK);
+        status.textContent = "Bot link copied. Thank you for helping us share the project.";
+      } catch (error) {
+        status.textContent = "Copy failed. You can manually copy the link above.";
+      }
+    }
+
+    loadStats();
+  </script>
+
+</body>
+</html>
