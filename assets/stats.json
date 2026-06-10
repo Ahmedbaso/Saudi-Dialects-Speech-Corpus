@@ -1,19 +1,19 @@
 {
-  "totalParticipants": 0,
-  "totalRecordings": 0,
-  "totalMinutes": 0,
-  "maleParticipants": 0,
-  "femaleParticipants": 0,
-  "freeSpeechSamples": 0,
-  "completedSessions": 0,
-  "iphoneUsers": 0,
-  "androidUsers": 0,
+  "totalParticipants": 34,
+  "totalRecordings": 1009,
+  "totalMinutes": 64.8,
+  "maleParticipants": 26,
+  "femaleParticipants": 8,
+  "freeSpeechSamples": 19,
+  "completedSessions": 34,
+  "iphoneUsers": 32,
+  "androidUsers": 2,
   "regions": {
-    "Central": 0,
-    "Western": 0,
-    "Southern": 0,
-    "Eastern": 0,
-    "Northern": 0
+    "Central": 22,
+    "Western": 2,
+    "Southern": 6,
+    "Eastern": 1,
+    "Northern": 3
   },
-  "lastUpdated": "Not connected yet"
+  "lastUpdated": "2026-06-10 14:05 KSA"
 }
