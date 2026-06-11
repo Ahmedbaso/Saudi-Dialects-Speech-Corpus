@@ -38,8 +38,8 @@
       --table-border: #cbd5e1;
       --success-color: #0f5132;
       --danger-color: #b42318;
-      --gender-male: #0f5132;
-      --gender-female: #0891b2;
+      --gender-male: #2563eb;
+      --gender-female: #db2777;
       --device-iphone: #0f5132;
       --device-android: #d97706;
       --quality-free: #0891b2;
@@ -68,8 +68,8 @@
       --table-border: #334155;
       --success-color: #34d399;
       --danger-color: #f87171;
-      --gender-male: #34d399;
-      --gender-female: #22d3ee;
+      --gender-male: #60a5fa;
+      --gender-female: #f472b6;
       --device-iphone: #34d399;
       --device-android: #f59e0b;
       --quality-free: #22d3ee;
@@ -392,7 +392,7 @@
       transition: width 0.6s ease;
     }
 
-    .donut-wrap {
+    .pie-wrap {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -400,7 +400,7 @@
       margin-top: 16px;
     }
 
-    .donut-chart {
+    .pie-chart {
       width: 148px;
       height: 148px;
       border-radius: 50%;
@@ -410,27 +410,12 @@
       box-shadow: inset 0 0 0 1px var(--table-border);
     }
 
-    .donut-chart::after {
-      content: "";
-      position: absolute;
-      inset: 34px;
-      background: var(--card-bg);
-      border-radius: 50%;
-      box-shadow: inset 0 0 0 1px var(--table-border);
-    }
-
-    .donut-center {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1;
+    .pie-total {
+      margin-top: 12px;
+      color: var(--muted-text);
+      font-size: 14px;
       font-weight: bold;
-      color: var(--heading-color);
       text-align: center;
-      font-size: 15px;
-      line-height: 1.2;
     }
 
     .legend-list {
@@ -949,9 +934,10 @@
       const femalePercent = total > 0 ? (femaleParticipants / total) * 100 : 0;
 
       container.innerHTML = `
-        <div class="donut-wrap">
-          <div class="donut-chart" style="background: conic-gradient(var(--gender-male) 0% ${malePercent}%, var(--gender-female) ${malePercent}% 100%);">
-            <div class="donut-center">${formatNumber(total)}<br>participants</div>
+        <div class="pie-wrap">
+          <div>
+            <div class="pie-chart" style="background: conic-gradient(var(--gender-male) 0% ${malePercent}%, var(--gender-female) ${malePercent}% 100%);"></div>
+            <div class="pie-total">${formatNumber(total)} participants</div>
           </div>
           <div class="legend-list">
             <div class="legend-item">
