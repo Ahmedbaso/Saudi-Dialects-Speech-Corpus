@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import time
 from pathlib import Path
@@ -200,17 +201,21 @@ def count_completed_sessions(participants):
     return completed
 
 
+def get_duration_seconds(record):
+    fields = record.get("fields", {})
+    duration = fields.get("Duration Seconds")
+
+    try:
+        return float(duration or 0)
+    except (ValueError, TypeError):
+        return 0
+
+
 def calculate_total_minutes(recordings):
     total_seconds = 0
 
     for record in recordings:
-        fields = record.get("fields", {})
-        duration = fields.get("Duration Seconds")
-
-        try:
-            total_seconds += float(duration or 0)
-        except ValueError:
-            continue
+        total_seconds += get_duration_seconds(record)
 
     return round(total_seconds / 60, 1)
 
@@ -229,6 +234,80 @@ def count_total_recordings(recordings):
         return count_with_attachments
 
     return len(recordings)
+
+
+def get_first_list_value(value):
+    if isinstance(value, list) and len(value) > 0:
+        return str(value[0]).strip()
+
+    if value is None:
+        return ""
+
+    return str(value).strip()
+
+
+def extract_spkid_from_name(name):
+    match = re.search(r"SPK\d{4}", str(name))
+    if match:
+        return match.group(0)
+
+    return ""
+
+
+def get_recording_spkid(record):
+    fields = record.get("fields", {})
+
+    linked_spkid = get_first_list_value(fields.get("SPKID (from Speaker Link)"))
+    if linked_spkid:
+        return linked_spkid
+
+    name_spkid = extract_spkid_from_name(fields.get("Name", ""))
+    if name_spkid:
+        return name_spkid
+
+    return ""
+
+
+def calculate_duration_bins(recordings):
+    participant_seconds = {}
+
+    for record in recordings:
+        fields = record.get("fields", {})
+        attachments = fields.get("Attachments")
+
+        if not isinstance(attachments, list) or len(attachments) == 0:
+            continue
+
+        spkid = get_recording_spkid(record)
+        if not spkid:
+            continue
+
+        duration_seconds = get_duration_seconds(record)
+        if duration_seconds <= 0:
+            continue
+
+        participant_seconds[spkid] = participant_seconds.get(spkid, 0) + duration_seconds
+
+    duration_bins = {
+        "< 1 min": 0,
+        "1-2 min": 0,
+        "2-3 min": 0,
+        "3+ min": 0
+    }
+
+    for total_seconds in participant_seconds.values():
+        total_minutes = total_seconds / 60
+
+        if total_minutes < 1:
+            duration_bins["< 1 min"] += 1
+        elif total_minutes < 2:
+            duration_bins["1-2 min"] += 1
+        elif total_minutes < 3:
+            duration_bins["2-3 min"] += 1
+        else:
+            duration_bins["3+ min"] += 1
+
+    return duration_bins
 
 
 def main():
@@ -250,7 +329,8 @@ def main():
         fields=[
             "Name",
             "Attachments",
-            "Duration Seconds"
+            "Duration Seconds",
+            "SPKID (from Speaker Link)"
         ]
     )
 
@@ -263,6 +343,7 @@ def main():
     regions = count_regions(participants)
     free_speech_samples = count_free_speech(recordings, participants)
     completed_sessions = count_completed_sessions(participants)
+    duration_bins = calculate_duration_bins(recordings)
 
     now_ksa = datetime.now(ZoneInfo("Asia/Riyadh"))
 
@@ -277,6 +358,7 @@ def main():
         "iphoneUsers": iphone_users,
         "androidUsers": android_users,
         "regions": regions,
+        "durationBins": duration_bins,
         "lastUpdated": now_ksa.strftime("%Y-%m-%d %H:%M KSA"),
         "lastUpdatedIso": now_ksa.isoformat()
     }
