@@ -542,6 +542,51 @@
       background: var(--quality-minutes);
     }
 
+    .distribution-card.wide-card {
+      grid-column: 1 / -1;
+    }
+
+    .histogram-chart {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: end;
+      min-height: 220px;
+      margin-top: 18px;
+      padding-top: 12px;
+    }
+
+    .histogram-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-width: 0;
+    }
+
+    .histogram-value {
+      color: var(--heading-color);
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .histogram-bar {
+      min-height: 8px;
+      background: var(--quality-minutes);
+      border-radius: 12px 12px 4px 4px;
+      border: 1px solid var(--table-border);
+      transition: height 0.6s ease;
+    }
+
+    .histogram-label {
+      color: var(--muted-text);
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
     .share-card {
       background: linear-gradient(135deg, var(--workflow-bg), var(--card-bg));
       border: 1px solid var(--table-border);
@@ -618,6 +663,11 @@
 
       .stat-value {
         font-size: 30px;
+      }
+
+      .histogram-chart {
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 180px;
       }
     }
   </style>
@@ -777,6 +827,14 @@
           <h3>Collection Quality</h3>
           <div id="qualityMetrics"></div>
         </div>
+
+        <div class="distribution-card wide-card">
+          <h3>Participant Duration Distribution</h3>
+          <p class="muted">
+            Histogram of total recorded minutes per completed participant.
+          </p>
+          <div id="durationHistogram"></div>
+        </div>
       </div>
     </section>
 
@@ -868,6 +926,12 @@
         "Southern": 0,
         "Eastern": 0,
         "Northern": 0
+      },
+      durationBins: {
+        "< 1 min": 0,
+        "1-2 min": 0,
+        "2-3 min": 0,
+        "3+ min": 0
       },
       lastUpdated: "Not connected yet"
     };
@@ -1019,6 +1083,35 @@
       `;
     }
 
+    function renderDurationHistogram(durationBins) {
+      const container = document.getElementById("durationHistogram");
+      if (!container) return;
+
+      const orderedBins = [
+        { label: "< 1 min", value: Number(durationBins?.["< 1 min"] || 0) },
+        { label: "1-2 min", value: Number(durationBins?.["1-2 min"] || 0) },
+        { label: "2-3 min", value: Number(durationBins?.["2-3 min"] || 0) },
+        { label: "3+ min", value: Number(durationBins?.["3+ min"] || 0) }
+      ];
+
+      const maxValue = Math.max(...orderedBins.map(item => item.value), 1);
+
+      container.innerHTML = `
+        <div class="histogram-chart">
+          ${orderedBins.map(item => {
+            const height = Math.max((item.value / maxValue) * 170, item.value > 0 ? 12 : 8);
+            return `
+              <div class="histogram-column">
+                <div class="histogram-value">${formatNumber(item.value)}</div>
+                <div class="histogram-bar" style="height: ${height}px;"></div>
+                <div class="histogram-label">${item.label}</div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
     function renderStats(stats) {
       const totalParticipants = Number(stats.totalParticipants || 0);
       const totalRecordings = Number(stats.totalRecordings || 0);
@@ -1069,6 +1162,7 @@
       ]);
 
       renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples);
+      renderDurationHistogram(stats.durationBins || {});
     }
 
     async function loadStats() {
