@@ -38,6 +38,13 @@
       --table-border: #cbd5e1;
       --success-color: #0f5132;
       --danger-color: #b42318;
+      --gender-male: #0f5132;
+      --gender-female: #0891b2;
+      --device-iphone: #0f5132;
+      --device-android: #d97706;
+      --quality-free: #0891b2;
+      --quality-recordings: #0f5132;
+      --quality-minutes: #7c3aed;
     }
 
     body.dark-mode {
@@ -61,6 +68,13 @@
       --table-border: #334155;
       --success-color: #34d399;
       --danger-color: #f87171;
+      --gender-male: #34d399;
+      --gender-female: #22d3ee;
+      --device-iphone: #34d399;
+      --device-android: #f59e0b;
+      --quality-free: #22d3ee;
+      --quality-recordings: #34d399;
+      --quality-minutes: #a78bfa;
     }
 
     * {
@@ -378,6 +392,171 @@
       transition: width 0.6s ease;
     }
 
+    .donut-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .donut-chart {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      background: conic-gradient(var(--gender-male) 0% 0%, var(--gender-female) 0% 100%);
+      position: relative;
+      flex: 0 0 auto;
+      box-shadow: inset 0 0 0 1px var(--table-border);
+    }
+
+    .donut-chart::after {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px var(--table-border);
+    }
+
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      font-weight: bold;
+      color: var(--heading-color);
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .legend-list {
+      flex: 1;
+      min-width: 170px;
+    }
+
+    .legend-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    .legend-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .stacked-summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      margin-bottom: 10px;
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    .stacked-track {
+      width: 100%;
+      height: 22px;
+      background: var(--code-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .stacked-segment {
+      height: 100%;
+      min-width: 0;
+      transition: width 0.6s ease;
+    }
+
+    .stacked-segment.iphone {
+      background: var(--device-iphone);
+    }
+
+    .stacked-segment.android {
+      background: var(--device-android);
+    }
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .quality-metric {
+      background: var(--workflow-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .quality-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .quality-title {
+      color: var(--muted-text);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .quality-value {
+      color: var(--heading-color);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .quality-track {
+      height: 10px;
+      background: var(--code-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .quality-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+
+    .quality-fill.free {
+      background: var(--quality-free);
+    }
+
+    .quality-fill.recordings {
+      background: var(--quality-recordings);
+    }
+
+    .quality-fill.minutes {
+      background: var(--quality-minutes);
+    }
+
     .share-card {
       background: linear-gradient(135deg, var(--workflow-bg), var(--card-bg));
       border: 1px solid var(--table-border);
@@ -497,8 +676,6 @@
   </p>
 
   <div class="stats-grid">
-
-      <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-label">Total Participants</div>
           <div class="stat-value" id="totalParticipants">0</div>
@@ -590,20 +767,20 @@
     </section>
 
     <section>
-      <h2>Participant Distribution</h2>
+      <h2>Dataset Breakdown</h2>
       <p class="muted">
-        These distributions show only aggregated statistics and do not expose participant identities.
+        These charts show aggregated dataset statistics only and do not expose participant identities.
       </p>
 
       <div class="distribution-grid">
         <div class="distribution-card">
           <h3>Gender Distribution</h3>
-          <div id="genderBars"></div>
+          <div id="genderChart"></div>
         </div>
 
         <div class="distribution-card">
           <h3>Device Distribution</h3>
-          <div id="deviceBars"></div>
+          <div id="deviceChart"></div>
         </div>
 
         <div class="distribution-card">
@@ -613,7 +790,7 @@
 
         <div class="distribution-card">
           <h3>Collection Quality</h3>
-          <div id="qualityBars"></div>
+          <div id="qualityMetrics"></div>
         </div>
       </div>
     </section>
@@ -759,6 +936,103 @@
       }).join("");
     }
 
+    function formatPercent(value) {
+      return `${Number(value || 0).toLocaleString("en-US", { maximumFractionDigits: 1 })}%`;
+    }
+
+    function renderGenderChart(maleParticipants, femaleParticipants) {
+      const container = document.getElementById("genderChart");
+      if (!container) return;
+
+      const total = maleParticipants + femaleParticipants;
+      const malePercent = total > 0 ? (maleParticipants / total) * 100 : 0;
+      const femalePercent = total > 0 ? (femaleParticipants / total) * 100 : 0;
+
+      container.innerHTML = `
+        <div class="donut-wrap">
+          <div class="donut-chart" style="background: conic-gradient(var(--gender-male) 0% ${malePercent}%, var(--gender-female) ${malePercent}% 100%);">
+            <div class="donut-center">${formatNumber(total)}<br>participants</div>
+          </div>
+          <div class="legend-list">
+            <div class="legend-item">
+              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-male);"></span>Male</span>
+              <strong>${formatNumber(maleParticipants)} · ${formatPercent(malePercent)}</strong>
+            </div>
+            <div class="legend-item">
+              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-female);"></span>Female</span>
+              <strong>${formatNumber(femaleParticipants)} · ${formatPercent(femalePercent)}</strong>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderDeviceChart(iphoneUsers, androidUsers) {
+      const container = document.getElementById("deviceChart");
+      if (!container) return;
+
+      const total = iphoneUsers + androidUsers;
+      const iphonePercent = total > 0 ? (iphoneUsers / total) * 100 : 0;
+      const androidPercent = total > 0 ? (androidUsers / total) * 100 : 0;
+
+      container.innerHTML = `
+        <div class="stacked-summary">
+          <span><strong>iPhone:</strong> ${formatNumber(iphoneUsers)} · ${formatPercent(iphonePercent)}</span>
+          <span><strong>Android:</strong> ${formatNumber(androidUsers)} · ${formatPercent(androidPercent)}</span>
+        </div>
+        <div class="stacked-track" title="Device distribution">
+          <div class="stacked-segment iphone" style="width: ${iphonePercent}%;"></div>
+          <div class="stacked-segment android" style="width: ${androidPercent}%;"></div>
+        </div>
+      `;
+    }
+
+    function renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples) {
+      const container = document.getElementById("qualityMetrics");
+      if (!container) return;
+
+      const freeSpeechCoverage = totalParticipants > 0 ? (freeSpeechSamples / totalParticipants) * 100 : 0;
+      const avgRecordings = totalParticipants > 0 ? totalRecordings / totalParticipants : 0;
+      const avgMinutes = totalParticipants > 0 ? totalMinutes / totalParticipants : 0;
+
+      const recordingsProgress = Math.min((avgRecordings / 31) * 100, 100);
+      const minutesProgress = Math.min((avgMinutes / 3.5) * 100, 100);
+
+      container.innerHTML = `
+        <div class="quality-grid">
+          <div class="quality-metric">
+            <div class="quality-top">
+              <span class="quality-title">Free Speech Coverage</span>
+              <span class="quality-value">${formatPercent(freeSpeechCoverage)}</span>
+            </div>
+            <div class="quality-track">
+              <div class="quality-fill free" style="width: ${Math.min(freeSpeechCoverage, 100)}%;"></div>
+            </div>
+          </div>
+
+          <div class="quality-metric">
+            <div class="quality-top">
+              <span class="quality-title">Avg Recordings / Participant</span>
+              <span class="quality-value">${avgRecordings.toLocaleString("en-US", { maximumFractionDigits: 1 })}</span>
+            </div>
+            <div class="quality-track">
+              <div class="quality-fill recordings" style="width: ${recordingsProgress}%;"></div>
+            </div>
+          </div>
+
+          <div class="quality-metric">
+            <div class="quality-top">
+              <span class="quality-title">Avg Minutes / Participant</span>
+              <span class="quality-value">${avgMinutes.toLocaleString("en-US", { maximumFractionDigits: 1 })}</span>
+            </div>
+            <div class="quality-track">
+              <div class="quality-fill minutes" style="width: ${minutesProgress}%;"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     function renderStats(stats) {
       const totalParticipants = Number(stats.totalParticipants || 0);
       const totalRecordings = Number(stats.totalRecordings || 0);
@@ -773,7 +1047,6 @@
       const participantsGoalPercent = percent(totalParticipants, PARTICIPANTS_TARGET);
       const recordingsGoalPercent = percent(totalRecordings, RECORDINGS_TARGET);
       const avgMinutes = totalParticipants > 0 ? totalMinutes / totalParticipants : 0;
-      const completionRate = totalParticipants > 0 ? (completedSessions / totalParticipants) * 100 : 0;
 
       setText("totalParticipants", formatNumber(totalParticipants));
       setText("totalRecordings", formatNumber(totalRecordings));
@@ -794,17 +1067,13 @@
 
       setText("lastUpdated", `Last updated: ${stats.lastUpdated || "Not connected yet"}`);
 
-      createBars("genderBars", [
-        { label: "Male", value: maleParticipants },
-        { label: "Female", value: femaleParticipants }
-      ]);
+      renderGenderChart(maleParticipants, femaleParticipants);
+      renderDeviceChart(iphoneUsers, androidUsers);
 
-      createBars("deviceBars", [
-        { label: "iPhone", value: iphoneUsers },
-        { label: "Android", value: androidUsers }
-      ]);
+      const regionItems = Object.entries(stats.regions || {})
+        .map(([label, value]) => ({ label, value }))
+        .sort((a, b) => Number(b.value || 0) - Number(a.value || 0));
 
-      const regionItems = Object.entries(stats.regions || {}).map(([label, value]) => ({ label, value }));
       createBars("regionBars", regionItems.length ? regionItems : [
         { label: "Central", value: 0 },
         { label: "Western", value: 0 },
@@ -813,11 +1082,7 @@
         { label: "Northern", value: 0 }
       ]);
 
-      createBars("qualityBars", [
-        { label: "Completed Sessions", value: completedSessions },
-        { label: "Free Speech Samples", value: freeSpeechSamples },
-        { label: "Completion Rate (%)", value: Number(completionRate.toFixed(1)) }
-      ]);
+      renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples);
     }
 
     async function loadStats() {
