@@ -380,6 +380,48 @@
       }
     }
 
+
+    .telegram-icon {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      margin-left: 6px;
+      vertical-align: -5px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .telegram-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .telegram-circle {
+      fill: #229ed9;
+      transition: fill 0.25s ease, stroke 0.25s ease;
+    }
+
+    .telegram-plane {
+      fill: #ffffff;
+      transition: fill 0.25s ease;
+    }
+
+    body.dark-mode .telegram-circle {
+      fill: #0f172a;
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+    }
+
+    body.dark-mode .telegram-plane {
+      fill: #38bdf8;
+    }
+
+    body.lang-ar .telegram-icon {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+
     @media (max-width: 700px) {
       header h1 {
         font-size: 29px;
@@ -505,6 +547,48 @@
       padding-right: 24px;
     }
 
+
+    .telegram-icon {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      margin-left: 6px;
+      vertical-align: -5px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .telegram-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .telegram-circle {
+      fill: #229ed9;
+      transition: fill 0.25s ease, stroke 0.25s ease;
+    }
+
+    .telegram-plane {
+      fill: #ffffff;
+      transition: fill 0.25s ease;
+    }
+
+    body.dark-mode .telegram-circle {
+      fill: #0f172a;
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+    }
+
+    body.dark-mode .telegram-plane {
+      fill: #38bdf8;
+    }
+
+    body.lang-ar .telegram-icon {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+
     @media (max-width: 700px) {
       .header-controls {
         width: 100%;
@@ -520,12 +604,10 @@
 <body>
 <header>
 <h1 data-i18n="projectTitle">Saudi Dialects Speech Corpus</h1>
-<p data-i18n="headerSubtitle">
+<p data-i18n-html="headerSubtitle">
       A graduation project focused on building a structured Saudi dialect speech corpus
       through linguistically curated prompts, privacy-first data collection, and an automated
-      Telegram-based ingestion pipeline.
-    </p>
-
+      Telegram-based ingestion pipeline. <span aria-label="Telegram" class="telegram-icon telegram-icon-inline" title="Telegram"> <svg aria-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg> </span></p>
 <div class="header-controls">
 <div class="theme-panel">
 <span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
@@ -552,7 +634,6 @@
 </div>
 </div>
 </div>
-
 </header>
 <main>
 <section>
@@ -643,7 +724,7 @@
 </div>
 </section>
 <section>
-<h2 data-i18n="botWorkflowTitle">Telegram Bot Workflow</h2>
+<h2 data-i18n-html="botWorkflowTitle">Telegram Bot Workflow <span aria-label="Telegram" class="telegram-icon telegram-icon-inline" title="Telegram"> <svg aria-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg> </span></h2>
 <p data-i18n="botWorkflowP">
         The Telegram bot is the main interface that guides participants through the data
         collection process.
@@ -706,17 +787,14 @@ Standardized WAV File
    ↓
 File Renaming
    ↓
-ZIP Archive + info.txt
+ZIP Archive + SPKxxxxx_info.txt
    ↓
 Server Storage + Cloudinary + Airtable Storage &amp; Tracking
       </div>
 </section>
 <section>
 <h2 data-i18n="audioProcessingTitle">Audio Processing</h2>
-<p data-i18n="audioProcessingP">
-        Telegram voice notes are received in OGG format. The Python backend uses FFmpeg
-        to convert each approved recording into a standardized WAV file.
-      </p>
+<p data-i18n="audioProcessingP">Telegram voice recordings are received in OGG format. The Python backend uses FFmpeg to convert each approved recording into a standardized WAV file.</p>
 <ul>
 <li data-i18n="wavFormat">WAV format</li>
 <li data-i18n="sampleRate">44.1kHz sample rate</li>
@@ -744,10 +822,7 @@ Server Storage + Cloudinary + Airtable Storage &amp; Tracking
 </section>
 <section>
 <h2 data-i18n="namingTitle">File Naming Convention</h2>
-<p data-i18n="namingP1">
-        Each audio file follows a structured naming format designed to encode the dialect,
-        speaker identity, sentence number, device type, and recording attempt directly in the filename.
-      </p>
+<p data-i18n="namingP1">Each audio file follows a structured naming format designed to encode the dialect, speaker identifier, sentence number, device type, and recording attempt directly in the filename.</p>
 <p>
 <code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
 </p>
@@ -840,12 +915,7 @@ Server Storage + Cloudinary + Airtable Storage &amp; Tracking
 </section>
 <section>
 <h2 data-i18n="metadataTitle">Metadata File Storage</h2>
-<p>
-        In addition to the audio files, the system generates a server-side metadata file named
-        <code>info.txt</code> for each participant. This file preserves session information,
-        participant profile fields, dialect and location details, recording context, and an
-        audio duration summary.
-      </p>
+<p data-i18n-html="metadataP1">In addition to the audio files, the system generates a server-side metadata file named <code>SPKxxxxx_info.txt</code> for each participant. This file preserves session information, participant profile fields, dialect details, general region-related fields, recording context, and an audio duration summary.</p>
 <p data-i18n="exampleOnly">
         Example only:
       </p>
@@ -886,10 +956,7 @@ Free Topic: Future Plans and Goals
 [Audio Summary]
 Total Audio Duration: 01:59
 Total Audio Duration Seconds: 119.4</pre>
-<div class="note" data-i18n="metadataNote">
-        This metadata file is intended for research organization and dataset traceability.
-        The collection process avoids storing phone numbers or direct personal identifiers.
-      </div>
+<div class="note" data-i18n="metadataNote">This metadata file is intended for research organization and dataset tracking. The collection process avoids storing phone numbers or direct personal identifiers.</div>
 </section>
 <section>
 <h2 data-i18n="privacyTitle">Privacy and Consent</h2>
@@ -919,18 +986,7 @@ Total Audio Duration Seconds: 119.4</pre>
 </section>
 <section>
 <h2 data-i18n="technologiesTitle">Technologies Used</h2>
-<ul>
-<li>Python</li>
-<li>Telegram Bot API</li>
-<li>FFmpeg</li>
-<li>FFprobe</li>
-<li>DigitalOcean</li>
-<li>Airtable</li>
-<li>Cloudinary</li>
-<li>GitHub Pages</li>
-<li>GitHub Actions</li>
-<li>Healthchecks</li>
-</ul>
+<ul><li>Python</li><li>Telegram Bot API</li><li>python-telegram-bot</li><li>FFmpeg / FFprobe</li><li>Airtable API</li><li>Cloudinary</li><li>DigitalOcean Server</li><li>Ubuntu / Linux Server</li><li>Termius</li><li>HTML / CSS / JavaScript</li><li>GitHub Pages</li><li>GitHub Actions</li><li>Google Analytics</li><li>Healthchecks</li></ul>
 </section>
 </main>
 <footer data-i18n-html="footerText">
@@ -943,21 +999,22 @@ Total Audio Duration Seconds: 119.4</pre>
       Contact: Saudi.Dialects@outlook.sa
     </a>
 </footer>
-
 <script>
     const themeToggle = document.getElementById("themeToggle");
     const languageButtons = document.querySelectorAll(".language-button");
+
+    const TELEGRAM_ICON_HTML = `<span class="telegram-icon telegram-icon-inline" aria-label="Telegram" title="Telegram"> <svg viewBox="0 0 24 24" aria-hidden="true"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg> </span>`;
 
     const translations = {
       "ar": {
             "projectTitle": "مدونة الأصوات للهجات السعودية",
             "projectOverviewTitle": "نظرة عامة على المشروع",
             "whyTitle": "أهمية المشروع",
-            "methodologyTitle": "منهجية تصميم corpus",
+            "methodologyTitle": "منهجية تصميم المدونة",
             "highlightsTitle": "أبرز مميزات المشروع",
-            "statsTitle": "إحصائيات جمع corpus",
-            "viewStatsButton": "عرض إحصائيات corpus",
-            "botWorkflowTitle": "مسار عمل بوت Telegram",
+            "statsTitle": "إحصائيات المدونة",
+            "viewStatsButton": "عرض إحصائيات المدونة",
+            "botWorkflowTitle": "مسار عمل بوت Telegram {{telegramIcon}}",
             "userDiagramTitle": "مخطط رحلة المستخدم في بوت Telegram",
             "architectureTitle": "معمارية النظام ومسار البيانات",
             "systemWorkflowTitle": "مسار عمل النظام",
@@ -965,16 +1022,16 @@ Total Audio Duration Seconds: 119.4</pre>
             "durationRulesTitle": "قواعد مدة التسجيل",
             "storageTitle": "معمارية التخزين",
             "namingTitle": "آلية تسمية الملفات",
-            "metadataTitle": "تخزين ملف البيانات الوصفية",
+            "metadataTitle": "تخزين ملفات البيانات الوصفية",
             "privacyTitle": "الخصوصية والموافقة",
             "reliabilityTitle": "الاعتمادية ومعالجة الأخطاء",
             "technologiesTitle": "التقنيات المستخدمة",
             "showFullDiagram": "عرض المخطط كاملًا",
             "collapseDiagram": "إغلاق المخطط",
-            "highlightPrivacyTitle": "جمع بيانات يحترم الخصوصية",
-            "highlightPhoneticTitle": "تغطية صوتية",
-            "highlightAutomationTitle": "إدخال بيانات آلي",
-            "highlightStorageTitle": "تخزين وتتبع متعدد الوجهات",
+            "highlightPrivacyTitle": "جمع بيانات يراعي الخصوصية",
+            "highlightPhoneticTitle": "التغطية الصوتية واللهجية",
+            "highlightAutomationTitle": "إدخال البيانات الآلي",
+            "highlightStorageTitle": "التخزين والتتبع متعدد الوجهات",
             "wavFormat": "صيغة WAV",
             "sampleRate": "معدل عينة 44.1kHz",
             "monoChannel": "قناة صوتية أحادية",
@@ -989,42 +1046,42 @@ Total Audio Duration Seconds: 119.4</pre>
             "sentenceNumberMeaning": "رقم الجملة التي سجلها المشارك.",
             "displayMode": "وضع العرض",
             "languageLabel": "اللغة",
-            "headerSubtitle": "مشروع تخرج يهدف إلى بناء corpus صوتي منظم للهجات السعودية من خلال جمل مختارة لغويًا، وجمع بيانات يراعي الخصوصية، ومسار إدخال آلي عبر Telegram.",
-            "overviewP1": "يعالج مشروع Saudi Dialects Speech Corpus نقص البيانات الصوتية العربية عالية الجودة والمخصصة للهجات. فبينما تعمل كثير من تقنيات اللغة العربية بشكل جيد مع العربية الفصحى، فإنها غالبًا تواجه صعوبة مع الكلام اليومي العفوي، خصوصًا عند استخدام لهجات سعودية إقليمية.",
-            "overviewP2": "يركز المشروع على إنشاء corpus صوتي منظم يعكس التنوع الطبيعي في اللهجات السعودية، مع الحفاظ على معمارية جمع بيانات قابلة للتوسع وتراعي الخصوصية. ولا يُعد بوت Telegram هو المشروع كاملًا، بل هو أداة الإدخال الرئيسية ضمن مسار أوسع يجمع بين الجانب اللغوي وهندسة البيانات.",
-            "whyP1": "تضم المملكة العربية السعودية تنوعًا واسعًا من اللهجات الإقليمية التي تأثرت بالجغرافيا والتاريخ والتنوع الاجتماعي. وقد تختلف لهجات مثل النجدية والحجازية والجنوبية والشرقية والشمالية في النطق والمفردات والبنية اللغوية، مما يجعل التعرف الآلي على الكلام أصعب عندما تُدرّب النماذج غالبًا على العربية الفصحى أو بيانات غير محلية.",
-            "whyP2": "يمكن أن يدعم corpus مخصص للهجات السعودية تطوير أنظمة Arabic Automatic Speech Recognition (ASR)، والمساعدات الصوتية، وإمكانية الوصول الرقمية، وخدمات العملاء الآلية، وخدمات المدن الذكية المعتمدة على الصوت.",
-            "methodologyP1": "لم يُبنَ corpus من جمل عشوائية. تم تصميمه من خلال عملية منظمة لاختيار الجمل تجمع بين مدخلات لغوية من الجمهور وتنقيح صوتي، بهدف تغطية الأصوات العربية والتقاط تعبيرات سعودية شائعة مع تقليل تحيز القراءة.",
-            "methodologyP2": "يتضمن corpus النصي النهائي 30 جملة محددة مسبقًا وجملة اختيارية للكلام الحر باسم S31، بهدف التقاط كلام لهجي أكثر طبيعية وغير مكتوب مسبقًا.",
-            "statsP": "اعرض آخر تقدم في Saudi Dialects Speech Corpus، بما يشمل عدد المشاركين، وعدد التسجيلات، والدقائق المجموعة، ومدى التقدم نحو أهداف المشروع.",
+            "headerSubtitle": "مشروع تخرج يهدف إلى بناء مدونة صوتية منظَّمة للهجات السعودية من خلال جمل مختارة لغويًا، وجمع البيانات مع مراعاة الخصوصية عبر تطبيق Telegram {{telegramIcon}}.",
+            "overviewP1": "يعالج مشروع مدونة اللهجات السعودية نقص البيانات الصوتية العربية عالية الجودة والمخصصة للهجات. فبينما تعمل كثير من تقنيات اللغة العربية بشكل جيد مع العربية الفصحى، فإنها غالبًا تواجه صعوبة مع الكلام اليومي العفوي، خصوصًا عند استخدام لهجات سعودية إقليمية.",
+            "overviewP2": "يركز المشروع على إنشاء مدونة صوتية منظَّمة تعكس التنوع الطبيعي في اللهجات السعودية، مع الحفاظ على معمارية جمع بيانات قابلة للتوسع وتراعي الخصوصية. ولا يُعد بوت Telegram هو المشروع كاملًا، بل هو أداة الإدخال الرئيسية ضمن مسار أوسع يجمع بين الجانب اللغوي وهندسة البيانات.",
+            "whyP1": "تضم المملكة العربية السعودية نطاقًا واسعًا من اللهجات الإقليمية التي تشكّلت بفعل الجغرافيا والتاريخ والتنوع الاجتماعي. وقد تختلف اللهجات مثل النجدية، والحجازية، والجنوبية، والشرقية، والشمالية في النطق والمفردات والبنية اللغوية. وهذا يجعل التعرف على الكلام أكثر صعوبة عندما تُدرّب نماذج الذكاء الاصطناعي أساسًا على العربية الفصحى أو على بيانات غير محلية.",
+            "whyP2": "يمكن أن تدعم المدونة المخصصة للهجات السعودية تطوير أنظمة التعرف التلقائي على الكلام باللغة العربية، أو ما يُعرف بـ Arabic Automatic Speech Recognition (ASR)، إضافة إلى المساعدات الصوتية، وإمكانية الوصول الرقمية، وخدمات العملاء الآلية، وخدمات المدن الذكية المعتمدة على الصوت.",
+            "methodologyP1": "لم تُبنَ المدونة من جمل عشوائية، بل تم تصميمها من خلال عملية منظَّمة لاختيار الجمل، تجمع بين مدخلات لغوية من الجمهور وتنقيح صوتي، بهدف تغطية الأصوات العربية ومخارج الحروف والفونيمات، والتقاط التعبيرات السعودية الشائعة مع تقليل تحيز القراءة.",
+            "methodologyP2": "تتضمن المدونة النصية النهائية 30 جملة محددة مسبقًا وجملة اختيارية للكلام الحر باسم S31، بهدف التقاط كلام لهجي أكثر طبيعية وغير مكتوب مسبقًا.",
+            "statsP": "استعرض آخر تقدم في مشروع مدونة اللهجات السعودية، بما يشمل عدد المشاركين، وعدد التسجيلات، والدقائق المجمعة، ومدى التقدم نحو أهداف المشروع.",
             "botWorkflowP": "يُعد بوت Telegram الواجهة الرئيسية التي ترشد المشاركين خلال عملية جمع البيانات.",
-            "botLi2": "يعرض البوت سياسة الخصوصية ويتطلب موافقة صريحة.",
-            "botLi3": "يجمع البوت بيانات وصفية عن المشارك مثل العمر، والجنس، ومنطقة اللهجة، والمستوى التعليمي، ونوع الجهاز.",
+            "botLi2": "يعرض البوت سياسة الخصوصية ويتطلب الموافقة الصريحة.",
+            "botLi3": "يجمع البوت بيانات المشارك مثل العمر، والجنس، ومنطقة اللهجة، والمستوى التعليمي، ونوع الجهاز.",
             "botLi4": "يعرض البوت تنبيهًا للتسجيل يطلب من المشارك إزالة السماعات والتسجيل مباشرة باستخدام ميكروفون الهاتف.",
-            "botLi5": "يسجل المشارك 30 جملة محددة مسبقًا ومنتقاة صوتيًا.",
-            "botLi6": "لكل جملة، يستطيع المشارك اعتماد التسجيل أو إعادة تسجيله.",
-            "botLi7": "يمكن للمشارك تسجيل عينة كلام حر اختياريًا أو تخطي هذه الخطوة.",
+            "botLi5": "يسجل المشارك 30 جملة محددة مسبقًا ومختارة لغويًا.",
+            "botLi6": "لكل جملة، يستطيع المشارك اعتماد التسجيل أو إعادة تسجيله، بحد أقصى ثلاث محاولات لكل جملة.",
+            "botLi7": "يمكن للمشارك تسجيل عينة اختيارية للكلام الحر أو تخطي هذه الخطوة.",
             "botLi8": "يعرض البوت زر تأكيد نهائي قبل معالجة الملفات ورفعها.",
-            "botLi9": "بعد التأكيد النهائي، تُعالج الملفات الصوتية، وتُعاد تسميتها، وتُضغط، وتُرفع، وتُخزن.",
+            "botLi9": "بعد التأكيد النهائي، تتم معالجة الملفات الصوتية وإعادة تسميتها وضغطها ورفعها وتخزينها.",
             "userDiagramP": "يوضح هذا المخطط رحلة المشارك من الموافقة على الخصوصية حتى رفع الملفات النهائي.",
             "architectureP": "يوضح هذا المخطط كيف تتم معالجة التسجيلات الصوتية المعتمدة وتخزينها وربطها عبر خدمات backend.",
-            "audioProcessingP": "تُستقبل الملاحظات الصوتية من Telegram بصيغة OGG. يستخدم backend المكتوب بـ Python أداة FFmpeg لتحويل كل تسجيل معتمد إلى ملف WAV موحد.",
+            "audioProcessingP": "تُستقبل التسجيلات الصوتية من تطبيق Telegram بصيغة OGG. يستخدم الـ backend المكتوب بلغة Python أداة FFmpeg لتحويل كل تسجيل معتمد إلى ملف WAV موحد.",
             "ffprobeLi": "تُستخدم FFprobe لحساب إجمالي مدة الصوت لكل جلسة مشاركة.",
             "durationLi1": "كل جملة محددة مسبقًا لها حد أقصى للتسجيل قدره 15 ثانية.",
             "durationLi2": "تسجيل الكلام الحر الاختياري له حد أقصى قدره 35 ثانية.",
             "durationLi3": "إذا تجاوز المشارك المدة المسموحة، يطلب منه البوت إعادة التسجيل.",
             "storageP": "يستخدم النظام معمارية تخزين وتتبع متعددة الوجهات:",
-            "namingP1": "يتبع كل ملف صوتي صيغة تسمية منظمة تُضمّن اللهجة، وهوية المتحدث، ورقم الجملة، ونوع الجهاز، ورقم المحاولة مباشرة داخل اسم الملف.",
+            "namingP1": "يتبع كل ملف صوتي صيغة تسمية منظمة تُضمّن اللهجة، ومعرّف المتحدث، ورقم الجملة، ونوع الجهاز، ورقم المحاولة مباشرة داخل اسم الملف.",
             "basedExampleP": "بناءً على المثال KSU_DIA_D01_SPK10073_S05_T11.wav، فالملف مرتبط برمز اللهجة D01، ومتحدث ذكر بمعرف 0073، وجملة رقم 05، وتم تسجيله باستخدام iPhone في المحاولة الأولى.",
-            "metadataP1": "بالإضافة إلى الملفات الصوتية، ينشئ النظام ملف بيانات وصفية على السيرفر باسم info.txt لكل مشارك. يحفظ هذا الملف معلومات الجلسة، وحقول ملف المشارك، وتفاصيل اللهجة والموقع، وسياق التسجيل، وملخص مدة الصوت.",
+            "metadataP1": "بالإضافة إلى الملفات الصوتية، ينشئ النظام ملف بيانات وصفية باسم <code>SPKxxxxx_info.txt</code> لكل مشارك، ويتم حفظه على الخادم. يحتفظ هذا الملف بمعلومات الجلسة، وبيانات المشارك، وتفاصيل اللهجة والحقول العامة المرتبطة بالمنطقة، وسياق التسجيل، وملخص مدة الصوت.",
             "privacyP1": "يعرض البوت سياسة الخصوصية قبل جمع بيانات المشارك، ويجب على المشارك الموافقة صراحة قبل المتابعة. كما تحتوي رسالة الخصوصية على رابط لهذه الصفحة حتى يتمكن المشاركون من مراجعة مسار عمل البوت، وطريقة التخزين، وآلية التعامل مع البيانات. يتجنب النظام جمع أرقام الهواتف ويسمح للمشاركين باستخدام اسم مستعار.",
-            "reliabilityP1": "يتضمن النظام إجراءات حماية لحالات فشل الرفع وتوفر السيرفر. إذا حدث خطأ أثناء الرفع بعد حفظ التسجيلات على السيرفر، يتلقى المشارك رسالة خطأ واضحة، ويتم إرسال تنبيه للمسؤول يتضمن وقت الخطأ، وSPKID، وعدد الملفات المحفوظة، وتفاصيل الخطأ.",
-            "reliabilityP2": "تتم مراقبة السيرفر أيضًا باستخدام Healthchecks. يؤكد ping دوري أن الخدمة تعمل، ويتم إرسال تنبيه إذا بقي السيرفر غير متاح خلال فترة فشل متصلة.",
+            "reliabilityP1": "يتضمن النظام إجراءات حماية لحالات فشل الرفع وتوفر الخادم. إذا حدث خطأ أثناء الرفع بعد حفظ التسجيلات على الخادم، يتلقى المشارك رسالة خطأ واضحة، ويتم إرسال تنبيه للمسؤول يتضمن وقت الخطأ، وSPKID، وعدد الملفات المحفوظة، وتفاصيل الخطأ.",
+            "reliabilityP2": "تتم مراقبة الخادم أيضًا باستخدام Healthchecks. يؤكد ping دوري أن الخدمة تعمل، ويتم إرسال تنبيه إذا بقي الخادم غير متاح خلال فترة فشل متصلة.",
             "methodLi1": "<strong>استبيان الانطباع العام:</strong> قيّم المشاركون عبارات شائعة وتنوعات إقليمية.",
             "methodLi2": "<strong>ترشيح العبارات:</strong> اقترح متطوعون تعبيرات سعودية يومية شائعة في مناطقهم.",
             "methodLi3": "<strong>تنقيح صوتي متخصص:</strong> تم تحسين قائمة الجمل النهائية لضمان تغطية صوتية واسعة للأصوات العربية والاستخدام اللهجي.",
-            "botLi1": "يبدأ المشارك استخدام البوت عبر الأمر <code>/start</code>.",
-            "storageLi1": "<strong>Server Storage:</strong> يخزن أرشيف ZIP الناتج، والملفات الصوتية المعالجة، وملف البيانات الوصفية على سيرفر المشروع.",
+            "botLi1": "يبدأ المشارك البوت باستخدام الأمر <code>/start</code>.",
+            "storageLi1": "<strong>Server Storage:</strong> يخزن أرشيف ZIP الناتج، والملفات الصوتية المعالجة، وملف البيانات الوصفية على خادم المشروع.",
             "storageLi2": "<strong>Cloudinary:</strong> يخزن الملفات الصوتية وملفات البيانات الوصفية المرفوعة للوصول السحابي.",
             "storageLi3": "<strong>Airtable:</strong> يخزن بيانات المشاركين الوصفية وسجلات التسجيل للمراجعة والتتبع.",
             "speakerIdentifierTd": "معرّف المتحدث. الرقم الأول بعد <code>SPK</code> يمثل الجنس:<br><strong>1 = Male</strong><br><strong>0 = Female</strong><br>والأرقام المتبقية تمثل Speaker ID.",
@@ -1035,11 +1092,11 @@ Total Audio Duration Seconds: 119.4</pre>
             "exampleT03": "<code>T03</code>: Android، المحاولة الثالثة.",
             "exampleT11": "<code>T11</code>: iPhone، المحاولة الأولى.",
             "exampleT13": "<code>T13</code>: iPhone، المحاولة الثالثة.",
-            "highlightPrivacyCard": "<strong data-i18n=\"highlightPrivacyTitle\">جمع بيانات يحترم الخصوصية</strong> يتجنب النظام تخزين أرقام الهواتف ويدعم المشاركة دون الكشف عن الهوية.",
-            "highlightPhoneticCard": "<strong data-i18n=\"highlightPhoneticTitle\">تغطية صوتية</strong> صُمم corpus المكون من 30 جملة لتغطية الأصوات العربية والتنوع اللهجي.",
-            "highlightAutomationCard": "<strong data-i18n=\"highlightAutomationTitle\">إدخال بيانات آلي</strong> يدير بوت Telegram مسار المشارك، والتسجيلات، والتحقق، والمعالجة.",
-            "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">تخزين وتتبع متعدد الوجهات</strong> تُخزن المخرجات على السيرفر وفي Cloudinary، بينما يُستخدم Airtable لبيانات المشاركين، وسجلات التسجيل، وتتبع الملفات.",
-            "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع بيانات dataset. تتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
+            "highlightPrivacyCard": "<strong data-i18n=\"highlightPrivacyTitle\">جمع بيانات يراعي الخصوصية</strong> يدعم النظام المشاركة المجهولة ويتجنب تخزين أرقام الهواتف أو المعرّفات الشخصية المباشرة.",
+            "highlightPhoneticCard": "<strong data-i18n=\"highlightPhoneticTitle\">التغطية الصوتية واللهجية</strong> صُممت المدونة المكوّنة من 30 جملة لتغطية الأصوات العربية كما تُنطق في اللهجات السعودية، وتمثيل التنوع اللهجي في المملكة العربية السعودية.",
+            "highlightAutomationCard": "<strong data-i18n=\"highlightAutomationTitle\">إدخال البيانات الآلي</strong> يدير بوت Telegram مسار المشاركين، والتسجيلات، والتحقق من البيانات، ومعالجة الملفات.",
+            "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">التخزين والتتبع متعدد الوجهات</strong> تُخزَّن المخرجات على خادم DigitalOcean وفي Cloudinary، بينما يُستخدم Airtable لتخزين بيانات المشاركين وسجلات التسجيلات وتتبع الملفات.",
+            "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع مجموعة البيانات، وتتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
             "privacyNote": "يمكن للمشاركين الإلغاء قبل تأكيد الرفع النهائي. بعد بدء عملية الرفع النهائي، يُعد الإرسال معتمدًا ويتم تعطيل الإلغاء داخل البوت.",
             "footerText": "Saudi Dialects Speech Corpus — مشروع تخرج،\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
       }
@@ -1070,11 +1127,15 @@ Total Audio Duration Seconds: 119.4</pre>
     }
 
     function translateValue(key) {
+      let value = "";
+
       if (currentLanguage === "ar" && translations.ar[key]) {
-        return translations.ar[key];
+        value = translations.ar[key];
+      } else {
+        value = englishDefaults[key] || "";
       }
 
-      return englishDefaults[key] || "";
+      return value.replaceAll("{{telegramIcon}}", TELEGRAM_ICON_HTML);
     }
 
     function applyLanguage(language) {
@@ -1142,6 +1203,5 @@ Total Audio Duration Seconds: 119.4</pre>
       }
     }
   </script>
-
 </body>
 </html>
