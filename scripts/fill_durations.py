@@ -15,6 +15,13 @@ TABLE_NAME = os.getenv("AIRTABLE_TABLE_NAME", "Recordings")
 ATTACHMENT_FIELD = os.getenv("ATTACHMENT_FIELD", "Attachments")
 DURATION_FIELD = os.getenv("DURATION_FIELD", "Duration Seconds")
 
+RECALCULATE_ALL = os.getenv("RECALCULATE_ALL", "false").lower() in (
+    "1",
+    "true",
+    "yes",
+    "y",
+)
+
 
 if not AIRTABLE_TOKEN:
     raise SystemExit("Missing AIRTABLE_TOKEN")
@@ -48,6 +55,10 @@ def request_with_retry(method, url, **kwargs):
                 raise
 
             time.sleep(3 * attempt)
+
+
+def missing_duration_formula():
+    return f"OR({{{DURATION_FIELD}}}=BLANK(), {{{DURATION_FIELD}}}=0)"
 
 
 def get_duration_seconds(audio_url):
@@ -90,6 +101,9 @@ def fetch_records():
             "pageSize": 100,
             "fields[]": [ATTACHMENT_FIELD, DURATION_FIELD],
         }
+
+        if not RECALCULATE_ALL:
+            params["filterByFormula"] = missing_duration_formula()
 
         if offset:
             params["offset"] = offset
@@ -137,9 +151,20 @@ def update_duration(record_id, duration):
 
 
 def main():
+    mode = "all records" if RECALCULATE_ALL else "missing durations only"
+
     print("Fetching Airtable recording records...")
+    print(f"Mode: {mode}")
+
+    if not RECALCULATE_ALL:
+        print(f"Filter: {missing_duration_formula()}")
+
     records = fetch_records()
-    print(f"Fetched recording records: {len(records)}")
+
+    if RECALCULATE_ALL:
+        print(f"Fetched recording records: {len(records)}")
+    else:
+        print(f"Fetched recording records needing duration: {len(records)}")
 
     updated = 0
     skipped_existing = 0
