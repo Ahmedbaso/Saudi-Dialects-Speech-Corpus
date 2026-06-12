@@ -374,6 +374,92 @@
       border-bottom: 1px dotted var(--link-color);
     }
 
+
+    .technologies-section {
+      position: relative;
+    }
+
+    .tech-heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tech-heading-row h2 {
+      margin-bottom: 0;
+    }
+
+    .tech-icons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 560px;
+    }
+
+    .tech-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--table-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px var(--shadow-color);
+      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .tech-logo:hover {
+      transform: translateY(-2px);
+    }
+
+    .tech-logo svg {
+      width: 27px;
+      height: 27px;
+      display: block;
+    }
+
+    .tech-adaptive-fill {
+      fill: var(--text-color);
+      transition: fill 0.25s ease;
+    }
+
+    .tech-adaptive-stroke {
+      stroke: var(--text-color);
+      transition: stroke 0.25s ease;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 34px;
+      margin-top: 10px;
+    }
+
+    .tech-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .tech-list li {
+      margin-bottom: 7px;
+    }
+
+    body.lang-ar .tech-list {
+      padding-left: 0;
+      padding-right: 22px;
+    }
+
+    body.lang-ar .tech-icons {
+      justify-content: flex-start;
+    }
+
+
     @media (max-width: 900px) {
       .highlight-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -984,15 +1070,146 @@ Total Audio Duration Seconds: 119.4</pre>
         running, and an alert is sent if the server remains unavailable for a continuous failure window.
       </p>
 </section>
-<section>
+<section class="technologies-section">
+<div class="tech-heading-row">
 <h2 data-i18n="technologiesTitle">Technologies Used</h2>
-<ul><li>Python</li><li>Telegram Bot API</li><li>python-telegram-bot</li><li>FFmpeg / FFprobe</li><li>Airtable API</li><li>Cloudinary</li><li>DigitalOcean Server</li><li>Ubuntu / Linux Server</li><li>Termius</li><li>HTML / CSS / JavaScript</li><li>GitHub Pages</li><li>GitHub Actions</li><li>Google Analytics</li><li>Healthchecks</li></ul>
+
+<div class="tech-icons" aria-label="Technology logos">
+<span class="tech-logo" title="Python" aria-label="Python">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="8" y="7" width="24" height="19" rx="7" fill="#3776ab"></rect>
+<rect x="16" y="22" width="24" height="19" rx="7" fill="#ffd43b"></rect>
+<circle cx="17" cy="15" r="2.2" fill="#ffffff"></circle>
+<circle cx="31" cy="33" r="2.2" fill="#1f2937"></circle>
+</svg>
+</span>
+<span class="tech-logo" title="Telegram Bot API" aria-label="Telegram Bot API">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<circle class="telegram-circle" cx="12" cy="12" r="11"></circle>
+<path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path>
+</svg>
+</span>
+<span class="tech-logo" title="python-telegram-bot" aria-label="python-telegram-bot">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="18" fill="#229ed9"></circle>
+<path d="M32.6 15.4 15.4 22c-1.1.4-1.1 1.1-.1 1.4l4.4 1.4 1.7 5.2c.3.8.7.9 1.3.3l2.4-2.4 4.9 3.5c.9.5 1.4.2 1.7-.9l3-14.1c.3-1.3-.5-1.7-2.1-1Z" fill="#ffffff"></path>
+<rect x="5" y="31" width="18" height="11" rx="5" fill="#3776ab"></rect>
+<text x="14" y="39" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Py</text>
+</svg>
+</span>
+<span class="tech-logo" title="FFmpeg / FFprobe" aria-label="FFmpeg / FFprobe">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="7" y="9" width="34" height="30" rx="8" fill="#111827"></rect>
+<path d="M13 16h22M13 24h18M13 32h22" stroke="#22c55e" stroke-width="4" stroke-linecap="round"></path>
+<path d="M30 18 38 24l-8 6Z" fill="#84cc16"></path>
+</svg>
+</span>
+<span class="tech-logo" title="Airtable API" aria-label="Airtable API">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<path d="M8 17 24 10l16 7-16 7Z" fill="#f59e0b"></path>
+<path d="M8 20v14l14 6V26Z" fill="#ef4444"></path>
+<path d="M40 20v14l-14 6V26Z" fill="#3b82f6"></path>
+</svg>
+</span>
+<span class="tech-logo" title="Cloudinary" aria-label="Cloudinary">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="17" cy="17" r="6" fill="#fbbf24"></circle>
+<path d="M17 34h18a7 7 0 0 0 0-14 10 10 0 0 0-19-3A8.5 8.5 0 0 0 17 34Z" fill="#38bdf8"></path>
+<path d="M18 34h15a6 6 0 0 0 0-12 8.5 8.5 0 0 0-16-2.4A7 7 0 0 0 18 34Z" fill="#2563eb" opacity="0.35"></path>
+</svg>
+</span>
+<span class="tech-logo" title="DigitalOcean Server" aria-label="DigitalOcean Server">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="22" r="13" fill="none" stroke="#0080ff" stroke-width="7"></circle>
+<rect x="11" y="31" width="7" height="7" fill="#0080ff"></rect>
+<rect x="20" y="38" width="6" height="6" fill="#0080ff"></rect>
+<rect x="8" y="40" width="5" height="5" fill="#0080ff"></rect>
+</svg>
+</span>
+<span class="tech-logo" title="Ubuntu / Linux Server" aria-label="Ubuntu / Linux Server">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="14" fill="none" stroke="#e95420" stroke-width="5"></circle>
+<circle cx="24" cy="9" r="5" fill="#e95420"></circle>
+<circle cx="11" cy="31" r="5" fill="#e95420"></circle>
+<circle cx="37" cy="31" r="5" fill="#e95420"></circle>
+</svg>
+</span>
+<span class="tech-logo" title="Termius" aria-label="Termius">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<path d="M15 34h21a8 8 0 0 0 0-16 12 12 0 0 0-23-3 9.5 9.5 0 0 0 2 19Z" fill="none" class="tech-adaptive-stroke" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M18 23l5 4-5 4M27 31h7" fill="none" class="tech-adaptive-stroke" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<span class="tech-logo" title="HTML / CSS / JavaScript" aria-label="HTML / CSS / JavaScript">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="6" y="10" width="11" height="28" rx="3" fill="#e34f26"></rect>
+<rect x="18.5" y="10" width="11" height="28" rx="3" fill="#1572b6"></rect>
+<rect x="31" y="10" width="11" height="28" rx="3" fill="#f7df1e"></rect>
+<text x="11.5" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="800" fill="#fff">H</text>
+<text x="24" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="800" fill="#fff">C</text>
+<text x="36.5" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="800" fill="#111827">J</text>
+</svg>
+</span>
+<span class="tech-logo" title="GitHub Pages" aria-label="GitHub Pages">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="16" class="tech-adaptive-fill"></circle>
+<path d="M16 17h16v14H16z" fill="var(--card-bg)" stroke="var(--card-bg)" stroke-width="1"></path>
+<path d="M19 21h10M19 25h7" stroke="var(--text-color)" stroke-width="2" stroke-linecap="round"></path>
+</svg>
+</span>
+<span class="tech-logo" title="GitHub Actions" aria-label="GitHub Actions">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="22" cy="22" r="14" class="tech-adaptive-fill"></circle>
+<path d="M28 14 18 26h7l-4 10 11-14h-7Z" fill="#facc15"></path>
+<circle cx="34" cy="34" r="6" fill="#2563eb"></circle>
+</svg>
+</span>
+<span class="tech-logo" title="Google Analytics" aria-label="Google Analytics">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="9" y="27" width="8" height="12" rx="4" fill="#f59e0b"></rect>
+<rect x="20" y="18" width="8" height="21" rx="4" fill="#fb923c"></rect>
+<rect x="31" y="8" width="8" height="31" rx="4" fill="#facc15"></rect>
+</svg>
+</span>
+<span class="tech-logo" title="Healthchecks" aria-label="Healthchecks">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="16" fill="#22c55e"></circle>
+<path d="M14 25h6l3-8 5 15 3-7h4" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+
+</div>
+<div class="tech-grid">
+<ul class="tech-list">
+<li>Python</li>
+<li>Telegram Bot API</li>
+<li>python-telegram-bot</li>
+<li>FFmpeg / FFprobe</li>
+<li>Airtable API</li>
+<li>Cloudinary</li>
+<li>DigitalOcean Server</li>
+</ul>
+<ul class="tech-list">
+<li>Ubuntu / Linux Server</li>
+<li>Termius</li>
+<li>HTML / CSS / JavaScript</li>
+<li>GitHub Pages</li>
+<li>GitHub Actions</li>
+<li>Google Analytics</li>
+<li>Healthchecks</li>
+</ul>
+</div>
 </section>
 </main>
 <footer data-i18n-html="footerText">
     Saudi Dialects Speech Corpus — Graduation Project,
     <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
       King Saud University
+    </a>
+<span> • </span>
+<a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit College of Computer and Information Sciences official website">
+      College: Computer and Information Sciences
     </a>
 <span> • </span>
 <a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
@@ -1098,7 +1315,12 @@ Total Audio Duration Seconds: 119.4</pre>
             "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">التخزين والتتبع متعدد الوجهات</strong> تُخزَّن المخرجات على خادم DigitalOcean وفي Cloudinary، بينما يُستخدم Airtable لتخزين بيانات المشاركين وسجلات التسجيلات وتتبع الملفات.",
             "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع مجموعة البيانات، وتتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
             "privacyNote": "يمكن للمشاركين الإلغاء قبل تأكيد الرفع النهائي. بعد بدء عملية الرفع النهائي، يُعد الإرسال معتمدًا ويتم تعطيل الإلغاء داخل البوت.",
-            "footerText": "Saudi Dialects Speech Corpus — مشروع تخرج،\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
+            "footerText": "Saudi Dialects Speech Corpus — Graduation Project,
+    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>
+    <span> • </span>
+    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a>
+    <span> • </span>
+    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
       }
 };
 
