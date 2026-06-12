@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMHRPF86R8"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZMHRPF86R8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,13 +11,11 @@
 
   gtag('config', 'G-ZMHRPF86R8');
 </script>
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A graduation project for collecting and processing Saudi dialect speech data using a Telegram bot, FFmpeg, Cloudinary, Airtable, and GitHub Pages." />
-  <title>Saudi Dialects Speech Corpus</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="A graduation project for collecting and processing Saudi dialect speech data using a Telegram bot, FFmpeg, Cloudinary, Airtable, and GitHub Pages." name="description"/>
+<title>Saudi Dialects Speech Corpus</title>
+<style>
     :root {
       --bg-color: #f6f8fb;
       --text-color: #1e293b;
@@ -402,204 +401,297 @@
         max-height: 430px;
       }
     }
+
+    .header-controls {
+      width: fit-content;
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .theme-panel {
+      margin: 0;
+      gap: 10px;
+    }
+
+    .theme-panel-label {
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .language-panel {
+      gap: 10px;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .language-button {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.88);
+      background: transparent;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .language-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .language-button.active {
+      background: #34d399;
+      color: #0f172a;
+    }
+
+    body.lang-ar {
+      direction: rtl;
+      text-align: right;
+    }
+
+    body.lang-ar header,
+    body.lang-ar .diagram-controls,
+    body.lang-ar footer {
+      text-align: center;
+    }
+
+    body.lang-ar .highlight-card,
+    body.lang-ar .workflow,
+    body.lang-ar .note {
+      border-left: none;
+      border-right: 5px solid var(--workflow-border);
+    }
+
+    body.lang-ar .highlight-card {
+      border-right-width: 4px;
+    }
+
+    body.lang-ar .note {
+      border-right-color: var(--note-border);
+    }
+
+    body.lang-ar .workflow,
+    body.lang-ar .metadata-preview,
+    body.lang-ar code,
+    body.lang-ar .format-box {
+      direction: ltr;
+      text-align: left;
+    }
+
+    body.lang-ar .naming-table th,
+    body.lang-ar .naming-table td {
+      text-align: right;
+    }
+
+    body.lang-ar ol,
+    body.lang-ar ul {
+      padding-left: 0;
+      padding-right: 24px;
+    }
+
+    @media (max-width: 700px) {
+      .header-controls {
+        width: 100%;
+      }
+
+      .theme-panel {
+        padding: 9px 12px;
+      }
+    }
+
   </style>
 </head>
-
 <body>
-
-  <header>
-    <h1>Saudi Dialects Speech Corpus</h1>
-    <p>
+<header>
+<h1 data-i18n="projectTitle">Saudi Dialects Speech Corpus</h1>
+<p data-i18n="headerSubtitle">
       A graduation project focused on building a structured Saudi dialect speech corpus
       through linguistically curated prompts, privacy-first data collection, and an automated
       Telegram-based ingestion pipeline.
     </p>
 
-    <div class="theme-panel">
-      <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
-        <input type="checkbox" id="themeToggle" />
-        <span class="slider">
-          <span class="switch-icon" aria-hidden="true">
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
-              <path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
-              <path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-            </svg>
-          </span>
-        </span>
-      </label>
-    </div>
-  </header>
+<div class="header-controls">
+<div class="theme-panel">
+<span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
+<label aria-label="Switch between light and dark mode" class="theme-switch" title="Switch between light and dark mode">
+<input id="themeToggle" type="checkbox"/>
+<span class="slider">
+<span aria-hidden="true" class="switch-icon">
+<svg class="sun-icon" fill="none" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"></circle>
+<path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<svg class="moon-icon" fill="none" viewbox="0 0 24 24">
+<path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</span>
+</label>
+</div>
+<div aria-label="Language selector" class="theme-panel language-panel">
+<span class="theme-panel-label" data-i18n="languageLabel">Language</span>
+<div aria-label="Switch language" class="language-switch" role="group">
+<button aria-pressed="true" class="language-button active" data-lang="en" id="langEn" type="button">EN</button>
+<button aria-pressed="false" class="language-button" data-lang="ar" id="langAr" type="button">AR</button>
+</div>
+</div>
+</div>
 
-  <main>
-
-    <section>
-      <h2>Project Overview</h2>
-      <p>
+</header>
+<main>
+<section>
+<h2 data-i18n="projectOverviewTitle">Project Overview</h2>
+<p data-i18n="overviewP1">
         The Saudi Dialects Speech Corpus project addresses the shortage of high-quality,
         dialect-specific Arabic speech data. While many Arabic language technologies perform
         reasonably well on Modern Standard Arabic, they often struggle with spontaneous daily
         speech, especially when the speaker uses regional Saudi dialects.
       </p>
-      <p>
+<p data-i18n="overviewP2">
         The project focuses on creating a structured speech corpus that captures natural Saudi
         dialectal variation while maintaining a privacy-first and scalable data collection
         architecture. Instead of treating the Telegram bot as the entire project, the bot is used
         as the main ingestion tool for a broader linguistic and data engineering pipeline.
       </p>
-    </section>
-
-    <section>
-      <h2>Why This Project Matters</h2>
-      <p>
+</section>
+<section>
+<h2 data-i18n="whyTitle">Why This Project Matters</h2>
+<p data-i18n="whyP1">
         Saudi Arabia contains a wide range of regional dialects shaped by geography, history,
         and social variation. Dialects such as Najdi, Hijazi, Southern, Eastern, and Northern
         varieties can differ in pronunciation, vocabulary, and morphology. This makes speech
         recognition difficult when models are trained mainly on formal Arabic or non-local data.
       </p>
-      <p>
+<p data-i18n="whyP2">
         A dedicated Saudi dialect speech corpus can support future improvements in Arabic
         Automatic Speech Recognition (ASR), voice assistants, digital accessibility, automated
         customer service, and smart city voice-based services.
       </p>
-    </section>
-
-    <section>
-      <h2>Corpus Design Methodology</h2>
-      <p>
+</section>
+<section>
+<h2 data-i18n="methodologyTitle">Corpus Design Methodology</h2>
+<p data-i18n="methodologyP1">
         The corpus was not built from random sentences. It was designed through a structured
         sentence selection process that combines public language input with phonetic curation.
         The goal is to cover Arabic phonemes and capture common Saudi expressions while
         reducing reading bias.
       </p>
-
-      <ol>
-        <li>
-          <strong>Public perception survey:</strong> Participants evaluated common phrases and
+<ol>
+<li data-i18n-html="methodLi1">
+<strong>Public perception survey:</strong> Participants evaluated common phrases and
           regional variation.
         </li>
-        <li>
-          <strong>Phrase nomination:</strong> Volunteers suggested daily Saudi expressions
+<li data-i18n-html="methodLi2">
+<strong>Phrase nomination:</strong> Volunteers suggested daily Saudi expressions
           commonly used in their region.
         </li>
-        <li>
-          <strong>Expert phonetic curation:</strong> The final prompt list was refined to ensure
+<li data-i18n-html="methodLi3">
+<strong>Expert phonetic curation:</strong> The final prompt list was refined to ensure
           broad phonetic coverage across Arabic sounds and dialectal usage.
         </li>
-      </ol>
-
-      <p>
+</ol>
+<p data-i18n="methodologyP2">
         The finalized textual corpus includes 30 predefined prompts and one optional free-speech
         prompt, labeled as S31, to capture more natural, unscripted dialectal speech.
       </p>
-    </section>
-
-    <section>
-      <h2>Project Highlights</h2>
-
-      <div class="highlight-grid">
-        <div class="highlight-card">
-          <strong>Privacy-first collection</strong>
+</section>
+<section>
+<h2 data-i18n="highlightsTitle">Project Highlights</h2>
+<div class="highlight-grid">
+<div class="highlight-card" data-i18n-html="highlightPrivacyCard">
+<strong data-i18n="highlightPrivacyTitle">Privacy-first collection</strong>
           The system avoids storing phone numbers and supports anonymous participation.
         </div>
-
-        <div class="highlight-card">
-          <strong>Phonetic coverage</strong>
+<div class="highlight-card" data-i18n-html="highlightPhoneticCard">
+<strong data-i18n="highlightPhoneticTitle">Phonetic coverage</strong>
           The 30-sentence corpus is curated to cover Arabic phonemes and dialectal variation.
         </div>
-
-        <div class="highlight-card">
-          <strong>Automated ingestion</strong>
+<div class="highlight-card" data-i18n-html="highlightAutomationCard">
+<strong data-i18n="highlightAutomationTitle">Automated ingestion</strong>
           A Telegram bot manages participant flow, recordings, validation, and processing.
         </div>
-
-        <div class="highlight-card">
-          <strong>Multi-destination storage and tracking</strong>
+<div class="highlight-card" data-i18n-html="highlightStorageCard">
+<strong data-i18n="highlightStorageTitle">Multi-destination storage and tracking</strong>
           Outputs are stored on the server and in Cloudinary, while Airtable is used for participant metadata, recording records, and file tracking.
         </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Corpus Collection Statistics</h2>
-      <p>
+</div>
+</section>
+<section>
+<h2 data-i18n="statsTitle">Corpus Collection Statistics</h2>
+<p data-i18n="statsP">
         View the updated progress of the Saudi Dialects Speech Corpus, including participant count,
         recording count, collected minutes, and progress toward the project goals.
       </p>
-
-      <div class="diagram-controls">
-        <a href="stats.html" class="diagram-button">View Corpus Statistics</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Telegram Bot Workflow</h2>
-      <p>
+<div class="diagram-controls">
+<a class="diagram-button" data-i18n="viewStatsButton" href="stats.html">View Corpus Statistics</a>
+</div>
+</section>
+<section>
+<h2 data-i18n="botWorkflowTitle">Telegram Bot Workflow</h2>
+<p data-i18n="botWorkflowP">
         The Telegram bot is the main interface that guides participants through the data
         collection process.
       </p>
-
-      <ol>
-        <li>The participant starts the bot using <code>/start</code>.</li>
-        <li>The bot displays the privacy policy and requires explicit consent.</li>
-        <li>The bot collects participant metadata such as age, gender, dialect region, education level, and device type.</li>
-        <li>The bot displays a recording notice asking the participant to remove headphones and record directly using the phone microphone.</li>
-        <li>The participant records 30 predefined phonetically curated sentences.</li>
-        <li>For each sentence, the participant can approve the recording or re-record it.</li>
-        <li>The participant may optionally record a free-speech sample or skip this step.</li>
-        <li>The bot shows a final confirmation button before processing and uploading the files.</li>
-        <li>After final confirmation, the audio files are processed, renamed, compressed, uploaded, and stored.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Telegram Bot User Workflow Diagram</h2>
-      <p>
+<ol>
+<li data-i18n-html="botLi1">The participant starts the bot using <code>/start</code>.</li>
+<li data-i18n="botLi2">The bot displays the privacy policy and requires explicit consent.</li>
+<li data-i18n="botLi3">The bot collects participant metadata such as age, gender, dialect region, education level, and device type.</li>
+<li data-i18n="botLi4">The bot displays a recording notice asking the participant to remove headphones and record directly using the phone microphone.</li>
+<li data-i18n="botLi5">The participant records 30 predefined phonetically curated sentences.</li>
+<li data-i18n="botLi6">For each sentence, the participant can approve the recording or re-record it.</li>
+<li data-i18n="botLi7">The participant may optionally record a free-speech sample or skip this step.</li>
+<li data-i18n="botLi8">The bot shows a final confirmation button before processing and uploading the files.</li>
+<li data-i18n="botLi9">After final confirmation, the audio files are processed, renamed, compressed, uploaded, and stored.</li>
+</ol>
+</section>
+<section>
+<h2 data-i18n="userDiagramTitle">Telegram Bot User Workflow Diagram</h2>
+<p data-i18n="userDiagramP">
         This diagram shows the participant journey from consent approval to final file upload.
       </p>
-
-      <div class="diagram-frame" id="userWorkflowFrame">
-        <img 
-          src="assets/user-workflow.png" 
-          alt="Telegram Bot User Workflow Diagram" 
-          class="diagram-image"
-        />
-      </div>
-
-      <div class="diagram-controls">
-        <button class="diagram-button" onclick="toggleDiagram('userWorkflowFrame', this)">
+<div class="diagram-frame" id="userWorkflowFrame">
+<img alt="Telegram Bot User Workflow Diagram" class="diagram-image" src="assets/user-workflow.png"/>
+</div>
+<div class="diagram-controls">
+<button class="diagram-button" data-i18n="showFullDiagram" onclick="toggleDiagram('userWorkflowFrame', this)">
           Show full diagram
         </button>
-      </div>
-    </section>
-
-    <section>
-      <h2>System Architecture & Data Pipeline</h2>
-      <p>
+</div>
+</section>
+<section>
+<h2 data-i18n="architectureTitle">System Architecture &amp; Data Pipeline</h2>
+<p data-i18n="architectureP">
         This diagram shows how approved voice recordings are processed, stored, and linked
         across backend services.
       </p>
-
-      <div class="diagram-frame" id="systemArchitectureFrame">
-        <img 
-          src="assets/system-architecture.png" 
-          alt="System Architecture and Data Pipeline Diagram" 
-          class="diagram-image"
-        />
-      </div>
-
-      <div class="diagram-controls">
-        <button class="diagram-button" onclick="toggleDiagram('systemArchitectureFrame', this)">
+<div class="diagram-frame" id="systemArchitectureFrame">
+<img alt="System Architecture and Data Pipeline Diagram" class="diagram-image" src="assets/system-architecture.png"/>
+</div>
+<div class="diagram-controls">
+<button class="diagram-button" data-i18n="showFullDiagram" onclick="toggleDiagram('systemArchitectureFrame', this)">
           Show full diagram
         </button>
-      </div>
-    </section>
-
-    <section>
-      <h2>System Workflow</h2>
-      <div class="workflow">
+</div>
+</section>
+<section>
+<h2 data-i18n="systemWorkflowTitle">System Workflow</h2>
+<div class="workflow">
 Participant
    ↓
 Telegram Bot
@@ -616,168 +708,148 @@ File Renaming
    ↓
 ZIP Archive + info.txt
    ↓
-Server Storage + Cloudinary + Airtable Storage & Tracking
+Server Storage + Cloudinary + Airtable Storage &amp; Tracking
       </div>
-    </section>
-
-    <section>
-      <h2>Audio Processing</h2>
-      <p>
+</section>
+<section>
+<h2 data-i18n="audioProcessingTitle">Audio Processing</h2>
+<p data-i18n="audioProcessingP">
         Telegram voice notes are received in OGG format. The Python backend uses FFmpeg
         to convert each approved recording into a standardized WAV file.
       </p>
-      <ul>
-        <li>WAV format</li>
-        <li>44.1kHz sample rate</li>
-        <li>Mono channel</li>
-        <li>PCM 16-bit encoding</li>
-        <li>FFprobe is used to calculate the total audio duration for each participant session.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Recording Duration Rules</h2>
-      <ul>
-        <li>Each predefined sentence has a maximum recording duration of 15 seconds.</li>
-        <li>The optional free-speech recording has a maximum duration of 35 seconds.</li>
-        <li>If the participant exceeds the allowed duration, the bot asks them to re-record.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Storage Architecture</h2>
-      <p>The system uses a multi-destination storage and tracking architecture:</p>
-      <ul>
-        <li><strong>Server Storage:</strong> stores the generated ZIP archive, processed audio files, and metadata file on the project server.</li>
-        <li><strong>Cloudinary:</strong> stores uploaded audio files and metadata files for cloud accessibility.</li>
-        <li><strong>Airtable:</strong> stores participant metadata and recording records for review and tracking.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>File Naming Convention</h2>
-
-      <p>
+<ul>
+<li data-i18n="wavFormat">WAV format</li>
+<li data-i18n="sampleRate">44.1kHz sample rate</li>
+<li data-i18n="monoChannel">Mono channel</li>
+<li data-i18n="pcmEncoding">PCM 16-bit encoding</li>
+<li data-i18n="ffprobeLi">FFprobe is used to calculate the total audio duration for each participant session.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="durationRulesTitle">Recording Duration Rules</h2>
+<ul>
+<li data-i18n="durationLi1">Each predefined sentence has a maximum recording duration of 15 seconds.</li>
+<li data-i18n="durationLi2">The optional free-speech recording has a maximum duration of 35 seconds.</li>
+<li data-i18n="durationLi3">If the participant exceeds the allowed duration, the bot asks them to re-record.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="storageTitle">Storage Architecture</h2>
+<p data-i18n="storageP">The system uses a multi-destination storage and tracking architecture:</p>
+<ul>
+<li data-i18n-html="storageLi1"><strong>Server Storage:</strong> stores the generated ZIP archive, processed audio files, and metadata file on the project server.</li>
+<li data-i18n-html="storageLi2"><strong>Cloudinary:</strong> stores uploaded audio files and metadata files for cloud accessibility.</li>
+<li data-i18n-html="storageLi3"><strong>Airtable:</strong> stores participant metadata and recording records for review and tracking.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="namingTitle">File Naming Convention</h2>
+<p data-i18n="namingP1">
         Each audio file follows a structured naming format designed to encode the dialect,
         speaker identity, sentence number, device type, and recording attempt directly in the filename.
       </p>
-
-      <p>
-        <code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
-      </p>
-
-      <p><strong>Example only:</strong></p>
-
-      <p>
-        <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>
-      </p>
-
-      <div class="table-wrapper">
-        <table class="naming-table">
-          <thead>
-            <tr>
-              <th>Part</th>
-              <th>Meaning</th>
-              <th>Example</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>KSU_DIA</code></td>
-              <td>Project prefix for the Saudi Dialects Speech Corpus.</td>
-              <td><code>KSU_DIA</code></td>
-            </tr>
-
-            <tr>
-              <td><code>D[Dialect_Code]</code></td>
-              <td>Dialect region code assigned to the participant's dialect classification.</td>
-              <td><code>D01</code></td>
-            </tr>
-
-            <tr>
-              <td><code>SPK[Gender_Digit][Speaker_ID]</code></td>
-              <td>
+<p>
+<code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
+</p>
+<p><strong data-i18n="exampleOnly">Example only:</strong></p>
+<p>
+<code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>
+</p>
+<div class="table-wrapper">
+<table class="naming-table">
+<thead>
+<tr>
+<th data-i18n="tablePart">Part</th>
+<th data-i18n="tableMeaning">Meaning</th>
+<th data-i18n="tableExample">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>KSU_DIA</code></td>
+<td data-i18n="projectPrefixMeaning">Project prefix for the Saudi Dialects Speech Corpus.</td>
+<td><code>KSU_DIA</code></td>
+</tr>
+<tr>
+<td><code>D[Dialect_Code]</code></td>
+<td data-i18n="dialectCodeMeaning">Dialect region code assigned to the participant's dialect classification.</td>
+<td><code>D01</code></td>
+</tr>
+<tr>
+<td><code>SPK[Gender_Digit][Speaker_ID]</code></td>
+<td data-i18n-html="speakerIdentifierTd">
                 Speaker identifier. The first digit after <code>SPK</code> represents gender:
-                <br />
-                <strong>1 = Male</strong>
-                <br />
-                <strong>0 = Female</strong>
-                <br />
+                <br/>
+<strong>1 = Male</strong>
+<br/>
+<strong>0 = Female</strong>
+<br/>
                 The remaining digits represent the speaker ID.
               </td>
-              <td>
-                <code>SPK10073</code>
-                <br />
+<td>
+<code>SPK10073</code>
+<br/>
                 Gender = 1
-                <br />
+                <br/>
                 Speaker ID = 0073
               </td>
-            </tr>
-
-            <tr>
-              <td><code>S[Sentence_ID]</code></td>
-              <td>Sentence number recorded by the participant.</td>
-              <td><code>S05</code> = sentence 5</td>
-            </tr>
-
-            <tr>
-              <td><code>T[Device_Code][Attempt_Counter]</code></td>
-              <td>
+</tr>
+<tr>
+<td><code>S[Sentence_ID]</code></td>
+<td data-i18n="sentenceNumberMeaning">Sentence number recorded by the participant.</td>
+<td><code>S05</code> = sentence 5</td>
+</tr>
+<tr>
+<td><code>T[Device_Code][Attempt_Counter]</code></td>
+<td data-i18n-html="deviceAttemptTd">
                 Device and attempt code. The first digit after <code>T</code> represents device type:
-                <br />
-                <strong>1 = iPhone</strong>
-                <br />
-                <strong>0 = Android</strong>
-                <br />
+                <br/>
+<strong>1 = iPhone</strong>
+<br/>
+<strong>0 = Android</strong>
+<br/>
                 The second digit represents the recording attempt number, with a maximum of 3 attempts.
               </td>
-              <td>
-                <code>T11</code>
-                <br />
+<td>
+<code>T11</code>
+<br/>
                 Device = iPhone
-                <br />
+                <br/>
                 Attempt = 1
               </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
         Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the file belongs to
         dialect code <code>D01</code>, a male speaker with ID <code>0073</code>, sentence number
         <code>05</code>, recorded using an iPhone on the first attempt.
       </p>
-
-      <p>
+<p data-i18n="additionalExamples">
         Additional examples:
       </p>
-
-      <ul>
-        <li><code>SPK00073</code>: female speaker, speaker ID 0073.</li>
-        <li><code>SPK10073</code>: male speaker, speaker ID 0073.</li>
-        <li><code>T01</code>: Android, first attempt.</li>
-        <li><code>T03</code>: Android, third attempt.</li>
-        <li><code>T11</code>: iPhone, first attempt.</li>
-        <li><code>T13</code>: iPhone, third attempt.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Metadata File Storage</h2>
-
-      <p>
+<ul>
+<li data-i18n-html="exampleSpkFemale"><code>SPK00073</code>: female speaker, speaker ID 0073.</li>
+<li data-i18n-html="exampleSpkMale"><code>SPK10073</code>: male speaker, speaker ID 0073.</li>
+<li data-i18n-html="exampleT01"><code>T01</code>: Android, first attempt.</li>
+<li data-i18n-html="exampleT03"><code>T03</code>: Android, third attempt.</li>
+<li data-i18n-html="exampleT11"><code>T11</code>: iPhone, first attempt.</li>
+<li data-i18n-html="exampleT13"><code>T13</code>: iPhone, third attempt.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="metadataTitle">Metadata File Storage</h2>
+<p>
         In addition to the audio files, the system generates a server-side metadata file named
         <code>info.txt</code> for each participant. This file preserves session information,
         participant profile fields, dialect and location details, recording context, and an
         audio duration summary.
       </p>
-
-      <p>
+<p data-i18n="exampleOnly">
         Example only:
       </p>
-
-      <pre class="metadata-preview">=== SPK0073 ===
+<pre class="metadata-preview">=== SPK0073 ===
 
 [Session Information]
 SPKID: SPK0073
@@ -814,82 +886,178 @@ Free Topic: Future Plans and Goals
 [Audio Summary]
 Total Audio Duration: 01:59
 Total Audio Duration Seconds: 119.4</pre>
-
-      <div class="note">
+<div class="note" data-i18n="metadataNote">
         This metadata file is intended for research organization and dataset traceability.
         The collection process avoids storing phone numbers or direct personal identifiers.
       </div>
-    </section>
-
-    <section>
-      <h2>Privacy and Consent</h2>
-      <p>
+</section>
+<section>
+<h2 data-i18n="privacyTitle">Privacy and Consent</h2>
+<p data-i18n="privacyP1">
         The bot displays the privacy policy before collecting participant data. Participants must
         explicitly agree before continuing. The privacy message also links to this project page so
         participants can review the bot workflow, storage approach, and data handling process.
         The system avoids collecting phone numbers and allows participants to use a nickname or pseudonym.
       </p>
-      <div class="note">
+<div class="note" data-i18n="privacyNote">
         Participants can cancel before the final upload confirmation. Once the final upload process starts,
         the submission is considered approved and cancellation is disabled inside the bot.
       </div>
-    </section>
-
-    <section>
-      <h2>Reliability and Error Handling</h2>
-      <p>
+</section>
+<section>
+<h2 data-i18n="reliabilityTitle">Reliability and Error Handling</h2>
+<p data-i18n="reliabilityP1">
         The system includes safeguards for upload failures and server availability. If an upload
         error occurs after recordings have been saved on the server, the participant receives a
         clear error message, and an admin alert is sent with the error time, SPKID, saved file count,
         and error details.
       </p>
-      <p>
+<p data-i18n="reliabilityP2">
         The server is also monitored using Healthchecks. A periodic ping confirms that the service is
         running, and an alert is sent if the server remains unavailable for a continuous failure window.
       </p>
-    </section>
-
-    <section>
-      <h2>Technologies Used</h2>
-      <ul>
-        <li>Python</li>
-        <li>Telegram Bot API</li>
-        <li>FFmpeg</li>
-        <li>FFprobe</li>
-        <li>DigitalOcean</li>
-        <li>Airtable</li>
-        <li>Cloudinary</li>
-        <li>GitHub Pages</li>
-        <li>GitHub Actions</li>
-        <li>Healthchecks</li>
-      </ul>
-    </section>
-
-  </main>
-
-  <footer>
+</section>
+<section>
+<h2 data-i18n="technologiesTitle">Technologies Used</h2>
+<ul>
+<li>Python</li>
+<li>Telegram Bot API</li>
+<li>FFmpeg</li>
+<li>FFprobe</li>
+<li>DigitalOcean</li>
+<li>Airtable</li>
+<li>Cloudinary</li>
+<li>GitHub Pages</li>
+<li>GitHub Actions</li>
+<li>Healthchecks</li>
+</ul>
+</section>
+</main>
+<footer data-i18n-html="footerText">
     Saudi Dialects Speech Corpus — Graduation Project,
-    <a 
-      href="https://ksu.edu.sa/en" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      class="ksu-link"
-      title="Visit King Saud University official website"
-    >
+    <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
       King Saud University
     </a>
-    <span> • </span>
-    <a
-      href="mailto:Saudi.Dialects@outlook.sa"
-      class="ksu-link"
-      title="Contact the Saudi Dialects Speech Corpus project"
-    >
+<span> • </span>
+<a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
       Contact: Saudi.Dialects@outlook.sa
     </a>
-  </footer>
+</footer>
 
-  <script>
+<script>
     const themeToggle = document.getElementById("themeToggle");
+    const languageButtons = document.querySelectorAll(".language-button");
+
+    const translations = {
+      "ar": {
+            "projectTitle": "مدونة الأصوات للهجات السعودية",
+            "projectOverviewTitle": "نظرة عامة على المشروع",
+            "whyTitle": "أهمية المشروع",
+            "methodologyTitle": "منهجية تصميم corpus",
+            "highlightsTitle": "أبرز مميزات المشروع",
+            "statsTitle": "إحصائيات جمع corpus",
+            "viewStatsButton": "عرض إحصائيات corpus",
+            "botWorkflowTitle": "مسار عمل بوت Telegram",
+            "userDiagramTitle": "مخطط رحلة المستخدم في بوت Telegram",
+            "architectureTitle": "معمارية النظام ومسار البيانات",
+            "systemWorkflowTitle": "مسار عمل النظام",
+            "audioProcessingTitle": "معالجة الصوت",
+            "durationRulesTitle": "قواعد مدة التسجيل",
+            "storageTitle": "معمارية التخزين",
+            "namingTitle": "آلية تسمية الملفات",
+            "metadataTitle": "تخزين ملف البيانات الوصفية",
+            "privacyTitle": "الخصوصية والموافقة",
+            "reliabilityTitle": "الاعتمادية ومعالجة الأخطاء",
+            "technologiesTitle": "التقنيات المستخدمة",
+            "showFullDiagram": "عرض المخطط كاملًا",
+            "collapseDiagram": "إغلاق المخطط",
+            "highlightPrivacyTitle": "جمع بيانات يحترم الخصوصية",
+            "highlightPhoneticTitle": "تغطية صوتية",
+            "highlightAutomationTitle": "إدخال بيانات آلي",
+            "highlightStorageTitle": "تخزين وتتبع متعدد الوجهات",
+            "wavFormat": "صيغة WAV",
+            "sampleRate": "معدل عينة 44.1kHz",
+            "monoChannel": "قناة صوتية أحادية",
+            "pcmEncoding": "ترميز PCM 16-bit",
+            "additionalExamples": "أمثلة إضافية:",
+            "exampleOnly": "مثال فقط:",
+            "tablePart": "الجزء",
+            "tableMeaning": "المعنى",
+            "tableExample": "المثال",
+            "projectPrefixMeaning": "بادئة المشروع الخاصة بـ Saudi Dialects Speech Corpus.",
+            "dialectCodeMeaning": "رمز منطقة اللهجة المرتبط بتصنيف لهجة المشارك.",
+            "sentenceNumberMeaning": "رقم الجملة التي سجلها المشارك.",
+            "displayMode": "وضع العرض",
+            "languageLabel": "اللغة",
+            "headerSubtitle": "مشروع تخرج يهدف إلى بناء corpus صوتي منظم للهجات السعودية من خلال جمل مختارة لغويًا، وجمع بيانات يراعي الخصوصية، ومسار إدخال آلي عبر Telegram.",
+            "overviewP1": "يعالج مشروع Saudi Dialects Speech Corpus نقص البيانات الصوتية العربية عالية الجودة والمخصصة للهجات. فبينما تعمل كثير من تقنيات اللغة العربية بشكل جيد مع العربية الفصحى، فإنها غالبًا تواجه صعوبة مع الكلام اليومي العفوي، خصوصًا عند استخدام لهجات سعودية إقليمية.",
+            "overviewP2": "يركز المشروع على إنشاء corpus صوتي منظم يعكس التنوع الطبيعي في اللهجات السعودية، مع الحفاظ على معمارية جمع بيانات قابلة للتوسع وتراعي الخصوصية. ولا يُعد بوت Telegram هو المشروع كاملًا، بل هو أداة الإدخال الرئيسية ضمن مسار أوسع يجمع بين الجانب اللغوي وهندسة البيانات.",
+            "whyP1": "تضم المملكة العربية السعودية تنوعًا واسعًا من اللهجات الإقليمية التي تأثرت بالجغرافيا والتاريخ والتنوع الاجتماعي. وقد تختلف لهجات مثل النجدية والحجازية والجنوبية والشرقية والشمالية في النطق والمفردات والبنية اللغوية، مما يجعل التعرف الآلي على الكلام أصعب عندما تُدرّب النماذج غالبًا على العربية الفصحى أو بيانات غير محلية.",
+            "whyP2": "يمكن أن يدعم corpus مخصص للهجات السعودية تطوير أنظمة Arabic Automatic Speech Recognition (ASR)، والمساعدات الصوتية، وإمكانية الوصول الرقمية، وخدمات العملاء الآلية، وخدمات المدن الذكية المعتمدة على الصوت.",
+            "methodologyP1": "لم يُبنَ corpus من جمل عشوائية. تم تصميمه من خلال عملية منظمة لاختيار الجمل تجمع بين مدخلات لغوية من الجمهور وتنقيح صوتي، بهدف تغطية الأصوات العربية والتقاط تعبيرات سعودية شائعة مع تقليل تحيز القراءة.",
+            "methodologyP2": "يتضمن corpus النصي النهائي 30 جملة محددة مسبقًا وجملة اختيارية للكلام الحر باسم S31، بهدف التقاط كلام لهجي أكثر طبيعية وغير مكتوب مسبقًا.",
+            "statsP": "اعرض آخر تقدم في Saudi Dialects Speech Corpus، بما يشمل عدد المشاركين، وعدد التسجيلات، والدقائق المجموعة، ومدى التقدم نحو أهداف المشروع.",
+            "botWorkflowP": "يُعد بوت Telegram الواجهة الرئيسية التي ترشد المشاركين خلال عملية جمع البيانات.",
+            "botLi2": "يعرض البوت سياسة الخصوصية ويتطلب موافقة صريحة.",
+            "botLi3": "يجمع البوت بيانات وصفية عن المشارك مثل العمر، والجنس، ومنطقة اللهجة، والمستوى التعليمي، ونوع الجهاز.",
+            "botLi4": "يعرض البوت تنبيهًا للتسجيل يطلب من المشارك إزالة السماعات والتسجيل مباشرة باستخدام ميكروفون الهاتف.",
+            "botLi5": "يسجل المشارك 30 جملة محددة مسبقًا ومنتقاة صوتيًا.",
+            "botLi6": "لكل جملة، يستطيع المشارك اعتماد التسجيل أو إعادة تسجيله.",
+            "botLi7": "يمكن للمشارك تسجيل عينة كلام حر اختياريًا أو تخطي هذه الخطوة.",
+            "botLi8": "يعرض البوت زر تأكيد نهائي قبل معالجة الملفات ورفعها.",
+            "botLi9": "بعد التأكيد النهائي، تُعالج الملفات الصوتية، وتُعاد تسميتها، وتُضغط، وتُرفع، وتُخزن.",
+            "userDiagramP": "يوضح هذا المخطط رحلة المشارك من الموافقة على الخصوصية حتى رفع الملفات النهائي.",
+            "architectureP": "يوضح هذا المخطط كيف تتم معالجة التسجيلات الصوتية المعتمدة وتخزينها وربطها عبر خدمات backend.",
+            "audioProcessingP": "تُستقبل الملاحظات الصوتية من Telegram بصيغة OGG. يستخدم backend المكتوب بـ Python أداة FFmpeg لتحويل كل تسجيل معتمد إلى ملف WAV موحد.",
+            "ffprobeLi": "تُستخدم FFprobe لحساب إجمالي مدة الصوت لكل جلسة مشاركة.",
+            "durationLi1": "كل جملة محددة مسبقًا لها حد أقصى للتسجيل قدره 15 ثانية.",
+            "durationLi2": "تسجيل الكلام الحر الاختياري له حد أقصى قدره 35 ثانية.",
+            "durationLi3": "إذا تجاوز المشارك المدة المسموحة، يطلب منه البوت إعادة التسجيل.",
+            "storageP": "يستخدم النظام معمارية تخزين وتتبع متعددة الوجهات:",
+            "namingP1": "يتبع كل ملف صوتي صيغة تسمية منظمة تُضمّن اللهجة، وهوية المتحدث، ورقم الجملة، ونوع الجهاز، ورقم المحاولة مباشرة داخل اسم الملف.",
+            "basedExampleP": "بناءً على المثال KSU_DIA_D01_SPK10073_S05_T11.wav، فالملف مرتبط برمز اللهجة D01، ومتحدث ذكر بمعرف 0073، وجملة رقم 05، وتم تسجيله باستخدام iPhone في المحاولة الأولى.",
+            "metadataP1": "بالإضافة إلى الملفات الصوتية، ينشئ النظام ملف بيانات وصفية على السيرفر باسم info.txt لكل مشارك. يحفظ هذا الملف معلومات الجلسة، وحقول ملف المشارك، وتفاصيل اللهجة والموقع، وسياق التسجيل، وملخص مدة الصوت.",
+            "privacyP1": "يعرض البوت سياسة الخصوصية قبل جمع بيانات المشارك، ويجب على المشارك الموافقة صراحة قبل المتابعة. كما تحتوي رسالة الخصوصية على رابط لهذه الصفحة حتى يتمكن المشاركون من مراجعة مسار عمل البوت، وطريقة التخزين، وآلية التعامل مع البيانات. يتجنب النظام جمع أرقام الهواتف ويسمح للمشاركين باستخدام اسم مستعار.",
+            "reliabilityP1": "يتضمن النظام إجراءات حماية لحالات فشل الرفع وتوفر السيرفر. إذا حدث خطأ أثناء الرفع بعد حفظ التسجيلات على السيرفر، يتلقى المشارك رسالة خطأ واضحة، ويتم إرسال تنبيه للمسؤول يتضمن وقت الخطأ، وSPKID، وعدد الملفات المحفوظة، وتفاصيل الخطأ.",
+            "reliabilityP2": "تتم مراقبة السيرفر أيضًا باستخدام Healthchecks. يؤكد ping دوري أن الخدمة تعمل، ويتم إرسال تنبيه إذا بقي السيرفر غير متاح خلال فترة فشل متصلة.",
+            "methodLi1": "<strong>استبيان الانطباع العام:</strong> قيّم المشاركون عبارات شائعة وتنوعات إقليمية.",
+            "methodLi2": "<strong>ترشيح العبارات:</strong> اقترح متطوعون تعبيرات سعودية يومية شائعة في مناطقهم.",
+            "methodLi3": "<strong>تنقيح صوتي متخصص:</strong> تم تحسين قائمة الجمل النهائية لضمان تغطية صوتية واسعة للأصوات العربية والاستخدام اللهجي.",
+            "botLi1": "يبدأ المشارك استخدام البوت عبر الأمر <code>/start</code>.",
+            "storageLi1": "<strong>Server Storage:</strong> يخزن أرشيف ZIP الناتج، والملفات الصوتية المعالجة، وملف البيانات الوصفية على سيرفر المشروع.",
+            "storageLi2": "<strong>Cloudinary:</strong> يخزن الملفات الصوتية وملفات البيانات الوصفية المرفوعة للوصول السحابي.",
+            "storageLi3": "<strong>Airtable:</strong> يخزن بيانات المشاركين الوصفية وسجلات التسجيل للمراجعة والتتبع.",
+            "speakerIdentifierTd": "معرّف المتحدث. الرقم الأول بعد <code>SPK</code> يمثل الجنس:<br><strong>1 = Male</strong><br><strong>0 = Female</strong><br>والأرقام المتبقية تمثل Speaker ID.",
+            "deviceAttemptTd": "رمز الجهاز والمحاولة. الرقم الأول بعد <code>T</code> يمثل نوع الجهاز:<br><strong>1 = iPhone</strong><br><strong>0 = Android</strong><br>والرقم الثاني يمثل رقم محاولة التسجيل، بحد أقصى 3 محاولات.",
+            "exampleSpkFemale": "<code>SPK00073</code>: متحدثة أنثى، speaker ID 0073.",
+            "exampleSpkMale": "<code>SPK10073</code>: متحدث ذكر، speaker ID 0073.",
+            "exampleT01": "<code>T01</code>: Android، المحاولة الأولى.",
+            "exampleT03": "<code>T03</code>: Android، المحاولة الثالثة.",
+            "exampleT11": "<code>T11</code>: iPhone، المحاولة الأولى.",
+            "exampleT13": "<code>T13</code>: iPhone، المحاولة الثالثة.",
+            "highlightPrivacyCard": "<strong data-i18n=\"highlightPrivacyTitle\">جمع بيانات يحترم الخصوصية</strong> يتجنب النظام تخزين أرقام الهواتف ويدعم المشاركة دون الكشف عن الهوية.",
+            "highlightPhoneticCard": "<strong data-i18n=\"highlightPhoneticTitle\">تغطية صوتية</strong> صُمم corpus المكون من 30 جملة لتغطية الأصوات العربية والتنوع اللهجي.",
+            "highlightAutomationCard": "<strong data-i18n=\"highlightAutomationTitle\">إدخال بيانات آلي</strong> يدير بوت Telegram مسار المشارك، والتسجيلات، والتحقق، والمعالجة.",
+            "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">تخزين وتتبع متعدد الوجهات</strong> تُخزن المخرجات على السيرفر وفي Cloudinary، بينما يُستخدم Airtable لبيانات المشاركين، وسجلات التسجيل، وتتبع الملفات.",
+            "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع بيانات dataset. تتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
+            "privacyNote": "يمكن للمشاركين الإلغاء قبل تأكيد الرفع النهائي. بعد بدء عملية الرفع النهائي، يُعد الإرسال معتمدًا ويتم تعطيل الإلغاء داخل البوت.",
+            "footerText": "Saudi Dialects Speech Corpus — مشروع تخرج،\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
+      }
+};
+
+    const englishDefaults = {};
+
+    document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function (element) {
+      const key = element.dataset.i18n || element.dataset.i18nHtml;
+
+      if (element.dataset.i18nHtml) {
+        englishDefaults[key] = element.innerHTML;
+      } else {
+        englishDefaults[key] = element.textContent;
+      }
+    });
+
+    let currentLanguage = "en";
 
     function applyTheme(theme) {
       if (theme === "dark") {
@@ -901,8 +1069,51 @@ Total Audio Duration Seconds: 119.4</pre>
       }
     }
 
+    function translateValue(key) {
+      if (currentLanguage === "ar" && translations.ar[key]) {
+        return translations.ar[key];
+      }
+
+      return englishDefaults[key] || "";
+    }
+
+    function applyLanguage(language) {
+      currentLanguage = language === "ar" ? "ar" : "en";
+
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+      document.body.classList.toggle("lang-ar", currentLanguage === "ar");
+
+      document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function (element) {
+        const key = element.dataset.i18n || element.dataset.i18nHtml;
+        const value = translateValue(key);
+
+        if (element.dataset.i18nHtml) {
+          element.innerHTML = value;
+        } else {
+          element.textContent = value;
+        }
+      });
+
+      languageButtons.forEach(function (button) {
+        const isActive = button.dataset.lang === currentLanguage;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      document.querySelectorAll(".diagram-button").forEach(function (button) {
+        const frameId = button.getAttribute("onclick")?.match(/'([^']+)'/)?.[1];
+        const frame = frameId ? document.getElementById(frameId) : null;
+        const isExpanded = frame ? frame.classList.contains("expanded") : false;
+        button.textContent = isExpanded ? translateValue("collapseDiagram") : translateValue("showFullDiagram");
+      });
+    }
+
     const savedTheme = localStorage.getItem("theme") || "dark";
     applyTheme(savedTheme);
+
+    const savedLanguage = localStorage.getItem("language") || "en";
+    applyLanguage(savedLanguage);
 
     themeToggle.addEventListener("change", function () {
       const newTheme = themeToggle.checked ? "dark" : "light";
@@ -910,15 +1121,23 @@ Total Audio Duration Seconds: 119.4</pre>
       applyTheme(newTheme);
     });
 
+    languageButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const newLanguage = button.dataset.lang === "ar" ? "ar" : "en";
+        localStorage.setItem("language", newLanguage);
+        applyLanguage(newLanguage);
+      });
+    });
+
     function toggleDiagram(frameId, button) {
       const frame = document.getElementById(frameId);
       const isExpanded = frame.classList.toggle("expanded");
 
       if (isExpanded) {
-        button.textContent = "Collapse diagram";
+        button.textContent = translateValue("collapseDiagram");
         frame.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
-        button.textContent = "Show full diagram";
+        button.textContent = translateValue("showFullDiagram");
         frame.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
