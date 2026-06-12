@@ -137,29 +137,30 @@
     }
 
     .theme-panel {
-      max-width: 760px;
+      width: fit-content;
       margin: 18px auto 0;
-      padding: 14px 18px;
-      border-radius: 16px;
+      padding: 10px 14px;
+      border-radius: 999px;
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(7px);
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 18px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    .theme-panel span {
+    .theme-panel-label {
       font-weight: bold;
       font-size: 15px;
+      color: var(--header-text);
     }
 
     .theme-switch {
       position: relative;
       display: inline-block;
-      width: 56px;
-      height: 30px;
+      width: 62px;
+      height: 34px;
     }
 
     .theme-switch input {
@@ -180,13 +181,37 @@
     .slider:before {
       position: absolute;
       content: "";
-      height: 24px;
-      width: 24px;
+      height: 28px;
+      width: 28px;
       left: 3px;
       bottom: 3px;
       background-color: white;
       transition: 0.25s;
       border-radius: 50%;
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18);
+    }
+
+    .switch-icon {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 8px;
+      bottom: 8px;
+      color: #f59e0b;
+      z-index: 1;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .switch-icon svg {
+      position: absolute;
+      inset: 0;
+      width: 18px;
+      height: 18px;
+      transition: opacity 0.2s ease;
+    }
+
+    .moon-icon {
+      opacity: 0;
     }
 
     input:checked + .slider {
@@ -194,7 +219,20 @@
     }
 
     input:checked + .slider:before {
-      transform: translateX(26px);
+      transform: translateX(28px);
+    }
+
+    input:checked + .slider .switch-icon {
+      transform: translateX(28px);
+      color: #0f172a;
+    }
+
+    input:checked + .slider .sun-icon {
+      opacity: 0;
+    }
+
+    input:checked + .slider .moon-icon {
+      opacity: 1;
     }
 
     .button,
@@ -707,12 +745,21 @@
     </div>
 
     <div class="theme-panel">
-      <span>Choose your preferred viewing mode.</span>
-      <label class="theme-switch" title="Switch between light and dark mode">
+      <span class="theme-panel-label">Display Mode</span>
+      <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
         <input type="checkbox" id="themeToggle" />
-        <span class="slider"></span>
+        <span class="slider">
+          <span class="switch-icon" aria-hidden="true">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
+              <path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </span>
       </label>
-      <span id="themeLabel">Light Mode</span>
     </div>
   </header>
 
@@ -902,17 +949,14 @@
 
   <script>
     const themeToggle = document.getElementById("themeToggle");
-    const themeLabel = document.getElementById("themeLabel");
 
     function applyTheme(theme) {
       if (theme === "dark") {
         document.body.classList.add("dark-mode");
         themeToggle.checked = true;
-        themeLabel.textContent = "Light Mode";
       } else {
         document.body.classList.remove("dark-mode");
         themeToggle.checked = false;
-        themeLabel.textContent = "Dark Mode";
       }
     }
 
