@@ -22,10 +22,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check 73-minute update interval
+      - name: Check 180-minute update interval
         id: check_interval
         env:
-          UPDATE_INTERVAL_MINUTES: "73"
+          UPDATE_INTERVAL_MINUTES: "180"
           FORCE_UPDATE: ${{ github.event_name == 'workflow_dispatch' }}
         run: python scripts/should_update.py
 
