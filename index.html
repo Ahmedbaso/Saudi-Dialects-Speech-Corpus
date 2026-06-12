@@ -92,29 +92,22 @@
     }
 
     .theme-panel {
-      max-width: 760px;
+      width: fit-content;
       margin: 24px auto 0;
-      padding: 14px 18px;
-      border-radius: 16px;
+      padding: 10px 14px;
+      border-radius: 999px;
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(7px);
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .theme-panel span {
-      font-weight: bold;
-      font-size: 15px;
     }
 
     .theme-switch {
       position: relative;
       display: inline-block;
-      width: 56px;
-      height: 30px;
+      width: 62px;
+      height: 34px;
     }
 
     .theme-switch input {
@@ -135,13 +128,37 @@
     .slider:before {
       position: absolute;
       content: "";
-      height: 24px;
-      width: 24px;
+      height: 28px;
+      width: 28px;
       left: 3px;
       bottom: 3px;
       background-color: white;
       transition: 0.25s;
       border-radius: 50%;
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18);
+    }
+
+    .switch-icon {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 8px;
+      bottom: 8px;
+      color: #f59e0b;
+      z-index: 1;
+      transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    .switch-icon svg {
+      position: absolute;
+      inset: 0;
+      width: 18px;
+      height: 18px;
+      transition: opacity 0.2s ease;
+    }
+
+    .moon-icon {
+      opacity: 0;
     }
 
     input:checked + .slider {
@@ -149,7 +166,20 @@
     }
 
     input:checked + .slider:before {
-      transform: translateX(26px);
+      transform: translateX(28px);
+    }
+
+    input:checked + .slider .switch-icon {
+      transform: translateX(28px);
+      color: #0f172a;
+    }
+
+    input:checked + .slider .sun-icon {
+      opacity: 0;
+    }
+
+    input:checked + .slider .moon-icon {
+      opacity: 1;
     }
 
     main {
@@ -386,12 +416,20 @@
     </p>
 
     <div class="theme-panel">
-      <span>Choose your preferred viewing mode.</span>
-      <label class="theme-switch" title="Switch between light and dark mode">
+      <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
         <input type="checkbox" id="themeToggle" />
-        <span class="slider"></span>
+        <span class="slider">
+          <span class="switch-icon" aria-hidden="true">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
+              <path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </span>
       </label>
-      <span id="themeLabel">Dark Mode</span>
     </div>
   </header>
 
@@ -485,14 +523,14 @@
     </section>
 
     <section>
-      <h2>Live Dataset Statistics</h2>
+      <h2>Corpus Collection Statistics</h2>
       <p>
-        View the current progress of the Saudi Dialects Speech Corpus, including participant count,
+        View the updated progress of the Saudi Dialects Speech Corpus, including participant count,
         recording count, collected minutes, and progress toward the project goals.
       </p>
 
       <div class="diagram-controls">
-        <a href="stats.html" class="diagram-button">View Live Dataset Statistics</a>
+        <a href="stats.html" class="diagram-button">View Corpus Statistics</a>
       </div>
     </section>
 
@@ -570,7 +608,7 @@ Voice Note in OGG Format
    ↓
 Temporary OGG Storage on Server
    ↓
-FFmpeg Audio Processing
+FFmpeg + FFprobe Audio Processing
    ↓
 Standardized WAV File
    ↓
@@ -578,7 +616,7 @@ File Renaming
    ↓
 ZIP Archive + info.txt
    ↓
-Server Storage + Cloudinary + Airtable
+Server Storage + Cloudinary + Airtable Storage & Tracking
       </div>
     </section>
 
@@ -601,7 +639,7 @@ Server Storage + Cloudinary + Airtable
       <h2>Recording Duration Rules</h2>
       <ul>
         <li>Each predefined sentence has a maximum recording duration of 15 seconds.</li>
-        <li>The optional free-speech recording has a technical maximum duration of 35 seconds.</li>
+        <li>The optional free-speech recording has a maximum duration of 35 seconds.</li>
         <li>If the participant exceeds the allowed duration, the bot asks them to re-record.</li>
       </ul>
     </section>
@@ -852,17 +890,14 @@ Total Audio Duration Seconds: 119.4</pre>
 
   <script>
     const themeToggle = document.getElementById("themeToggle");
-    const themeLabel = document.getElementById("themeLabel");
 
     function applyTheme(theme) {
       if (theme === "dark") {
         document.body.classList.add("dark-mode");
         themeToggle.checked = true;
-        themeLabel.textContent = "Light Mode";
       } else {
         document.body.classList.remove("dark-mode");
         themeToggle.checked = false;
-        themeLabel.textContent = "Dark Mode";
       }
     }
 
