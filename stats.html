@@ -690,6 +690,93 @@
       border-bottom: 1px dotted var(--link-color);
     }
 
+
+
+    .header-controls {
+      width: fit-content;
+      margin: 18px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header-controls .theme-panel {
+      margin: 0;
+    }
+
+    .language-panel {
+      gap: 10px;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .language-button {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.88);
+      background: transparent;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .language-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .language-button.active {
+      background: #34d399;
+      color: #0f172a;
+    }
+
+    body.lang-ar {
+      direction: rtl;
+      text-align: right;
+    }
+
+    body.lang-ar header,
+    body.lang-ar .top-actions,
+    body.lang-ar .header-controls,
+    body.lang-ar footer {
+      text-align: center;
+    }
+
+    body.lang-ar .stat-card,
+    body.lang-ar .goal-card,
+    body.lang-ar .distribution-card,
+    body.lang-ar .share-card {
+      text-align: right;
+    }
+
+    body.lang-ar .goal-header,
+    body.lang-ar .bar-meta,
+    body.lang-ar .quality-top,
+    body.lang-ar .legend-item,
+    body.lang-ar .stacked-summary {
+      direction: rtl;
+    }
+
+    body.lang-ar .bot-link-box {
+      direction: rtl;
+    }
+
+    body.lang-ar .bot-url {
+      direction: ltr;
+      text-align: left;
+    }
+
     @media (max-width: 900px) {
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -733,96 +820,106 @@
 <body class="dark-mode">
 
   <header>
-    <h1>Corpus Collection Statistics</h1>
-    <p>
+    <h1 data-i18n="pageTitle">Corpus Collection Statistics</h1>
+    <p data-i18n="headerSubtitle">
       An updated overview of the Saudi Dialects Speech Corpus collection progress,
       including participants, recordings, recorded minutes, and progress toward the project goal.
     </p>
 
     <div class="top-actions">
-      <a href="index.html" class="button secondary">Back to Project Page</a>
-      <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button">Open Telegram Bot</a>
+      <a href="index.html" class="button secondary" data-i18n="backProjectPage">Back to Project Page</a>
+      <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="openTelegramBot">Open Telegram Bot</a>
     </div>
 
-    <div class="theme-panel">
-      <span class="theme-panel-label">Display Mode</span>
-      <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
-        <input type="checkbox" id="themeToggle" />
-        <span class="slider">
-          <span class="switch-icon" aria-hidden="true">
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
-              <path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
-              <path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-            </svg>
+    <div class="header-controls">
+      <div class="theme-panel">
+        <span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
+        <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider">
+            <span class="switch-icon" aria-hidden="true">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
+                <path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              </svg>
+            </span>
           </span>
-        </span>
-      </label>
+        </label>
+      </div>
+
+      <div class="theme-panel language-panel" aria-label="Language selector">
+        <span class="theme-panel-label" data-i18n="languageLabel">Language</span>
+        <div class="language-switch" role="group" aria-label="Switch language">
+          <button type="button" class="language-button active" id="langEn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="language-button" id="langAr" data-lang="ar" aria-pressed="false">AR</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
 
     <section>
-  <h2>Corpus Collection Overview</h2>
-  <p class="muted">
+  <h2 data-i18n="overviewTitle">Corpus Collection Overview</h2>
+  <p class="muted" data-i18n="overviewP1">
     This page shows the current progress of the Saudi Dialects Speech Corpus and how close
     the project is to reaching its collection goals.
   </p>
 
-  <p class="muted">
+  <p class="muted" data-i18n="overviewP2">
     Statistics are updated automatically from aggregated dataset records.
   </p>
 
   <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-label">Total Participants</div>
+          <div class="stat-label" data-i18n="totalParticipantsLabel">Total Participants</div>
           <div class="stat-value" id="totalParticipants">0</div>
-          <div class="stat-sub">Completed contributors</div>
+          <div class="stat-sub" data-i18n="totalParticipantsSub">Completed contributors</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Total Recordings</div>
+          <div class="stat-label" data-i18n="totalRecordingsLabel">Total Recordings</div>
           <div class="stat-value" id="totalRecordings">0</div>
-          <div class="stat-sub">Approved audio files</div>
+          <div class="stat-sub" data-i18n="totalRecordingsSub">Approved audio files</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Recorded Minutes</div>
+          <div class="stat-label" data-i18n="recordedMinutesLabel">Recorded Minutes</div>
           <div class="stat-value" id="totalMinutes">0</div>
-          <div class="stat-sub">Total approved duration</div>
+          <div class="stat-sub" data-i18n="recordedMinutesSub">Total approved duration</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Completed Sessions</div>
+          <div class="stat-label" data-i18n="completedSessionsLabel">Completed Sessions</div>
           <div class="stat-value" id="completedSessions">0</div>
-          <div class="stat-sub">Participants who completed submission</div>
+          <div class="stat-sub" data-i18n="completedSessionsSub">Participants who completed submission</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Male Participants</div>
+          <div class="stat-label" data-i18n="maleParticipantsLabel">Male Participants</div>
           <div class="stat-value" id="maleParticipants">0</div>
-          <div class="stat-sub">Aggregated statistics</div>
+          <div class="stat-sub" data-i18n="aggregatedStatsSub">Aggregated statistics</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Female Participants</div>
+          <div class="stat-label" data-i18n="femaleParticipantsLabel">Female Participants</div>
           <div class="stat-value" id="femaleParticipants">0</div>
           <div class="stat-sub">Aggregated statistics</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Free Speech Samples</div>
+          <div class="stat-label" data-i18n="freeSpeechSamplesLabel">Free Speech Samples</div>
           <div class="stat-value" id="freeSpeechSamples">0</div>
-          <div class="stat-sub">Optional S31 recordings</div>
+          <div class="stat-sub" data-i18n="freeSpeechSamplesSub">Optional S31 recordings</div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-label">Average Minutes / Participant</div>
+          <div class="stat-label" data-i18n="avgMinutesLabel">Average Minutes / Participant</div>
           <div class="stat-value" id="avgMinutes">0</div>
-          <div class="stat-sub">Based on current totals</div>
+          <div class="stat-sub" data-i18n="avgMinutesSub">Based on current totals</div>
         </div>
       </div>
 
@@ -832,8 +929,8 @@
     </section>
 
     <section>
-      <h2>Project Goal</h2>
-      <p>
+      <h2 data-i18n="projectGoalTitle">Project Goal</h2>
+      <p data-i18n-html="projectGoalP">
         The long-term target is to collect voice contributions from <strong>10,000 participants</strong>
         and build a corpus of <strong>300,000 recordings</strong>.
       </p>
@@ -842,8 +939,8 @@
         <div class="goal-card">
           <div class="goal-header">
             <div>
-              <div class="goal-title">Participants Goal</div>
-              <div class="muted"><span id="participantsCurrent">0</span> / 10,000 participants</div>
+              <div class="goal-title" data-i18n="participantsGoalTitle">Participants Goal</div>
+              <div class="muted"><span id="participantsCurrent">0</span> / 10,000 <span data-i18n="participantsUnit">participants</span></div>
             </div>
             <div class="goal-percent" id="participantsPercent">0%</div>
           </div>
@@ -855,8 +952,8 @@
         <div class="goal-card">
           <div class="goal-header">
             <div>
-              <div class="goal-title">Recordings Goal</div>
-              <div class="muted"><span id="recordingsCurrent">0</span> / 300,000 recordings</div>
+              <div class="goal-title" data-i18n="recordingsGoalTitle">Recordings Goal</div>
+              <div class="muted"><span id="recordingsCurrent">0</span> / 300,000 <span data-i18n="recordingsUnit">recordings</span></div>
             </div>
             <div class="goal-percent" id="recordingsPercent">0%</div>
           </div>
@@ -868,35 +965,35 @@
     </section>
 
     <section>
-      <h2>Dataset Breakdown</h2>
-      <p class="muted">
+      <h2 data-i18n="datasetBreakdownTitle">Dataset Breakdown</h2>
+      <p class="muted" data-i18n="datasetBreakdownP">
         These charts show aggregated dataset statistics only and do not expose participant identities.
       </p>
 
       <div class="distribution-grid">
         <div class="distribution-card">
-          <h3>Gender Distribution</h3>
+          <h3 data-i18n="genderDistributionTitle">Gender Distribution</h3>
           <div id="genderChart"></div>
         </div>
 
         <div class="distribution-card">
-          <h3>Device Distribution</h3>
+          <h3 data-i18n="deviceDistributionTitle">Device Distribution</h3>
           <div id="deviceChart"></div>
         </div>
 
         <div class="distribution-card">
-          <h3>Region Distribution</h3>
+          <h3 data-i18n="regionDistributionTitle">Region Distribution</h3>
           <div id="regionBars"></div>
         </div>
 
         <div class="distribution-card">
-          <h3>Collection Quality</h3>
+          <h3 data-i18n="collectionQualityTitle">Collection Quality</h3>
           <div id="qualityMetrics"></div>
         </div>
 
         <div class="distribution-card wide-card">
-          <h3>Participant Duration Distribution</h3>
-          <p class="muted">
+          <h3 data-i18n="durationDistributionTitle">Participant Duration Distribution</h3>
+          <p class="muted" data-i18n="durationDistributionP">
             Histogram of total recorded minutes per completed participant.
           </p>
           <div id="durationHistogram"></div>
@@ -905,28 +1002,28 @@
     </section>
 
     <section class="share-card">
-      <h2>Help Us Grow the Corpus</h2>
-      <p>
+      <h2 data-i18n="shareTitle">Help Us Grow the Corpus</h2>
+      <p data-i18n="shareP1">
         Help us grow the Saudi Dialects Speech Corpus. By sharing the bot link with friends
         and family across different Saudi regions, you can support the creation of a richer and
         more representative dataset for Arabic speech technologies.
       </p>
-      <p>
+      <p data-i18n="shareP2">
         Every voice contribution brings the project closer to its goal. Share the bot and be part
         of building better Arabic voice technology.
       </p>
 
       <div class="bot-link-box">
         <div class="bot-url" id="botUrl">https://t.me/Saudi_Dialects_bot</div>
-        <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button">Open Bot</a>
-        <button class="copy-button" onclick="copyBotLink()">Copy Link</button>
+        <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="openBotButton">Open Bot</a>
+        <button class="copy-button" onclick="copyBotLink()" data-i18n="copyLinkButton">Copy Link</button>
       </div>
       <div class="copy-status" id="copyStatus"></div>
     </section>
 
   </main>
 
-  <footer>
+  <footer data-i18n-html="footerHtml">
     Saudi Dialects Speech Corpus — Graduation Project,
     <a
       href="https://ksu.edu.sa/en"
@@ -949,29 +1046,153 @@
 
   <script>
     const themeToggle = document.getElementById("themeToggle");
-
-    function applyTheme(theme) {
-      if (theme === "dark") {
-        document.body.classList.add("dark-mode");
-        themeToggle.checked = true;
-      } else {
-        document.body.classList.remove("dark-mode");
-        themeToggle.checked = false;
-      }
-    }
-
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    applyTheme(savedTheme);
-
-    themeToggle.addEventListener("change", function () {
-      const newTheme = themeToggle.checked ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      applyTheme(newTheme);
-    });
+    const languageButtons = document.querySelectorAll(".language-button");
 
     const PARTICIPANTS_TARGET = 10000;
     const RECORDINGS_TARGET = 300000;
     const BOT_LINK = "https://t.me/Saudi_Dialects_bot";
+
+    let currentLanguage = "en";
+    let latestStats = null;
+
+    const translations = {
+      en: {
+        documentTitle: "Corpus Collection Statistics | Saudi Dialects Speech Corpus",
+        metaDescription: "Corpus collection statistics for the Saudi Dialects Speech Corpus graduation project.",
+        pageTitle: "Corpus Collection Statistics",
+        headerSubtitle: "An updated overview of the Saudi Dialects Speech Corpus collection progress, including participants, recordings, recorded minutes, and progress toward the project goal.",
+        backProjectPage: "Back to Project Page",
+        openTelegramBot: "Open Telegram Bot",
+        displayMode: "Display Mode",
+        languageLabel: "Language",
+        overviewTitle: "Corpus Collection Overview",
+        overviewP1: "This page shows the current progress of the Saudi Dialects Speech Corpus and how close the project is to reaching its collection goals.",
+        overviewP2: "Statistics are updated automatically from aggregated dataset records.",
+        totalParticipantsLabel: "Total Participants",
+        totalParticipantsSub: "Completed contributors",
+        totalRecordingsLabel: "Total Recordings",
+        totalRecordingsSub: "Approved audio files",
+        recordedMinutesLabel: "Recorded Minutes",
+        recordedMinutesSub: "Total approved duration",
+        completedSessionsLabel: "Completed Sessions",
+        completedSessionsSub: "Participants who completed submission",
+        maleParticipantsLabel: "Male Participants",
+        femaleParticipantsLabel: "Female Participants",
+        aggregatedStatsSub: "Aggregated statistics",
+        freeSpeechSamplesLabel: "Free Speech Samples",
+        freeSpeechSamplesSub: "Optional S31 recordings",
+        avgMinutesLabel: "Average Minutes / Participant",
+        avgMinutesSub: "Based on current totals",
+        projectGoalTitle: "Project Goal",
+        projectGoalP: "The long-term target is to collect voice contributions from <strong>10,000 participants</strong> and build a corpus of <strong>300,000 recordings</strong>.",
+        participantsGoalTitle: "Participants Goal",
+        recordingsGoalTitle: "Recordings Goal",
+        participantsUnit: "participants",
+        recordingsUnit: "recordings",
+        datasetBreakdownTitle: "Dataset Breakdown",
+        datasetBreakdownP: "These charts show aggregated dataset statistics only and do not expose participant identities.",
+        genderDistributionTitle: "Gender Distribution",
+        deviceDistributionTitle: "Device Distribution",
+        regionDistributionTitle: "Region Distribution",
+        collectionQualityTitle: "Collection Quality",
+        durationDistributionTitle: "Participant Duration Distribution",
+        durationDistributionP: "Histogram of total recorded minutes per completed participant.",
+        shareTitle: "Help Us Grow the Corpus",
+        shareP1: "Help us grow the Saudi Dialects Speech Corpus. By sharing the bot link with friends and family across different Saudi regions, you can support the creation of a richer and more representative dataset for Arabic speech technologies.",
+        shareP2: "Every voice contribution brings the project closer to its goal. Share the bot and be part of building better Arabic voice technology.",
+        openBotButton: "Open Bot",
+        copyLinkButton: "Copy Link",
+        footerHtml: "Saudi Dialects Speech Corpus — Graduation Project, <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
+        lastUpdatedPrefix: "Last updated",
+        notConnectedYet: "Not connected yet",
+        statsUnavailable: "Statistics are temporarily unavailable.",
+        participantsWord: "participants",
+        maleLabel: "Male",
+        femaleLabel: "Female",
+        freeSpeechCoverage: "Free Speech Coverage",
+        avgRecordingsParticipant: "Avg Recordings / Participant",
+        avgMinutesParticipant: "Avg Minutes / Participant",
+        copySuccess: "Bot link copied. Thank you for helping us share the project.",
+        copyFailed: "Copy failed. You can manually copy the link above.",
+        regionCentral: "Central",
+        regionWestern: "Western",
+        regionSouthern: "Southern",
+        regionEastern: "Eastern",
+        regionNorthern: "Northern",
+        durationUnder1: "< 1 min",
+        duration1To2: "1-2 min",
+        duration2To3: "2-3 min",
+        duration3Plus: "3+ min"
+      },
+      ar: {
+        documentTitle: "إحصائيات جمع corpus | Saudi Dialects Speech Corpus",
+        metaDescription: "إحصائيات جمع corpus لمشروع التخرج Saudi Dialects Speech Corpus.",
+        pageTitle: "إحصائيات جمع Corpus",
+        headerSubtitle: "نظرة محدثة على تقدم جمع بيانات Saudi Dialects Speech Corpus، بما يشمل عدد المشاركين، والتسجيلات، والدقائق المسجلة، والتقدم نحو هدف المشروع.",
+        backProjectPage: "العودة إلى صفحة المشروع",
+        openTelegramBot: "فتح Telegram Bot",
+        displayMode: "وضع العرض",
+        languageLabel: "اللغة",
+        overviewTitle: "نظرة عامة على جمع Corpus",
+        overviewP1: "تعرض هذه الصفحة التقدم الحالي لمشروع Saudi Dialects Speech Corpus ومدى اقتراب المشروع من تحقيق أهداف الجمع.",
+        overviewP2: "يتم تحديث الإحصائيات تلقائيًا من سجلات dataset المجمعة.",
+        totalParticipantsLabel: "إجمالي المشاركين",
+        totalParticipantsSub: "المساهمون المكتملون",
+        totalRecordingsLabel: "إجمالي التسجيلات",
+        totalRecordingsSub: "الملفات الصوتية المعتمدة",
+        recordedMinutesLabel: "الدقائق المسجلة",
+        recordedMinutesSub: "إجمالي المدة المعتمدة",
+        completedSessionsLabel: "الجلسات المكتملة",
+        completedSessionsSub: "مشاركون أكملوا الإرسال",
+        maleParticipantsLabel: "المشاركون الذكور",
+        femaleParticipantsLabel: "المشاركات الإناث",
+        aggregatedStatsSub: "إحصائيات مجمعة",
+        freeSpeechSamplesLabel: "عينات الكلام الحر",
+        freeSpeechSamplesSub: "تسجيلات S31 الاختيارية",
+        avgMinutesLabel: "متوسط الدقائق / مشارك",
+        avgMinutesSub: "بناءً على الإجماليات الحالية",
+        projectGoalTitle: "هدف المشروع",
+        projectGoalP: "الهدف طويل المدى هو جمع مساهمات صوتية من <strong>10,000 مشارك</strong> وبناء corpus يحتوي على <strong>300,000 تسجيل</strong>.",
+        participantsGoalTitle: "هدف المشاركين",
+        recordingsGoalTitle: "هدف التسجيلات",
+        participantsUnit: "مشارك",
+        recordingsUnit: "تسجيل",
+        datasetBreakdownTitle: "تفصيل Dataset",
+        datasetBreakdownP: "تعرض هذه الرسوم إحصائيات مجمعة فقط ولا تكشف هويات المشاركين.",
+        genderDistributionTitle: "توزيع الجنس",
+        deviceDistributionTitle: "توزيع الأجهزة",
+        regionDistributionTitle: "توزيع المناطق",
+        collectionQualityTitle: "جودة الجمع",
+        durationDistributionTitle: "توزيع مدة المشاركين",
+        durationDistributionP: "مخطط يوضح إجمالي الدقائق المسجلة لكل مشارك مكتمل.",
+        shareTitle: "ساعدنا في تنمية Corpus",
+        shareP1: "ساعدنا في تنمية Saudi Dialects Speech Corpus. من خلال مشاركة رابط البوت مع الأصدقاء والعائلة في مختلف مناطق المملكة، يمكنك دعم إنشاء dataset أكثر ثراءً وتمثيلًا لتقنيات الكلام العربية.",
+        shareP2: "كل مساهمة صوتية تقرّب المشروع من هدفه. شارك البوت وكن جزءًا من بناء تقنية صوتية عربية أفضل.",
+        openBotButton: "فتح البوت",
+        copyLinkButton: "نسخ الرابط",
+        footerHtml: "Saudi Dialects Speech Corpus — مشروع تخرج، <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
+        lastUpdatedPrefix: "آخر تحديث",
+        notConnectedYet: "غير متصل حاليًا",
+        statsUnavailable: "الإحصائيات غير متاحة مؤقتًا.",
+        participantsWord: "مشارك",
+        maleLabel: "ذكر",
+        femaleLabel: "أنثى",
+        freeSpeechCoverage: "تغطية الكلام الحر",
+        avgRecordingsParticipant: "متوسط التسجيلات / مشارك",
+        avgMinutesParticipant: "متوسط الدقائق / مشارك",
+        copySuccess: "تم نسخ رابط البوت. شكرًا لمساعدتك في نشر المشروع.",
+        copyFailed: "فشل النسخ. يمكنك نسخ الرابط يدويًا من الأعلى.",
+        regionCentral: "الوسطى",
+        regionWestern: "الغربية",
+        regionSouthern: "الجنوبية",
+        regionEastern: "الشرقية",
+        regionNorthern: "الشمالية",
+        durationUnder1: "أقل من 1 دقيقة",
+        duration1To2: "1-2 دقيقة",
+        duration2To3: "2-3 دقائق",
+        duration3Plus: "3+ دقائق"
+      }
+    };
 
     const fallbackStats = {
       totalParticipants: 0,
@@ -998,6 +1219,55 @@
       },
       lastUpdated: "Not connected yet"
     };
+
+    function text(key) {
+      return translations[currentLanguage]?.[key] || translations.en[key] || "";
+    }
+
+    function applyTheme(theme) {
+      if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeToggle.checked = true;
+      } else {
+        document.body.classList.remove("dark-mode");
+        themeToggle.checked = false;
+      }
+    }
+
+    function applyLanguage(language) {
+      currentLanguage = language === "ar" ? "ar" : "en";
+
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+      document.body.classList.toggle("lang-ar", currentLanguage === "ar");
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      document.title = text("documentTitle");
+      if (metaDescription) {
+        metaDescription.setAttribute("content", text("metaDescription"));
+      }
+
+      document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function (element) {
+        const key = element.dataset.i18n || element.dataset.i18nHtml;
+        const value = text(key);
+
+        if (element.dataset.i18nHtml) {
+          element.innerHTML = value;
+        } else {
+          element.textContent = value;
+        }
+      });
+
+      languageButtons.forEach(function (button) {
+        const isActive = button.dataset.lang === currentLanguage;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      if (latestStats) {
+        renderStats(latestStats);
+      }
+    }
 
     function formatNumber(value) {
       return Number(value || 0).toLocaleString("en-US");
@@ -1026,30 +1296,16 @@
       if (element) element.style.width = `${Math.max(0, Math.min(value, 100))}%`;
     }
 
-    function createBars(containerId, items) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
+    function displayRegionLabel(label) {
+      const region = String(label || "").toLowerCase();
 
-      const maxValue = Math.max(...items.map(item => Number(item.value || 0)), 1);
+      if (region.includes("central")) return text("regionCentral");
+      if (region.includes("western")) return text("regionWestern");
+      if (region.includes("southern")) return text("regionSouthern");
+      if (region.includes("eastern")) return text("regionEastern");
+      if (region.includes("northern")) return text("regionNorthern");
 
-      container.innerHTML = items.map(item => {
-        const width = Math.max((Number(item.value || 0) / maxValue) * 100, item.value > 0 ? 3 : 0);
-        const color = item.color || "var(--heading-color)";
-        return `
-          <div class="bar-row">
-            <div class="bar-meta">
-              <span class="legend-label">
-                <span class="legend-dot" style="background: ${color};"></span>
-                ${item.label}
-              </span>
-              <strong>${formatNumber(item.value)}</strong>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: ${width}%; background: ${color};"></div>
-            </div>
-          </div>
-        `;
-      }).join("");
+      return label;
     }
 
     function getRegionColor(label) {
@@ -1068,6 +1324,33 @@
       return `${Number(value || 0).toLocaleString("en-US", { maximumFractionDigits: 1 })}%`;
     }
 
+    function createBars(containerId, items) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const maxValue = Math.max(...items.map(item => Number(item.value || 0)), 1);
+
+      container.innerHTML = items.map(item => {
+        const width = Math.max((Number(item.value || 0) / maxValue) * 100, item.value > 0 ? 3 : 0);
+        const color = item.color || "var(--heading-color)";
+        const label = item.displayLabel || item.label;
+        return `
+          <div class="bar-row">
+            <div class="bar-meta">
+              <span class="legend-label">
+                <span class="legend-dot" style="background: ${color};"></span>
+                ${label}
+              </span>
+              <strong>${formatNumber(item.value)}</strong>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: ${width}%; background: ${color};"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
     function renderGenderChart(maleParticipants, femaleParticipants) {
       const container = document.getElementById("genderChart");
       if (!container) return;
@@ -1080,15 +1363,15 @@
         <div class="pie-wrap">
           <div>
             <div class="pie-chart" style="background: conic-gradient(var(--gender-male) 0% ${malePercent}%, var(--gender-female) ${malePercent}% 100%);"></div>
-            <div class="pie-total">${formatNumber(total)} participants</div>
+            <div class="pie-total">${formatNumber(total)} ${text("participantsWord")}</div>
           </div>
           <div class="legend-list">
             <div class="legend-item">
-              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-male);"></span>Male</span>
+              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-male);"></span>${text("maleLabel")}</span>
               <strong>${formatNumber(maleParticipants)} · ${formatPercent(malePercent)}</strong>
             </div>
             <div class="legend-item">
-              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-female);"></span>Female</span>
+              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-female);"></span>${text("femaleLabel")}</span>
               <strong>${formatNumber(femaleParticipants)} · ${formatPercent(femalePercent)}</strong>
             </div>
           </div>
@@ -1131,7 +1414,7 @@
         <div class="quality-grid">
           <div class="quality-metric">
             <div class="quality-top">
-              <span class="quality-title">Free Speech Coverage</span>
+              <span class="quality-title">${text("freeSpeechCoverage")}</span>
               <span class="quality-value">${formatPercent(freeSpeechCoverage)}</span>
             </div>
             <div class="quality-track">
@@ -1141,7 +1424,7 @@
 
           <div class="quality-metric">
             <div class="quality-top">
-              <span class="quality-title">Avg Recordings / Participant</span>
+              <span class="quality-title">${text("avgRecordingsParticipant")}</span>
               <span class="quality-value">${avgRecordings.toLocaleString("en-US", { maximumFractionDigits: 1 })}</span>
             </div>
             <div class="quality-track">
@@ -1151,7 +1434,7 @@
 
           <div class="quality-metric">
             <div class="quality-top">
-              <span class="quality-title">Avg Minutes / Participant</span>
+              <span class="quality-title">${text("avgMinutesParticipant")}</span>
               <span class="quality-value">${avgMinutes.toLocaleString("en-US", { maximumFractionDigits: 1 })}</span>
             </div>
             <div class="quality-track">
@@ -1167,10 +1450,10 @@
       if (!container) return;
 
       const orderedBins = [
-        { label: "< 1 min", value: Number(durationBins?.["< 1 min"] || 0), color: "var(--duration-under-1)" },
-        { label: "1-2 min", value: Number(durationBins?.["1-2 min"] || 0), color: "var(--duration-1-2)" },
-        { label: "2-3 min", value: Number(durationBins?.["2-3 min"] || 0), color: "var(--duration-2-3)" },
-        { label: "3+ min", value: Number(durationBins?.["3+ min"] || 0), color: "var(--duration-3-plus)" }
+        { key: "< 1 min", displayLabel: text("durationUnder1"), value: Number(durationBins?.["< 1 min"] || 0), color: "var(--duration-under-1)" },
+        { key: "1-2 min", displayLabel: text("duration1To2"), value: Number(durationBins?.["1-2 min"] || 0), color: "var(--duration-1-2)" },
+        { key: "2-3 min", displayLabel: text("duration2To3"), value: Number(durationBins?.["2-3 min"] || 0), color: "var(--duration-2-3)" },
+        { key: "3+ min", displayLabel: text("duration3Plus"), value: Number(durationBins?.["3+ min"] || 0), color: "var(--duration-3-plus)" }
       ];
 
       const maxValue = Math.max(...orderedBins.map(item => item.value), 1);
@@ -1183,7 +1466,7 @@
               <div class="histogram-column">
                 <div class="histogram-value">${formatNumber(item.value)}</div>
                 <div class="histogram-bar" style="height: ${height}px; background: ${item.color};"></div>
-                <div class="histogram-label">${item.label}</div>
+                <div class="histogram-label">${item.displayLabel}</div>
               </div>
             `;
           }).join("")}
@@ -1192,6 +1475,8 @@
     }
 
     function renderStats(stats) {
+      latestStats = stats;
+
       const totalParticipants = Number(stats.totalParticipants || 0);
       const totalRecordings = Number(stats.totalRecordings || 0);
       const totalMinutes = Number(stats.totalMinutes || 0);
@@ -1223,21 +1508,27 @@
       setProgress("participantsProgress", participantsGoalPercent);
       setProgress("recordingsProgress", recordingsGoalPercent);
 
-      setText("lastUpdated", `Last updated: ${stats.lastUpdated || "Not connected yet"}`);
+      const lastUpdatedValue = stats.lastUpdated || text("notConnectedYet");
+      setText("lastUpdated", `${text("lastUpdatedPrefix")}: ${lastUpdatedValue}`);
 
       renderGenderChart(maleParticipants, femaleParticipants);
       renderDeviceChart(iphoneUsers, androidUsers);
 
       const regionItems = Object.entries(stats.regions || {})
-        .map(([label, value]) => ({ label, value, color: getRegionColor(label) }))
+        .map(([label, value]) => ({
+          label,
+          displayLabel: displayRegionLabel(label),
+          value,
+          color: getRegionColor(label)
+        }))
         .sort((a, b) => Number(b.value || 0) - Number(a.value || 0));
 
       createBars("regionBars", regionItems.length ? regionItems : [
-        { label: "Central", value: 0, color: getRegionColor("Central") },
-        { label: "Western", value: 0, color: getRegionColor("Western") },
-        { label: "Southern", value: 0, color: getRegionColor("Southern") },
-        { label: "Eastern", value: 0, color: getRegionColor("Eastern") },
-        { label: "Northern", value: 0, color: getRegionColor("Northern") }
+        { label: "Central", displayLabel: displayRegionLabel("Central"), value: 0, color: getRegionColor("Central") },
+        { label: "Western", displayLabel: displayRegionLabel("Western"), value: 0, color: getRegionColor("Western") },
+        { label: "Southern", displayLabel: displayRegionLabel("Southern"), value: 0, color: getRegionColor("Southern") },
+        { label: "Eastern", displayLabel: displayRegionLabel("Eastern"), value: 0, color: getRegionColor("Eastern") },
+        { label: "Northern", displayLabel: displayRegionLabel("Northern"), value: 0, color: getRegionColor("Northern") }
       ]);
 
       renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples);
@@ -1255,7 +1546,7 @@
         renderStats(stats);
       } catch (error) {
         renderStats(fallbackStats);
-        setText("lastUpdated", "Statistics are temporarily unavailable.");
+        setText("lastUpdated", text("statsUnavailable"));
       }
     }
 
@@ -1264,11 +1555,31 @@
 
       try {
         await navigator.clipboard.writeText(BOT_LINK);
-        status.textContent = "Bot link copied. Thank you for helping us share the project.";
+        status.textContent = text("copySuccess");
       } catch (error) {
-        status.textContent = "Copy failed. You can manually copy the link above.";
+        status.textContent = text("copyFailed");
       }
     }
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+
+    const savedLanguage = localStorage.getItem("language") || "en";
+    applyLanguage(savedLanguage);
+
+    themeToggle.addEventListener("change", function () {
+      const newTheme = themeToggle.checked ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      applyTheme(newTheme);
+    });
+
+    languageButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const newLanguage = button.dataset.lang === "ar" ? "ar" : "en";
+        localStorage.setItem("language", newLanguage);
+        applyLanguage(newLanguage);
+      });
+    });
 
     loadStats();
   </script>
