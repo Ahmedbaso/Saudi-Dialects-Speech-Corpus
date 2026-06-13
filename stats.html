@@ -240,15 +240,17 @@
       border: none;
       background: var(--heading-color);
       color: #ffffff;
-      padding: 10px 18px;
+      padding: 8px 14px;
       border-radius: 999px;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.1;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
+      min-height: 40px;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
@@ -276,15 +278,26 @@
     .header-action-grid .theme-panel,
     .header-action-grid .button {
       width: 100%;
-      min-height: 48px;
+      min-height: 42px;
       margin: 0;
-      padding: 10px 16px;
+      padding: 8px 12px;
       border-radius: 999px;
       justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .header-action-grid .theme-panel-label,
+    .header-action-grid .language-button {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.1;
     }
 
     .header-action-grid .button {
-      white-space: nowrap;
+      white-space: normal;
+      text-align: center;
     }
 
     main {
@@ -677,15 +690,20 @@
       gap: 10px;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       margin-top: 16px;
     }
 
     .bot-link-box .button,
     .bot-link-box .copy-button {
-      width: 136px;
-      min-width: 136px;
-      min-height: 46px;
-      padding: 10px 16px;
+      width: 124px;
+      min-width: 124px;
+      flex: 0 0 124px;
+      min-height: 40px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.1;
       text-align: center;
     }
 
@@ -723,6 +741,51 @@
     }
 
 
+    .footer-title {
+      color: var(--footer-color);
+    }
+
+    .footer-separator {
+      color: var(--footer-color);
+    }
+
+    @media (max-width: 700px) {
+      footer {
+        padding: 24px 18px 84px;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      footer .footer-title {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--footer-color);
+      }
+
+      footer .footer-separator {
+        display: none;
+      }
+
+      footer .ksu-link {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        margin: 5px auto;
+        font-size: 13px;
+        line-height: 1.45;
+        text-align: center;
+        overflow-wrap: anywhere;
+      }
+
+      footer .ksu-link::before {
+        content: "• ";
+        color: var(--footer-color);
+        font-weight: 600;
+      }
+    }
+
+
 
     .header-controls {
       width: fit-content;
@@ -757,7 +820,7 @@
       border-radius: 999px;
       padding: 6px 12px;
       cursor: pointer;
-      font-weight: 800;
+      font-weight: 600;
       font-size: 13px;
       color: rgba(255, 255, 255, 0.88);
       background: transparent;
@@ -856,15 +919,34 @@
 
     @media (max-width: 470px) {
       .header-action-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .header-action-grid .theme-panel,
+      .header-action-grid .button {
+        min-height: 40px;
+        padding: 8px 10px;
+        font-size: 12.5px;
+      }
+
+      .header-action-grid .theme-panel-label,
+      .header-action-grid .language-button {
+        font-size: 12.5px;
       }
     }
 
     @media (max-width: 470px) {
+      .bot-url {
+        flex-basis: 100%;
+        min-width: 0;
+      }
+
       .bot-link-box .button,
       .bot-link-box .copy-button {
-        width: 100%;
-        min-width: 100%;
+        width: 124px;
+        min-width: 124px;
+        flex: 0 0 124px;
       }
     }
 
@@ -1076,7 +1158,8 @@
   </main>
 
   <footer data-i18n-html="footerHtml">
-    Saudi Dialects Speech Corpus — Graduation Project,
+    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation Project</span>
+    <span class="footer-separator"> • </span>
     <a
       href="https://ksu.edu.sa/en"
       target="_blank"
@@ -1086,7 +1169,7 @@
     >
       King Saud University
     </a>
-    <span> • </span>
+    <span class="footer-separator"> • </span>
     <a
       href="https://ccis.ksu.edu.sa/en"
       target="_blank"
@@ -1096,7 +1179,7 @@
     >
       College: Computer and Information Sciences
     </a>
-    <span> • </span>
+    <span class="footer-separator"> • </span>
     <a
       href="https://github.com/ahmedbaso"
       target="_blank"
@@ -1106,7 +1189,7 @@
     >
       Created by Ahmed.Baso
     </a>
-    <span> • </span>
+    <span class="footer-separator"> • </span>
     <a
       href="mailto:Saudi.Dialects@outlook.sa"
       class="ksu-link"
@@ -1174,7 +1257,7 @@
         shareP2: "Every voice contribution brings the project closer to its goal. Share the bot and be part of building better Arabic voice technology.",
         openBotButton: "Open Bot",
         copyLinkButton: "Copy Link",
-        footerHtml: "Saudi Dialects Speech Corpus — Graduation Project, <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
+        footerHtml: "<span class=\"footer-title\">Saudi Dialects Speech Corpus | Graduation Project</span><span class=\"footer-separator\"> • </span><a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span class=\"footer-separator\"> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span class=\"footer-separator\"> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span class=\"footer-separator\"> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
         lastUpdatedPrefix: "Last updated",
         notConnectedYet: "Not connected yet",
         statsUnavailable: "Statistics are temporarily unavailable.",
@@ -1242,7 +1325,7 @@
         shareP2: "كل مساهمة صوتية تقرّب المشروع من هدفه. شارك البوت وكن جزءًا من بناء تقنية صوتية عربية أفضل.",
         openBotButton: "فتح البوت",
         copyLinkButton: "نسخ الرابط",
-        footerHtml: "Saudi Dialects Speech Corpus — Graduation Project, <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
+        footerHtml: "<span class=\"footer-title\">Saudi Dialects Speech Corpus | Graduation Project</span><span class=\"footer-separator\"> • </span><a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span class=\"footer-separator\"> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span class=\"footer-separator\"> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span class=\"footer-separator\"> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
         lastUpdatedPrefix: "آخر تحديث",
         notConnectedYet: "غير متصل حاليًا",
         statsUnavailable: "الإحصائيات غير متاحة مؤقتًا.",
