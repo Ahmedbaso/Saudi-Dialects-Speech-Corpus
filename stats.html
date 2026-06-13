@@ -680,6 +680,15 @@
       margin-top: 16px;
     }
 
+    .bot-link-box .button,
+    .bot-link-box .copy-button {
+      width: 136px;
+      min-width: 136px;
+      min-height: 46px;
+      padding: 10px 16px;
+      text-align: center;
+    }
+
     .bot-url {
       flex: 1;
       min-width: 260px;
@@ -851,6 +860,14 @@
       }
     }
 
+    @media (max-width: 470px) {
+      .bot-link-box .button,
+      .bot-link-box .copy-button {
+        width: 100%;
+        min-width: 100%;
+      }
+    }
+
   </style>
 </head>
 
@@ -942,7 +959,7 @@
         <div class="stat-card">
           <div class="stat-label" data-i18n="femaleParticipantsLabel">Female Participants</div>
           <div class="stat-value" id="femaleParticipants">0</div>
-          <div class="stat-sub">Aggregated statistics</div>
+          <div class="stat-sub" data-i18n="aggregatedStatsSub">Aggregated statistics</div>
         </div>
 
         <div class="stat-card">
