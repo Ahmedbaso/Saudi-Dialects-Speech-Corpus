@@ -456,7 +456,18 @@
     }
 
     body.lang-ar .tech-icons {
-      justify-content: flex-start;
+      justify-content: center;
+    }
+
+    .tech-heading-row {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .tech-icons {
+      justify-content: center;
+      max-width: 100%;
+      margin-top: 20px;
     }
 
 
@@ -982,10 +993,8 @@ Server Storage + Cloudinary + Airtable Storage &amp; Tracking
 </tbody>
 </table>
 </div>
-<p>
-        Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the file belongs to
-        dialect code <code>D01</code>, a male speaker with ID <code>0073</code>, sentence number
-        <code>05</code>, recorded using an iPhone on the first attempt.
+<p data-i18n-html="basedExampleP">
+        Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the file belongs to dialect code <code>D01</code>, a male speaker with ID <code>0073</code>, sentence number <code>05</code>, recorded using an iPhone on the first attempt.
       </p>
 <p data-i18n="additionalExamples">
         Additional examples:
@@ -1074,6 +1083,27 @@ Total Audio Duration Seconds: 119.4</pre>
 <div class="tech-heading-row">
 <h2 data-i18n="technologiesTitle">Technologies Used</h2>
 
+</div>
+<div class="tech-grid">
+<ul class="tech-list">
+<li>Python</li>
+<li>Telegram Bot API</li>
+<li>python-telegram-bot</li>
+<li>FFmpeg / FFprobe</li>
+<li>Airtable API</li>
+<li>Cloudinary</li>
+<li>DigitalOcean Server</li>
+</ul>
+<ul class="tech-list">
+<li>Ubuntu / Linux Server</li>
+<li>Termius</li>
+<li>HTML / CSS / JavaScript</li>
+<li>GitHub Pages</li>
+<li>GitHub Actions</li>
+<li>Google Analytics</li>
+<li>Healthchecks</li>
+</ul>
+</div>
 <div class="tech-icons" aria-label="Technology logos">
 <span class="tech-logo" title="Python" aria-label="Python">
 <svg aria-hidden="true" viewBox="0 0 48 48">
@@ -1179,27 +1209,6 @@ Total Audio Duration Seconds: 119.4</pre>
 </span>
 </div>
 
-</div>
-<div class="tech-grid">
-<ul class="tech-list">
-<li>Python</li>
-<li>Telegram Bot API</li>
-<li>python-telegram-bot</li>
-<li>FFmpeg / FFprobe</li>
-<li>Airtable API</li>
-<li>Cloudinary</li>
-<li>DigitalOcean Server</li>
-</ul>
-<ul class="tech-list">
-<li>Ubuntu / Linux Server</li>
-<li>Termius</li>
-<li>HTML / CSS / JavaScript</li>
-<li>GitHub Pages</li>
-<li>GitHub Actions</li>
-<li>Google Analytics</li>
-<li>Healthchecks</li>
-</ul>
-</div>
 </section>
 </main>
 <footer data-i18n-html="footerText">
@@ -1210,6 +1219,10 @@ Total Audio Duration Seconds: 119.4</pre>
 <span> • </span>
 <a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit College of Computer and Information Sciences official website">
       College: Computer and Information Sciences
+    </a>
+<span> • </span>
+<a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
+      Created by Ahmed.Baso
     </a>
 <span> • </span>
 <a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
@@ -1289,7 +1302,7 @@ Total Audio Duration Seconds: 119.4</pre>
             "durationLi3": "إذا تجاوز المشارك المدة المسموحة، يطلب منه البوت إعادة التسجيل.",
             "storageP": "يستخدم النظام معمارية تخزين وتتبع متعددة الوجهات:",
             "namingP1": "يتبع كل ملف صوتي صيغة تسمية منظمة تُضمّن اللهجة، ومعرّف المتحدث، ورقم الجملة، ونوع الجهاز، ورقم المحاولة مباشرة داخل اسم الملف.",
-            "basedExampleP": "بناءً على المثال KSU_DIA_D01_SPK10073_S05_T11.wav، فالملف مرتبط برمز اللهجة D01، ومتحدث ذكر بمعرف 0073، وجملة رقم 05، وتم تسجيله باستخدام iPhone في المحاولة الأولى.",
+            "basedExampleP": "بناءً على المثال <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>، فالملف مرتبط برمز اللهجة <code>D01</code>، ومتحدث ذكر بمعرّف <code>0073</code>، وجملة رقم <code>05</code>، وتم تسجيله باستخدام iPhone في المحاولة الأولى.",
             "metadataP1": "بالإضافة إلى الملفات الصوتية، ينشئ النظام ملف بيانات وصفية باسم <code>SPKxxxxx_info.txt</code> لكل مشارك، ويتم حفظه على الخادم. يحتفظ هذا الملف بمعلومات الجلسة، وبيانات المشارك، وتفاصيل اللهجة والحقول العامة المرتبطة بالمنطقة، وسياق التسجيل، وملخص مدة الصوت.",
             "privacyP1": "يعرض البوت سياسة الخصوصية قبل جمع بيانات المشارك، ويجب على المشارك الموافقة صراحة قبل المتابعة. كما تحتوي رسالة الخصوصية على رابط لهذه الصفحة حتى يتمكن المشاركون من مراجعة مسار عمل البوت، وطريقة التخزين، وآلية التعامل مع البيانات. يتجنب النظام جمع أرقام الهواتف ويسمح للمشاركين باستخدام اسم مستعار.",
             "reliabilityP1": "يتضمن النظام إجراءات حماية لحالات فشل الرفع وتوفر الخادم. إذا حدث خطأ أثناء الرفع بعد حفظ التسجيلات على الخادم، يتلقى المشارك رسالة خطأ واضحة، ويتم إرسال تنبيه للمسؤول يتضمن وقت الخطأ، وSPKID، وعدد الملفات المحفوظة، وتفاصيل الخطأ.",
@@ -1315,7 +1328,7 @@ Total Audio Duration Seconds: 119.4</pre>
             "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">التخزين والتتبع متعدد الوجهات</strong> تُخزَّن المخرجات على خادم DigitalOcean وفي Cloudinary، بينما يُستخدم Airtable لتخزين بيانات المشاركين وسجلات التسجيلات وتتبع الملفات.",
             "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع مجموعة البيانات، وتتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
             "privacyNote": "يمكن للمشاركين الإلغاء قبل تأكيد الرفع النهائي. بعد بدء عملية الرفع النهائي، يُعد الإرسال معتمدًا ويتم تعطيل الإلغاء داخل البوت.",
-            "footerText": "Saudi Dialects Speech Corpus — Graduation Project,\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span> • </span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a>\n    <span> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
+            "footerText": "Saudi Dialects Speech Corpus — Graduation Project,\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span> • </span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a>\n    <span> • </span>\n    <a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a>\n    <span> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
       }
 };
 
@@ -1379,7 +1392,7 @@ Total Audio Duration Seconds: 119.4</pre>
         button.setAttribute("aria-pressed", isActive ? "true" : "false");
       });
 
-      document.querySelectorAll(".diagram-button").forEach(function (button) {
+      document.querySelectorAll("button.diagram-button[onclick]").forEach(function (button) {
         const frameId = button.getAttribute("onclick")?.match(/'([^']+)'/)?.[1];
         const frame = frameId ? document.getElementById(frameId) : null;
         const isExpanded = frame ? frame.classList.contains("expanded") : false;
