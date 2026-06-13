@@ -264,6 +264,29 @@
       border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
+    .header-action-grid {
+      max-width: 980px;
+      margin: 24px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .header-action-grid .theme-panel,
+    .header-action-grid .button {
+      width: 100%;
+      min-height: 48px;
+      margin: 0;
+      padding: 10px 16px;
+      border-radius: 999px;
+      justify-content: center;
+    }
+
+    .header-action-grid .button {
+      white-space: nowrap;
+    }
+
     main {
       max-width: 1120px;
       margin: 40px auto;
@@ -814,6 +837,20 @@
         min-height: 180px;
       }
     }
+
+    @media (max-width: 820px) {
+      .header-action-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 620px;
+      }
+    }
+
+    @media (max-width: 470px) {
+      .header-action-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -826,12 +863,7 @@
       including participants, recordings, recorded minutes, and progress toward the project goal.
     </p>
 
-    <div class="top-actions">
-      <a href="index.html" class="button secondary" data-i18n="backProjectPage">Back to Project Page</a>
-      <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="openTelegramBot">Open Telegram Bot</a>
-    </div>
-
-    <div class="header-controls">
+    <div class="header-action-grid" aria-label="Page controls">
       <div class="theme-panel">
         <span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
         <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
@@ -857,6 +889,9 @@
           <button type="button" class="language-button" id="langAr" data-lang="ar" aria-pressed="false">AR</button>
         </div>
       </div>
+
+      <a href="index.html" class="button secondary" data-i18n="backProjectPage">Back to Project Page</a>
+      <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="openTelegramBot">Open Telegram Bot</a>
     </div>
   </header>
 
@@ -1036,6 +1071,26 @@
     </a>
     <span> • </span>
     <a
+      href="https://ccis.ksu.edu.sa/en"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="ksu-link"
+      title="Visit College of Computer and Information Sciences official website"
+    >
+      College: Computer and Information Sciences
+    </a>
+    <span> • </span>
+    <a
+      href="https://github.com/ahmedbaso"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="ksu-link"
+      title="Visit Ahmed.Baso GitHub profile"
+    >
+      Created by Ahmed.Baso
+    </a>
+    <span> • </span>
+    <a
       href="mailto:Saudi.Dialects@outlook.sa"
       class="ksu-link"
       title="Contact the Saudi Dialects Speech Corpus project"
@@ -1102,7 +1157,7 @@
         shareP2: "Every voice contribution brings the project closer to its goal. Share the bot and be part of building better Arabic voice technology.",
         openBotButton: "Open Bot",
         copyLinkButton: "Copy Link",
-        footerHtml: "Saudi Dialects Speech Corpus — Graduation Project, <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
+        footerHtml: "Saudi Dialects Speech Corpus — Graduation Project, <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
         lastUpdatedPrefix: "Last updated",
         notConnectedYet: "Not connected yet",
         statsUnavailable: "Statistics are temporarily unavailable.",
@@ -1125,17 +1180,17 @@
         duration3Plus: "3+ min"
       },
       ar: {
-        documentTitle: "إحصائيات جمع corpus | Saudi Dialects Speech Corpus",
-        metaDescription: "إحصائيات جمع corpus لمشروع التخرج Saudi Dialects Speech Corpus.",
-        pageTitle: "إحصائيات جمع Corpus",
-        headerSubtitle: "نظرة محدثة على تقدم جمع بيانات Saudi Dialects Speech Corpus، بما يشمل عدد المشاركين، والتسجيلات، والدقائق المسجلة، والتقدم نحو هدف المشروع.",
+        documentTitle: "إحصائيات المدونة | Saudi Dialects Speech Corpus",
+        metaDescription: "إحصائيات المدونة لمشروع التخرج Saudi Dialects Speech Corpus.",
+        pageTitle: "إحصائيات المدونة",
+        headerSubtitle: "نظرة محدثة على تقدم جمع بيانات مدونة اللهجات السعودية، بما يشمل عدد المشاركين، وعدد التسجيلات، والدقائق المسجلة، ومدى التقدم نحو هدف المشروع.",
         backProjectPage: "العودة إلى صفحة المشروع",
         openTelegramBot: "فتح Telegram Bot",
         displayMode: "وضع العرض",
         languageLabel: "اللغة",
-        overviewTitle: "نظرة عامة على جمع Corpus",
-        overviewP1: "تعرض هذه الصفحة التقدم الحالي لمشروع Saudi Dialects Speech Corpus ومدى اقتراب المشروع من تحقيق أهداف الجمع.",
-        overviewP2: "يتم تحديث الإحصائيات تلقائيًا من سجلات dataset المجمعة.",
+        overviewTitle: "نظرة عامة على جمع المدونة",
+        overviewP1: "تعرض هذه الصفحة التقدم الحالي لمشروع مدونة اللهجات السعودية ومدى اقتراب المشروع من تحقيق أهدافه.",
+        overviewP2: "يتم تحديث الإحصائيات تلقائيًا من سجلات مجموعة البيانات المجمعة.",
         totalParticipantsLabel: "إجمالي المشاركين",
         totalParticipantsSub: "المساهمون المكتملون",
         totalRecordingsLabel: "إجمالي التسجيلات",
@@ -1152,12 +1207,12 @@
         avgMinutesLabel: "متوسط الدقائق / مشارك",
         avgMinutesSub: "بناءً على الإجماليات الحالية",
         projectGoalTitle: "هدف المشروع",
-        projectGoalP: "الهدف طويل المدى هو جمع مساهمات صوتية من <strong>10,000 مشارك</strong> وبناء corpus يحتوي على <strong>300,000 تسجيل</strong>.",
+        projectGoalP: "يتمثل الهدف طويل المدى في جمع مساهمات صوتية من <strong>10,000 مشارك</strong> وبناء مدونة صوتية تضم <strong>300,000 تسجيل</strong>.",
         participantsGoalTitle: "هدف المشاركين",
         recordingsGoalTitle: "هدف التسجيلات",
         participantsUnit: "مشارك",
         recordingsUnit: "تسجيل",
-        datasetBreakdownTitle: "تفصيل Dataset",
+        datasetBreakdownTitle: "إحصاءات مجموعة البيانات",
         datasetBreakdownP: "تعرض هذه الرسوم إحصائيات مجمعة فقط ولا تكشف هويات المشاركين.",
         genderDistributionTitle: "توزيع الجنس",
         deviceDistributionTitle: "توزيع الأجهزة",
@@ -1165,12 +1220,12 @@
         collectionQualityTitle: "جودة الجمع",
         durationDistributionTitle: "توزيع مدة المشاركين",
         durationDistributionP: "مخطط يوضح إجمالي الدقائق المسجلة لكل مشارك مكتمل.",
-        shareTitle: "ساعدنا في تنمية Corpus",
-        shareP1: "ساعدنا في تنمية Saudi Dialects Speech Corpus. من خلال مشاركة رابط البوت مع الأصدقاء والعائلة في مختلف مناطق المملكة، يمكنك دعم إنشاء dataset أكثر ثراءً وتمثيلًا لتقنيات الكلام العربية.",
+        shareTitle: "ساهم في تنمية المدونة",
+        shareP1: "ساهم في تنمية مدونة اللهجات السعودية من خلال مشاركة رابط البوت مع الأصدقاء والعائلة في مختلف مناطق المملكة، ودعم إنشاء مجموعة بيانات صوتية أكثر ثراءً وتمثيلًا لتقنيات الكلام العربية.",
         shareP2: "كل مساهمة صوتية تقرّب المشروع من هدفه. شارك البوت وكن جزءًا من بناء تقنية صوتية عربية أفضل.",
         openBotButton: "فتح البوت",
         copyLinkButton: "نسخ الرابط",
-        footerHtml: "Saudi Dialects Speech Corpus — مشروع تخرج، <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
+        footerHtml: "Saudi Dialects Speech Corpus — Graduation Project, <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
         lastUpdatedPrefix: "آخر تحديث",
         notConnectedYet: "غير متصل حاليًا",
         statsUnavailable: "الإحصائيات غير متاحة مؤقتًا.",
