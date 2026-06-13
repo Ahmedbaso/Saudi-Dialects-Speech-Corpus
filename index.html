@@ -338,6 +338,92 @@
       color: var(--heading-color);
     }
 
+    @media (max-width: 700px) {
+      .table-wrapper {
+        overflow: visible;
+      }
+
+      .naming-table,
+      .naming-table thead,
+      .naming-table tbody,
+      .naming-table tr,
+      .naming-table th,
+      .naming-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .naming-table thead {
+        display: none;
+      }
+
+      .naming-table {
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+
+      .naming-table tr {
+        margin: 14px 0;
+        border: 1px solid var(--table-border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--card-bg);
+        box-shadow: 0 2px 10px var(--shadow-color);
+      }
+
+      .naming-table td {
+        border: none;
+        border-bottom: 1px solid var(--table-border);
+        padding: 12px 14px;
+        text-align: left;
+      }
+
+      .naming-table td:last-child {
+        border-bottom: none;
+      }
+
+      .naming-table td::before {
+        display: block;
+        color: var(--heading-color);
+        font-weight: 700;
+        margin-bottom: 5px;
+        font-size: 13px;
+      }
+
+      .naming-table td:nth-child(1)::before {
+        content: "Part";
+      }
+
+      .naming-table td:nth-child(2)::before {
+        content: "Meaning";
+      }
+
+      .naming-table td:nth-child(3)::before {
+        content: "Example";
+      }
+
+      body.lang-ar .naming-table td {
+        text-align: right;
+      }
+
+      body.lang-ar .naming-table td:nth-child(1)::before {
+        content: "الجزء";
+      }
+
+      body.lang-ar .naming-table td:nth-child(2)::before {
+        content: "المعنى";
+      }
+
+      body.lang-ar .naming-table td:nth-child(3)::before {
+        content: "المثال";
+      }
+
+      .naming-table code {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+    }
+
     .metadata-preview {
       background-color: #1f2937;
       color: #f9fafb;
@@ -372,6 +458,57 @@
       color: var(--link-color);
       font-weight: bold;
       border-bottom: 1px dotted var(--link-color);
+    }
+
+
+    .footer-title {
+      color: var(--footer-color);
+    }
+
+    .footer-separator {
+      color: var(--footer-color);
+    }
+
+    @media (max-width: 700px) {
+      footer {
+        padding: 24px 24px 84px;
+        font-size: 13px;
+        line-height: 1.55;
+        text-align: left;
+      }
+
+      body.lang-ar footer {
+        text-align: left;
+      }
+
+      footer .footer-title {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--footer-color);
+        text-align: left;
+      }
+
+      footer .footer-separator {
+        display: none;
+      }
+
+      footer .ksu-link {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        margin: 5px 0;
+        font-size: 13px;
+        line-height: 1.45;
+        text-align: left;
+        overflow-wrap: anywhere;
+      }
+
+      footer .ksu-link::before {
+        content: "• ";
+        color: var(--footer-color);
+        font-weight: 600;
+      }
     }
 
 
@@ -1212,19 +1349,20 @@ Total Audio Duration Seconds: 119.4</pre>
 </section>
 </main>
 <footer data-i18n-html="footerText">
-    Saudi Dialects Speech Corpus — Graduation Project,
+    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation Project</span>
+    <span class="footer-separator"> • </span>
     <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
       King Saud University
     </a>
-<span> • </span>
+<span class="footer-separator"> • </span>
 <a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit College of Computer and Information Sciences official website">
       College: Computer and Information Sciences
     </a>
-<span> • </span>
+<span class="footer-separator"> • </span>
 <a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
       Created by Ahmed.Baso
     </a>
-<span> • </span>
+<span class="footer-separator"> • </span>
 <a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
       Contact: Saudi.Dialects@outlook.sa
     </a>
@@ -1328,7 +1466,7 @@ Total Audio Duration Seconds: 119.4</pre>
             "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">التخزين والتتبع متعدد الوجهات</strong> تُخزَّن المخرجات على خادم DigitalOcean وفي Cloudinary، بينما يُستخدم Airtable لتخزين بيانات المشاركين وسجلات التسجيلات وتتبع الملفات.",
             "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع مجموعة البيانات، وتتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
             "privacyNote": "يمكن للمشاركين الإلغاء قبل تأكيد الرفع النهائي. بعد بدء عملية الرفع النهائي، يُعد الإرسال معتمدًا ويتم تعطيل الإلغاء داخل البوت.",
-            "footerText": "Saudi Dialects Speech Corpus — Graduation Project,\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span> • </span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a>\n    <span> • </span>\n    <a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a>\n    <span> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
+            "footerText": "<span class=\"footer-title\">Saudi Dialects Speech Corpus | Graduation Project</span>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
       }
 };
 
