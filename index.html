@@ -1,20 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-
-ZMHRPF86R8"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZMHRPF86R8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-ZMHRPF86R8');
 </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="A graduation project for collecting and processing Saudi dialect
-speech data using a Telegram bot, FFmpeg, Cloudinary, Airtable, and GitHub
-Pages." name="description"/>
+<meta content="A graduation project for collecting and processing Saudi dialect speech data using a Telegram bot, FFmpeg, Cloudinary, Airtable, and GitHub Pages." name="description"/>
 <title>Saudi Dialects Speech Corpus</title>
 <style>
     :root {
@@ -42,6 +41,7 @@ Pages." name="description"/>
       --python-yellow-end: #FFD43B;
       --python-eye: #ffffff;
     }
+
     body.dark-mode {
       --bg-color: #070d14;
       --text-color: #e2e8f0;
@@ -59,7 +59,6 @@ Pages." name="description"/>
       --link-color: #34d399;
       --footer-color: #94a3b8;
       --shadow-color: rgba(0, 0, 0, 0.4);
-
       --muted-text: #cbd5e1;
       --table-border: #334155;
       --python-blue-start: #93c5fd;
@@ -68,9 +67,11 @@ Pages." name="description"/>
       --python-yellow-end: #facc15;
       --python-eye: #0f172a;
     }
+
     * {
       box-sizing: border-box;
     }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -79,6 +80,7 @@ Pages." name="description"/>
       line-height: 1.7;
       transition: background-color 0.25s ease, color 0.25s ease;
     }
+
     header {
       background: linear-gradient(135deg, var(--header-bg), #002d22);
       color: var(--header-text);
@@ -86,15 +88,18 @@ Pages." name="description"/>
       text-align: center;
       transition: background-color 0.25s ease;
     }
+
     header h1 {
       margin-bottom: 10px;
       font-size: 38px;
     }
+
     header p {
       font-size: 18px;
       max-width: 900px;
       margin: auto;
     }
+
     .theme-panel {
       width: fit-content;
       margin: 24px auto 0;
@@ -106,18 +111,20 @@ Pages." name="description"/>
       justify-content: center;
       align-items: center;
     }
+
     .theme-switch {
       position: relative;
       display: inline-block;
       width: 62px;
       height: 34px;
     }
+
     .theme-switch input {
       opacity: 0;
       width: 0;
       height: 0;
-
     }
+
     .slider {
       position: absolute;
       cursor: pointer;
@@ -126,6 +133,7 @@ Pages." name="description"/>
       transition: 0.25s;
       border-radius: 999px;
     }
+
     .slider:before {
       position: absolute;
       content: "";
@@ -138,6 +146,7 @@ Pages." name="description"/>
       border-radius: 50%;
       box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18);
     }
+
     .switch-icon {
       position: absolute;
       width: 18px;
@@ -148,6 +157,7 @@ Pages." name="description"/>
       z-index: 1;
       transition: transform 0.25s ease, color 0.25s ease;
     }
+
     .switch-icon svg {
       position: absolute;
       inset: 0;
@@ -155,19 +165,24 @@ Pages." name="description"/>
       height: 18px;
       transition: opacity 0.2s ease;
     }
+
     .moon-icon {
       opacity: 0;
     }
+
     input:checked + .slider {
       background-color: #34d399;
     }
+
     input:checked + .slider:before {
       transform: translateX(28px);
     }
+
     input:checked + .slider .switch-icon {
       transform: translateX(28px);
       color: #0f172a;
     }
+
     input:checked + .slider .sun-icon {
       opacity: 0;
     }
@@ -175,11 +190,13 @@ Pages." name="description"/>
     input:checked + .slider .moon-icon {
       opacity: 1;
     }
+
     main {
       max-width: 1120px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
     section {
       background: var(--card-bg);
       padding: 28px;
@@ -188,21 +205,26 @@ Pages." name="description"/>
       box-shadow: 0 2px 10px var(--shadow-color);
       transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
+
     h2 {
       color: var(--heading-color);
       margin-top: 0;
       margin-bottom: 12px;
     }
+
     h3 {
       color: var(--heading-color);
       margin-bottom: 8px;
     }
+
     p {
       margin-top: 0;
     }
+
     .muted {
       color: var(--muted-text);
     }
+
     code {
       background-color: var(--code-bg);
       color: var(--text-color);
@@ -210,6 +232,7 @@ Pages." name="description"/>
       border-radius: 5px;
       font-size: 14px;
     }
+
     .format-box {
       display: block;
       overflow-x: auto;
@@ -217,24 +240,27 @@ Pages." name="description"/>
       margin: 12px 0;
       padding: 10px;
     }
+
     .highlight-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
       margin-top: 18px;
     }
+
     .highlight-card {
       background: var(--workflow-bg);
       border-left: 4px solid var(--workflow-border);
-
       border-radius: 12px;
       padding: 16px;
     }
+
     .highlight-card strong {
       display: block;
       color: var(--heading-color);
       margin-bottom: 6px;
     }
+
     .workflow {
       background-color: var(--workflow-bg);
       border-left: 5px solid var(--workflow-border);
@@ -243,6 +269,7 @@ Pages." name="description"/>
       white-space: pre-line;
       overflow-x: auto;
     }
+
     .note {
       background-color: var(--note-bg);
       border-left: 5px solid var(--note-border);
@@ -250,6 +277,7 @@ Pages." name="description"/>
       border-radius: 8px;
       margin-top: 15px;
     }
+
     .diagram-frame {
       width: 100%;
       max-height: 560px;
@@ -261,9 +289,11 @@ Pages." name="description"/>
       box-shadow: 0 4px 16px var(--shadow-color);
       transition: max-height 0.4s ease;
     }
+
     .diagram-frame.expanded {
       max-height: 6000px;
     }
+
     .diagram-image {
       display: block;
       width: 100%;
@@ -271,10 +301,12 @@ Pages." name="description"/>
       margin: 0 auto;
       background-color: var(--diagram-bg);
     }
+
     .diagram-controls {
       text-align: center;
       margin-top: 12px;
     }
+
     .diagram-button {
       border: none;
       background: var(--heading-color);
@@ -283,23 +315,26 @@ Pages." name="description"/>
       border-radius: 999px;
       cursor: pointer;
       font-weight: bold;
-
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
+
     .diagram-button:hover {
       opacity: 0.9;
       transform: translateY(-1px);
     }
+
     .table-wrapper {
       overflow-x: auto;
       margin-top: 15px;
     }
+
     .naming-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 12px;
       font-size: 15px;
     }
+
     .naming-table th,
     .naming-table td {
       border: 1px solid var(--table-border);
@@ -307,14 +342,17 @@ Pages." name="description"/>
       text-align: left;
       vertical-align: top;
     }
+
     .naming-table th {
       background-color: var(--code-bg);
       color: var(--heading-color);
     }
+
     @media (max-width: 700px) {
       .table-wrapper {
         overflow: visible;
       }
+
       .naming-table,
       .naming-table thead,
       .naming-table tbody,
@@ -324,13 +362,16 @@ Pages." name="description"/>
         display: block;
         width: 100%;
       }
+
       .naming-table thead {
         display: none;
       }
+
       .naming-table {
         border-collapse: separate;
         border-spacing: 0;
       }
+
       .naming-table tr {
         margin: 14px 0;
         border: 1px solid var(--table-border);
@@ -338,17 +379,19 @@ Pages." name="description"/>
         overflow: hidden;
         background: var(--card-bg);
         box-shadow: 0 2px 10px var(--shadow-color);
-
       }
+
       .naming-table td {
         border: none;
         border-bottom: 1px solid var(--table-border);
         padding: 12px 14px;
         text-align: left;
       }
+
       .naming-table td:last-child {
         border-bottom: none;
       }
+
       .naming-table td::before {
         display: block;
         color: var(--heading-color);
@@ -356,32 +399,41 @@ Pages." name="description"/>
         margin-bottom: 5px;
         font-size: 13px;
       }
+
       .naming-table td:nth-child(1)::before {
         content: "Part";
       }
+
       .naming-table td:nth-child(2)::before {
         content: "Meaning";
       }
+
       .naming-table td:nth-child(3)::before {
         content: "Example";
       }
+
       body.lang-ar .naming-table td {
         text-align: right;
       }
+
       body.lang-ar .naming-table td:nth-child(1)::before {
         content: "الجزء";
       }
+
       body.lang-ar .naming-table td:nth-child(2)::before {
         content: "المعنى";
       }
+
       body.lang-ar .naming-table td:nth-child(3)::before {
         content: "المثال";
       }
+
       .naming-table code {
         white-space: normal;
         overflow-wrap: anywhere;
       }
     }
+
     .metadata-preview {
       background-color: #1f2937;
       color: #f9fafb;
@@ -391,35 +443,42 @@ Pages." name="description"/>
       white-space: pre-wrap;
       font-family: Consolas, Monaco, "Courier New", monospace;
       font-size: 15px;
-
       line-height: 1.55;
       border: 1px solid #475569;
     }
+
     a {
       color: var(--link-color);
       font-weight: bold;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     footer {
       text-align: center;
       padding: 28px;
       color: var(--footer-color);
       font-size: 14px;
     }
+
     .ksu-link {
       color: var(--link-color);
       font-weight: bold;
       border-bottom: 1px dotted var(--link-color);
     }
+
+
     .footer-title {
       color: var(--footer-color);
     }
+
     .footer-separator {
       color: var(--footer-color);
     }
+
     @media (max-width: 700px) {
       footer {
         padding: 24px 24px 84px;
@@ -427,9 +486,11 @@ Pages." name="description"/>
         line-height: 1.55;
         text-align: left;
       }
+
       body.lang-ar footer {
         text-align: left;
       }
+
       footer .footer-title {
         display: block;
         margin-bottom: 10px;
@@ -437,29 +498,34 @@ Pages." name="description"/>
         color: var(--footer-color);
         text-align: left;
       }
+
       footer .footer-separator {
         display: none;
       }
+
       footer .ksu-link {
         display: block;
         width: fit-content;
         max-width: 100%;
-
         margin: 5px 0;
         font-size: 13px;
         line-height: 1.45;
         text-align: left;
         overflow-wrap: anywhere;
       }
+
       footer .ksu-link::before {
         content: "• ";
         color: var(--footer-color);
         font-weight: 600;
       }
     }
+
+
     .technologies-section {
       position: relative;
     }
+
     .tech-heading-row {
       display: flex;
       justify-content: space-between;
@@ -468,9 +534,11 @@ Pages." name="description"/>
       flex-wrap: wrap;
       margin-bottom: 12px;
     }
+
     .tech-heading-row h2 {
       margin-bottom: 0;
     }
+
     .tech-icons {
       display: flex;
       justify-content: flex-end;
@@ -479,6 +547,7 @@ Pages." name="description"/>
       flex-wrap: wrap;
       max-width: 560px;
     }
+
     .tech-logo {
       width: 38px;
       height: 38px;
@@ -489,12 +558,13 @@ Pages." name="description"/>
       align-items: center;
       justify-content: center;
       box-shadow: 0 3px 10px var(--shadow-color);
-      transition: background-color 0.25s ease, border-color 0.25s ease,
-transform 0.2s ease;
+      transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
     }
+
     .tech-logo:hover {
       transform: translateY(-2px);
     }
+
     .tech-logo svg {
       width: 27px;
       height: 27px;
@@ -505,53 +575,66 @@ transform 0.2s ease;
       width: 30px;
       height: 30px;
     }
+
     .python-logo-svg path,
     .python-logo-svg circle,
     .python-logo-svg stop {
       transition: fill 0.25s ease, stop-color 0.25s ease;
     }
+
     .tech-adaptive-fill {
       fill: var(--text-color);
       transition: fill 0.25s ease;
     }
+
     .tech-adaptive-stroke {
       stroke: var(--text-color);
       transition: stroke 0.25s ease;
     }
+
     .tech-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px 34px;
       margin-top: 10px;
     }
+
     .tech-list {
       margin: 0;
       padding-left: 22px;
     }
+
     .tech-list li {
       margin-bottom: 7px;
     }
+
     body.lang-ar .tech-list {
       padding-left: 0;
       padding-right: 22px;
     }
+
     body.lang-ar .tech-icons {
       justify-content: center;
     }
+
     .tech-heading-row {
       display: block;
       margin-bottom: 12px;
     }
+
     .tech-icons {
       justify-content: center;
       max-width: 100%;
       margin-top: 20px;
     }
+
+
     @media (max-width: 900px) {
       .highlight-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
 
     .telegram-icon {
       display: inline-flex;
@@ -562,44 +645,55 @@ transform 0.2s ease;
       align-items: center;
       justify-content: center;
     }
+
     .telegram-icon svg {
       width: 100%;
       height: 100%;
       display: block;
     }
+
     .telegram-circle {
       fill: #229ed9;
       transition: fill 0.25s ease, stroke 0.25s ease;
     }
+
     .telegram-plane {
       fill: #ffffff;
       transition: fill 0.25s ease;
     }
+
     body.dark-mode .telegram-circle {
       fill: #0f172a;
       stroke: #38bdf8;
       stroke-width: 1.5;
     }
+
     body.dark-mode .telegram-plane {
       fill: #38bdf8;
     }
+
     body.lang-ar .telegram-icon {
       margin-left: 0;
       margin-right: 6px;
     }
+
     @media (max-width: 700px) {
       header h1 {
         font-size: 29px;
       }
+
       header p {
         font-size: 16px;
       }
+
       section {
         padding: 22px;
       }
+
       .highlight-grid {
         grid-template-columns: 1fr;
       }
+
       .diagram-frame {
         max-height: 430px;
       }
@@ -614,10 +708,12 @@ transform 0.2s ease;
       gap: 12px;
       flex-wrap: wrap;
     }
+
     .theme-panel {
       margin: 0;
       gap: 10px;
     }
+
     .theme-panel-label {
       color: rgba(255, 255, 255, 0.94);
       font-size: 14px;
@@ -625,9 +721,11 @@ transform 0.2s ease;
       letter-spacing: 0.2px;
       white-space: nowrap;
     }
+
     .language-panel {
       gap: 10px;
     }
+
     .language-switch {
       display: inline-flex;
       align-items: center;
@@ -637,6 +735,7 @@ transform 0.2s ease;
       background: rgba(15, 23, 42, 0.28);
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
+
     .language-button {
       border: none;
       border-radius: 999px;
@@ -646,16 +745,18 @@ transform 0.2s ease;
       font-size: 13px;
       color: rgba(255, 255, 255, 0.88);
       background: transparent;
-      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s
-ease;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
+
     .language-button:hover {
       transform: translateY(-1px);
     }
+
     .language-button.active {
       background: #34d399;
       color: #0f172a;
     }
+
     body.lang-ar {
       direction: rtl;
       text-align: right;
@@ -666,18 +767,22 @@ ease;
     body.lang-ar footer {
       text-align: center;
     }
+
     body.lang-ar .highlight-card,
     body.lang-ar .workflow,
     body.lang-ar .note {
       border-left: none;
       border-right: 5px solid var(--workflow-border);
     }
+
     body.lang-ar .highlight-card {
       border-right-width: 4px;
     }
+
     body.lang-ar .note {
       border-right-color: var(--note-border);
     }
+
     body.lang-ar .workflow,
     body.lang-ar .metadata-preview,
     body.lang-ar code,
@@ -685,15 +790,19 @@ ease;
       direction: ltr;
       text-align: left;
     }
+
     body.lang-ar .naming-table th,
     body.lang-ar .naming-table td {
       text-align: right;
     }
+
     body.lang-ar ol,
     body.lang-ar ul {
       padding-left: 0;
       padding-right: 24px;
     }
+
+
     .telegram-icon {
       display: inline-flex;
       width: 22px;
@@ -703,355 +812,71 @@ ease;
       align-items: center;
       justify-content: center;
     }
+
     .telegram-icon svg {
       width: 100%;
       height: 100%;
       display: block;
     }
+
     .telegram-circle {
       fill: #229ed9;
       transition: fill 0.25s ease, stroke 0.25s ease;
     }
-    .telegram-plane {
 
+    .telegram-plane {
       fill: #ffffff;
       transition: fill 0.25s ease;
     }
+
     body.dark-mode .telegram-circle {
       fill: #0f172a;
       stroke: #38bdf8;
       stroke-width: 1.5;
     }
+
     body.dark-mode .telegram-plane {
       fill: #38bdf8;
     }
+
     body.lang-ar .telegram-icon {
       margin-left: 0;
       margin-right: 6px;
     }
+
     @media (max-width: 700px) {
       .header-controls {
         width: 100%;
       }
+
       .theme-panel {
         padding: 9px 12px;
       }
     }
 
-    /* =============================================
-       Visual Improvements — Design Polish Layer
-       =============================================
-       All existing styles remain untouched above.
-       These rules refine spacing, shadows, hover
-       effects, typography, and responsiveness.
-       ============================================= */
-
-    /* — New design tokens — */
-    :root {
-      --border-accent:          rgba(0, 108, 53, 0.10);
-      --section-hover-shadow:   0 8px 28px rgba(0, 108, 53, 0.11), 0 2px 8px var(--shadow-color);
-      --btn-shadow:             0 3px 12px rgba(15, 81, 50, 0.24);
-      --btn-shadow-hover:       0 6px 22px rgba(15, 81, 50, 0.36);
-      --card-lift-shadow:       0 6px 20px rgba(0, 108, 53, 0.09);
-    }
-    body.dark-mode {
-      --border-accent:          rgba(52, 211, 153, 0.10);
-      --section-hover-shadow:   0 8px 28px rgba(52, 211, 153, 0.08), 0 2px 8px var(--shadow-color);
-      --btn-shadow:             0 3px 12px rgba(52, 211, 153, 0.18);
-      --btn-shadow-hover:       0 6px 22px rgba(52, 211, 153, 0.28);
-      --card-lift-shadow:       0 6px 20px rgba(52, 211, 153, 0.07);
-    }
-
-    /* — Better system font stack — */
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-    }
-
-    /* — Header: richer gradient + subtle CSS overlay — */
-    header {
-      background: linear-gradient(148deg, #006c35 0%, #004f26 55%, #002d22 100%);
-      padding: 64px 24px 54px;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 65% 85% at 18% 45%, rgba(255,255,255,0.055) 0%, transparent 68%),
-        radial-gradient(ellipse 55% 65% at 78% 18%, rgba(52,211,153,0.072) 0%, transparent 58%),
-        radial-gradient(ellipse 45% 45% at 55% 95%, rgba(0,0,0,0.07) 0%, transparent 55%);
-      pointer-events: none;
-    }
-    header > * { position: relative; z-index: 1; }
-
-    header h1 {
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 14px;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
-    }
-    header p {
-      max-width: 820px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0.93;
-      line-height: 1.66;
-    }
-
-    /* — Main layout tightening — */
-    main {
-      max-width: 1120px;
-      margin: 36px auto 20px;
-      padding: 0 24px;
-    }
-
-    /* — Section cards: border, radius, hover lift — */
-    section {
-      border-radius: 16px;
-      padding: 32px 32px 28px;
-      margin-bottom: 22px;
-      box-shadow: 0 1px 3px var(--shadow-color), 0 4px 14px var(--shadow-color);
-      border: 1px solid var(--border-accent);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.25s ease;
-    }
-    section:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--section-hover-shadow);
-    }
-
-    /* — h2: visual anchor line — */
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
-      margin-bottom: 16px;
-      padding-bottom: 11px;
-      border-bottom: 1.5px solid var(--border-accent);
-    }
-    h3 {
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    /* — Paragraph & list breathing room — */
-    p {
-      line-height: 1.73;
-      margin-bottom: 14px;
-    }
-    ol li, ul li {
-      margin-bottom: 7px;
-      line-height: 1.67;
-    }
-
-    /* — Highlight cards: lift on hover — */
-    .highlight-card {
-      padding: 18px 18px 16px;
-      border-radius: 13px;
-      box-shadow: 0 1px 4px var(--shadow-color);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
-    .highlight-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--card-lift-shadow);
-    }
-    .highlight-card strong {
-      font-size: 14px;
-      letter-spacing: 0.1px;
-      margin-bottom: 8px;
-    }
-
-    /* — Buttons: shadow + consistent sizing — */
-    .diagram-button {
-      padding: 11px 30px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.15px;
-      box-shadow: var(--btn-shadow);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.2s ease;
-    }
-    .diagram-button:hover {
-      opacity: 1;
-      transform: translateY(-2px);
-      box-shadow: var(--btn-shadow-hover);
-    }
-    a.diagram-button {
-      display: inline-block;
-      text-decoration: none;
-    }
-    a.diagram-button:hover { text-decoration: none; }
-
-    /* — Tech icons: slightly larger, glow on hover — */
-    .tech-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 13px;
-      transition: background-color 0.25s ease, border-color 0.25s ease,
-                  transform 0.22s ease, box-shadow 0.22s ease;
-    }
-    .tech-logo:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px var(--shadow-color);
-    }
-    .tech-icons {
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    /* — Code: monospace font stack — */
-    code {
-      font-family: 'Consolas', 'Monaco', 'Menlo', 'Courier New', monospace;
-      font-size: 13.5px;
-      padding: 3px 8px;
-      border-radius: 6px;
-      letter-spacing: 0.01em;
-    }
-
-    /* — Workflow block: monospace + breathing room — */
-    .workflow {
-      font-family: 'Consolas', 'Monaco', 'Menlo', 'Courier New', monospace;
-      font-size: 13.5px;
-      line-height: 1.9;
-      border-radius: 12px;
-      padding: 20px 22px;
-    }
-
-    /* — Note block: cleaner radius — */
-    .note {
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin-top: 18px;
-      font-size: 14.5px;
-    }
-
-    /* — Metadata preview: tighter font — */
-    .metadata-preview {
-      border-radius: 14px;
-      font-size: 13.5px;
-      line-height: 1.62;
-    }
-
-    /* — Diagram frame — */
-    .diagram-frame {
-      border-radius: 16px;
-      margin: 18px auto 8px;
-    }
-    body.dark-mode .diagram-frame {
-      box-shadow: 0 4px 22px rgba(0, 0, 0, 0.5);
-    }
-
-    /* — Table cells — */
-    .naming-table th {
-      font-weight: 700;
-      font-size: 13.5px;
-      padding: 12px 12px;
-    }
-    .naming-table td {
-      padding: 11px 12px;
-      font-size: 14px;
-    }
-
-    /* — Tech list spacing — */
-    .tech-grid { gap: 10px 32px; margin-top: 12px; }
-    .tech-list li { margin-bottom: 8px; font-size: 14.5px; }
-
-    /* — Footer separator — */
-    footer {
-      border-top: 1px solid var(--border-accent);
-      padding: 26px 24px;
-      margin-top: 4px;
-    }
-
-    /* — Mobile refinements (≤700px) — */
-    @media (max-width: 700px) {
-      header { padding: 44px 20px 38px; }
-      header h1 { font-size: 30px; letter-spacing: -0.3px; }
-      main { margin: 20px auto; padding: 0 16px; }
-
-      section {
-        padding: 20px 18px;
-        margin-bottom: 16px;
-        border-radius: 14px;
-      }
-      /* Disable hover lift on touch — avoids sticky hover */
-      section:hover { transform: none; box-shadow: 0 1px 3px var(--shadow-color), 0 4px 14px var(--shadow-color); }
-      .highlight-card:hover { transform: none; box-shadow: 0 1px 4px var(--shadow-color); }
-      .tech-logo:hover { transform: none; box-shadow: none; }
-
-      h2 { font-size: 18px; }
-
-      .diagram-controls .diagram-button {
-        display: block;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .tech-logo { width: 40px; height: 40px; }
-      .tech-icons { gap: 8px; margin-top: 18px; }
-
-      footer { padding: 20px 18px 80px; }
-
-      .workflow { padding: 16px 16px; font-size: 13px; }
-      .metadata-preview { font-size: 13px; padding: 14px; }
-    }
-
-    /* — Very small screens (≤480px) — */
-    @media (max-width: 480px) {
-      header h1 { font-size: 26px; }
-      header p  { font-size: 15px; }
-      .tech-logo { width: 36px; height: 36px; border-radius: 10px; }
-      .tech-logo svg { width: 24px; height: 24px; }
-      .highlight-card { padding: 14px 14px 12px; }
-    }
-
-    /* — Reduced motion support — */
-    @media (prefers-reduced-motion: reduce) {
-      section, .highlight-card, .diagram-button,
-      .tech-logo, a.diagram-button {
-        transition: none !important;
-        transform: none !important;
-      }
-    }
   </style>
 </head>
 <body class="dark-mode">
 <header>
 <h1 data-i18n="projectTitle">Saudi Dialects Speech Corpus</h1>
 <p data-i18n-html="headerSubtitle">
-      A graduation project focused on building a structured Saudi dialect speech
-corpus
-      through linguistically curated prompts, privacy-first data collection, and
-an automated
-      Telegram-based ingestion pipeline. <span aria-label="Telegram"
-class="telegram-icon telegram-icon-inline" title="Telegram"> <svg aria-
-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle" cx="12"
-cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9
-11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-
-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-
-1.1-3.1Z"></path> </svg> </span></p>
+      A graduation project focused on building a structured Saudi dialect speech corpus
+      through linguistically curated prompts, privacy-first data collection, and an automated
+      Telegram-based ingestion pipeline. <span aria-label="Telegram" class="telegram-icon telegram-icon-inline" title="Telegram"> <svg aria-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg> </span></p>
 <div class="header-controls">
 <div class="theme-panel">
 <span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
-<label aria-label="Switch between light and dark mode" class="theme-switch"
-title="Switch between light and dark mode">
+<label aria-label="Switch between light and dark mode" class="theme-switch" title="Switch between light and dark mode">
 <input id="themeToggle" type="checkbox"/>
 <span class="slider">
 <span aria-hidden="true" class="switch-icon">
 <svg class="sun-icon" fill="none" viewbox="0 0 24 24">
 <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"></circle>
-<path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8
-12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor"
-stroke-linecap="round" stroke-width="2"></path>
+<path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
 </svg>
 <svg class="moon-icon" fill="none" viewbox="0 0 24 24">
-<path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z"
-stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
-
 </span>
 </span>
 </label>
@@ -1059,10 +884,8 @@ stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
 <div aria-label="Language selector" class="theme-panel language-panel">
 <span class="theme-panel-label" data-i18n="languageLabel">Language</span>
 <div aria-label="Switch language" class="language-switch" role="group">
-<button aria-pressed="true" class="language-button active" data-lang="en"
-id="langEn" type="button">EN</button>
-<button aria-pressed="false" class="language-button" data-lang="ar" id="langAr"
-type="button">AR</button>
+<button aria-pressed="true" class="language-button active" data-lang="en" id="langEn" type="button">EN</button>
+<button aria-pressed="false" class="language-button" data-lang="ar" id="langAr" type="button">AR</button>
 </div>
 </div>
 </div>
@@ -1071,223 +894,133 @@ type="button">AR</button>
 <section>
 <h2 data-i18n="projectOverviewTitle">Project Overview</h2>
 <p data-i18n="overviewP1">
-        The Saudi Dialects Speech Corpus project addresses the shortage of high-
-quality,
-        dialect-specific Arabic speech data. While many Arabic language
-technologies perform
-        reasonably well on Modern Standard Arabic, they often struggle with
-spontaneous daily
+        The Saudi Dialects Speech Corpus project addresses the shortage of high-quality,
+        dialect-specific Arabic speech data. While many Arabic language technologies perform
+        reasonably well on Modern Standard Arabic, they often struggle with spontaneous daily
         speech, especially when the speaker uses regional Saudi dialects.
       </p>
-
 <p data-i18n="overviewP2">
-
-        The project focuses on creating a structured speech corpus that captures
-natural Saudi
-        dialectal variation while maintaining a privacy-first and scalable data
-collection
-        architecture. Instead of treating the Telegram bot as the entire
-project, the bot is used
-        as the main ingestion tool for a broader linguistic and data engineering
-pipeline.
-
+        The project focuses on creating a structured speech corpus that captures natural Saudi
+        dialectal variation while maintaining a privacy-first and scalable data collection
+        architecture. Instead of treating the Telegram bot as the entire project, the bot is used
+        as the main ingestion tool for a broader linguistic and data engineering pipeline.
       </p>
-
 </section>
 <section>
-
 <h2 data-i18n="whyTitle">Why This Project Matters</h2>
 <p data-i18n="whyP1">
-        Saudi Arabia contains a wide range of regional dialects shaped by
-geography, history,
-        and social variation. Dialects such as Najdi, Hijazi, Southern, Eastern,
-and Northern
-        varieties can differ in pronunciation, vocabulary, and morphology. This
-makes speech
-        recognition difficult when models are trained mainly on formal Arabic or
-non-local data.
-
+        Saudi Arabia contains a wide range of regional dialects shaped by geography, history,
+        and social variation. Dialects such as Najdi, Hijazi, Southern, Eastern, and Northern
+        varieties can differ in pronunciation, vocabulary, and morphology. This makes speech
+        recognition difficult when models are trained mainly on formal Arabic or non-local data.
       </p>
 <p data-i18n="whyP2">
-        A dedicated Saudi dialect speech corpus can support future improvements
-in Arabic
-        Automatic Speech Recognition (ASR), voice assistants, digital
-accessibility, automated
+        A dedicated Saudi dialect speech corpus can support future improvements in Arabic
+        Automatic Speech Recognition (ASR), voice assistants, digital accessibility, automated
         customer service, and smart city voice-based services.
       </p>
 </section>
 <section>
 <h2 data-i18n="methodologyTitle">Corpus Design Methodology</h2>
 <p data-i18n="methodologyP1">
-        The corpus was not built from random sentences. It was designed through
-a structured
-        sentence selection process that combines public language input with
-
-phonetic curation.
-        The goal is to cover Arabic phonemes and capture common Saudi
-expressions while
-
+        The corpus was not built from random sentences. It was designed through a structured
+        sentence selection process that combines public language input with phonetic curation.
+        The goal is to cover Arabic phonemes and capture common Saudi expressions while
         reducing reading bias.
       </p>
-
 <ol>
-
 <li data-i18n-html="methodLi1">
-
-<strong>Public perception survey:</strong> Participants evaluated common phrases
-and
-
+<strong>Public perception survey:</strong> Participants evaluated common phrases and
           regional variation.
         </li>
-
 <li data-i18n-html="methodLi2">
-
 <strong>Phrase nomination:</strong> Volunteers suggested daily Saudi expressions
           commonly used in their region.
-
         </li>
-
 <li data-i18n-html="methodLi3">
-
-<strong>Expert phonetic curation:</strong> The final prompt list was refined to
-ensure
-
+<strong>Expert phonetic curation:</strong> The final prompt list was refined to ensure
           broad phonetic coverage across Arabic sounds and dialectal usage.
         </li>
-
 </ol>
-
 <p data-i18n="methodologyP2">
-        The finalized textual corpus includes 30 predefined prompts and one
-optional free-speech
-        prompt, labeled as S31, to capture more natural, unscripted dialectal
-speech.
-
+        The finalized textual corpus includes 30 predefined prompts and one optional free-speech
+        prompt, labeled as S31, to capture more natural, unscripted dialectal speech.
       </p>
-
 </section>
-
 <section>
-
 <h2 data-i18n="highlightsTitle">Project Highlights</h2>
-
 <div class="highlight-grid">
-
 <div class="highlight-card" data-i18n-html="highlightPrivacyCard">
 <strong data-i18n="highlightPrivacyTitle">Privacy-first collection</strong>
-          The system avoids storing phone numbers and supports anonymous
-participation.
-
+          The system avoids storing phone numbers and supports anonymous participation.
         </div>
-
 <div class="highlight-card" data-i18n-html="highlightPhoneticCard">
 <strong data-i18n="highlightPhoneticTitle">Phonetic coverage</strong>
-          The 30-sentence corpus is curated to cover Arabic phonemes and
-dialectal variation.
-
+          The 30-sentence corpus is curated to cover Arabic phonemes and dialectal variation.
         </div>
-
 <div class="highlight-card" data-i18n-html="highlightAutomationCard">
 <strong data-i18n="highlightAutomationTitle">Automated ingestion</strong>
-          A Telegram bot manages participant flow, recordings, validation, and
-processing.
-
+          A Telegram bot manages participant flow, recordings, validation, and processing.
         </div>
-
 <div class="highlight-card" data-i18n-html="highlightStorageCard">
-<strong data-i18n="highlightStorageTitle">Multi-destination storage and
-tracking</strong>
-
-          Outputs are stored on the server and in Cloudinary, while Airtable is
-used for participant metadata, recording records, and file tracking.
+<strong data-i18n="highlightStorageTitle">Multi-destination storage and tracking</strong>
+          Outputs are stored on the server and in Cloudinary, while Airtable is used for participant metadata, recording records, and file tracking.
         </div>
-
 </div>
-
 </section>
 <section>
 <h2 data-i18n="statsTitle">Corpus Collection Statistics</h2>
 <p data-i18n="statsP">
-        View the updated progress of the Saudi Dialects Speech Corpus, including
-participant count,
-        recording count, collected minutes, and progress toward the project
-goals.
-
+        View the updated progress of the Saudi Dialects Speech Corpus, including participant count,
+        recording count, collected minutes, and progress toward the project goals.
       </p>
 <div class="diagram-controls">
-<a class="diagram-button" data-i18n="viewStatsButton" href="stats.html">View
-
-Corpus Statistics</a>
+<a class="diagram-button" data-i18n="viewStatsButton" href="stats.html">View Corpus Statistics</a>
 </div>
 </section>
 <section>
-<h2 data-i18n-html="botWorkflowTitle">Telegram Bot Workflow <span aria-
-label="Telegram" class="telegram-icon telegram-icon-inline" title="Telegram">
-<svg aria-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle"
-cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9
-11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-
-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-
-1.1-3.1Z"></path> </svg> </span></h2>
+<h2 data-i18n-html="botWorkflowTitle">Telegram Bot Workflow <span aria-label="Telegram" class="telegram-icon telegram-icon-inline" title="Telegram"> <svg aria-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg> </span></h2>
 <p data-i18n="botWorkflowP">
-        The Telegram bot is the main interface that guides participants through
-the data
+        The Telegram bot is the main interface that guides participants through the data
         collection process.
       </p>
 <ol>
-<li data-i18n-html="botLi1">The participant starts the bot using
-<code>/start</code>.</li>
-<li data-i18n="botLi2">The bot displays the privacy policy and requires explicit
-consent.</li>
-<li data-i18n="botLi3">The bot collects participant metadata such as age,
-gender, dialect region, education level, and device type.</li>
-<li data-i18n="botLi4">The bot displays a recording notice asking the
-participant to remove headphones and record directly using the phone
-microphone.</li>
-<li data-i18n="botLi5">The participant records 30 predefined phonetically
-curated sentences.</li>
-<li data-i18n="botLi6">For each sentence, the participant can approve the
-recording or re-record it.</li>
-<li data-i18n="botLi7">The participant may optionally record a free-speech
-sample or skip this step.</li>
-<li data-i18n="botLi8">The bot shows a final confirmation button before
-processing and uploading the files.</li>
-<li data-i18n="botLi9">After final confirmation, the audio files are processed,
-renamed, compressed, uploaded, and stored.</li>
+<li data-i18n-html="botLi1">The participant starts the bot using <code>/start</code>.</li>
+<li data-i18n="botLi2">The bot displays the privacy policy and requires explicit consent.</li>
+<li data-i18n="botLi3">The bot collects participant metadata such as age, gender, dialect region, education level, and device type.</li>
+<li data-i18n="botLi4">The bot displays a recording notice asking the participant to remove headphones and record directly using the phone microphone.</li>
+<li data-i18n="botLi5">The participant records 30 predefined phonetically curated sentences.</li>
+<li data-i18n="botLi6">For each sentence, the participant can approve the recording or re-record it.</li>
+<li data-i18n="botLi7">The participant may optionally record a free-speech sample or skip this step.</li>
+<li data-i18n="botLi8">The bot shows a final confirmation button before processing and uploading the files.</li>
+<li data-i18n="botLi9">After final confirmation, the audio files are processed, renamed, compressed, uploaded, and stored.</li>
 </ol>
 </section>
 <section>
 <h2 data-i18n="userDiagramTitle">Telegram Bot User Workflow Diagram</h2>
 <p data-i18n="userDiagramP">
-        This diagram shows the participant journey from consent approval to
-final file upload.
+        This diagram shows the participant journey from consent approval to final file upload.
       </p>
 <div class="diagram-frame" id="userWorkflowFrame">
-<img alt="Telegram Bot User Workflow Diagram" class="diagram-image"
-src="assets/user-workflow.png"/>
+<img alt="Telegram Bot User Workflow Diagram" class="diagram-image" src="assets/user-workflow.png"/>
 </div>
 <div class="diagram-controls">
-<button class="diagram-button" data-i18n="showFullDiagram"
-onclick="toggleDiagram('userWorkflowFrame', this)">
+<button class="diagram-button" data-i18n="showFullDiagram" onclick="toggleDiagram('userWorkflowFrame', this)">
           Show full diagram
         </button>
-
 </div>
 </section>
 <section>
 <h2 data-i18n="architectureTitle">System Architecture &amp; Data Pipeline</h2>
 <p data-i18n="architectureP">
-        This diagram shows how approved voice recordings are processed, stored,
-and linked
+        This diagram shows how approved voice recordings are processed, stored, and linked
         across backend services.
       </p>
 <div class="diagram-frame" id="systemArchitectureFrame">
-<img alt="System Architecture and Data Pipeline Diagram" class="diagram-image"
-
-src="assets/system-architecture.png"/>
+<img alt="System Architecture and Data Pipeline Diagram" class="diagram-image" src="assets/system-architecture.png"/>
 </div>
 <div class="diagram-controls">
-<button class="diagram-button" data-i18n="showFullDiagram"
-onclick="toggleDiagram('systemArchitectureFrame', this)">
+<button class="diagram-button" data-i18n="showFullDiagram" onclick="toggleDiagram('systemArchitectureFrame', this)">
           Show full diagram
         </button>
 </div>
@@ -1316,53 +1049,37 @@ Server Storage + Cloudinary + Airtable Storage &amp; Tracking
 </section>
 <section>
 <h2 data-i18n="audioProcessingTitle">Audio Processing</h2>
-<p data-i18n="audioProcessingP">Telegram voice recordings are received in OGG
-format. The Python backend uses FFmpeg to convert each approved recording into a
-standardized WAV file.</p>
+<p data-i18n="audioProcessingP">Telegram voice recordings are received in OGG format. The Python backend uses FFmpeg to convert each approved recording into a standardized WAV file.</p>
 <ul>
 <li data-i18n="wavFormat">WAV format</li>
 <li data-i18n="sampleRate">44.1kHz sample rate</li>
 <li data-i18n="monoChannel">Mono channel</li>
 <li data-i18n="pcmEncoding">PCM 16-bit encoding</li>
-<li data-i18n="ffprobeLi">FFprobe is used to calculate the total audio duration
-for each participant session.</li>
+<li data-i18n="ffprobeLi">FFprobe is used to calculate the total audio duration for each participant session.</li>
 </ul>
 </section>
 <section>
 <h2 data-i18n="durationRulesTitle">Recording Duration Rules</h2>
 <ul>
-<li data-i18n="durationLi1">Each predefined sentence has a maximum recording
-duration of 15 seconds.</li>
-<li data-i18n="durationLi2">The optional free-speech recording has a maximum
-duration of 35 seconds.</li>
-<li data-i18n="durationLi3">If the participant exceeds the allowed duration, the
-bot asks them to re-record.</li>
+<li data-i18n="durationLi1">Each predefined sentence has a maximum recording duration of 15 seconds.</li>
+<li data-i18n="durationLi2">The optional free-speech recording has a maximum duration of 35 seconds.</li>
+<li data-i18n="durationLi3">If the participant exceeds the allowed duration, the bot asks them to re-record.</li>
 </ul>
 </section>
 <section>
 <h2 data-i18n="storageTitle">Storage Architecture</h2>
-<p data-i18n="storageP">The system uses a multi-destination storage and tracking
-architecture:</p>
+<p data-i18n="storageP">The system uses a multi-destination storage and tracking architecture:</p>
 <ul>
-<li data-i18n-html="storageLi1"><strong>Server Storage:</strong> stores the
-generated ZIP archive, processed audio files, and metadata file on the project
-server.</li>
-
-<li data-i18n-html="storageLi2"><strong>Cloudinary:</strong> stores uploaded
-audio files and metadata files for cloud accessibility.</li>
-
-<li data-i18n-html="storageLi3"><strong>Airtable:</strong> stores participant
-metadata and recording records for review and tracking.</li>
+<li data-i18n-html="storageLi1"><strong>Server Storage:</strong> stores the generated ZIP archive, processed audio files, and metadata file on the project server.</li>
+<li data-i18n-html="storageLi2"><strong>Cloudinary:</strong> stores uploaded audio files and metadata files for cloud accessibility.</li>
+<li data-i18n-html="storageLi3"><strong>Airtable:</strong> stores participant metadata and recording records for review and tracking.</li>
 </ul>
 </section>
 <section>
 <h2 data-i18n="namingTitle">File Naming Convention</h2>
-<p data-i18n="namingP1">Each audio file follows a structured naming format
-designed to encode the dialect, speaker identifier, sentence number, device
-type, and recording attempt directly in the filename.</p>
+<p data-i18n="namingP1">Each audio file follows a structured naming format designed to encode the dialect, speaker identifier, sentence number, device type, and recording attempt directly in the filename.</p>
 <p>
-<code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit]
-[Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
+<code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit][Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
 </p>
 <p><strong data-i18n="exampleOnly">Example only:</strong></p>
 <p>
@@ -1380,21 +1097,18 @@ type, and recording attempt directly in the filename.</p>
 <tbody>
 <tr>
 <td><code>KSU_DIA</code></td>
-<td data-i18n="projectPrefixMeaning">Project prefix for the Saudi Dialects
-Speech Corpus.</td>
+<td data-i18n="projectPrefixMeaning">Project prefix for the Saudi Dialects Speech Corpus.</td>
 <td><code>KSU_DIA</code></td>
 </tr>
 <tr>
 <td><code>D[Dialect_Code]</code></td>
-<td data-i18n="dialectCodeMeaning">Dialect region code assigned to the
-participant's dialect classification.</td>
+<td data-i18n="dialectCodeMeaning">Dialect region code assigned to the participant's dialect classification.</td>
 <td><code>D01</code></td>
 </tr>
 <tr>
 <td><code>SPK[Gender_Digit][Speaker_ID]</code></td>
 <td data-i18n-html="speakerIdentifierTd">
-                Speaker identifier. The first digit after <code>SPK</code>
-represents gender:
+                Speaker identifier. The first digit after <code>SPK</code> represents gender:
                 <br/>
 <strong>1 = Male</strong>
 <br/>
@@ -1402,7 +1116,6 @@ represents gender:
 <br/>
                 The remaining digits represent the speaker ID.
               </td>
-
 <td>
 <code>SPK10073</code>
 <br/>
@@ -1413,23 +1126,19 @@ represents gender:
 </tr>
 <tr>
 <td><code>S[Sentence_ID]</code></td>
-<td data-i18n="sentenceNumberMeaning">Sentence number recorded by the
-
-participant.</td>
+<td data-i18n="sentenceNumberMeaning">Sentence number recorded by the participant.</td>
 <td><code>S05</code> = sentence 5</td>
 </tr>
 <tr>
 <td><code>T[Device_Code][Attempt_Counter]</code></td>
 <td data-i18n-html="deviceAttemptTd">
-                Device and attempt code. The first digit after <code>T</code>
-represents device type:
+                Device and attempt code. The first digit after <code>T</code> represents device type:
                 <br/>
 <strong>1 = iPhone</strong>
 <br/>
 <strong>0 = Android</strong>
 <br/>
-                The second digit represents the recording attempt number, with a
-maximum of 3 attempts.
+                The second digit represents the recording attempt number, with a maximum of 3 attempts.
               </td>
 <td>
 <code>T11</code>
@@ -1443,19 +1152,14 @@ maximum of 3 attempts.
 </table>
 </div>
 <p data-i18n-html="basedExampleP">
-        Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the
-file belongs to dialect code <code>D01</code>, a male speaker with ID
-<code>0073</code>, sentence number <code>05</code>, recorded using an iPhone on
-the first attempt.
+        Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the file belongs to dialect code <code>D01</code>, a male speaker with ID <code>0073</code>, sentence number <code>05</code>, recorded using an iPhone on the first attempt.
       </p>
 <p data-i18n="additionalExamples">
         Additional examples:
       </p>
 <ul>
-<li data-i18n-html="exampleSpkFemale"><code>SPK00073</code>: female speaker,
-speaker ID 0073.</li>
-<li data-i18n-html="exampleSpkMale"><code>SPK10073</code>: male speaker, speaker
-ID 0073.</li>
+<li data-i18n-html="exampleSpkFemale"><code>SPK00073</code>: female speaker, speaker ID 0073.</li>
+<li data-i18n-html="exampleSpkMale"><code>SPK10073</code>: male speaker, speaker ID 0073.</li>
 <li data-i18n-html="exampleT01"><code>T01</code>: Android, first attempt.</li>
 <li data-i18n-html="exampleT03"><code>T03</code>: Android, third attempt.</li>
 <li data-i18n-html="exampleT11"><code>T11</code>: iPhone, first attempt.</li>
@@ -1464,11 +1168,7 @@ ID 0073.</li>
 </section>
 <section>
 <h2 data-i18n="metadataTitle">Metadata File Storage</h2>
-<p data-i18n-html="metadataP1">In addition to the audio files, the system
-generates a server-side metadata file named <code>SPKxxxxx_info.txt</code> for
-each participant. This file preserves session information, participant profile
-fields, dialect details, general region-related fields, recording context, and
-an audio duration summary.</p>
+<p data-i18n-html="metadataP1">In addition to the audio files, the system generates a server-side metadata file named <code>SPKxxxxx_info.txt</code> for each participant. This file preserves session information, participant profile fields, dialect details, general region-related fields, recording context, and an audio duration summary.</p>
 <p data-i18n="exampleOnly">
         Example only:
       </p>
@@ -1495,6 +1195,7 @@ Lived Most: Riyadh
 Dialect Opinion: Qassimi
 Mother Origin: Al-Qassim
 Father Origin: Al-Qassim
+
 [Recording Context]
 Device Type: iPhone
 Mood: 3/5
@@ -1508,46 +1209,32 @@ Free Topic: Future Plans and Goals
 [Audio Summary]
 Total Audio Duration: 01:59
 Total Audio Duration Seconds: 119.4</pre>
-<div class="note" data-i18n="metadataNote">This metadata file is intended for
-research organization and dataset tracking. The collection process avoids
-storing phone numbers or direct personal identifiers.</div>
+<div class="note" data-i18n="metadataNote">This metadata file is intended for research organization and dataset tracking. The collection process avoids storing phone numbers or direct personal identifiers.</div>
 </section>
 <section>
 <h2 data-i18n="privacyTitle">Privacy and Consent</h2>
 <p data-i18n="privacyP1">
-        The bot displays the privacy policy before collecting participant data.
-Participants must
-        explicitly agree before continuing. The privacy message also links to
-this project page so
-        participants can review the bot workflow, storage approach, and data
-handling process.
-        The system avoids collecting phone numbers and allows participants to
-use a nickname or pseudonym.
+        The bot displays the privacy policy before collecting participant data. Participants must
+        explicitly agree before continuing. The privacy message also links to this project page so
+        participants can review the bot workflow, storage approach, and data handling process.
+        The system avoids collecting phone numbers and allows participants to use a nickname or pseudonym.
       </p>
 <div class="note" data-i18n="privacyNote">
-        Participants can cancel before the final upload confirmation. Once the
-final upload process starts,
-        the submission is considered approved and cancellation is disabled
-inside the bot.
+        Participants can cancel before the final upload confirmation. Once the final upload process starts,
+        the submission is considered approved and cancellation is disabled inside the bot.
       </div>
 </section>
 <section>
 <h2 data-i18n="reliabilityTitle">Reliability and Error Handling</h2>
 <p data-i18n="reliabilityP1">
-        The system includes safeguards for upload failures and server
-availability. If an upload
-        error occurs after recordings have been saved on the server, the
-participant receives a
-        clear error message, and an admin alert is sent with the error time,
-SPKID, saved file count,
+        The system includes safeguards for upload failures and server availability. If an upload
+        error occurs after recordings have been saved on the server, the participant receives a
+        clear error message, and an admin alert is sent with the error time, SPKID, saved file count,
         and error details.
       </p>
-
 <p data-i18n="reliabilityP2">
-        The server is also monitored using Healthchecks. A periodic ping
-confirms that the service is
-        running, and an alert is sent if the server remains unavailable for a
-continuous failure window.
+        The server is also monitored using Healthchecks. A periodic ping confirms that the service is
+        running, and an alert is sent if the server remains unavailable for a continuous failure window.
       </p>
 </section>
 <section class="technologies-section">
@@ -1588,48 +1275,30 @@ continuous failure window.
 <stop offset="1" stop-color="var(--python-yellow-end)"></stop>
 </linearGradient>
 </defs>
-<path fill="url(#pythonBlueGrad)" d="M 54.918 9.062 C 28.398 9.062 30.043 20.570
-30.043 20.570 L 30.073 32.487 L 55.200 32.487 L 55.200 36.063 L 19.927 36.063 C
-19.927 36.063 3.031 34.147 3.031 60.864 C 3.031 87.581 17.791 86.668 17.791
-86.668 L 26.597 86.668 L 26.597 74.914 C 26.597 74.914 26.124 60.154 41.117
-60.154 L 66.147 60.154 C 66.147 60.154 80.196 60.381 80.196 46.576 L 80.196
-23.208 C 80.196 23.208 82.329 9.062 54.918 9.062 Z"></path>
+<path fill="url(#pythonBlueGrad)" d="M 54.918 9.062 C 28.398 9.062 30.043 20.570 30.043 20.570 L 30.073 32.487 L 55.200 32.487 L 55.200 36.063 L 19.927 36.063 C 19.927 36.063 3.031 34.147 3.031 60.864 C 3.031 87.581 17.791 86.668 17.791 86.668 L 26.597 86.668 L 26.597 74.914 C 26.597 74.914 26.124 60.154 41.117 60.154 L 66.147 60.154 C 66.147 60.154 80.196 60.381 80.196 46.576 L 80.196 23.208 C 80.196 23.208 82.329 9.062 54.918 9.062 Z"></path>
 <circle fill="var(--python-eye)" cx="41.028" cy="21.921" r="4.671"></circle>
-<path fill="url(#pythonYellowGrad)" d="M 55.082 100.938 C 81.602 100.938 79.957
-89.430 79.957 89.430 L 79.927 77.513 L 54.800 77.513 L 54.800 73.937 L 90.073
-73.937 C 90.073 73.937 106.969 75.853 106.969 49.136 C 106.969 22.419 92.209
-23.332 92.209 23.332 L 83.403 23.332 L 83.403 35.086 C 83.403 35.086 83.876
-49.846 68.883 49.846 L 43.853 49.846 C 43.853 49.846 29.804 49.619 29.804 63.424
-L 29.804 86.792 C 29.804 86.792 27.671 100.938 55.082 100.938 Z"></path>
+<path fill="url(#pythonYellowGrad)" d="M 55.082 100.938 C 81.602 100.938 79.957 89.430 79.957 89.430 L 79.927 77.513 L 54.800 77.513 L 54.800 73.937 L 90.073 73.937 C 90.073 73.937 106.969 75.853 106.969 49.136 C 106.969 22.419 92.209 23.332 92.209 23.332 L 83.403 23.332 L 83.403 35.086 C 83.403 35.086 83.876 49.846 68.883 49.846 L 43.853 49.846 C 43.853 49.846 29.804 49.619 29.804 63.424 L 29.804 86.792 C 29.804 86.792 27.671 100.938 55.082 100.938 Z"></path>
 <circle fill="var(--python-eye)" cx="68.972" cy="88.079" r="4.671"></circle>
 </svg>
 </span>
 <span class="tech-logo" title="Telegram Bot API" aria-label="Telegram Bot API">
 <svg aria-hidden="true" viewBox="0 0 24 24">
 <circle class="telegram-circle" cx="12" cy="12" r="11"></circle>
-
-<path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2
-3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-
-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path>
+<path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path>
 </svg>
 </span>
-<span class="tech-logo" title="python-telegram-bot" aria-label="python-telegram-
-bot">
+<span class="tech-logo" title="python-telegram-bot" aria-label="python-telegram-bot">
 <svg aria-hidden="true" viewBox="0 0 48 48">
 <circle cx="24" cy="24" r="18" fill="#229ed9"></circle>
-<path d="M32.6 15.4 15.4 22c-1.1.4-1.1 1.1-.1 1.4l4.4 1.4 1.7 5.2c.3.8.7.9
-1.3.3l2.4-2.4 4.9 3.5c.9.5 1.4.2 1.7-.9l3-14.1c.3-1.3-.5-1.7-2.1-1Z"
-fill="#ffffff"></path>
+<path d="M32.6 15.4 15.4 22c-1.1.4-1.1 1.1-.1 1.4l4.4 1.4 1.7 5.2c.3.8.7.9 1.3.3l2.4-2.4 4.9 3.5c.9.5 1.4.2 1.7-.9l3-14.1c.3-1.3-.5-1.7-2.1-1Z" fill="#ffffff"></path>
 <rect x="5" y="31" width="18" height="11" rx="5" fill="#3776ab"></rect>
-<text x="14" y="39" text-anchor="middle" font-size="8" font-family="Arial, sans-
-serif" font-weight="700" fill="#ffffff">Py</text>
+<text x="14" y="39" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">Py</text>
 </svg>
 </span>
 <span class="tech-logo" title="FFmpeg / FFprobe" aria-label="FFmpeg / FFprobe">
 <svg aria-hidden="true" viewBox="0 0 48 48">
 <rect x="7" y="9" width="34" height="30" rx="8" fill="#111827"></rect>
-<path d="M13 16h22M13 24h18M13 32h22" stroke="#22c55e" stroke-width="4" stroke-
-linecap="round"></path>
+<path d="M13 16h22M13 24h18M13 32h22" stroke="#22c55e" stroke-width="4" stroke-linecap="round"></path>
 <path d="M30 18 38 24l-8 6Z" fill="#84cc16"></path>
 </svg>
 </span>
@@ -1643,27 +1312,21 @@ linecap="round"></path>
 <span class="tech-logo" title="Cloudinary" aria-label="Cloudinary">
 <svg aria-hidden="true" viewBox="0 0 48 48">
 <circle cx="17" cy="17" r="6" fill="#fbbf24"></circle>
-<path d="M17 34h18a7 7 0 0 0 0-14 10 10 0 0 0-19-3A8.5 8.5 0 0 0 17 34Z"
-fill="#38bdf8"></path>
-<path d="M18 34h15a6 6 0 0 0 0-12 8.5 8.5 0 0 0-16-2.4A7 7 0 0 0 18 34Z"
-fill="#2563eb" opacity="0.35"></path>
+<path d="M17 34h18a7 7 0 0 0 0-14 10 10 0 0 0-19-3A8.5 8.5 0 0 0 17 34Z" fill="#38bdf8"></path>
+<path d="M18 34h15a6 6 0 0 0 0-12 8.5 8.5 0 0 0-16-2.4A7 7 0 0 0 18 34Z" fill="#2563eb" opacity="0.35"></path>
 </svg>
 </span>
-<span class="tech-logo" title="DigitalOcean Server" aria-label="DigitalOcean
-Server">
+<span class="tech-logo" title="DigitalOcean Server" aria-label="DigitalOcean Server">
 <svg aria-hidden="true" viewBox="0 0 48 48">
-<circle cx="24" cy="22" r="13" fill="none" stroke="#0080ff"
-stroke-width="7"></circle>
+<circle cx="24" cy="22" r="13" fill="none" stroke="#0080ff" stroke-width="7"></circle>
 <rect x="11" y="31" width="7" height="7" fill="#0080ff"></rect>
 <rect x="20" y="38" width="6" height="6" fill="#0080ff"></rect>
 <rect x="8" y="40" width="5" height="5" fill="#0080ff"></rect>
 </svg>
 </span>
-<span class="tech-logo" title="Ubuntu / Linux Server" aria-label="Ubuntu / Linux
-Server">
+<span class="tech-logo" title="Ubuntu / Linux Server" aria-label="Ubuntu / Linux Server">
 <svg aria-hidden="true" viewBox="0 0 48 48">
-<circle cx="24" cy="24" r="14" fill="none" stroke="#e95420"
-stroke-width="5"></circle>
+<circle cx="24" cy="24" r="14" fill="none" stroke="#e95420" stroke-width="5"></circle>
 <circle cx="24" cy="9" r="5" fill="#e95420"></circle>
 <circle cx="11" cy="31" r="5" fill="#e95420"></circle>
 <circle cx="37" cy="31" r="5" fill="#e95420"></circle>
@@ -1671,35 +1334,25 @@ stroke-width="5"></circle>
 </span>
 <span class="tech-logo" title="Termius" aria-label="Termius">
 <svg aria-hidden="true" viewBox="0 0 48 48">
-<path d="M15 34h21a8 8 0 0 0 0-16 12 12 0 0 0-23-3 9.5 9.5 0 0 0 2 19Z"
-
-fill="none" class="tech-adaptive-stroke" stroke-width="4" stroke-linecap="round"
-stroke-linejoin="round"></path>
-<path d="M18 23l5 4-5 4M27 31h7" fill="none" class="tech-adaptive-stroke"
-stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 34h21a8 8 0 0 0 0-16 12 12 0 0 0-23-3 9.5 9.5 0 0 0 2 19Z" fill="none" class="tech-adaptive-stroke" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M18 23l5 4-5 4M27 31h7" fill="none" class="tech-adaptive-stroke" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
 </span>
-<span class="tech-logo" title="HTML / CSS / JavaScript" aria-label="HTML / CSS /
-JavaScript">
+<span class="tech-logo" title="HTML / CSS / JavaScript" aria-label="HTML / CSS / JavaScript">
 <svg aria-hidden="true" viewBox="0 0 48 48">
 <rect x="6" y="10" width="11" height="28" rx="3" fill="#e34f26"></rect>
 <rect x="18.5" y="10" width="11" height="28" rx="3" fill="#1572b6"></rect>
 <rect x="31" y="10" width="11" height="28" rx="3" fill="#f7df1e"></rect>
-<text x="11.5" y="29" text-anchor="middle" font-size="8" font-family="Arial,
-sans-serif" font-weight="800" fill="#fff">H</text>
-<text x="24" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-
-serif" font-weight="800" fill="#fff">C</text>
-<text x="36.5" y="29" text-anchor="middle" font-size="8" font-family="Arial,
-sans-serif" font-weight="800" fill="#111827">J</text>
+<text x="11.5" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="800" fill="#fff">H</text>
+<text x="24" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="800" fill="#fff">C</text>
+<text x="36.5" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-serif" font-weight="800" fill="#111827">J</text>
 </svg>
 </span>
 <span class="tech-logo" title="GitHub Pages" aria-label="GitHub Pages">
 <svg aria-hidden="true" viewBox="0 0 48 48">
 <circle cx="24" cy="24" r="16" class="tech-adaptive-fill"></circle>
-<path d="M16 17h16v14H16z" fill="var(--card-bg)" stroke="var(--card-bg)" stroke-
-width="1"></path>
-<path d="M19 21h10M19 25h7" stroke="var(--text-color)" stroke-width="2" stroke-
-linecap="round"></path>
+<path d="M16 17h16v14H16z" fill="var(--card-bg)" stroke="var(--card-bg)" stroke-width="1"></path>
+<path d="M19 21h10M19 25h7" stroke="var(--text-color)" stroke-width="2" stroke-linecap="round"></path>
 </svg>
 </span>
 <span class="tech-logo" title="GitHub Actions" aria-label="GitHub Actions">
@@ -1719,8 +1372,7 @@ linecap="round"></path>
 <span class="tech-logo" title="Healthchecks" aria-label="Healthchecks">
 <svg aria-hidden="true" viewBox="0 0 48 48">
 <circle cx="24" cy="24" r="16" fill="#22c55e"></circle>
-<path d="M14 25h6l3-8 5 15 3-7h4" fill="none" stroke="#ffffff" stroke-
-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M14 25h6l3-8 5 15 3-7h4" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
 </span>
 </div>
@@ -1728,28 +1380,21 @@ width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
 </section>
 </main>
 <footer data-i18n-html="footerText">
-    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation
-Project</span>
+    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation Project</span>
     <span class="footer-separator"> • </span>
-    <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer"
-target="_blank" title="Visit King Saud University official website">
+    <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
       King Saud University
     </a>
 <span class="footer-separator"> • </span>
-<a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer"
-
-target="_blank" title="Visit College of Computer and Information Sciences
-official website">
+<a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit College of Computer and Information Sciences official website">
       College: Computer and Information Sciences
     </a>
 <span class="footer-separator"> • </span>
-<a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener
-noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
+<a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
       Created by Ahmed.Baso
     </a>
 <span class="footer-separator"> • </span>
-<a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the
-Saudi Dialects Speech Corpus project">
+<a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
       Contact: Saudi.Dialects@outlook.sa
     </a>
 </footer>
@@ -1757,211 +1402,108 @@ Saudi Dialects Speech Corpus project">
     const themeToggle = document.getElementById("themeToggle");
     const languageButtons = document.querySelectorAll(".language-button");
 
-    const TELEGRAM_ICON_HTML = `<span class="telegram-icon telegram-icon-inline"
-aria-label="Telegram" title="Telegram"> <svg viewBox="0 0 24 24" aria-
-hidden="true"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle>
-<path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2
-3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-
-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg>
-</span>`;
+    const TELEGRAM_ICON_HTML = `<span class="telegram-icon telegram-icon-inline" aria-label="Telegram" title="Telegram"> <svg viewBox="0 0 24 24" aria-hidden="true"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg> </span>`;
 
     const translations = {
       "ar": {
-            "projectTitle": "السعوديةللهجاتالأصواتمدونة",
-            "projectOverviewTitle": "المشروععلىعامةنظرة",
-            "whyTitle": "المشروعأهمية",
-            "methodologyTitle": "المدونةتصميممنهجية",
-            "highlightsTitle": "المشروعمميزاتأبرز",
-            "statsTitle": "المدونةإحصائيات",
-            "viewStatsButton": "المدونةإحصائياتعرض",
-            "botWorkflowTitle": "بوتعملمسار Telegram {{telegramIcon}}",
-            "userDiagramTitle": "بوتفيالمستخدمرحلةمخطط Telegram",
-            "architectureTitle": "البياناتومسارالنظاممعمارية",
-            "systemWorkflowTitle": "النظامعملمسار",
-            "audioProcessingTitle": "الصوتمعالجة",
-            "durationRulesTitle": "التسجيلمدةقواعد",
-            "storageTitle": "التخزينمعمارية",
-            "namingTitle": "الملفاتتسميةآلية",
-            "metadataTitle": "الوصفيةالبياناتملفاتتخزين",
-            "privacyTitle": "والموافقةالخصوصية",
-            "reliabilityTitle": "الأخطاءومعالجةلعتمادية",
-            "technologiesTitle": "المستخدمةالتقنيات",
-            "showFullDiagram": "كاماًل>عرضالمخطط",
-            "collapseDiagram": "المخططإغاًلق",
-            "highlightPrivacyTitle": "الخصوصيةيراعيبياناتجمع",
-            "highlightPhoneticTitle": "واللهجيةالصوتيةالتغطية",
-            "highlightAutomationTitle": "الآليالبياناتإدخال",
-            "highlightStorageTitle": "الوجهاتمتعددوالتتبعالتخزين",
+            "projectTitle": "مدونة الأصوات للهجات السعودية",
+            "projectOverviewTitle": "نظرة عامة على المشروع",
+            "whyTitle": "أهمية المشروع",
+            "methodologyTitle": "منهجية تصميم المدونة",
+            "highlightsTitle": "أبرز مميزات المشروع",
+            "statsTitle": "إحصائيات المدونة",
+            "viewStatsButton": "عرض إحصائيات المدونة",
+            "botWorkflowTitle": "مسار عمل بوت Telegram {{telegramIcon}}",
+            "userDiagramTitle": "مخطط رحلة المستخدم في بوت Telegram",
+            "architectureTitle": "معمارية النظام ومسار البيانات",
+            "systemWorkflowTitle": "مسار عمل النظام",
+            "audioProcessingTitle": "معالجة الصوت",
+            "durationRulesTitle": "قواعد مدة التسجيل",
+            "storageTitle": "معمارية التخزين",
+            "namingTitle": "آلية تسمية الملفات",
+            "metadataTitle": "تخزين ملفات البيانات الوصفية",
+            "privacyTitle": "الخصوصية والموافقة",
+            "reliabilityTitle": "الاعتمادية ومعالجة الأخطاء",
+            "technologiesTitle": "التقنيات المستخدمة",
+            "showFullDiagram": "عرض المخطط كاملًا",
+            "collapseDiagram": "إغلاق المخطط",
+            "highlightPrivacyTitle": "جمع بيانات يراعي الخصوصية",
+            "highlightPhoneticTitle": "التغطية الصوتية واللهجية",
+            "highlightAutomationTitle": "إدخال البيانات الآلي",
+            "highlightStorageTitle": "التخزين والتتبع متعدد الوجهات",
             "wavFormat": "صيغة WAV",
-            "sampleRate": "44.1عينةمعدلkHz",
-            "monoChannel": "أحاديةصوتيةقناة",
+            "sampleRate": "معدل عينة 44.1kHz",
+            "monoChannel": "قناة صوتية أحادية",
             "pcmEncoding": "ترميز PCM 16-bit",
-            "additionalExamples": "إضافيةأمثلة:",
-            "exampleOnly": "فقطمثال:",
+            "additionalExamples": "أمثلة إضافية:",
+            "exampleOnly": "مثال فقط:",
             "tablePart": "الجزء",
             "tableMeaning": "المعنى",
             "tableExample": "المثال",
-            "projectPrefixMeaning": "بـالخاصةالمشروعبادئة Saudi Dialects
-
-Speech Corpus.",
-
-            "dialectCodeMeaning": " لهجةبتصنيفالمرتبطاللهجةمنطقةرمز
-المشارك.",
-            "sentenceNumberMeaning": "المشاركسجلهاالتيالجملةرقم.",
-            "displayMode": "العرضوضع",
+            "projectPrefixMeaning": "بادئة المشروع الخاصة بـ Saudi Dialects Speech Corpus.",
+            "dialectCodeMeaning": "رمز منطقة اللهجة المرتبط بتصنيف لهجة المشارك.",
+            "sentenceNumberMeaning": "رقم الجملة التي سجلها المشارك.",
+            "displayMode": "وضع العرض",
             "languageLabel": "اللغة",
-            "headerSubtitle": "للهجاتمة[LM]منظصوتيةمدونةبناءإلىيهدفتخرجمشروع
-تطبيقعبرالخصوصيةمراعاةمعالبياناتوجمعلغوي>ا،مختارةجملخاًللمنالسعودية
-Telegram {{telegramIcon}}.",
-            "overviewP1": " البياناتنقصالسعوديةاللهجاتمدونةمشروعيعالج
-اللغةتقنياتمنكثيرتعملفبينما .للهجاتوالمخصصةالجودةعاليةالعربيةالصوتية
-اليوميالكاًلممعصعوبةتواجهغالب>افإنهاالفصحى،العربيةمعجيدبشكلالعربية
-إقليميةسعوديةلهجاتاستخدامعندخصوص>االعفوي،.",
-            "overviewP2": " التنوعتعكسمة[LM]منظصوتيةمدونةإنشاءعلىالمشروعيركز
-للتوسعقابلةبياناتجمعمعماريةعلىالحفاظمعالسعودية،اللهجاتفيالطبيعي
-بوتي[عدوال .الخصوصيةوتراعي Telegram  الإدخالأداةهوبل،كاماًل[>]المشروعهو
-البياناتوهندسةاللغويالجانببينيجمعأوسعمسارضمنالرئيسية.",
-            "whyP1": " اللهجاتمنواسع>اا[>]نطاقالسعوديةالعربيةالمملكةتضم
-اللهجاتتختلفوقد .لجتماعيوالتنوعوالتاريخالجغرافيابفعللت[M]تشكالتيالإقليمية
-والمفرداتالنطقفيوالشماليةوالشرقية،والجنوبية،والحجازية،النجدية،مثل
-الذكاءMوهذانماذجبت[درعندماصعوبةأكثرالكاًلمعلىالتعرفيجعل .اللغويةوالبنية
-محليةغيربياناتعلىأوالفصحىالعربيةعلىأساس>الصطناعي.",
-            "whyP2": " أنظمةتطويرالسعوديةللهجاتالمخصصةالمدونةتدعمأنيمكن
-بـي[عرفماأوالعربية،باللغةالكاًلمعلىالتلقائيالتعرف Arabic Automatic Speech
-Recognition (ASR)،وخدماتالرقمية،الوصولوإمكانيةالصوتية،المساعداتإلىإضافة
-الصوتعلىالمعتمدةالذكيةالمدنوخدماتالآلية،العماًلء.",
-            "methodologyP1": " منLلمتصميمهاتمبلعشوائية،جملمنالمدونةت[بن
-بهدفصوتي،وتنقيحالجمهورمنلغويةمدخاًلتبينتجمعالجمل،الختيارمة[LM]منظعمليةخاًلل
-السعوديةالتعبيراتوالتقاطوالفونيمات،الحروفومخارجالعربيةالأصواتتغطية
-القراءةتحيزتقليلمعالشائعة.",
-            "methodologyP2": "مسبق>امحددةجملة30النهائيةالنصيةالمدونةتتضمن
-باسمالحرللكاًلماختياريةوجملة S31،مكتوبوغيرطبيعيةأكثرلهجيكاًلمالتقاطبهدف
-مسبق>ا.",
-            "statsP": "يشملبماالسعودية،اللهجاتمدونةمشروعفيتقدمآخراستعرض
-المشروعأهدافنحوالتقدمومدىالمجمعة،والدقائقالتسجياًلت،وعددالمشاركين،عدد.",
-            "botWorkflowP": "بوتي[عد Telegram  ترشدالتيالرئيسيةالواجهة
-البياناتجمععمليةخاًللالمشاركين.",
-            "botLi2": "الصريحةالموافقةويتطلبالخصوصيةسياسةالبوتيعرض.",
-            "botLi3": " ومنطقةوالجنس،العمر،مثلالمشاركبياناتالبوتيجمع
-الجهازونوعالتعليمي،والمستوىاللهجة،.",
-            "botLi4": " السماعاتإزالةالمشاركمنيطلبللتسجيلتنبيه>االبوتيعرض
-الهاتفميكروفونباستخداممباشرةوالتسجيل.",
-            "botLi5": "لغوي>اومختارةمسبق>امحددةجملة30المشاركيسجل.",
-            "botLi6": " ،لكلتسجيلهإعادةأوالتسجيلاعتمادالمشاركيستطيعجملة،
-جملةلكلمحاوالتثاًلثأقصىبحد.",
-            "botLi7": " هذهتخطيأوالحرللكاًلماختياريةعينةتسجيلللمشاركيمكن
-الخطوة.",
-            "botLi8": "ورفعهاالملفاتمعالجةقبلنهائيتأكيدزرالبوتيعرض.",
-            "botLi9": " وإعادةالصوتيةالملفاتمعالجةتتمالنهائي،التأكيدبعد
-وتخزينهاورفعهاوضغطهاتسميتها.",
-            "userDiagramP": " علىالموافقةمنالمشاركرحلةالمخططهذايوضح
-النهائيالملفاترفعحتىالخصوصية.",
-            "architectureP": " الصوتيةالتسجياًلتمعالجةتتمكيفالمخططهذايوضح
-خدماتعبروربطهاوتخزينهاالمعتمدة backend.",
-            "audioProcessingP": "تطبيقمنالصوتيةالتسجياًلتت[ستقبل Telegram بصيغة
-OGG. الـيستخدم backend بلغةالمكتوب Python أداة FFmpeg  معتمدتسجيلكللتحويل
-ملفإلى WAV موحد.",
-            "ffprobeLi": "ت[ستخدم FFprobe  جلسةلكلالصوتمدةإجماليلحساب
-مشاركة.",
-            "durationLi1": "15قدرهللتسجيلأقصىحدلهامسبق>امحددةجملةكل
-ثانية.",
-            "durationLi2": "35قدرهأقصىحدلهلختياريالحرالكاًلمتسجيل
-ثانية.",
-            "durationLi3": " البوتمنهيطلبالمسموحة،المدةالمشاركتجاوزإذا
-
-التسجيلإعادة.",
-            "storageP": "الوجهاتمتعددةوتتبعتخزينمعماريةالنظاميستخدم:",
-            "namingP1": " فMنومعرMيتبعاللهجة،ت[ضممنظمةتسميةصيغةصوتيملفكل
-الملفاسمداخلمباشرةالمحاولةورقمالجهاز،ونوعالجملة،ورقمالمتحدث،.",
-            "basedExampleP": "المثالعلىبناء>
-<code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>،اللهجةبرمزمرتبطفالملف
-<code>D01</code>،فMومتحدثبمعرذكر <code>0073</code>،رقموجملة <code>05</code>،
-باستخدامتسجيلهوتم iPhone الأولىالمحاولةفي.",
-            "metadataP1": " بياناتملفالنظامينشئالصوتية،الملفاتإلىبالإضافة
-باسموصفية <code>SPKxxxxx_info.txt</code> يحتفظ .الخادمعلىحفظهويتممشارك،لكل
-العامةوالحقولاللهجةوتفاصيلالمشارك،وبياناتالجلسة،بمعلوماتالملفهذا
-الصوتمدةوملخصالتسجيل،وسياقبالمنطقة،المرتبطة.",
-            "privacyP1": "ويجبالمشارك،بياناتجمعقبلالخصوصيةسياسةالبوتيعرض
-لهذهرابطعلىالخصوصيةرسالةتحتويكما .المتابعةقبلصراحةالموافقةالمشاركعلى
-وآليةالتخزين،وطريقةالبوت،عملمسارمراجعةمنالمشاركونيتمكنحتىالصفحة
-اسمباستخدامللمشاركينويسمحالهواتفأرقامجمعالنظاميتجنب .البياناتمعالتعامل
-مستعار.",
-            "reliabilityP1": " وتوفرالرفعفشللتلححمايةإجراءاتالنظاميتضمن
-رسالةالمشاركيتلقىالخادم،علىالتسجياًلتحفظبعدالرفعأثناءخطأحدثإذا .الخادم
-والخطأ،وقتيتضمنللمسؤولتنبيهإرسالويتمواضحة،خطأSPKID،الملفاتوعدد
-الخطأوتفاصيلالمحفوظة،.",
-            "reliabilityP2": "باستخدامأيض>االخادممراقبةتتم Healthchecks. يؤكد
-ping  فشلفترةخاًللمتاحغيرالخادمبقيإذاتنبيهإرسالويتمتعمل،الخدمةأندوري
-متصلة.",
-            "methodLi1": "<strong>العاملنطباعاستبيان:</strong>  المشاركونMقيم
-إقليميةوتنوعاتشائعةعبارات.",
-            "methodLi2": "<strong>العباراتترشيح:</strong> تعبيراتمتطوعوناقترح
-مناطقهمفيشائعةيوميةسعودية.",
-            "methodLi3": "<strong>متخصصصوتيتنقيح:</strong>  قائمةتحسينتم
-اللهجيلستخداموالعربيةللأصواتواسعةصوتيةتغطيةلضمانالنهائيةالجمل.",
-            "botLi1": "الأمرباستخدامالبوتالمشاركيبدأ <code>/start</code>.",
-            "storageLi1": "<strong>Server Storage:</strong> أرشيفيخزن ZIP
-المشروعخادمعلىالوصفيةالبياناتوملفالمعالجة،الصوتيةوالملفاتالناتج،.",
-            "storageLi2": "<strong>Cloudinary:</strong>  الصوتيةالملفاتيخزن
-السحابيللوصولالمرفوعةالوصفيةالبياناتوملفات.",
-            "storageLi3": "<strong>Airtable:</strong>  المشاركينبياناتيخزن
-والتتبعللمراجعةالتسجيلوسجاًلتالوصفية.",
-            "speakerIdentifierTd": "بعدالأولالرقم .المتحدثMمعرف
-<code>SPK</code> الجنسيمثل:<br><strong>1 = Male</strong><br><strong>0 =
-Female</strong><br>تمثلالمتبقيةوالأرقام Speaker ID.",
-            "deviceAttemptTd": "بعدالأولالرقم .والمحاولةالجهازرمز
-<code>T</code> الجهازنوعيمثل:<br><strong>1 = iPhone</strong><br><strong>0 =
-Android</strong><br>محاوالت3أقصىبحدالتسجيل،محاولةرقميمثلالثانيوالرقم.",
-            "exampleSpkFemale": "<code>SPK00073</code>: أنثىمتحدثة،speaker ID
-0073.",
-            "exampleSpkMale": "<code>SPK10073</code>: ذكرمتحدث،speaker ID
-0073.",
-            "exampleT01": "<code>T01</code>: Android،الأولىالمحاولة.",
-            "exampleT03": "<code>T03</code>: Android،الثالثةالمحاولة.",
-            "exampleT11": "<code>T11</code>: iPhone،الأولىالمحاولة.",
-            "exampleT13": "<code>T13</code>: iPhone،الثالثةالمحاولة.",
-            "highlightPrivacyCard": "<strong data-
-i18n=\"highlightPrivacyTitle\">الخصوصيةيراعيبياناتجمع</strong>  النظاميدعم
-المباشرةMالمشاركةالشخصيةفاتالمعرأوالهواتفأرقامتخزينويتجنبالمجهولة.",
-            "highlightPhoneticCard": "<strong data-
-i18n=\"highlightPhoneticTitle\">واللهجيةالصوتيةالتغطية</strong>  المدونةص[ممت
-وتمثيلالسعودية،اللهجاتفيت[نطقكماالعربيةالأصواتلتغطيةجملة30منMالمكونة
-السعوديةالعربيةالمملكةفياللهجيالتنوع.",
-            "highlightAutomationCard": "<strong data-
-i18n=\"highlightAutomationTitle\">الآليالبياناتإدخال</strong> بوتيدير
-Telegram الملفاتومعالجةالبيانات،منوالتحققوالتسجياًلت،المشاركين،مسار.",
-            "highlightStorageCard": "<strong data-
-i18n=\"highlightStorageTitle\">الوجهاتمتعددوالتتبعالتخزين</strong>  نLMت[خز
-خادمعلىالمخرجات DigitalOcean وفي Cloudinary،ي[ستخدمبينما Airtable  لتخزين
-
-الملفاتوتتبعالتسجياًلتوسجاًلتالمشاركينبيانات.",
-            "metadataNote": " ،هذاالبياناتمجموعةوتتبعالبحثلتنظيممخصصالملف
-المباشرةالشخصيةالمعرفاتأوالهواتفأرقامتخزينالجمععمليةوتتجنب.",
-            "privacyNote": " بعد .النهائيالرفعتأكيدقبلالإلغاءللمشاركينيمكن
-البوتداخلالإلغاءتعطيلويتممعتمد>االإرسالي[عدالنهائي،الرفععمليةبدء.",
-            "footerText": "<span class=\"footer-title\">Saudi Dialects Speech
-Corpus | Graduation Project</span>\n    <span class=\"footer-separator\"> •
-</span>\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener
-noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official
-website\">King Saud University</a>\n    <span class=\"footer-separator\"> •
-</span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\"
-rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer
-and Information Sciences official website\">College: Computer and Information
-Sciences</a>\n    <span class=\"footer-separator\"> • </span>\n    <a
-href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener
-noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub
-profile\">Created by Ahmed.Baso</a>\n    <span class=\"footer-separator\"> •
-</span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\"
-title=\"Contact the Saudi Dialects Speech Corpus project\">Contact:
-Saudi.Dialects@outlook.sa</a>"
-
+            "headerSubtitle": "مشروع تخرج يهدف إلى بناء مدونة صوتية منظَّمة للهجات السعودية من خلال جمل مختارة لغويًا، وجمع البيانات مع مراعاة الخصوصية عبر تطبيق Telegram {{telegramIcon}}.",
+            "overviewP1": "يعالج مشروع مدونة اللهجات السعودية نقص البيانات الصوتية العربية عالية الجودة والمخصصة للهجات. فبينما تعمل كثير من تقنيات اللغة العربية بشكل جيد مع العربية الفصحى، فإنها غالبًا تواجه صعوبة مع الكلام اليومي العفوي، خصوصًا عند استخدام لهجات سعودية إقليمية.",
+            "overviewP2": "يركز المشروع على إنشاء مدونة صوتية منظَّمة تعكس التنوع الطبيعي في اللهجات السعودية، مع الحفاظ على معمارية جمع بيانات قابلة للتوسع وتراعي الخصوصية. ولا يُعد بوت Telegram هو المشروع كاملًا، بل هو أداة الإدخال الرئيسية ضمن مسار أوسع يجمع بين الجانب اللغوي وهندسة البيانات.",
+            "whyP1": "تضم المملكة العربية السعودية نطاقًا واسعًا من اللهجات الإقليمية التي تشكّلت بفعل الجغرافيا والتاريخ والتنوع الاجتماعي. وقد تختلف اللهجات مثل النجدية، والحجازية، والجنوبية، والشرقية، والشمالية في النطق والمفردات والبنية اللغوية. وهذا يجعل التعرف على الكلام أكثر صعوبة عندما تُدرّب نماذج الذكاء الاصطناعي أساسًا على العربية الفصحى أو على بيانات غير محلية.",
+            "whyP2": "يمكن أن تدعم المدونة المخصصة للهجات السعودية تطوير أنظمة التعرف التلقائي على الكلام باللغة العربية، أو ما يُعرف بـ Arabic Automatic Speech Recognition (ASR)، إضافة إلى المساعدات الصوتية، وإمكانية الوصول الرقمية، وخدمات العملاء الآلية، وخدمات المدن الذكية المعتمدة على الصوت.",
+            "methodologyP1": "لم تُبنَ المدونة من جمل عشوائية، بل تم تصميمها من خلال عملية منظَّمة لاختيار الجمل، تجمع بين مدخلات لغوية من الجمهور وتنقيح صوتي، بهدف تغطية الأصوات العربية ومخارج الحروف والفونيمات، والتقاط التعبيرات السعودية الشائعة مع تقليل تحيز القراءة.",
+            "methodologyP2": "تتضمن المدونة النصية النهائية 30 جملة محددة مسبقًا وجملة اختيارية للكلام الحر باسم S31، بهدف التقاط كلام لهجي أكثر طبيعية وغير مكتوب مسبقًا.",
+            "statsP": "استعرض آخر تقدم في مشروع مدونة اللهجات السعودية، بما يشمل عدد المشاركين، وعدد التسجيلات، والدقائق المجمعة، ومدى التقدم نحو أهداف المشروع.",
+            "botWorkflowP": "يُعد بوت Telegram الواجهة الرئيسية التي ترشد المشاركين خلال عملية جمع البيانات.",
+            "botLi2": "يعرض البوت سياسة الخصوصية ويتطلب الموافقة الصريحة.",
+            "botLi3": "يجمع البوت بيانات المشارك مثل العمر، والجنس، ومنطقة اللهجة، والمستوى التعليمي، ونوع الجهاز.",
+            "botLi4": "يعرض البوت تنبيهًا للتسجيل يطلب من المشارك إزالة السماعات والتسجيل مباشرة باستخدام ميكروفون الهاتف.",
+            "botLi5": "يسجل المشارك 30 جملة محددة مسبقًا ومختارة لغويًا.",
+            "botLi6": "لكل جملة، يستطيع المشارك اعتماد التسجيل أو إعادة تسجيله، بحد أقصى ثلاث محاولات لكل جملة.",
+            "botLi7": "يمكن للمشارك تسجيل عينة اختيارية للكلام الحر أو تخطي هذه الخطوة.",
+            "botLi8": "يعرض البوت زر تأكيد نهائي قبل معالجة الملفات ورفعها.",
+            "botLi9": "بعد التأكيد النهائي، تتم معالجة الملفات الصوتية وإعادة تسميتها وضغطها ورفعها وتخزينها.",
+            "userDiagramP": "يوضح هذا المخطط رحلة المشارك من الموافقة على الخصوصية حتى رفع الملفات النهائي.",
+            "architectureP": "يوضح هذا المخطط كيف تتم معالجة التسجيلات الصوتية المعتمدة وتخزينها وربطها عبر خدمات backend.",
+            "audioProcessingP": "تُستقبل التسجيلات الصوتية من تطبيق Telegram بصيغة OGG. يستخدم الـ backend المكتوب بلغة Python أداة FFmpeg لتحويل كل تسجيل معتمد إلى ملف WAV موحد.",
+            "ffprobeLi": "تُستخدم FFprobe لحساب إجمالي مدة الصوت لكل جلسة مشاركة.",
+            "durationLi1": "كل جملة محددة مسبقًا لها حد أقصى للتسجيل قدره 15 ثانية.",
+            "durationLi2": "تسجيل الكلام الحر الاختياري له حد أقصى قدره 35 ثانية.",
+            "durationLi3": "إذا تجاوز المشارك المدة المسموحة، يطلب منه البوت إعادة التسجيل.",
+            "storageP": "يستخدم النظام معمارية تخزين وتتبع متعددة الوجهات:",
+            "namingP1": "يتبع كل ملف صوتي صيغة تسمية منظمة تُضمّن اللهجة، ومعرّف المتحدث، ورقم الجملة، ونوع الجهاز، ورقم المحاولة مباشرة داخل اسم الملف.",
+            "basedExampleP": "بناءً على المثال <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>، فالملف مرتبط برمز اللهجة <code>D01</code>، ومتحدث ذكر بمعرّف <code>0073</code>، وجملة رقم <code>05</code>، وتم تسجيله باستخدام iPhone في المحاولة الأولى.",
+            "metadataP1": "بالإضافة إلى الملفات الصوتية، ينشئ النظام ملف بيانات وصفية باسم <code>SPKxxxxx_info.txt</code> لكل مشارك، ويتم حفظه على الخادم. يحتفظ هذا الملف بمعلومات الجلسة، وبيانات المشارك، وتفاصيل اللهجة والحقول العامة المرتبطة بالمنطقة، وسياق التسجيل، وملخص مدة الصوت.",
+            "privacyP1": "يعرض البوت سياسة الخصوصية قبل جمع بيانات المشارك، ويجب على المشارك الموافقة صراحة قبل المتابعة. كما تحتوي رسالة الخصوصية على رابط لهذه الصفحة حتى يتمكن المشاركون من مراجعة مسار عمل البوت، وطريقة التخزين، وآلية التعامل مع البيانات. يتجنب النظام جمع أرقام الهواتف ويسمح للمشاركين باستخدام اسم مستعار.",
+            "reliabilityP1": "يتضمن النظام إجراءات حماية لحالات فشل الرفع وتوفر الخادم. إذا حدث خطأ أثناء الرفع بعد حفظ التسجيلات على الخادم، يتلقى المشارك رسالة خطأ واضحة، ويتم إرسال تنبيه للمسؤول يتضمن وقت الخطأ، وSPKID، وعدد الملفات المحفوظة، وتفاصيل الخطأ.",
+            "reliabilityP2": "تتم مراقبة الخادم أيضًا باستخدام Healthchecks. يؤكد ping دوري أن الخدمة تعمل، ويتم إرسال تنبيه إذا بقي الخادم غير متاح خلال فترة فشل متصلة.",
+            "methodLi1": "<strong>استبيان الانطباع العام:</strong> قيّم المشاركون عبارات شائعة وتنوعات إقليمية.",
+            "methodLi2": "<strong>ترشيح العبارات:</strong> اقترح متطوعون تعبيرات سعودية يومية شائعة في مناطقهم.",
+            "methodLi3": "<strong>تنقيح صوتي متخصص:</strong> تم تحسين قائمة الجمل النهائية لضمان تغطية صوتية واسعة للأصوات العربية والاستخدام اللهجي.",
+            "botLi1": "يبدأ المشارك البوت باستخدام الأمر <code>/start</code>.",
+            "storageLi1": "<strong>Server Storage:</strong> يخزن أرشيف ZIP الناتج، والملفات الصوتية المعالجة، وملف البيانات الوصفية على خادم المشروع.",
+            "storageLi2": "<strong>Cloudinary:</strong> يخزن الملفات الصوتية وملفات البيانات الوصفية المرفوعة للوصول السحابي.",
+            "storageLi3": "<strong>Airtable:</strong> يخزن بيانات المشاركين الوصفية وسجلات التسجيل للمراجعة والتتبع.",
+            "speakerIdentifierTd": "معرّف المتحدث. الرقم الأول بعد <code>SPK</code> يمثل الجنس:<br><strong>1 = Male</strong><br><strong>0 = Female</strong><br>والأرقام المتبقية تمثل Speaker ID.",
+            "deviceAttemptTd": "رمز الجهاز والمحاولة. الرقم الأول بعد <code>T</code> يمثل نوع الجهاز:<br><strong>1 = iPhone</strong><br><strong>0 = Android</strong><br>والرقم الثاني يمثل رقم محاولة التسجيل، بحد أقصى 3 محاولات.",
+            "exampleSpkFemale": "<code>SPK00073</code>: متحدثة أنثى، speaker ID 0073.",
+            "exampleSpkMale": "<code>SPK10073</code>: متحدث ذكر، speaker ID 0073.",
+            "exampleT01": "<code>T01</code>: Android، المحاولة الأولى.",
+            "exampleT03": "<code>T03</code>: Android، المحاولة الثالثة.",
+            "exampleT11": "<code>T11</code>: iPhone، المحاولة الأولى.",
+            "exampleT13": "<code>T13</code>: iPhone، المحاولة الثالثة.",
+            "highlightPrivacyCard": "<strong data-i18n=\"highlightPrivacyTitle\">جمع بيانات يراعي الخصوصية</strong> يدعم النظام المشاركة المجهولة ويتجنب تخزين أرقام الهواتف أو المعرّفات الشخصية المباشرة.",
+            "highlightPhoneticCard": "<strong data-i18n=\"highlightPhoneticTitle\">التغطية الصوتية واللهجية</strong> صُممت المدونة المكوّنة من 30 جملة لتغطية الأصوات العربية كما تُنطق في اللهجات السعودية، وتمثيل التنوع اللهجي في المملكة العربية السعودية.",
+            "highlightAutomationCard": "<strong data-i18n=\"highlightAutomationTitle\">إدخال البيانات الآلي</strong> يدير بوت Telegram مسار المشاركين، والتسجيلات، والتحقق من البيانات، ومعالجة الملفات.",
+            "highlightStorageCard": "<strong data-i18n=\"highlightStorageTitle\">التخزين والتتبع متعدد الوجهات</strong> تُخزَّن المخرجات على خادم DigitalOcean وفي Cloudinary، بينما يُستخدم Airtable لتخزين بيانات المشاركين وسجلات التسجيلات وتتبع الملفات.",
+            "metadataNote": "هذا الملف مخصص لتنظيم البحث وتتبع مجموعة البيانات، وتتجنب عملية الجمع تخزين أرقام الهواتف أو المعرفات الشخصية المباشرة.",
+            "privacyNote": "يمكن للمشاركين الإلغاء قبل تأكيد الرفع النهائي. بعد بدء عملية الرفع النهائي، يُعد الإرسال معتمدًا ويتم تعطيل الإلغاء داخل البوت.",
+            "footerText": "<span class=\"footer-title\">Saudi Dialects Speech Corpus | Graduation Project</span>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a>\n    <span class=\"footer-separator\"> • </span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>"
       }
 };
 
     const englishDefaults = {};
 
-    document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function
-(element) {
+    document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function (element) {
       const key = element.dataset.i18n || element.dataset.i18nHtml;
 
       if (element.dataset.i18nHtml) {
@@ -1982,57 +1524,63 @@ Saudi.Dialects@outlook.sa</a>"
         themeToggle.checked = false;
       }
     }
+
     function translateValue(key) {
       let value = "";
+
       if (currentLanguage === "ar" && translations.ar[key]) {
         value = translations.ar[key];
       } else {
         value = englishDefaults[key] || "";
       }
+
       return value.replaceAll("{{telegramIcon}}", TELEGRAM_ICON_HTML);
     }
+
     function applyLanguage(language) {
       currentLanguage = language === "ar" ? "ar" : "en";
 
       document.documentElement.lang = currentLanguage;
-
       document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
       document.body.classList.toggle("lang-ar", currentLanguage === "ar");
 
-      document.querySelectorAll("[data-i18n], [data-i18n-
-html]").forEach(function (element) {
+      document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function (element) {
         const key = element.dataset.i18n || element.dataset.i18nHtml;
         const value = translateValue(key);
+
         if (element.dataset.i18nHtml) {
           element.innerHTML = value;
         } else {
           element.textContent = value;
         }
       });
+
       languageButtons.forEach(function (button) {
         const isActive = button.dataset.lang === currentLanguage;
         button.classList.toggle("active", isActive);
         button.setAttribute("aria-pressed", isActive ? "true" : "false");
       });
-      document.querySelectorAll("button.diagram-
-button[onclick]").forEach(function (button) {
+
+      document.querySelectorAll("button.diagram-button[onclick]").forEach(function (button) {
         const frameId = button.getAttribute("onclick")?.match(/'([^']+)'/)?.[1];
         const frame = frameId ? document.getElementById(frameId) : null;
         const isExpanded = frame ? frame.classList.contains("expanded") : false;
-        button.textContent = isExpanded ? translateValue("collapseDiagram") :
-translateValue("showFullDiagram");
+        button.textContent = isExpanded ? translateValue("collapseDiagram") : translateValue("showFullDiagram");
       });
     }
+
     const savedTheme = localStorage.getItem("theme") || "dark";
     applyTheme(savedTheme);
 
     const savedLanguage = localStorage.getItem("language") || "en";
     applyLanguage(savedLanguage);
+
     themeToggle.addEventListener("change", function () {
       const newTheme = themeToggle.checked ? "dark" : "light";
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
     });
+
     languageButtons.forEach(function (button) {
       button.addEventListener("click", function () {
         const newLanguage = button.dataset.lang === "ar" ? "ar" : "en";
@@ -2040,9 +1588,11 @@ translateValue("showFullDiagram");
         applyLanguage(newLanguage);
       });
     });
+
     function toggleDiagram(frameId, button) {
       const frame = document.getElementById(frameId);
       const isExpanded = frame.classList.toggle("expanded");
+
       if (isExpanded) {
         button.textContent = translateValue("collapseDiagram");
         frame.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -2052,7 +1602,5 @@ translateValue("showFullDiagram");
       }
     }
   </script>
-
 </body>
 </html>
-
