@@ -35,6 +35,11 @@
       --shadow-color: rgba(15, 23, 42, 0.08);
       --muted-text: #475569;
       --table-border: #cbd5e1;
+      --python-blue-start: #5A9FD4;
+      --python-blue-end: #306998;
+      --python-yellow-start: #FFE873;
+      --python-yellow-end: #FFD43B;
+      --python-eye: #ffffff;
     }
 
     body.dark-mode {
@@ -56,6 +61,11 @@
       --shadow-color: rgba(0, 0, 0, 0.4);
       --muted-text: #cbd5e1;
       --table-border: #334155;
+      --python-blue-start: #93c5fd;
+      --python-blue-end: #38bdf8;
+      --python-yellow-start: #fde68a;
+      --python-yellow-end: #facc15;
+      --python-eye: #0f172a;
     }
 
     * {
@@ -559,6 +569,17 @@
       width: 27px;
       height: 27px;
       display: block;
+    }
+
+    .python-logo-svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .python-logo-svg path,
+    .python-logo-svg circle,
+    .python-logo-svg stop {
+      transition: fill 0.25s ease, stop-color 0.25s ease;
     }
 
     .tech-adaptive-fill {
@@ -1243,11 +1264,21 @@ Total Audio Duration Seconds: 119.4</pre>
 </div>
 <div class="tech-icons" aria-label="Technology logos">
 <span class="tech-logo" title="Python" aria-label="Python">
-<svg aria-hidden="true" viewBox="0 0 48 48">
-<rect x="8" y="7" width="24" height="19" rx="7" fill="#3776ab"></rect>
-<rect x="16" y="22" width="24" height="19" rx="7" fill="#ffd43b"></rect>
-<circle cx="17" cy="15" r="2.2" fill="#ffffff"></circle>
-<circle cx="31" cy="33" r="2.2" fill="#1f2937"></circle>
+<svg aria-hidden="true" class="python-logo-svg" viewBox="0 0 110 110">
+<defs>
+<linearGradient id="pythonBlueGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="var(--python-blue-start)"></stop>
+<stop offset="1" stop-color="var(--python-blue-end)"></stop>
+</linearGradient>
+<linearGradient id="pythonYellowGrad" x1="1" y1="1" x2="0" y2="0">
+<stop offset="0" stop-color="var(--python-yellow-start)"></stop>
+<stop offset="1" stop-color="var(--python-yellow-end)"></stop>
+</linearGradient>
+</defs>
+<path fill="url(#pythonBlueGrad)" d="M 54.918 9.062 C 28.398 9.062 30.043 20.570 30.043 20.570 L 30.073 32.487 L 55.200 32.487 L 55.200 36.063 L 19.927 36.063 C 19.927 36.063 3.031 34.147 3.031 60.864 C 3.031 87.581 17.791 86.668 17.791 86.668 L 26.597 86.668 L 26.597 74.914 C 26.597 74.914 26.124 60.154 41.117 60.154 L 66.147 60.154 C 66.147 60.154 80.196 60.381 80.196 46.576 L 80.196 23.208 C 80.196 23.208 82.329 9.062 54.918 9.062 Z"></path>
+<circle fill="var(--python-eye)" cx="41.028" cy="21.921" r="4.671"></circle>
+<path fill="url(#pythonYellowGrad)" d="M 55.082 100.938 C 81.602 100.938 79.957 89.430 79.957 89.430 L 79.927 77.513 L 54.800 77.513 L 54.800 73.937 L 90.073 73.937 C 90.073 73.937 106.969 75.853 106.969 49.136 C 106.969 22.419 92.209 23.332 92.209 23.332 L 83.403 23.332 L 83.403 35.086 C 83.403 35.086 83.876 49.846 68.883 49.846 L 43.853 49.846 C 43.853 49.846 29.804 49.619 29.804 63.424 L 29.804 86.792 C 29.804 86.792 27.671 100.938 55.082 100.938 Z"></path>
+<circle fill="var(--python-eye)" cx="68.972" cy="88.079" r="4.671"></circle>
 </svg>
 </span>
 <span class="tech-logo" title="Telegram Bot API" aria-label="Telegram Bot API">
