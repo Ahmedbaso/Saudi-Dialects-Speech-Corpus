@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMHRPF86R8"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-
+ZMHRPF86R8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-ZMHRPF86R8');
 </script>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Corpus collection statistics for the Saudi Dialects Speech Corpus graduation project." />
-  <title>Corpus Collection Statistics | Saudi Dialects Speech Corpus</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="A graduation project for collecting and processing Saudi dialect
+speech data using a Telegram bot, FFmpeg, Cloudinary, Airtable, and GitHub
+Pages." name="description"/>
+<title>Saudi Dialects Speech Corpus</title>
+<style>
     :root {
       --bg-color: #f6f8fb;
       --text-color: #1e293b;
@@ -25,7 +25,7 @@
       --header-text: #ffffff;
       --heading-color: #0f5132;
       --code-bg: #edf2f7;
-      --workflow-bg: #eef7f1;
+      --workflow-bg: #eef7f3;
       --workflow-border: #0f5132;
       --note-bg: #fff8e8;
       --note-border: #d69e2e;
@@ -36,35 +36,16 @@
       --shadow-color: rgba(15, 23, 42, 0.08);
       --muted-text: #475569;
       --table-border: #cbd5e1;
-      --success-color: #0f5132;
-      --danger-color: #b42318;
-      --gender-male: #2563eb;
-      --gender-female: #ec4899;
-      --device-iphone: #9ca3af;
-      --device-android: #3ddc84;
-      --quality-free: #06b6d4;
-      --quality-recordings: #22c55e;
-      --quality-minutes: #8b5cf6;
-      --region-central: #facc15;
-      --region-western: #38bdf8;
-      --region-southern: #22c55e;
-      --region-eastern: #fb923c;
-      --region-northern: #a78bfa;
-      --duration-under-1: #38bdf8;
-      --duration-1-2: #22c55e;
-      --duration-2-3: #f59e0b;
-      --duration-3-plus: #8b5cf6;
     }
-
     body.dark-mode {
       --bg-color: #070d14;
       --text-color: #e2e8f0;
       --card-bg: #0f172a;
-      --header-bg: #004d2c;
+      --header-bg: #003d2b;
       --header-text: #ffffff;
       --heading-color: #34d399;
       --code-bg: #172033;
-      --workflow-bg: #10251c;
+      --workflow-bg: #10221b;
       --workflow-border: #34d399;
       --note-bg: #2a2111;
       --note-border: #f59e0b;
@@ -75,30 +56,11 @@
       --shadow-color: rgba(0, 0, 0, 0.4);
       --muted-text: #cbd5e1;
       --table-border: #334155;
-      --success-color: #34d399;
-      --danger-color: #f87171;
-      --gender-male: #3b82f6;
-      --gender-female: #ec4899;
-      --device-iphone: #d1d5db;
-      --device-android: #3ddc84;
-      --quality-free: #22d3ee;
-      --quality-recordings: #22c55e;
-      --quality-minutes: #a78bfa;
-      --region-central: #facc15;
-      --region-western: #38bdf8;
-      --region-southern: #22c55e;
-      --region-eastern: #fb923c;
-      --region-northern: #a78bfa;
-      --duration-under-1: #38bdf8;
-      --duration-1-2: #22c55e;
-      --duration-2-3: #f59e0b;
-      --duration-3-plus: #8b5cf6;
     }
-
     * {
+
       box-sizing: border-box;
     }
-
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -107,38 +69,25 @@
       line-height: 1.7;
       transition: background-color 0.25s ease, color 0.25s ease;
     }
-
     header {
-      background: linear-gradient(135deg, var(--header-bg), #003c22);
+      background: linear-gradient(135deg, var(--header-bg), #002d22);
       color: var(--header-text);
-      padding: 56px 20px 48px;
+      padding: 55px 20px 45px;
       text-align: center;
       transition: background-color 0.25s ease;
     }
-
     header h1 {
-      margin: 0 0 12px;
-      font-size: 40px;
+      margin-bottom: 10px;
+      font-size: 38px;
     }
-
     header p {
       font-size: 18px;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .top-actions {
       max-width: 900px;
-      margin: 24px auto 0;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      margin: auto;
     }
-
     .theme-panel {
       width: fit-content;
-      margin: 18px auto 0;
+      margin: 24px auto 0;
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.12);
@@ -146,29 +95,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
     }
-
-    .theme-panel-label {
-      font-weight: bold;
-      font-size: 15px;
-      color: var(--header-text);
-    }
-
     .theme-switch {
       position: relative;
       display: inline-block;
       width: 62px;
       height: 34px;
     }
-
     .theme-switch input {
       opacity: 0;
       width: 0;
       height: 0;
     }
-
     .slider {
       position: absolute;
       cursor: pointer;
@@ -190,7 +128,6 @@
       border-radius: 50%;
       box-shadow: 0 3px 8px rgba(15, 23, 42, 0.18);
     }
-
     .switch-icon {
       position: absolute;
       width: 18px;
@@ -201,7 +138,6 @@
       z-index: 1;
       transition: transform 0.25s ease, color 0.25s ease;
     }
-
     .switch-icon svg {
       position: absolute;
       inset: 0;
@@ -209,97 +145,25 @@
       height: 18px;
       transition: opacity 0.2s ease;
     }
-
     .moon-icon {
       opacity: 0;
     }
-
     input:checked + .slider {
       background-color: #34d399;
     }
-
     input:checked + .slider:before {
       transform: translateX(28px);
     }
-
     input:checked + .slider .switch-icon {
       transform: translateX(28px);
       color: #0f172a;
     }
-
     input:checked + .slider .sun-icon {
       opacity: 0;
     }
-
     input:checked + .slider .moon-icon {
       opacity: 1;
     }
-
-    .button,
-    .copy-button {
-      border: none;
-      background: var(--heading-color);
-      color: #ffffff;
-      padding: 8px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.1;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .button:hover,
-    .copy-button:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-    }
-
-    .header-action-grid {
-      max-width: 980px;
-      margin: 24px auto 0;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      align-items: stretch;
-    }
-
-    .header-action-grid .theme-panel,
-    .header-action-grid .button {
-      width: 100%;
-      min-height: 42px;
-      margin: 0;
-      padding: 8px 12px;
-      border-radius: 999px;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.1;
-    }
-
-    .header-action-grid .theme-panel-label,
-    .header-action-grid .language-button {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.1;
-    }
-
-    .header-action-grid .button {
-      white-space: normal;
-      text-align: center;
-    }
-
     main {
       max-width: 1120px;
       margin: 40px auto;
@@ -314,22 +178,212 @@
       box-shadow: 0 2px 10px var(--shadow-color);
       transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
-
     h2 {
       color: var(--heading-color);
       margin-top: 0;
       margin-bottom: 12px;
     }
-
     h3 {
       color: var(--heading-color);
       margin-bottom: 8px;
     }
-
     p {
       margin-top: 0;
     }
+    .muted {
+      color: var(--muted-text);
+    }
+    code {
+      background-color: var(--code-bg);
+      color: var(--text-color);
+      padding: 3px 6px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .format-box {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin: 12px 0;
+      padding: 10px;
+    }
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .highlight-card {
+      background: var(--workflow-bg);
+      border-left: 4px solid var(--workflow-border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .highlight-card strong {
+      display: block;
+      color: var(--heading-color);
+      margin-bottom: 6px;
+    }
 
+    .workflow {
+      background-color: var(--workflow-bg);
+      border-left: 5px solid var(--workflow-border);
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-line;
+      overflow-x: auto;
+    }
+    .note {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .diagram-frame {
+      width: 100%;
+      max-height: 560px;
+      overflow: hidden;
+      margin: 22px auto 10px;
+      border-radius: 14px;
+      border: 1px solid var(--diagram-border);
+      background-color: var(--diagram-bg);
+      box-shadow: 0 4px 16px var(--shadow-color);
+      transition: max-height 0.4s ease;
+    }
+    .diagram-frame.expanded {
+      max-height: 6000px;
+    }
+    .diagram-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      background-color: var(--diagram-bg);
+    }
+    .diagram-controls {
+      text-align: center;
+      margin-top: 12px;
+    }
+    .diagram-button {
+      border: none;
+      background: var(--heading-color);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .diagram-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    .table-wrapper {
+      overflow-x: auto;
+
+      margin-top: 15px;
+    }
+    .naming-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 15px;
+    }
+    .naming-table th,
+    .naming-table td {
+      border: 1px solid var(--table-border);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .naming-table th {
+      background-color: var(--code-bg);
+      color: var(--heading-color);
+    }
+    @media (max-width: 700px) {
+      .table-wrapper {
+        overflow: visible;
+      }
+      .naming-table,
+      .naming-table thead,
+      .naming-table tbody,
+      .naming-table tr,
+      .naming-table th,
+      .naming-table td {
+        display: block;
+        width: 100%;
+      }
+      .naming-table thead {
+        display: none;
+      }
+      .naming-table {
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+      .naming-table tr {
+        margin: 14px 0;
+        border: 1px solid var(--table-border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--card-bg);
+        box-shadow: 0 2px 10px var(--shadow-color);
+      }
+      .naming-table td {
+        border: none;
+        border-bottom: 1px solid var(--table-border);
+        padding: 12px 14px;
+        text-align: left;
+      }
+      .naming-table td:last-child {
+
+        border-bottom: none;
+      }
+      .naming-table td::before {
+        display: block;
+        color: var(--heading-color);
+        font-weight: 700;
+        margin-bottom: 5px;
+        font-size: 13px;
+      }
+      .naming-table td:nth-child(1)::before {
+        content: "Part";
+      }
+      .naming-table td:nth-child(2)::before {
+        content: "Meaning";
+      }
+      .naming-table td:nth-child(3)::before {
+        content: "Example";
+      }
+      body.lang-ar .naming-table td {
+        text-align: right;
+      }
+      body.lang-ar .naming-table td:nth-child(1)::before {
+        content: "الجزء";
+      }
+      body.lang-ar .naming-table td:nth-child(2)::before {
+        content: "المعنى";
+      }
+      body.lang-ar .naming-table td:nth-child(3)::before {
+        content: "المثال";
+      }
+      .naming-table code {
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+    }
+    .metadata-preview {
+      background-color: #1f2937;
+      color: #f9fafb;
+      padding: 18px;
+      border-radius: 12px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.55;
+      border: 1px solid #475569;
+    }
     a {
       color: var(--link-color);
       font-weight: bold;
@@ -339,416 +393,23 @@
     a:hover {
       text-decoration: underline;
     }
-
-    .muted {
-      color: var(--muted-text);
-    }
-
-    .status-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 14px;
-      color: var(--muted-text);
-      font-size: 14px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .stat-card {
-      background: var(--workflow-bg);
-      border-left: 4px solid var(--workflow-border);
-      border-radius: 12px;
-      padding: 18px;
-      min-height: 120px;
-    }
-
-    .stat-label {
-      color: var(--muted-text);
-      font-weight: bold;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .stat-value {
-      color: var(--heading-color);
-      font-size: 34px;
-      line-height: 1.15;
-      font-weight: bold;
-      letter-spacing: -0.02em;
-    }
-
-    .stat-sub {
-      margin-top: 6px;
-      color: var(--muted-text);
-      font-size: 13px;
-    }
-
-    .goal-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .goal-card {
-      background: var(--workflow-bg);
-      border: 1px solid var(--table-border);
-      border-radius: 14px;
-      padding: 20px;
-    }
-
-    .goal-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-
-    .goal-title {
-      font-weight: bold;
-      color: var(--heading-color);
-      font-size: 18px;
-    }
-
-    .goal-percent {
-      font-weight: bold;
-      color: var(--heading-color);
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 14px;
-      background: var(--code-bg);
-      border-radius: 999px;
-      overflow: hidden;
-      border: 1px solid var(--table-border);
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--heading-color);
-      border-radius: 999px;
-      transition: width 0.6s ease;
-    }
-
-    .distribution-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .distribution-card {
-      border: 1px solid var(--table-border);
-      border-radius: 14px;
-      padding: 20px;
-      background: var(--card-bg);
-    }
-
-    .bar-row {
-      margin-top: 14px;
-    }
-
-    .bar-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 6px;
-      color: var(--muted-text);
-      font-size: 14px;
-    }
-
-    .bar-track {
-      height: 12px;
-      background: var(--code-bg);
-      border: 1px solid var(--table-border);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--heading-color);
-      border-radius: 999px;
-      transition: width 0.6s ease;
-    }
-
-    .pie-wrap {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
-    .pie-chart {
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      background: conic-gradient(var(--gender-male) 0% 0%, var(--gender-female) 0% 100%);
-      position: relative;
-      flex: 0 0 auto;
-      box-shadow: inset 0 0 0 1px var(--table-border), 0 10px 24px rgba(0, 0, 0, 0.16);
-    }
-
-    .pie-total {
-      margin-top: 12px;
-      color: var(--muted-text);
-      font-size: 14px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .legend-list {
-      flex: 1;
-      min-width: 170px;
-    }
-
-    .legend-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-top: 10px;
-      color: var(--muted-text);
-      font-size: 14px;
-    }
-
-    .legend-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .legend-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .stacked-summary {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      margin-bottom: 10px;
-      color: var(--muted-text);
-      font-size: 14px;
-    }
-
-    .stacked-track {
-      width: 100%;
-      height: 22px;
-      background: var(--code-bg);
-      border: 1px solid var(--table-border);
-      border-radius: 999px;
-      overflow: hidden;
-      display: flex;
-    }
-
-    .stacked-segment {
-      height: 100%;
-      min-width: 0;
-      transition: width 0.6s ease;
-    }
-
-    .stacked-segment.iphone {
-      background: var(--device-iphone);
-    }
-
-    .stacked-segment.android {
-      background: var(--device-android);
-    }
-
-    .quality-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .quality-metric {
-      background: var(--workflow-bg);
-      border: 1px solid var(--table-border);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .quality-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .quality-title {
-      color: var(--muted-text);
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .quality-value {
-      color: var(--heading-color);
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .quality-track {
-      height: 10px;
-      background: var(--code-bg);
-      border: 1px solid var(--table-border);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .quality-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      transition: width 0.6s ease;
-    }
-
-    .quality-fill.free {
-      background: var(--quality-free);
-    }
-
-    .quality-fill.recordings {
-      background: var(--quality-recordings);
-    }
-
-    .quality-fill.minutes {
-      background: var(--quality-minutes);
-    }
-
-    .distribution-card.wide-card {
-      grid-column: 1 / -1;
-    }
-
-    .histogram-chart {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      align-items: end;
-      min-height: 220px;
-      margin-top: 18px;
-      padding-top: 12px;
-    }
-
-    .histogram-column {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-width: 0;
-    }
-
-    .histogram-value {
-      color: var(--heading-color);
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 8px;
-      font-size: 18px;
-    }
-
-    .histogram-bar {
-      min-height: 8px;
-      background: var(--quality-minutes);
-      border-radius: 12px 12px 4px 4px;
-      border: 1px solid var(--table-border);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
-      transition: height 0.6s ease;
-    }
-
-    .histogram-label {
-      color: var(--muted-text);
-      text-align: center;
-      margin-top: 10px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .share-card {
-      background: linear-gradient(135deg, var(--workflow-bg), var(--card-bg));
-      border: 1px solid var(--table-border);
-    }
-
-    .bot-link-box {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      margin-top: 16px;
-    }
-
-    .bot-link-box .button,
-    .bot-link-box .copy-button {
-      width: 124px;
-      min-width: 124px;
-      flex: 0 0 124px;
-      min-height: 40px;
-      padding: 8px 12px;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.1;
-      text-align: center;
-    }
-
-    .bot-url {
-      flex: 1;
-      min-width: 260px;
-      background: var(--code-bg);
-      color: var(--text-color);
-      border: 1px solid var(--table-border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-family: Consolas, Monaco, "Courier New", monospace;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-
-    .copy-status {
-      color: var(--heading-color);
-      font-weight: bold;
-      margin-top: 10px;
-      min-height: 24px;
-    }
-
     footer {
       text-align: center;
       padding: 28px;
       color: var(--footer-color);
       font-size: 14px;
     }
-
     .ksu-link {
       color: var(--link-color);
       font-weight: bold;
       border-bottom: 1px dotted var(--link-color);
     }
-
-
     .footer-title {
       color: var(--footer-color);
     }
-
     .footer-separator {
       color: var(--footer-color);
     }
-
     @media (max-width: 700px) {
       footer {
         padding: 24px 24px 84px;
@@ -756,11 +417,9 @@
         line-height: 1.55;
         text-align: left;
       }
-
       body.lang-ar footer {
         text-align: left;
       }
-
       footer .footer-title {
         display: block;
         margin-bottom: 10px;
@@ -768,11 +427,9 @@
         color: var(--footer-color);
         text-align: left;
       }
-
       footer .footer-separator {
         display: none;
       }
-
       footer .ksu-link {
         display: block;
         width: fit-content;
@@ -783,34 +440,175 @@
         text-align: left;
         overflow-wrap: anywhere;
       }
-
       footer .ksu-link::before {
         content: "• ";
         color: var(--footer-color);
+
         font-weight: 600;
       }
     }
+    .technologies-section {
+      position: relative;
+    }
+    .tech-heading-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .tech-heading-row h2 {
+      margin-bottom: 0;
+    }
+    .tech-icons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 560px;
+    }
+    .tech-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--code-bg);
+      border: 1px solid var(--table-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px var(--shadow-color);
+      transition: background-color 0.25s ease, border-color 0.25s ease,
+transform 0.2s ease;
+    }
+    .tech-logo:hover {
+      transform: translateY(-2px);
+    }
+    .tech-logo svg {
+      width: 27px;
+      height: 27px;
+      display: block;
+    }
+    .tech-adaptive-fill {
+      fill: var(--text-color);
+      transition: fill 0.25s ease;
+    }
+    .tech-adaptive-stroke {
+      stroke: var(--text-color);
+      transition: stroke 0.25s ease;
+    }
 
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 34px;
+      margin-top: 10px;
+    }
+    .tech-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+    .tech-list li {
+      margin-bottom: 7px;
+    }
+    body.lang-ar .tech-list {
+      padding-left: 0;
+      padding-right: 22px;
+    }
+    body.lang-ar .tech-icons {
+      justify-content: center;
+    }
+    .tech-heading-row {
+      display: block;
+      margin-bottom: 12px;
+    }
+    .tech-icons {
+      justify-content: center;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+    @media (max-width: 900px) {
+      .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .telegram-icon {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      margin-left: 6px;
+      vertical-align: -5px;
+      align-items: center;
+      justify-content: center;
+    }
+    .telegram-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .telegram-circle {
+      fill: #229ed9;
+      transition: fill 0.25s ease, stroke 0.25s ease;
 
-
+    }
+    .telegram-plane {
+      fill: #ffffff;
+      transition: fill 0.25s ease;
+    }
+    body.dark-mode .telegram-circle {
+      fill: #0f172a;
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+    }
+    body.dark-mode .telegram-plane {
+      fill: #38bdf8;
+    }
+    body.lang-ar .telegram-icon {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 29px;
+      }
+      header p {
+        font-size: 16px;
+      }
+      section {
+        padding: 22px;
+      }
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .diagram-frame {
+        max-height: 430px;
+      }
+    }
     .header-controls {
       width: fit-content;
-      margin: 18px auto 0;
+      margin: 24px auto 0;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
     }
-
-    .header-controls .theme-panel {
+    .theme-panel {
       margin: 0;
+      gap: 10px;
     }
+    .theme-panel-label {
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
 
+      white-space: nowrap;
+    }
     .language-panel {
       gap: 10px;
     }
-
     .language-switch {
       display: inline-flex;
       align-items: center;
@@ -820,581 +618,1369 @@
       background: rgba(15, 23, 42, 0.28);
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
-
     .language-button {
       border: none;
       border-radius: 999px;
       padding: 6px 12px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 800;
       font-size: 13px;
       color: rgba(255, 255, 255, 0.88);
       background: transparent;
-      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s
+ease;
     }
-
     .language-button:hover {
       transform: translateY(-1px);
     }
-
     .language-button.active {
       background: #34d399;
       color: #0f172a;
     }
-
     body.lang-ar {
       direction: rtl;
       text-align: right;
     }
-
     body.lang-ar header,
-    body.lang-ar .top-actions,
-    body.lang-ar .header-controls,
+    body.lang-ar .diagram-controls,
     body.lang-ar footer {
       text-align: center;
     }
-
-    body.lang-ar .stat-card,
-    body.lang-ar .goal-card,
-    body.lang-ar .distribution-card,
-    body.lang-ar .share-card {
-      text-align: right;
+    body.lang-ar .highlight-card,
+    body.lang-ar .workflow,
+    body.lang-ar .note {
+      border-left: none;
+      border-right: 5px solid var(--workflow-border);
+    }
+    body.lang-ar .highlight-card {
+      border-right-width: 4px;
+    }
+    body.lang-ar .note {
+      border-right-color: var(--note-border);
     }
 
-    body.lang-ar .goal-header,
-    body.lang-ar .bar-meta,
-    body.lang-ar .quality-top,
-    body.lang-ar .legend-item,
-    body.lang-ar .stacked-summary {
-      direction: rtl;
-    }
-
-    body.lang-ar .bot-link-box {
-      direction: rtl;
-    }
-
-    body.lang-ar .bot-url {
+    body.lang-ar .workflow,
+    body.lang-ar .metadata-preview,
+    body.lang-ar code,
+    body.lang-ar .format-box {
       direction: ltr;
       text-align: left;
     }
+    body.lang-ar .naming-table th,
+    body.lang-ar .naming-table td {
+      text-align: right;
+    }
+    body.lang-ar ol,
+    body.lang-ar ul {
+      padding-left: 0;
+      padding-right: 24px;
+    }
+    .telegram-icon {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      margin-left: 6px;
+      vertical-align: -5px;
+      align-items: center;
+      justify-content: center;
+    }
+    .telegram-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .telegram-circle {
+      fill: #229ed9;
+      transition: fill 0.25s ease, stroke 0.25s ease;
+    }
+    .telegram-plane {
+      fill: #ffffff;
+      transition: fill 0.25s ease;
+    }
+    body.dark-mode .telegram-circle {
+      fill: #0f172a;
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+    }
+    body.dark-mode .telegram-plane {
+      fill: #38bdf8;
+    }
+    body.lang-ar .telegram-icon {
+      margin-left: 0;
+      margin-right: 6px;
+    }
+    @media (max-width: 700px) {
+      .header-controls {
 
-    @media (max-width: 900px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
       }
-
-      .goal-grid,
-      .distribution-grid {
-        grid-template-columns: 1fr;
+      .theme-panel {
+        padding: 9px 12px;
       }
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 31px;
-      }
+    /* =============================================
+       Visual Improvements — Design Polish Layer
+       =============================================
+       All existing styles remain untouched above.
+       These rules refine spacing, shadows, hover
+       effects, typography, and responsiveness.
+       ============================================= */
 
-      header p {
-        font-size: 16px;
-      }
+    /* — New design tokens — */
+    :root {
+      --border-accent:          rgba(0, 108, 53, 0.10);
+      --section-hover-shadow:   0 8px 28px rgba(0, 108, 53, 0.11), 0 2px 8px var(--shadow-color);
+      --btn-shadow:             0 3px 12px rgba(15, 81, 50, 0.24);
+      --btn-shadow-hover:       0 6px 22px rgba(15, 81, 50, 0.36);
+      --card-lift-shadow:       0 6px 20px rgba(0, 108, 53, 0.09);
+    }
+    body.dark-mode {
+      --border-accent:          rgba(52, 211, 153, 0.10);
+      --section-hover-shadow:   0 8px 28px rgba(52, 211, 153, 0.08), 0 2px 8px var(--shadow-color);
+      --btn-shadow:             0 3px 12px rgba(52, 211, 153, 0.18);
+      --btn-shadow-hover:       0 6px 22px rgba(52, 211, 153, 0.28);
+      --card-lift-shadow:       0 6px 20px rgba(52, 211, 153, 0.07);
+    }
+
+    /* — Better system font stack — */
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* — Header: richer gradient + subtle CSS overlay — */
+    header {
+      background: linear-gradient(148deg, #006c35 0%, #004f26 55%, #002d22 100%);
+      padding: 64px 24px 54px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 65% 85% at 18% 45%, rgba(255,255,255,0.055) 0%, transparent 68%),
+        radial-gradient(ellipse 55% 65% at 78% 18%, rgba(52,211,153,0.072) 0%, transparent 58%),
+        radial-gradient(ellipse 45% 45% at 55% 95%, rgba(0,0,0,0.07) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    header > * { position: relative; z-index: 1; }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+    }
+    header p {
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.93;
+      line-height: 1.66;
+    }
+
+    /* — Main layout tightening — */
+    main {
+      max-width: 1120px;
+      margin: 36px auto 20px;
+      padding: 0 24px;
+    }
+
+    /* — Section cards: border, radius, hover lift — */
+    section {
+      border-radius: 16px;
+      padding: 32px 32px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 1px 3px var(--shadow-color), 0 4px 14px var(--shadow-color);
+      border: 1px solid var(--border-accent);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.25s ease;
+    }
+    section:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--section-hover-shadow);
+    }
+
+    /* — h2: visual anchor line — */
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin-bottom: 16px;
+      padding-bottom: 11px;
+      border-bottom: 1.5px solid var(--border-accent);
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* — Paragraph & list breathing room — */
+    p {
+      line-height: 1.73;
+      margin-bottom: 14px;
+    }
+    ol li, ul li {
+      margin-bottom: 7px;
+      line-height: 1.67;
+    }
+
+    /* — Highlight cards: lift on hover — */
+    .highlight-card {
+      padding: 18px 18px 16px;
+      border-radius: 13px;
+      box-shadow: 0 1px 4px var(--shadow-color);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .highlight-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-lift-shadow);
+    }
+    .highlight-card strong {
+      font-size: 14px;
+      letter-spacing: 0.1px;
+      margin-bottom: 8px;
+    }
+
+    /* — Buttons: shadow + consistent sizing — */
+    .diagram-button {
+      padding: 11px 30px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.15px;
+      box-shadow: var(--btn-shadow);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.2s ease;
+    }
+    .diagram-button:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: var(--btn-shadow-hover);
+    }
+    a.diagram-button {
+      display: inline-block;
+      text-decoration: none;
+    }
+    a.diagram-button:hover { text-decoration: none; }
+
+    /* — Tech icons: slightly larger, glow on hover — */
+    .tech-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      transition: background-color 0.25s ease, border-color 0.25s ease,
+                  transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .tech-logo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px var(--shadow-color);
+    }
+    .tech-icons {
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    /* — Code: monospace font stack — */
+    code {
+      font-family: 'Consolas', 'Monaco', 'Menlo', 'Courier New', monospace;
+      font-size: 13.5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    /* — Workflow block: monospace + breathing room — */
+    .workflow {
+      font-family: 'Consolas', 'Monaco', 'Menlo', 'Courier New', monospace;
+      font-size: 13.5px;
+      line-height: 1.9;
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
+    /* — Note block: cleaner radius — */
+    .note {
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 18px;
+      font-size: 14.5px;
+    }
+
+    /* — Metadata preview: tighter font — */
+    .metadata-preview {
+      border-radius: 14px;
+      font-size: 13.5px;
+      line-height: 1.62;
+    }
+
+    /* — Diagram frame — */
+    .diagram-frame {
+      border-radius: 16px;
+      margin: 18px auto 8px;
+    }
+    body.dark-mode .diagram-frame {
+      box-shadow: 0 4px 22px rgba(0, 0, 0, 0.5);
+    }
+
+    /* — Table cells — */
+    .naming-table th {
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 12px 12px;
+    }
+    .naming-table td {
+      padding: 11px 12px;
+      font-size: 14px;
+    }
+
+    /* — Tech list spacing — */
+    .tech-grid { gap: 10px 32px; margin-top: 12px; }
+    .tech-list li { margin-bottom: 8px; font-size: 14.5px; }
+
+    /* — Footer separator — */
+    footer {
+      border-top: 1px solid var(--border-accent);
+      padding: 26px 24px;
+      margin-top: 4px;
+    }
+
+    /* — Mobile refinements (≤700px) — */
+    @media (max-width: 700px) {
+      header { padding: 44px 20px 38px; }
+      header h1 { font-size: 30px; letter-spacing: -0.3px; }
+      main { margin: 20px auto; padding: 0 16px; }
 
       section {
-        padding: 22px;
+        padding: 20px 18px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+      }
+      /* Disable hover lift on touch — avoids sticky hover */
+      section:hover { transform: none; box-shadow: 0 1px 3px var(--shadow-color), 0 4px 14px var(--shadow-color); }
+      .highlight-card:hover { transform: none; box-shadow: 0 1px 4px var(--shadow-color); }
+      .tech-logo:hover { transform: none; box-shadow: none; }
+
+      h2 { font-size: 18px; }
+
+      .diagram-controls .diagram-button {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
       }
 
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
+      .tech-logo { width: 40px; height: 40px; }
+      .tech-icons { gap: 8px; margin-top: 18px; }
 
-      .stat-value {
-        font-size: 30px;
-      }
+      footer { padding: 20px 18px 80px; }
 
-      .histogram-chart {
-        grid-template-columns: repeat(2, 1fr);
-        min-height: 180px;
-      }
+      .workflow { padding: 16px 16px; font-size: 13px; }
+      .metadata-preview { font-size: 13px; padding: 14px; }
     }
 
-    @media (max-width: 820px) {
-      .header-action-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 620px;
-      }
+    /* — Very small screens (≤480px) — */
+    @media (max-width: 480px) {
+      header h1 { font-size: 26px; }
+      header p  { font-size: 15px; }
+      .tech-logo { width: 36px; height: 36px; border-radius: 10px; }
+      .tech-logo svg { width: 24px; height: 24px; }
+      .highlight-card { padding: 14px 14px 12px; }
     }
 
-    @media (max-width: 470px) {
-      .header-action-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .header-action-grid .theme-panel,
-      .header-action-grid .button {
-        min-height: 40px;
-        padding: 8px 10px;
-        font-size: 12.5px;
-      }
-
-      .header-action-grid .theme-panel-label,
-      .header-action-grid .language-button {
-        font-size: 12.5px;
+    /* — Reduced motion support — */
+    @media (prefers-reduced-motion: reduce) {
+      section, .highlight-card, .diagram-button,
+      .tech-logo, a.diagram-button {
+        transition: none !important;
+        transform: none !important;
       }
     }
-
-    @media (max-width: 470px) {
-      .bot-url {
-        flex-basis: 100%;
-        min-width: 0;
-      }
-
-      .bot-link-box .button,
-      .bot-link-box .copy-button {
-        width: 124px;
-        min-width: 124px;
-        flex: 0 0 124px;
-      }
-    }
-
   </style>
 </head>
-
 <body class="dark-mode">
+<header>
+<h1 data-i18n="projectTitle">Saudi Dialects Speech Corpus</h1>
+<p data-i18n-html="headerSubtitle">
+      A graduation project focused on building a structured Saudi dialect speech
+corpus
+      through linguistically curated prompts, privacy-first data collection, and
+an automated
+      Telegram-based ingestion pipeline. <span aria-label="Telegram"
+class="telegram-icon telegram-icon-inline" title="Telegram"> <svg aria-
+hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle" cx="12"
+cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9
+11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-
+.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-
+1.1-3.1Z"></path> </svg> </span></p>
+<div class="header-controls">
+<div class="theme-panel">
+<span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
+<label aria-label="Switch between light and dark mode" class="theme-switch"
+title="Switch between light and dark mode">
+<input id="themeToggle" type="checkbox"/>
+<span class="slider">
+<span aria-hidden="true" class="switch-icon">
+<svg class="sun-icon" fill="none" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"></circle>
+<path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8
+12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor"
+stroke-linecap="round" stroke-width="2"></path>
+</svg>
+<svg class="moon-icon" fill="none" viewbox="0 0 24 24">
+<path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z"
+stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</span>
+</label>
+</div>
+<div aria-label="Language selector" class="theme-panel language-panel">
+<span class="theme-panel-label" data-i18n="languageLabel">Language</span>
+<div aria-label="Switch language" class="language-switch" role="group">
+<button aria-pressed="true" class="language-button active" data-lang="en"
+id="langEn" type="button">EN</button>
+<button aria-pressed="false" class="language-button" data-lang="ar" id="langAr"
+type="button">AR</button>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section>
+<h2 data-i18n="projectOverviewTitle">Project Overview</h2>
+<p data-i18n="overviewP1">
 
-  <header>
-    <h1 data-i18n="pageTitle">Corpus Collection Statistics</h1>
-    <p data-i18n="headerSubtitle">
-      An updated overview of the Saudi Dialects Speech Corpus collection progress,
-      including participants, recordings, recorded minutes, and progress toward the project goal.
-    </p>
+        The Saudi Dialects Speech Corpus project addresses the shortage of high-
+quality,
 
-    <div class="header-action-grid" aria-label="Page controls">
-      <div class="theme-panel">
-        <span class="theme-panel-label" data-i18n="displayMode">Display Mode</span>
-        <label class="theme-switch" title="Switch between light and dark mode" aria-label="Switch between light and dark mode">
-          <input type="checkbox" id="themeToggle" />
-          <span class="slider">
-            <span class="switch-icon" aria-hidden="true">
-              <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2" />
-                <path d="M12 2.8V5M12 19v2.2M4.22 4.22l1.56 1.56M18.22 18.22l1.56 1.56M2.8 12H5M19 12h2.2M4.22 19.78l1.56-1.56M18.22 5.78l1.56-1.56" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-              <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
-                <path d="M20.2 14.4A7.6 7.6 0 0 1 9.6 3.8A8.6 8.6 0 1 0 20.2 14.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-              </svg>
-            </span>
-          </span>
-        </label>
-      </div>
+        dialect-specific Arabic speech data. While many Arabic language
+technologies perform
 
-      <div class="theme-panel language-panel" aria-label="Language selector">
-        <span class="theme-panel-label" data-i18n="languageLabel">Language</span>
-        <div class="language-switch" role="group" aria-label="Switch language">
-          <button type="button" class="language-button active" id="langEn" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="language-button" id="langAr" data-lang="ar" aria-pressed="false">AR</button>
-        </div>
-      </div>
+        reasonably well on Modern Standard Arabic, they often struggle with
+spontaneous daily
 
-      <a href="index.html" class="button secondary" data-i18n="backProjectPage">Back to Project Page</a>
-      <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="openTelegramBot">Open Telegram Bot</a>
-    </div>
-  </header>
-
-  <main>
-
-    <section>
-  <h2 data-i18n="overviewTitle">Corpus Collection Overview</h2>
-  <p class="muted" data-i18n="overviewP1">
-    This page shows the current progress of the Saudi Dialects Speech Corpus and how close
-    the project is to reaching its collection goals.
-  </p>
-
-  <p class="muted" data-i18n="overviewP2">
-    Statistics are updated automatically from aggregated dataset records.
-  </p>
-
-  <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="totalParticipantsLabel">Total Participants</div>
-          <div class="stat-value" id="totalParticipants">0</div>
-          <div class="stat-sub" data-i18n="totalParticipantsSub">Completed contributors</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="totalRecordingsLabel">Total Recordings</div>
-          <div class="stat-value" id="totalRecordings">0</div>
-          <div class="stat-sub" data-i18n="totalRecordingsSub">Approved audio files</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="recordedMinutesLabel">Recorded Minutes</div>
-          <div class="stat-value" id="totalMinutes">0</div>
-          <div class="stat-sub" data-i18n="recordedMinutesSub">Total approved duration</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="completedSessionsLabel">Completed Sessions</div>
-          <div class="stat-value" id="completedSessions">0</div>
-          <div class="stat-sub" data-i18n="completedSessionsSub">Participants who completed submission</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="maleParticipantsLabel">Male Participants</div>
-          <div class="stat-value" id="maleParticipants">0</div>
-          <div class="stat-sub" data-i18n="aggregatedStatsSub">Aggregated statistics</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="femaleParticipantsLabel">Female Participants</div>
-          <div class="stat-value" id="femaleParticipants">0</div>
-          <div class="stat-sub" data-i18n="aggregatedStatsSub">Aggregated statistics</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="freeSpeechSamplesLabel">Free Speech Samples</div>
-          <div class="stat-value" id="freeSpeechSamples">0</div>
-          <div class="stat-sub" data-i18n="freeSpeechSamplesSub">Optional S31 recordings</div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-label" data-i18n="avgMinutesLabel">Average Minutes / Participant</div>
-          <div class="stat-value" id="avgMinutes">0</div>
-          <div class="stat-sub" data-i18n="avgMinutesSub">Based on current totals</div>
-        </div>
-      </div>
-
-      <div class="status-row">
-        <span id="lastUpdated">Last updated: Not connected yet</span>
-      </div>
-    </section>
-
-    <section>
-      <h2 data-i18n="projectGoalTitle">Project Goal</h2>
-      <p data-i18n-html="projectGoalP">
-        The long-term target is to collect voice contributions from <strong>10,000 participants</strong>
-        and build a corpus of <strong>300,000 recordings</strong>.
+        speech, especially when the speaker uses regional Saudi dialects.
       </p>
 
-      <div class="goal-grid">
-        <div class="goal-card">
-          <div class="goal-header">
-            <div>
-              <div class="goal-title" data-i18n="participantsGoalTitle">Participants Goal</div>
-              <div class="muted"><span id="participantsCurrent">0</span> / 10,000 <span data-i18n="participantsUnit">participants</span></div>
-            </div>
-            <div class="goal-percent" id="participantsPercent">0%</div>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" id="participantsProgress"></div>
-          </div>
-        </div>
+<p data-i18n="overviewP2">
+        The project focuses on creating a structured speech corpus that captures
+natural Saudi
+        dialectal variation while maintaining a privacy-first and scalable data
+collection
 
-        <div class="goal-card">
-          <div class="goal-header">
-            <div>
-              <div class="goal-title" data-i18n="recordingsGoalTitle">Recordings Goal</div>
-              <div class="muted"><span id="recordingsCurrent">0</span> / 300,000 <span data-i18n="recordingsUnit">recordings</span></div>
-            </div>
-            <div class="goal-percent" id="recordingsPercent">0%</div>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" id="recordingsProgress"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        architecture. Instead of treating the Telegram bot as the entire
+project, the bot is used
 
-    <section>
-      <h2 data-i18n="datasetBreakdownTitle">Dataset Breakdown</h2>
-      <p class="muted" data-i18n="datasetBreakdownP">
-        These charts show aggregated dataset statistics only and do not expose participant identities.
+        as the main ingestion tool for a broader linguistic and data engineering
+pipeline.
+
+</p>
+</section>
+<section>
+
+<h2 data-i18n="whyTitle">Why This Project Matters</h2>
+
+<p data-i18n="whyP1">
+
+        Saudi Arabia contains a wide range of regional dialects shaped by
+geography, history,
+
+        and social variation. Dialects such as Najdi, Hijazi, Southern, Eastern,
+and Northern
+
+        varieties can differ in pronunciation, vocabulary, and morphology. This
+makes speech
+        recognition difficult when models are trained mainly on formal Arabic or
+non-local data.
+
+</p>
+<p data-i18n="whyP2">
+A dedicated Saudi dialect speech corpus can support future improvements in Arabic
+        Automatic Speech Recognition (ASR), voice assistants, digital
+accessibility, automated
+
+        customer service, and smart city voice-based services.
+
       </p>
 
-      <div class="distribution-grid">
-        <div class="distribution-card">
-          <h3 data-i18n="genderDistributionTitle">Gender Distribution</h3>
-          <div id="genderChart"></div>
-        </div>
+</section>
 
-        <div class="distribution-card">
-          <h3 data-i18n="deviceDistributionTitle">Device Distribution</h3>
-          <div id="deviceChart"></div>
-        </div>
+<section>
 
-        <div class="distribution-card">
-          <h3 data-i18n="regionDistributionTitle">Region Distribution</h3>
-          <div id="regionBars"></div>
-        </div>
+<h2 data-i18n="methodologyTitle">Corpus Design Methodology</h2>
 
-        <div class="distribution-card">
-          <h3 data-i18n="collectionQualityTitle">Collection Quality</h3>
-          <div id="qualityMetrics"></div>
-        </div>
+<p data-i18n="methodologyP1">
 
-        <div class="distribution-card wide-card">
-          <h3 data-i18n="durationDistributionTitle">Participant Duration Distribution</h3>
-          <p class="muted" data-i18n="durationDistributionP">
-            Histogram of total recorded minutes per completed participant.
-          </p>
-          <div id="durationHistogram"></div>
-        </div>
-      </div>
-    </section>
+        The corpus was not built from random sentences. It was designed through
+a structured
+        sentence selection process that combines public language input with
+phonetic curation.
 
-    <section class="share-card">
-      <h2 data-i18n="shareTitle">Help Us Grow the Corpus</h2>
-      <p data-i18n="shareP1">
-        Help us grow the Saudi Dialects Speech Corpus. By sharing the bot link with friends
-        and family across different Saudi regions, you can support the creation of a richer and
-        more representative dataset for Arabic speech technologies.
-      </p>
-      <p data-i18n="shareP2">
-        Every voice contribution brings the project closer to its goal. Share the bot and be part
-        of building better Arabic voice technology.
+        The goal is to cover Arabic phonemes and capture common Saudi
+expressions while
+        reducing reading bias.
       </p>
 
-      <div class="bot-link-box">
-        <div class="bot-url" id="botUrl">https://t.me/Saudi_Dialects_bot</div>
-        <a href="https://t.me/Saudi_Dialects_bot" target="_blank" rel="noopener noreferrer" class="button" data-i18n="openBotButton">Open Bot</a>
-        <button class="copy-button" onclick="copyBotLink()" data-i18n="copyLinkButton">Copy Link</button>
+<ol>
+
+<li data-i18n-html="methodLi1">
+
+<strong>Public perception survey:</strong> Participants evaluated common phrases
+and
+
+          regional variation.
+
+        </li>
+
+<li data-i18n-html="methodLi2">
+
+<strong>Phrase nomination:</strong> Volunteers suggested daily Saudi expressions
+          commonly used in their region.
+
+        </li>
+
+<li data-i18n-html="methodLi3">
+
+<strong>Expert phonetic curation:</strong> The final prompt list was refined to
+ensure
+
+          broad phonetic coverage across Arabic sounds and dialectal usage.
+        </li>
+
+</ol>
+
+<p data-i18n="methodologyP2">
+
+        The finalized textual corpus includes 30 predefined prompts and one
+optional free-speech
+
+        prompt, labeled as S31, to capture more natural, unscripted dialectal
+speech.
+
+      </p>
+
+</section>
+<section>
+
+<h2 data-i18n="highlightsTitle">Project Highlights</h2>
+
+<div class="highlight-grid">
+
+<div class="highlight-card" data-i18n-html="highlightPrivacyCard">
+<strong data-i18n="highlightPrivacyTitle">Privacy-first collection</strong>
+          The system avoids storing phone numbers and supports anonymous
+participation.
+
+        </div>
+
+<div class="highlight-card" data-i18n-html="highlightPhoneticCard">
+<strong data-i18n="highlightPhoneticTitle">Phonetic coverage</strong>
+          The 30-sentence corpus is curated to cover Arabic phonemes and
+dialectal variation.
+
+        </div>
+
+<div class="highlight-card" data-i18n-html="highlightAutomationCard">
+<strong data-i18n="highlightAutomationTitle">Automated ingestion</strong>
+          A Telegram bot manages participant flow, recordings, validation, and
+processing.
+
+        </div>
+
+<div class="highlight-card" data-i18n-html="highlightStorageCard">
+<strong data-i18n="highlightStorageTitle">Multi-destination storage and
+tracking</strong>
+
+          Outputs are stored on the server and in Cloudinary, while Airtable is
+used for participant metadata, recording records, and file tracking.
+        </div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 data-i18n="statsTitle">Corpus Collection Statistics</h2>
+
+<p data-i18n="statsP">
+
+        View the updated progress of the Saudi Dialects Speech Corpus, including
+participant count,
+
+        recording count, collected minutes, and progress toward the project
+goals.
+
+      </p>
+
+<div class="diagram-controls">
+
+<a class="diagram-button" data-i18n="viewStatsButton" href="stats.html">View
+Corpus Statistics</a>
+
+</div>
+
+</section>
+
+<section>
+<h2 data-i18n-html="botWorkflowTitle">Telegram Bot Workflow <span aria-
+label="Telegram" class="telegram-icon telegram-icon-inline" title="Telegram">
+<svg aria-hidden="true" viewbox="0 0 24 24"> <circle class="telegram-circle"
+cx="12" cy="12" r="11"></circle> <path class="telegram-plane" d="M17.9 7.2 5.9
+11.8c-.8.3-.8.8-.1 1l3.1 1 1.2 3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-
+.6l2.1-9.9c.2-.9-.3-1.2-1.5-.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-
+1.1-3.1Z"></path> </svg> </span></h2>
+
+<p data-i18n="botWorkflowP">
+
+        The Telegram bot is the main interface that guides participants through
+the data
+        collection process.
+      </p>
+
+<ol>
+
+<li data-i18n-html="botLi1">The participant starts the bot using
+<code>/start</code>.</li>
+
+<li data-i18n="botLi2">The bot displays the privacy policy and requires explicit
+consent.</li>
+
+<li data-i18n="botLi3">The bot collects participant metadata such as age,
+gender, dialect region, education level, and device type.</li>
+<li data-i18n="botLi4">The bot displays a recording notice asking the
+participant to remove headphones and record directly using the phone
+microphone.</li>
+<li data-i18n="botLi5">The participant records 30 predefined phonetically
+curated sentences.</li>
+<li data-i18n="botLi6">For each sentence, the participant can approve the
+recording or re-record it.</li>
+<li data-i18n="botLi7">The participant may optionally record a free-speech
+sample or skip this step.</li>
+<li data-i18n="botLi8">The bot shows a final confirmation button before
+processing and uploading the files.</li>
+<li data-i18n="botLi9">After final confirmation, the audio files are processed,
+renamed, compressed, uploaded, and stored.</li>
+</ol>
+</section>
+<section>
+<h2 data-i18n="userDiagramTitle">Telegram Bot User Workflow Diagram</h2>
+<p data-i18n="userDiagramP">
+        This diagram shows the participant journey from consent approval to
+final file upload.
+      </p>
+<div class="diagram-frame" id="userWorkflowFrame">
+<img alt="Telegram Bot User Workflow Diagram" class="diagram-image"
+src="assets/user-workflow.png"/>
+</div>
+<div class="diagram-controls">
+<button class="diagram-button" data-i18n="showFullDiagram"
+onclick="toggleDiagram('userWorkflowFrame', this)">
+          Show full diagram
+        </button>
+
+</div>
+</section>
+<section>
+<h2 data-i18n="architectureTitle">System Architecture &amp; Data Pipeline</h2>
+<p data-i18n="architectureP">
+        This diagram shows how approved voice recordings are processed, stored,
+and linked
+        across backend services.
+      </p>
+<div class="diagram-frame" id="systemArchitectureFrame">
+<img alt="System Architecture and Data Pipeline Diagram" class="diagram-image"
+src="assets/system-architecture.png"/>
+</div>
+<div class="diagram-controls">
+<button class="diagram-button" data-i18n="showFullDiagram"
+onclick="toggleDiagram('systemArchitectureFrame', this)">
+          Show full diagram
+        </button>
+
+</div>
+</section>
+<section>
+<h2 data-i18n="systemWorkflowTitle">System Workflow</h2>
+<div class="workflow">
+Participant
+   ↓
+Telegram Bot
+   ↓
+Voice Note in OGG Format
+   ↓
+Temporary OGG Storage on Server
+   ↓
+FFmpeg + FFprobe Audio Processing
+
+   ↓
+Standardized WAV File
+   ↓
+File Renaming
+   ↓
+ZIP Archive + SPKxxxxx_info.txt
+   ↓
+Server Storage + Cloudinary + Airtable Storage &amp; Tracking
       </div>
-      <div class="copy-status" id="copyStatus"></div>
-    </section>
 
-  </main>
+</section>
+<section>
+<h2 data-i18n="audioProcessingTitle">Audio Processing</h2>
+<p data-i18n="audioProcessingP">Telegram voice recordings are received in OGG
+format. The Python backend uses FFmpeg to convert each approved recording into a
+standardized WAV file.</p>
+<ul>
+<li data-i18n="wavFormat">WAV format</li>
+<li data-i18n="sampleRate">44.1kHz sample rate</li>
+<li data-i18n="monoChannel">Mono channel</li>
+<li data-i18n="pcmEncoding">PCM 16-bit encoding</li>
+<li data-i18n="ffprobeLi">FFprobe is used to calculate the total audio duration
+for each participant session.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="durationRulesTitle">Recording Duration Rules</h2>
+<ul>
 
-  <footer data-i18n-html="footerHtml">
-    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation Project</span>
+<li data-i18n="durationLi1">Each predefined sentence has a maximum recording
+duration of 15 seconds.</li>
+<li data-i18n="durationLi2">The optional free-speech recording has a maximum
+duration of 35 seconds.</li>
+<li data-i18n="durationLi3">If the participant exceeds the allowed duration, the
+bot asks them to re-record.</li>
+
+</ul>
+</section>
+<section>
+<h2 data-i18n="storageTitle">Storage Architecture</h2>
+<p data-i18n="storageP">The system uses a multi-destination storage and tracking
+architecture:</p>
+
+<ul>
+<li data-i18n-html="storageLi1"><strong>Server Storage:</strong> stores the
+generated ZIP archive, processed audio files, and metadata file on the project
+server.</li>
+
+<li data-i18n-html="storageLi2"><strong>Cloudinary:</strong> stores uploaded
+audio files and metadata files for cloud accessibility.</li>
+<li data-i18n-html="storageLi3"><strong>Airtable:</strong> stores participant
+metadata and recording records for review and tracking.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="namingTitle">File Naming Convention</h2>
+<p data-i18n="namingP1">Each audio file follows a structured naming format
+designed to encode the dialect, speaker identifier, sentence number, device
+type, and recording attempt directly in the filename.</p>
+<p>
+<code class="format-box">KSU_DIA_D[Dialect_Code]_SPK[Gender_Digit]
+[Speaker_ID]_S[Sentence_ID]_T[Device_Code][Attempt_Counter].wav</code>
+</p>
+<p><strong data-i18n="exampleOnly">Example only:</strong></p>
+<p>
+<code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>
+</p>
+<div class="table-wrapper">
+<table class="naming-table">
+
+<thead>
+<tr>
+<th data-i18n="tablePart">Part</th>
+<th data-i18n="tableMeaning">Meaning</th>
+<th data-i18n="tableExample">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>KSU_DIA</code></td>
+<td data-i18n="projectPrefixMeaning">Project prefix for the Saudi Dialects
+Speech Corpus.</td>
+<td><code>KSU_DIA</code></td>
+</tr>
+<tr>
+<td><code>D[Dialect_Code]</code></td>
+<td data-i18n="dialectCodeMeaning">Dialect region code assigned to the
+participant's dialect classification.</td>
+<td><code>D01</code></td>
+</tr>
+<tr>
+<td><code>SPK[Gender_Digit][Speaker_ID]</code></td>
+<td data-i18n-html="speakerIdentifierTd">
+                Speaker identifier. The first digit after <code>SPK</code>
+represents gender:
+                <br/>
+<strong>1 = Male</strong>
+<br/>
+<strong>0 = Female</strong>
+<br/>
+                The remaining digits represent the speaker ID.
+              </td>
+<td>
+<code>SPK10073</code>
+<br/>
+                Gender = 1
+                <br/>
+                Speaker ID = 0073
+              </td>
+</tr>
+<tr>
+<td><code>S[Sentence_ID]</code></td>
+<td data-i18n="sentenceNumberMeaning">Sentence number recorded by the
+participant.</td>
+<td><code>S05</code> = sentence 5</td>
+</tr>
+<tr>
+<td><code>T[Device_Code][Attempt_Counter]</code></td>
+<td data-i18n-html="deviceAttemptTd">
+                Device and attempt code. The first digit after <code>T</code>
+represents device type:
+                <br/>
+<strong>1 = iPhone</strong>
+<br/>
+<strong>0 = Android</strong>
+<br/>
+                The second digit represents the recording attempt number, with a
+maximum of 3 attempts.
+              </td>
+<td>
+<code>T11</code>
+<br/>
+                Device = iPhone
+                <br/>
+
+                Attempt = 1
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p data-i18n-html="basedExampleP">
+        Based on the example <code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>, the
+file belongs to dialect code <code>D01</code>, a male speaker with ID
+<code>0073</code>, sentence number <code>05</code>, recorded using an iPhone on
+the first attempt.
+      </p>
+<p data-i18n="additionalExamples">
+        Additional examples:
+      </p>
+<ul>
+<li data-i18n-html="exampleSpkFemale"><code>SPK00073</code>: female speaker,
+speaker ID 0073.</li>
+<li data-i18n-html="exampleSpkMale"><code>SPK10073</code>: male speaker, speaker
+ID 0073.</li>
+<li data-i18n-html="exampleT01"><code>T01</code>: Android, first attempt.</li>
+<li data-i18n-html="exampleT03"><code>T03</code>: Android, third attempt.</li>
+<li data-i18n-html="exampleT11"><code>T11</code>: iPhone, first attempt.</li>
+<li data-i18n-html="exampleT13"><code>T13</code>: iPhone, third attempt.</li>
+</ul>
+</section>
+<section>
+<h2 data-i18n="metadataTitle">Metadata File Storage</h2>
+<p data-i18n-html="metadataP1">In addition to the audio files, the system
+generates a server-side metadata file named <code>SPKxxxxx_info.txt</code> for
+each participant. This file preserves session information, participant profile
+fields, dialect details, general region-related fields, recording context, and
+an audio duration summary.</p>
+<p data-i18n="exampleOnly">
+        Example only:
+      </p>
+<pre class="metadata-preview">=== SPK0073 ===
+
+[Session Information]
+SPKID: SPK0073
+Recording Date: 2026-06-01 13:40
+Privacy Policy: Accepted
+[Participant Profile]
+Nickname: F1
+Age: 18-25
+Gender: Male
+Nationality: Saudi
+Education: Bachelor
+[Dialect and Location]
+Dialect Code: D01
+Region: Central
+Administrative Region: Al-Qassim
+Current Residence: Riyadh
+Lived Most: Riyadh
+Dialect Opinion: Qassimi
+Mother Origin: Al-Qassim
+Father Origin: Al-Qassim
+[Recording Context]
+Device Type: iPhone
+Mood: 3/5
+Cold: No
+
+Smoking: No
+Medication: No
+Previous Research: No
+Acting Background: Yes
+Free Topic: Future Plans and Goals
+
+[Audio Summary]
+Total Audio Duration: 01:59
+Total Audio Duration Seconds: 119.4</pre>
+<div class="note" data-i18n="metadataNote">This metadata file is intended for
+research organization and dataset tracking. The collection process avoids
+storing phone numbers or direct personal identifiers.</div>
+</section>
+<section>
+<h2 data-i18n="privacyTitle">Privacy and Consent</h2>
+<p data-i18n="privacyP1">
+        The bot displays the privacy policy before collecting participant data.
+Participants must
+        explicitly agree before continuing. The privacy message also links to
+this project page so
+        participants can review the bot workflow, storage approach, and data
+handling process.
+        The system avoids collecting phone numbers and allows participants to
+use a nickname or pseudonym.
+      </p>
+<div class="note" data-i18n="privacyNote">
+        Participants can cancel before the final upload confirmation. Once the
+final upload process starts,
+        the submission is considered approved and cancellation is disabled
+inside the bot.
+      </div>
+</section>
+<section>
+<h2 data-i18n="reliabilityTitle">Reliability and Error Handling</h2>
+<p data-i18n="reliabilityP1">
+        The system includes safeguards for upload failures and server
+availability. If an upload
+        error occurs after recordings have been saved on the server, the
+participant receives a
+        clear error message, and an admin alert is sent with the error time,
+SPKID, saved file count,
+        and error details.
+      </p>
+<p data-i18n="reliabilityP2">
+        The server is also monitored using Healthchecks. A periodic ping
+confirms that the service is
+        running, and an alert is sent if the server remains unavailable for a
+continuous failure window.
+      </p>
+</section>
+<section class="technologies-section">
+<div class="tech-heading-row">
+<h2 data-i18n="technologiesTitle">Technologies Used</h2>
+
+</div>
+<div class="tech-grid">
+<ul class="tech-list">
+<li>Python</li>
+<li>Telegram Bot API</li>
+<li>python-telegram-bot</li>
+<li>FFmpeg / FFprobe</li>
+<li>Airtable API</li>
+<li>Cloudinary</li>
+<li>DigitalOcean Server</li>
+
+</ul>
+<ul class="tech-list">
+<li>Ubuntu / Linux Server</li>
+<li>Termius</li>
+<li>HTML / CSS / JavaScript</li>
+<li>GitHub Pages</li>
+<li>GitHub Actions</li>
+<li>Google Analytics</li>
+<li>Healthchecks</li>
+</ul>
+</div>
+<div class="tech-icons" aria-label="Technology logos">
+<span class="tech-logo" title="Python" aria-label="Python">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="8" y="7" width="24" height="19" rx="7" fill="#3776ab"></rect>
+<rect x="16" y="22" width="24" height="19" rx="7" fill="#ffd43b"></rect>
+<circle cx="17" cy="15" r="2.2" fill="#ffffff"></circle>
+<circle cx="31" cy="33" r="2.2" fill="#1f2937"></circle>
+</svg>
+</span>
+<span class="tech-logo" title="Telegram Bot API" aria-label="Telegram Bot API">
+<svg aria-hidden="true" viewBox="0 0 24 24">
+<circle class="telegram-circle" cx="12" cy="12" r="11"></circle>
+<path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2
+3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-
+.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path>
+</svg>
+</span>
+<span class="tech-logo" title="python-telegram-bot" aria-label="python-telegram-
+bot">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="18" fill="#229ed9"></circle>
+<path d="M32.6 15.4 15.4 22c-1.1.4-1.1 1.1-.1 1.4l4.4 1.4 1.7 5.2c.3.8.7.9
+1.3.3l2.4-2.4 4.9 3.5c.9.5 1.4.2 1.7-.9l3-14.1c.3-1.3-.5-1.7-2.1-1Z"
+fill="#ffffff"></path>
+<rect x="5" y="31" width="18" height="11" rx="5" fill="#3776ab"></rect>
+<text x="14" y="39" text-anchor="middle" font-size="8" font-family="Arial, sans-
+serif" font-weight="700" fill="#ffffff">Py</text>
+</svg>
+</span>
+<span class="tech-logo" title="FFmpeg / FFprobe" aria-label="FFmpeg / FFprobe">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="7" y="9" width="34" height="30" rx="8" fill="#111827"></rect>
+<path d="M13 16h22M13 24h18M13 32h22" stroke="#22c55e" stroke-width="4" stroke-
+linecap="round"></path>
+<path d="M30 18 38 24l-8 6Z" fill="#84cc16"></path>
+</svg>
+</span>
+<span class="tech-logo" title="Airtable API" aria-label="Airtable API">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<path d="M8 17 24 10l16 7-16 7Z" fill="#f59e0b"></path>
+<path d="M8 20v14l14 6V26Z" fill="#ef4444"></path>
+<path d="M40 20v14l-14 6V26Z" fill="#3b82f6"></path>
+</svg>
+</span>
+<span class="tech-logo" title="Cloudinary" aria-label="Cloudinary">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="17" cy="17" r="6" fill="#fbbf24"></circle>
+<path d="M17 34h18a7 7 0 0 0 0-14 10 10 0 0 0-19-3A8.5 8.5 0 0 0 17 34Z"
+fill="#38bdf8"></path>
+<path d="M18 34h15a6 6 0 0 0 0-12 8.5 8.5 0 0 0-16-2.4A7 7 0 0 0 18 34Z"
+fill="#2563eb" opacity="0.35"></path>
+</svg>
+</span>
+
+<span class="tech-logo" title="DigitalOcean Server" aria-label="DigitalOcean
+Server">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="22" r="13" fill="none" stroke="#0080ff"
+stroke-width="7"></circle>
+<rect x="11" y="31" width="7" height="7" fill="#0080ff"></rect>
+<rect x="20" y="38" width="6" height="6" fill="#0080ff"></rect>
+<rect x="8" y="40" width="5" height="5" fill="#0080ff"></rect>
+</svg>
+</span>
+<span class="tech-logo" title="Ubuntu / Linux Server" aria-label="Ubuntu / Linux
+Server">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="14" fill="none" stroke="#e95420"
+stroke-width="5"></circle>
+<circle cx="24" cy="9" r="5" fill="#e95420"></circle>
+<circle cx="11" cy="31" r="5" fill="#e95420"></circle>
+<circle cx="37" cy="31" r="5" fill="#e95420"></circle>
+</svg>
+</span>
+<span class="tech-logo" title="Termius" aria-label="Termius">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<path d="M15 34h21a8 8 0 0 0 0-16 12 12 0 0 0-23-3 9.5 9.5 0 0 0 2 19Z"
+fill="none" class="tech-adaptive-stroke" stroke-width="4" stroke-linecap="round"
+stroke-linejoin="round"></path>
+<path d="M18 23l5 4-5 4M27 31h7" fill="none" class="tech-adaptive-stroke"
+stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<span class="tech-logo" title="HTML / CSS / JavaScript" aria-label="HTML / CSS /
+JavaScript">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="6" y="10" width="11" height="28" rx="3" fill="#e34f26"></rect>
+<rect x="18.5" y="10" width="11" height="28" rx="3" fill="#1572b6"></rect>
+<rect x="31" y="10" width="11" height="28" rx="3" fill="#f7df1e"></rect>
+<text x="11.5" y="29" text-anchor="middle" font-size="8" font-family="Arial,
+sans-serif" font-weight="800" fill="#fff">H</text>
+<text x="24" y="29" text-anchor="middle" font-size="8" font-family="Arial, sans-
+serif" font-weight="800" fill="#fff">C</text>
+<text x="36.5" y="29" text-anchor="middle" font-size="8" font-family="Arial,
+sans-serif" font-weight="800" fill="#111827">J</text>
+</svg>
+</span>
+<span class="tech-logo" title="GitHub Pages" aria-label="GitHub Pages">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="16" class="tech-adaptive-fill"></circle>
+<path d="M16 17h16v14H16z" fill="var(--card-bg)" stroke="var(--card-bg)" stroke-
+width="1"></path>
+<path d="M19 21h10M19 25h7" stroke="var(--text-color)" stroke-width="2" stroke-
+linecap="round"></path>
+</svg>
+</span>
+<span class="tech-logo" title="GitHub Actions" aria-label="GitHub Actions">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="22" cy="22" r="14" class="tech-adaptive-fill"></circle>
+<path d="M28 14 18 26h7l-4 10 11-14h-7Z" fill="#facc15"></path>
+<circle cx="34" cy="34" r="6" fill="#2563eb"></circle>
+</svg>
+</span>
+<span class="tech-logo" title="Google Analytics" aria-label="Google Analytics">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<rect x="9" y="27" width="8" height="12" rx="4" fill="#f59e0b"></rect>
+<rect x="20" y="18" width="8" height="21" rx="4" fill="#fb923c"></rect>
+<rect x="31" y="8" width="8" height="31" rx="4" fill="#facc15"></rect>
+
+</svg>
+</span>
+<span class="tech-logo" title="Healthchecks" aria-label="Healthchecks">
+<svg aria-hidden="true" viewBox="0 0 48 48">
+<circle cx="24" cy="24" r="16" fill="#22c55e"></circle>
+<path d="M14 25h6l3-8 5 15 3-7h4" fill="none" stroke="#ffffff" stroke-
+width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</section>
+</main>
+<footer data-i18n-html="footerText">
+    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation
+Project</span>
     <span class="footer-separator"> • </span>
-    <a
-      href="https://ksu.edu.sa/en"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="ksu-link"
-      title="Visit King Saud University official website"
-    >
+    <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer"
+target="_blank" title="Visit King Saud University official website">
       King Saud University
     </a>
-    <span class="footer-separator"> • </span>
-    <a
-      href="https://ccis.ksu.edu.sa/en"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="ksu-link"
-      title="Visit College of Computer and Information Sciences official website"
-    >
+<span class="footer-separator"> • </span>
+<a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer"
+target="_blank" title="Visit College of Computer and Information Sciences
+official website">
       College: Computer and Information Sciences
     </a>
-    <span class="footer-separator"> • </span>
-    <a
-      href="https://github.com/ahmedbaso"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="ksu-link"
-      title="Visit Ahmed.Baso GitHub profile"
-    >
+<span class="footer-separator"> • </span>
+<a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener
+noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
       Created by Ahmed.Baso
     </a>
-    <span class="footer-separator"> • </span>
-    <a
-      href="mailto:Saudi.Dialects@outlook.sa"
-      class="ksu-link"
-      title="Contact the Saudi Dialects Speech Corpus project"
-    >
+<span class="footer-separator"> • </span>
+<a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the
+Saudi Dialects Speech Corpus project">
       Contact: Saudi.Dialects@outlook.sa
     </a>
-  </footer>
-
-  <script>
+</footer>
+<script>
     const themeToggle = document.getElementById("themeToggle");
     const languageButtons = document.querySelectorAll(".language-button");
 
-    const PARTICIPANTS_TARGET = 10000;
-    const RECORDINGS_TARGET = 300000;
-    const BOT_LINK = "https://t.me/Saudi_Dialects_bot";
-
-    let currentLanguage = "en";
-    let latestStats = null;
+    const TELEGRAM_ICON_HTML = `<span class="telegram-icon telegram-icon-inline"
+aria-label="Telegram" title="Telegram"> <svg viewBox="0 0 24 24" aria-
+hidden="true"> <circle class="telegram-circle" cx="12" cy="12" r="11"></circle>
+<path class="telegram-plane" d="M17.9 7.2 5.9 11.8c-.8.3-.8.8-.1 1l3.1 1 1.2
+3.7c.2.6.5.7.9.2l1.7-1.7 3.4 2.5c.6.3 1 .2 1.2-.6l2.1-9.9c.2-.9-.3-1.2-1.5-
+.8Zm-7.7 6.3 5.9-3.7c.3-.2.6-.1.3.2l-4.9 4.5-.2 2.1-1.1-3.1Z"></path> </svg>
+</span>`;
 
     const translations = {
-      en: {
-        documentTitle: "Corpus Collection Statistics | Saudi Dialects Speech Corpus",
-        metaDescription: "Corpus collection statistics for the Saudi Dialects Speech Corpus graduation project.",
-        pageTitle: "Corpus Collection Statistics",
-        headerSubtitle: "An updated overview of the Saudi Dialects Speech Corpus collection progress, including participants, recordings, recorded minutes, and progress toward the project goal.",
-        backProjectPage: "Back to Project Page",
-        openTelegramBot: "Open Telegram Bot",
-        displayMode: "Display Mode",
-        languageLabel: "Language",
-        overviewTitle: "Corpus Collection Overview",
-        overviewP1: "This page shows the current progress of the Saudi Dialects Speech Corpus and how close the project is to reaching its collection goals.",
-        overviewP2: "Statistics are updated automatically from aggregated dataset records.",
-        totalParticipantsLabel: "Total Participants",
-        totalParticipantsSub: "Completed contributors",
-        totalRecordingsLabel: "Total Recordings",
-        totalRecordingsSub: "Approved audio files",
-        recordedMinutesLabel: "Recorded Minutes",
-        recordedMinutesSub: "Total approved duration",
-        completedSessionsLabel: "Completed Sessions",
-        completedSessionsSub: "Participants who completed submission",
-        maleParticipantsLabel: "Male Participants",
-        femaleParticipantsLabel: "Female Participants",
-        aggregatedStatsSub: "Aggregated statistics",
-        freeSpeechSamplesLabel: "Free Speech Samples",
-        freeSpeechSamplesSub: "Optional S31 recordings",
-        avgMinutesLabel: "Average Minutes / Participant",
-        avgMinutesSub: "Based on current totals",
-        projectGoalTitle: "Project Goal",
-        projectGoalP: "The long-term target is to collect voice contributions from <strong>10,000 participants</strong> and build a corpus of <strong>300,000 recordings</strong>.",
-        participantsGoalTitle: "Participants Goal",
-        recordingsGoalTitle: "Recordings Goal",
-        participantsUnit: "participants",
-        recordingsUnit: "recordings",
-        datasetBreakdownTitle: "Dataset Breakdown",
-        datasetBreakdownP: "These charts show aggregated dataset statistics only and do not expose participant identities.",
-        genderDistributionTitle: "Gender Distribution",
-        deviceDistributionTitle: "Device Distribution",
-        regionDistributionTitle: "Region Distribution",
-        collectionQualityTitle: "Collection Quality",
-        durationDistributionTitle: "Participant Duration Distribution",
-        durationDistributionP: "Histogram of total recorded minutes per completed participant.",
-        shareTitle: "Help Us Grow the Corpus",
-        shareP1: "Help us grow the Saudi Dialects Speech Corpus. By sharing the bot link with friends and family across different Saudi regions, you can support the creation of a richer and more representative dataset for Arabic speech technologies.",
-        shareP2: "Every voice contribution brings the project closer to its goal. Share the bot and be part of building better Arabic voice technology.",
-        openBotButton: "Open Bot",
-        copyLinkButton: "Copy Link",
-        footerHtml: "<span class=\"footer-title\">Saudi Dialects Speech Corpus | Graduation Project</span><span class=\"footer-separator\"> • </span><a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span class=\"footer-separator\"> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span class=\"footer-separator\"> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span class=\"footer-separator\"> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
-        lastUpdatedPrefix: "Last updated",
-        notConnectedYet: "Not connected yet",
-        statsUnavailable: "Statistics are temporarily unavailable.",
-        participantsWord: "participants",
-        maleLabel: "Male",
-        femaleLabel: "Female",
-        freeSpeechCoverage: "Free Speech Coverage",
-        avgRecordingsParticipant: "Avg Recordings / Participant",
-        avgMinutesParticipant: "Avg Minutes / Participant",
-        copySuccess: "Bot link copied. Thank you for helping us share the project.",
-        copyFailed: "Copy failed. You can manually copy the link above.",
-        regionCentral: "Central",
-        regionWestern: "Western",
-        regionSouthern: "Southern",
-        regionEastern: "Eastern",
-        regionNorthern: "Northern",
-        durationUnder1: "< 1 min",
-        duration1To2: "1-2 min",
-        duration2To3: "2-3 min",
-        duration3Plus: "3+ min"
-      },
-      ar: {
-        documentTitle: "إحصائيات المدونة | Saudi Dialects Speech Corpus",
-        metaDescription: "إحصائيات المدونة لمشروع التخرج Saudi Dialects Speech Corpus.",
-        pageTitle: "إحصائيات المدونة",
-        headerSubtitle: "نظرة محدثة على تقدم جمع بيانات مدونة اللهجات السعودية، بما يشمل عدد المشاركين، وعدد التسجيلات، والدقائق المسجلة، ومدى التقدم نحو هدف المشروع.",
-        backProjectPage: "العودة إلى صفحة المشروع",
-        openTelegramBot: "فتح Telegram Bot",
-        displayMode: "وضع العرض",
-        languageLabel: "اللغة",
-        overviewTitle: "نظرة عامة على جمع المدونة",
-        overviewP1: "تعرض هذه الصفحة التقدم الحالي لمشروع مدونة اللهجات السعودية ومدى اقتراب المشروع من تحقيق أهدافه.",
-        overviewP2: "يتم تحديث الإحصائيات تلقائيًا من سجلات مجموعة البيانات المجمعة.",
-        totalParticipantsLabel: "إجمالي المشاركين",
-        totalParticipantsSub: "المساهمون المكتملون",
-        totalRecordingsLabel: "إجمالي التسجيلات",
-        totalRecordingsSub: "الملفات الصوتية المعتمدة",
-        recordedMinutesLabel: "الدقائق المسجلة",
-        recordedMinutesSub: "إجمالي المدة المعتمدة",
-        completedSessionsLabel: "الجلسات المكتملة",
-        completedSessionsSub: "مشاركون أكملوا الإرسال",
-        maleParticipantsLabel: "المشاركون الذكور",
-        femaleParticipantsLabel: "المشاركات الإناث",
-        aggregatedStatsSub: "إحصائيات مجمعة",
-        freeSpeechSamplesLabel: "عينات الكلام الحر",
-        freeSpeechSamplesSub: "تسجيلات S31 الاختيارية",
-        avgMinutesLabel: "متوسط الدقائق / مشارك",
-        avgMinutesSub: "بناءً على الإجماليات الحالية",
-        projectGoalTitle: "هدف المشروع",
-        projectGoalP: "يتمثل الهدف طويل المدى في جمع مساهمات صوتية من <strong>10,000 مشارك</strong> وبناء مدونة صوتية تضم <strong>300,000 تسجيل</strong>.",
-        participantsGoalTitle: "هدف المشاركين",
-        recordingsGoalTitle: "هدف التسجيلات",
-        participantsUnit: "مشارك",
-        recordingsUnit: "تسجيل",
-        datasetBreakdownTitle: "إحصاءات مجموعة البيانات",
-        datasetBreakdownP: "تعرض هذه الرسوم إحصائيات مجمعة فقط ولا تكشف هويات المشاركين.",
-        genderDistributionTitle: "توزيع الجنس",
-        deviceDistributionTitle: "توزيع الأجهزة",
-        regionDistributionTitle: "توزيع المناطق",
-        collectionQualityTitle: "جودة الجمع",
-        durationDistributionTitle: "توزيع مدة المشاركين",
-        durationDistributionP: "مخطط يوضح إجمالي الدقائق المسجلة لكل مشارك مكتمل.",
-        shareTitle: "ساهم في تنمية المدونة",
-        shareP1: "ساهم في تنمية مدونة اللهجات السعودية من خلال مشاركة رابط البوت مع الأصدقاء والعائلة في مختلف مناطق المملكة، ودعم إنشاء مجموعة بيانات صوتية أكثر ثراءً وتمثيلًا لتقنيات الكلام العربية.",
-        shareP2: "كل مساهمة صوتية تقرّب المشروع من هدفه. شارك البوت وكن جزءًا من بناء تقنية صوتية عربية أفضل.",
-        openBotButton: "فتح البوت",
-        copyLinkButton: "نسخ الرابط",
-        footerHtml: "<span class=\"footer-title\">Saudi Dialects Speech Corpus | Graduation Project</span><span class=\"footer-separator\"> • </span><a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official website\">King Saud University</a><span class=\"footer-separator\"> • </span><a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer and Information Sciences official website\">College: Computer and Information Sciences</a><span class=\"footer-separator\"> • </span><a href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub profile\">Created by Ahmed.Baso</a><span class=\"footer-separator\"> • </span><a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\" title=\"Contact the Saudi Dialects Speech Corpus project\">Contact: Saudi.Dialects@outlook.sa</a>",
-        lastUpdatedPrefix: "آخر تحديث",
-        notConnectedYet: "غير متصل حاليًا",
-        statsUnavailable: "الإحصائيات غير متاحة مؤقتًا.",
-        participantsWord: "مشارك",
-        maleLabel: "ذكر",
-        femaleLabel: "أنثى",
-        freeSpeechCoverage: "تغطية الكلام الحر",
-        avgRecordingsParticipant: "متوسط التسجيلات / مشارك",
-        avgMinutesParticipant: "متوسط الدقائق / مشارك",
-        copySuccess: "تم نسخ رابط البوت. شكرًا لمساعدتك في نشر المشروع.",
-        copyFailed: "فشل النسخ. يمكنك نسخ الرابط يدويًا من الأعلى.",
-        regionCentral: "الوسطى",
-        regionWestern: "الغربية",
-        regionSouthern: "الجنوبية",
-        regionEastern: "الشرقية",
-        regionNorthern: "الشمالية",
-        durationUnder1: "أقل من 1 دقيقة",
-        duration1To2: "1-2 دقيقة",
-        duration2To3: "2-3 دقائق",
-        duration3Plus: "3+ دقائق"
+      "ar": {
+            "projectTitle": "السعوديةللهجاتالأصواتمدونة",
+            "projectOverviewTitle": "المشروععلىعامةنظرة",
+            "whyTitle": "المشروعأهمية",
+            "methodologyTitle": "المدونةتصميممنهجية",
+            "highlightsTitle": "المشروعمميزاتأبرز",
+            "statsTitle": "المدونةإحصائيات",
+            "viewStatsButton": "المدونةإحصائياتعرض",
+            "botWorkflowTitle": "بوتعملمسار Telegram {{telegramIcon}}",
+            "userDiagramTitle": "بوتفيالمستخدمرحلةمخطط Telegram",
+            "architectureTitle": "البياناتومسارالنظاممعمارية",
+            "systemWorkflowTitle": "النظامعملمسار",
+            "audioProcessingTitle": "الصوتمعالجة",
+
+            "durationRulesTitle": "التسجيلمدةقواعد",
+            "storageTitle": "التخزينمعمارية",
+            "namingTitle": "الملفاتتسميةآلية",
+            "metadataTitle": "الوصفيةالبياناتملفاتتخزين",
+            "privacyTitle": "والموافقةالخصوصية",
+            "reliabilityTitle": "الأخطاءومعالجةلعتمادية",
+            "technologiesTitle": "المستخدمةالتقنيات",
+            "showFullDiagram": "كاماًل>عرضالمخطط",
+            "collapseDiagram": "المخططإغاًلق",
+            "highlightPrivacyTitle": "الخصوصيةيراعيبياناتجمع",
+            "highlightPhoneticTitle": "واللهجيةالصوتيةالتغطية",
+            "highlightAutomationTitle": "الآليالبياناتإدخال",
+            "highlightStorageTitle": "الوجهاتمتعددوالتتبعالتخزين",
+            "wavFormat": "صيغة WAV",
+            "sampleRate": "44.1عينةمعدلkHz",
+            "monoChannel": "أحاديةصوتيةقناة",
+            "pcmEncoding": "ترميز PCM 16-bit",
+            "additionalExamples": "إضافيةأمثلة:",
+            "exampleOnly": "فقطمثال:",
+            "tablePart": "الجزء",
+            "tableMeaning": "المعنى",
+            "tableExample": "المثال",
+            "projectPrefixMeaning": "بـالخاصةالمشروعبادئة Saudi Dialects
+Speech Corpus.",
+            "dialectCodeMeaning": " لهجةبتصنيفالمرتبطاللهجةمنطقةرمز
+المشارك.",
+            "sentenceNumberMeaning": "المشاركسجلهاالتيالجملةرقم.",
+            "displayMode": "العرضوضع",
+            "languageLabel": "اللغة",
+            "headerSubtitle": "للهجاتمة[LM]منظصوتيةمدونةبناءإلىيهدفتخرجمشروع
+تطبيقعبرالخصوصيةمراعاةمعالبياناتوجمعلغوي>ا،مختارةجملخاًللمنالسعودية
+Telegram {{telegramIcon}}.",
+            "overviewP1": " البياناتنقصالسعوديةاللهجاتمدونةمشروعيعالج
+اللغةتقنياتمنكثيرتعملفبينما .للهجاتوالمخصصةالجودةعاليةالعربيةالصوتية
+اليوميالكاًلممعصعوبةتواجهغالب>افإنهاالفصحى،العربيةمعجيدبشكلالعربية
+إقليميةسعوديةلهجاتاستخدامعندخصوص>االعفوي،.",
+            "overviewP2": " التنوعتعكسمة[LM]منظصوتيةمدونةإنشاءعلىالمشروعيركز
+للتوسعقابلةبياناتجمعمعماريةعلىالحفاظمعالسعودية،اللهجاتفيالطبيعي
+بوتي[عدوال .الخصوصيةوتراعي Telegram  الإدخالأداةهوبل،كاماًل[>]المشروعهو
+البياناتوهندسةاللغويالجانببينيجمعأوسعمسارضمنالرئيسية.",
+            "whyP1": " اللهجاتمنواسع>اا[>]نطاقالسعوديةالعربيةالمملكةتضم
+اللهجاتتختلفوقد .لجتماعيوالتنوعوالتاريخالجغرافيابفعللت[M]تشكالتيالإقليمية
+والمفرداتالنطقفيوالشماليةوالشرقية،والجنوبية،والحجازية،النجدية،مثل
+الذكاءMوهذانماذجبت[درعندماصعوبةأكثرالكاًلمعلىالتعرفيجعل .اللغويةوالبنية
+محليةغيربياناتعلىأوالفصحىالعربيةعلىأساس>الصطناعي.",
+            "whyP2": " أنظمةتطويرالسعوديةللهجاتالمخصصةالمدونةتدعمأنيمكن
+بـي[عرفماأوالعربية،باللغةالكاًلمعلىالتلقائيالتعرف Arabic Automatic Speech
+Recognition (ASR)،وخدماتالرقمية،الوصولوإمكانيةالصوتية،المساعداتإلىإضافة
+الصوتعلىالمعتمدةالذكيةالمدنوخدماتالآلية،العماًلء.",
+            "methodologyP1": " منLلمتصميمهاتمبلعشوائية،جملمنالمدونةت[بن
+بهدفصوتي،وتنقيحالجمهورمنلغويةمدخاًلتبينتجمعالجمل،الختيارمة[LM]منظعمليةخاًلل
+السعوديةالتعبيراتوالتقاطوالفونيمات،الحروفومخارجالعربيةالأصواتتغطية
+القراءةتحيزتقليلمعالشائعة.",
+            "methodologyP2": "مسبق>امحددةجملة30النهائيةالنصيةالمدونةتتضمن
+باسمالحرللكاًلماختياريةوجملة S31،مكتوبوغيرطبيعيةأكثرلهجيكاًلمالتقاطبهدف
+مسبق>ا.",
+            "statsP": "يشملبماالسعودية،اللهجاتمدونةمشروعفيتقدمآخراستعرض
+المشروعأهدافنحوالتقدمومدىالمجمعة،والدقائقالتسجياًلت،وعددالمشاركين،عدد.",
+            "botWorkflowP": "بوتي[عد Telegram  ترشدالتيالرئيسيةالواجهة
+البياناتجمععمليةخاًللالمشاركين.",
+            "botLi2": "الصريحةالموافقةويتطلبالخصوصيةسياسةالبوتيعرض.",
+            "botLi3": " ومنطقةوالجنس،العمر،مثلالمشاركبياناتالبوتيجمع
+الجهازونوعالتعليمي،والمستوىاللهجة،.",
+            "botLi4": " السماعاتإزالةالمشاركمنيطلبللتسجيلتنبيه>االبوتيعرض
+
+الهاتفميكروفونباستخداممباشرةوالتسجيل.",
+            "botLi5": "لغوي>اومختارةمسبق>امحددةجملة30المشاركيسجل.",
+            "botLi6": " ،لكلتسجيلهإعادةأوالتسجيلاعتمادالمشاركيستطيعجملة،
+جملةلكلمحاوالتثاًلثأقصىبحد.",
+            "botLi7": " هذهتخطيأوالحرللكاًلماختياريةعينةتسجيلللمشاركيمكن
+الخطوة.",
+            "botLi8": "ورفعهاالملفاتمعالجةقبلنهائيتأكيدزرالبوتيعرض.",
+            "botLi9": " وإعادةالصوتيةالملفاتمعالجةتتمالنهائي،التأكيدبعد
+وتخزينهاورفعهاوضغطهاتسميتها.",
+            "userDiagramP": " علىالموافقةمنالمشاركرحلةالمخططهذايوضح
+النهائيالملفاترفعحتىالخصوصية.",
+            "architectureP": " الصوتيةالتسجياًلتمعالجةتتمكيفالمخططهذايوضح
+خدماتعبروربطهاوتخزينهاالمعتمدة backend.",
+            "audioProcessingP": "تطبيقمنالصوتيةالتسجياًلتت[ستقبل Telegram بصيغة
+OGG. الـيستخدم backend بلغةالمكتوب Python أداة FFmpeg  معتمدتسجيلكللتحويل
+ملفإلى WAV موحد.",
+            "ffprobeLi": "ت[ستخدم FFprobe  جلسةلكلالصوتمدةإجماليلحساب
+مشاركة.",
+            "durationLi1": "15قدرهللتسجيلأقصىحدلهامسبق>امحددةجملةكل
+ثانية.",
+            "durationLi2": "35قدرهأقصىحدلهلختياريالحرالكاًلمتسجيل
+ثانية.",
+            "durationLi3": " البوتمنهيطلبالمسموحة،المدةالمشاركتجاوزإذا
+التسجيلإعادة.",
+            "storageP": "الوجهاتمتعددةوتتبعتخزينمعماريةالنظاميستخدم:",
+            "namingP1": " فMنومعرMيتبعاللهجة،ت[ضممنظمةتسميةصيغةصوتيملفكل
+الملفاسمداخلمباشرةالمحاولةورقمالجهاز،ونوعالجملة،ورقمالمتحدث،.",
+            "basedExampleP": "المثالعلىبناء>
+<code>KSU_DIA_D01_SPK10073_S05_T11.wav</code>،اللهجةبرمزمرتبطفالملف
+<code>D01</code>،فMومتحدثبمعرذكر <code>0073</code>،رقموجملة <code>05</code>،
+باستخدامتسجيلهوتم iPhone الأولىالمحاولةفي.",
+            "metadataP1": " بياناتملفالنظامينشئالصوتية،الملفاتإلىبالإضافة
+باسموصفية <code>SPKxxxxx_info.txt</code> يحتفظ .الخادمعلىحفظهويتممشارك،لكل
+العامةوالحقولاللهجةوتفاصيلالمشارك،وبياناتالجلسة،بمعلوماتالملفهذا
+الصوتمدةوملخصالتسجيل،وسياقبالمنطقة،المرتبطة.",
+            "privacyP1": "ويجبالمشارك،بياناتجمعقبلالخصوصيةسياسةالبوتيعرض
+لهذهرابطعلىالخصوصيةرسالةتحتويكما .المتابعةقبلصراحةالموافقةالمشاركعلى
+وآليةالتخزين،وطريقةالبوت،عملمسارمراجعةمنالمشاركونيتمكنحتىالصفحة
+اسمباستخدامللمشاركينويسمحالهواتفأرقامجمعالنظاميتجنب .البياناتمعالتعامل
+مستعار.",
+            "reliabilityP1": " وتوفرالرفعفشللتلححمايةإجراءاتالنظاميتضمن
+رسالةالمشاركيتلقىالخادم،علىالتسجياًلتحفظبعدالرفعأثناءخطأحدثإذا .الخادم
+والخطأ،وقتيتضمنللمسؤولتنبيهإرسالويتمواضحة،خطأSPKID،الملفاتوعدد
+الخطأوتفاصيلالمحفوظة،.",
+            "reliabilityP2": "باستخدامأيض>االخادممراقبةتتم Healthchecks. يؤكد
+ping  فشلفترةخاًللمتاحغيرالخادمبقيإذاتنبيهإرسالويتمتعمل،الخدمةأندوري
+متصلة.",
+            "methodLi1": "<strong>العاملنطباعاستبيان:</strong>  المشاركونMقيم
+إقليميةوتنوعاتشائعةعبارات.",
+            "methodLi2": "<strong>العباراتترشيح:</strong> تعبيراتمتطوعوناقترح
+مناطقهمفيشائعةيوميةسعودية.",
+            "methodLi3": "<strong>متخصصصوتيتنقيح:</strong>  قائمةتحسينتم
+اللهجيلستخداموالعربيةللأصواتواسعةصوتيةتغطيةلضمانالنهائيةالجمل.",
+            "botLi1": "الأمرباستخدامالبوتالمشاركيبدأ <code>/start</code>.",
+            "storageLi1": "<strong>Server Storage:</strong> أرشيفيخزن ZIP
+المشروعخادمعلىالوصفيةالبياناتوملفالمعالجة،الصوتيةوالملفاتالناتج،.",
+            "storageLi2": "<strong>Cloudinary:</strong>  الصوتيةالملفاتيخزن
+السحابيللوصولالمرفوعةالوصفيةالبياناتوملفات.",
+            "storageLi3": "<strong>Airtable:</strong>  المشاركينبياناتيخزن
+والتتبعللمراجعةالتسجيلوسجاًلتالوصفية.",
+            "speakerIdentifierTd": "بعدالأولالرقم .المتحدثMمعرف
+<code>SPK</code> الجنسيمثل:<br><strong>1 = Male</strong><br><strong>0 =
+Female</strong><br>تمثلالمتبقيةوالأرقام Speaker ID.",
+            "deviceAttemptTd": "بعدالأولالرقم .والمحاولةالجهازرمز
+
+<code>T</code> الجهازنوعيمثل:<br><strong>1 = iPhone</strong><br><strong>0 =
+Android</strong><br>محاوالت3أقصىبحدالتسجيل،محاولةرقميمثلالثانيوالرقم.",
+            "exampleSpkFemale": "<code>SPK00073</code>: أنثىمتحدثة،speaker ID
+0073.",
+            "exampleSpkMale": "<code>SPK10073</code>: ذكرمتحدث،speaker ID
+0073.",
+            "exampleT01": "<code>T01</code>: Android،الأولىالمحاولة.",
+            "exampleT03": "<code>T03</code>: Android،الثالثةالمحاولة.",
+            "exampleT11": "<code>T11</code>: iPhone،الأولىالمحاولة.",
+            "exampleT13": "<code>T13</code>: iPhone،الثالثةالمحاولة.",
+            "highlightPrivacyCard": "<strong data-
+i18n=\"highlightPrivacyTitle\">الخصوصيةيراعيبياناتجمع</strong>  النظاميدعم
+المباشرةMالمشاركةالشخصيةفاتالمعرأوالهواتفأرقامتخزينويتجنبالمجهولة.",
+            "highlightPhoneticCard": "<strong data-
+i18n=\"highlightPhoneticTitle\">واللهجيةالصوتيةالتغطية</strong>  المدونةص[ممت
+وتمثيلالسعودية،اللهجاتفيت[نطقكماالعربيةالأصواتلتغطيةجملة30منMالمكونة
+السعوديةالعربيةالمملكةفياللهجيالتنوع.",
+            "highlightAutomationCard": "<strong data-
+i18n=\"highlightAutomationTitle\">الآليالبياناتإدخال</strong> بوتيدير
+Telegram الملفاتومعالجةالبيانات،منوالتحققوالتسجياًلت،المشاركين،مسار.",
+            "highlightStorageCard": "<strong data-
+i18n=\"highlightStorageTitle\">الوجهاتمتعددوالتتبعالتخزين</strong>  نLMت[خز
+خادمعلىالمخرجات DigitalOcean وفي Cloudinary،ي[ستخدمبينما Airtable  لتخزين
+الملفاتوتتبعالتسجياًلتوسجاًلتالمشاركينبيانات.",
+            "metadataNote": " ،هذاالبياناتمجموعةوتتبعالبحثلتنظيممخصصالملف
+المباشرةالشخصيةالمعرفاتأوالهواتفأرقامتخزينالجمععمليةوتتجنب.",
+            "privacyNote": " بعد .النهائيالرفعتأكيدقبلالإلغاءللمشاركينيمكن
+البوتداخلالإلغاءتعطيلويتممعتمد>االإرسالي[عدالنهائي،الرفععمليةبدء.",
+            "footerText": "<span class=\"footer-title\">Saudi Dialects Speech
+Corpus | Graduation Project</span>\n    <span class=\"footer-separator\"> •
+</span>\n    <a href=\"https://ksu.edu.sa/en\" target=\"_blank\" rel=\"noopener
+noreferrer\" class=\"ksu-link\" title=\"Visit King Saud University official
+website\">King Saud University</a>\n    <span class=\"footer-separator\"> •
+</span>\n    <a href=\"https://ccis.ksu.edu.sa/en\" target=\"_blank\"
+rel=\"noopener noreferrer\" class=\"ksu-link\" title=\"Visit College of Computer
+and Information Sciences official website\">College: Computer and Information
+Sciences</a>\n    <span class=\"footer-separator\"> • </span>\n    <a
+href=\"https://github.com/ahmedbaso\" target=\"_blank\" rel=\"noopener
+noreferrer\" class=\"ksu-link\" title=\"Visit Ahmed.Baso GitHub
+profile\">Created by Ahmed.Baso</a>\n    <span class=\"footer-separator\"> •
+</span>\n    <a href=\"mailto:Saudi.Dialects@outlook.sa\" class=\"ksu-link\"
+title=\"Contact the Saudi Dialects Speech Corpus project\">Contact:
+Saudi.Dialects@outlook.sa</a>"
       }
-    };
+};
 
-    const fallbackStats = {
-      totalParticipants: 0,
-      totalRecordings: 0,
-      totalMinutes: 0,
-      maleParticipants: 0,
-      femaleParticipants: 0,
-      freeSpeechSamples: 0,
-      completedSessions: 0,
-      iphoneUsers: 0,
-      androidUsers: 0,
-      regions: {
-        "Central": 0,
-        "Western": 0,
-        "Southern": 0,
-        "Eastern": 0,
-        "Northern": 0
-      },
-      durationBins: {
-        "< 1 min": 0,
-        "1-2 min": 0,
-        "2-3 min": 0,
-        "3+ min": 0
-      },
-      lastUpdated: "Not connected yet"
-    };
+    const englishDefaults = {};
 
-    function text(key) {
-      return translations[currentLanguage]?.[key] || translations.en[key] || "";
-    }
+    document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function
+(element) {
+      const key = element.dataset.i18n || element.dataset.i18nHtml;
+
+      if (element.dataset.i18nHtml) {
+        englishDefaults[key] = element.innerHTML;
+      } else {
+        englishDefaults[key] = element.textContent;
+      }
+    });
+
+    let currentLanguage = "en";
 
     function applyTheme(theme) {
       if (theme === "dark") {
         document.body.classList.add("dark-mode");
+
         themeToggle.checked = true;
       } else {
         document.body.classList.remove("dark-mode");
         themeToggle.checked = false;
       }
     }
-
+    function translateValue(key) {
+      let value = "";
+      if (currentLanguage === "ar" && translations.ar[key]) {
+        value = translations.ar[key];
+      } else {
+        value = englishDefaults[key] || "";
+      }
+      return value.replaceAll("{{telegramIcon}}", TELEGRAM_ICON_HTML);
+    }
     function applyLanguage(language) {
       currentLanguage = language === "ar" ? "ar" : "en";
 
@@ -1402,15 +1988,10 @@
       document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
       document.body.classList.toggle("lang-ar", currentLanguage === "ar");
 
-      const metaDescription = document.querySelector('meta[name="description"]');
-      document.title = text("documentTitle");
-      if (metaDescription) {
-        metaDescription.setAttribute("content", text("metaDescription"));
-      }
-
-      document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach(function (element) {
+      document.querySelectorAll("[data-i18n], [data-i18n-
+html]").forEach(function (element) {
         const key = element.dataset.i18n || element.dataset.i18nHtml;
-        const value = text(key);
+        const value = translateValue(key);
 
         if (element.dataset.i18nHtml) {
           element.innerHTML = value;
@@ -1418,310 +1999,20 @@
           element.textContent = value;
         }
       });
-
       languageButtons.forEach(function (button) {
         const isActive = button.dataset.lang === currentLanguage;
         button.classList.toggle("active", isActive);
         button.setAttribute("aria-pressed", isActive ? "true" : "false");
       });
-
-      if (latestStats) {
-        renderStats(latestStats);
-      }
+      document.querySelectorAll("button.diagram-
+button[onclick]").forEach(function (button) {
+        const frameId = button.getAttribute("onclick")?.match(/'([^']+)'/)?.[1];
+        const frame = frameId ? document.getElementById(frameId) : null;
+        const isExpanded = frame ? frame.classList.contains("expanded") : false;
+        button.textContent = isExpanded ? translateValue("collapseDiagram") :
+translateValue("showFullDiagram");
+      });
     }
-
-    function formatNumber(value) {
-      return Number(value || 0).toLocaleString("en-US");
-    }
-
-    function formatMinutes(value) {
-      const minutes = Number(value || 0);
-      if (minutes >= 1000) {
-        return minutes.toLocaleString("en-US", { maximumFractionDigits: 0 });
-      }
-      return minutes.toLocaleString("en-US", { maximumFractionDigits: 1 });
-    }
-
-    function percent(value, target) {
-      if (!target) return 0;
-      return Math.min((Number(value || 0) / target) * 100, 100);
-    }
-
-    function setText(id, value) {
-      const element = document.getElementById(id);
-      if (element) element.textContent = value;
-    }
-
-    function setProgress(id, value) {
-      const element = document.getElementById(id);
-      if (element) element.style.width = `${Math.max(0, Math.min(value, 100))}%`;
-    }
-
-    function displayRegionLabel(label) {
-      const region = String(label || "").toLowerCase();
-
-      if (region.includes("central")) return text("regionCentral");
-      if (region.includes("western")) return text("regionWestern");
-      if (region.includes("southern")) return text("regionSouthern");
-      if (region.includes("eastern")) return text("regionEastern");
-      if (region.includes("northern")) return text("regionNorthern");
-
-      return label;
-    }
-
-    function getRegionColor(label) {
-      const region = String(label || "").toLowerCase();
-
-      if (region.includes("central")) return "var(--region-central)";
-      if (region.includes("western")) return "var(--region-western)";
-      if (region.includes("southern")) return "var(--region-southern)";
-      if (region.includes("eastern")) return "var(--region-eastern)";
-      if (region.includes("northern")) return "var(--region-northern)";
-
-      return "var(--heading-color)";
-    }
-
-    function formatPercent(value) {
-      return `${Number(value || 0).toLocaleString("en-US", { maximumFractionDigits: 1 })}%`;
-    }
-
-    function createBars(containerId, items) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-
-      const maxValue = Math.max(...items.map(item => Number(item.value || 0)), 1);
-
-      container.innerHTML = items.map(item => {
-        const width = Math.max((Number(item.value || 0) / maxValue) * 100, item.value > 0 ? 3 : 0);
-        const color = item.color || "var(--heading-color)";
-        const label = item.displayLabel || item.label;
-        return `
-          <div class="bar-row">
-            <div class="bar-meta">
-              <span class="legend-label">
-                <span class="legend-dot" style="background: ${color};"></span>
-                ${label}
-              </span>
-              <strong>${formatNumber(item.value)}</strong>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: ${width}%; background: ${color};"></div>
-            </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    function renderGenderChart(maleParticipants, femaleParticipants) {
-      const container = document.getElementById("genderChart");
-      if (!container) return;
-
-      const total = maleParticipants + femaleParticipants;
-      const malePercent = total > 0 ? (maleParticipants / total) * 100 : 0;
-      const femalePercent = total > 0 ? (femaleParticipants / total) * 100 : 0;
-
-      container.innerHTML = `
-        <div class="pie-wrap">
-          <div>
-            <div class="pie-chart" style="background: conic-gradient(var(--gender-male) 0% ${malePercent}%, var(--gender-female) ${malePercent}% 100%);"></div>
-            <div class="pie-total">${formatNumber(total)} ${text("participantsWord")}</div>
-          </div>
-          <div class="legend-list">
-            <div class="legend-item">
-              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-male);"></span>${text("maleLabel")}</span>
-              <strong>${formatNumber(maleParticipants)} · ${formatPercent(malePercent)}</strong>
-            </div>
-            <div class="legend-item">
-              <span class="legend-label"><span class="legend-dot" style="background: var(--gender-female);"></span>${text("femaleLabel")}</span>
-              <strong>${formatNumber(femaleParticipants)} · ${formatPercent(femalePercent)}</strong>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderDeviceChart(iphoneUsers, androidUsers) {
-      const container = document.getElementById("deviceChart");
-      if (!container) return;
-
-      const total = iphoneUsers + androidUsers;
-      const iphonePercent = total > 0 ? (iphoneUsers / total) * 100 : 0;
-      const androidPercent = total > 0 ? (androidUsers / total) * 100 : 0;
-
-      container.innerHTML = `
-        <div class="stacked-summary">
-          <span><strong>iPhone:</strong> ${formatNumber(iphoneUsers)} · ${formatPercent(iphonePercent)}</span>
-          <span><strong>Android:</strong> ${formatNumber(androidUsers)} · ${formatPercent(androidPercent)}</span>
-        </div>
-        <div class="stacked-track" title="Device distribution">
-          <div class="stacked-segment iphone" style="width: ${iphonePercent}%;"></div>
-          <div class="stacked-segment android" style="width: ${androidPercent}%;"></div>
-        </div>
-      `;
-    }
-
-    function renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples) {
-      const container = document.getElementById("qualityMetrics");
-      if (!container) return;
-
-      const freeSpeechCoverage = totalParticipants > 0 ? (freeSpeechSamples / totalParticipants) * 100 : 0;
-      const avgRecordings = totalParticipants > 0 ? totalRecordings / totalParticipants : 0;
-      const avgMinutes = totalParticipants > 0 ? totalMinutes / totalParticipants : 0;
-
-      const recordingsProgress = Math.min((avgRecordings / 31) * 100, 100);
-      const minutesProgress = Math.min((avgMinutes / 3.5) * 100, 100);
-
-      container.innerHTML = `
-        <div class="quality-grid">
-          <div class="quality-metric">
-            <div class="quality-top">
-              <span class="quality-title">${text("freeSpeechCoverage")}</span>
-              <span class="quality-value">${formatPercent(freeSpeechCoverage)}</span>
-            </div>
-            <div class="quality-track">
-              <div class="quality-fill free" style="width: ${Math.min(freeSpeechCoverage, 100)}%;"></div>
-            </div>
-          </div>
-
-          <div class="quality-metric">
-            <div class="quality-top">
-              <span class="quality-title">${text("avgRecordingsParticipant")}</span>
-              <span class="quality-value">${avgRecordings.toLocaleString("en-US", { maximumFractionDigits: 1 })}</span>
-            </div>
-            <div class="quality-track">
-              <div class="quality-fill recordings" style="width: ${recordingsProgress}%;"></div>
-            </div>
-          </div>
-
-          <div class="quality-metric">
-            <div class="quality-top">
-              <span class="quality-title">${text("avgMinutesParticipant")}</span>
-              <span class="quality-value">${avgMinutes.toLocaleString("en-US", { maximumFractionDigits: 1 })}</span>
-            </div>
-            <div class="quality-track">
-              <div class="quality-fill minutes" style="width: ${minutesProgress}%;"></div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderDurationHistogram(durationBins) {
-      const container = document.getElementById("durationHistogram");
-      if (!container) return;
-
-      const orderedBins = [
-        { key: "< 1 min", displayLabel: text("durationUnder1"), value: Number(durationBins?.["< 1 min"] || 0), color: "var(--duration-under-1)" },
-        { key: "1-2 min", displayLabel: text("duration1To2"), value: Number(durationBins?.["1-2 min"] || 0), color: "var(--duration-1-2)" },
-        { key: "2-3 min", displayLabel: text("duration2To3"), value: Number(durationBins?.["2-3 min"] || 0), color: "var(--duration-2-3)" },
-        { key: "3+ min", displayLabel: text("duration3Plus"), value: Number(durationBins?.["3+ min"] || 0), color: "var(--duration-3-plus)" }
-      ];
-
-      const maxValue = Math.max(...orderedBins.map(item => item.value), 1);
-
-      container.innerHTML = `
-        <div class="histogram-chart">
-          ${orderedBins.map(item => {
-            const height = Math.max((item.value / maxValue) * 170, item.value > 0 ? 12 : 8);
-            return `
-              <div class="histogram-column">
-                <div class="histogram-value">${formatNumber(item.value)}</div>
-                <div class="histogram-bar" style="height: ${height}px; background: ${item.color};"></div>
-                <div class="histogram-label">${item.displayLabel}</div>
-              </div>
-            `;
-          }).join("")}
-        </div>
-      `;
-    }
-
-    function renderStats(stats) {
-      latestStats = stats;
-
-      const totalParticipants = Number(stats.totalParticipants || 0);
-      const totalRecordings = Number(stats.totalRecordings || 0);
-      const totalMinutes = Number(stats.totalMinutes || 0);
-      const completedSessions = Number(stats.completedSessions || 0);
-      const maleParticipants = Number(stats.maleParticipants || 0);
-      const femaleParticipants = Number(stats.femaleParticipants || 0);
-      const freeSpeechSamples = Number(stats.freeSpeechSamples || 0);
-      const iphoneUsers = Number(stats.iphoneUsers || 0);
-      const androidUsers = Number(stats.androidUsers || 0);
-
-      const participantsGoalPercent = percent(totalParticipants, PARTICIPANTS_TARGET);
-      const recordingsGoalPercent = percent(totalRecordings, RECORDINGS_TARGET);
-      const avgMinutes = totalParticipants > 0 ? totalMinutes / totalParticipants : 0;
-
-      setText("totalParticipants", formatNumber(totalParticipants));
-      setText("totalRecordings", formatNumber(totalRecordings));
-      setText("totalMinutes", formatMinutes(totalMinutes));
-      setText("completedSessions", formatNumber(completedSessions));
-      setText("maleParticipants", formatNumber(maleParticipants));
-      setText("femaleParticipants", formatNumber(femaleParticipants));
-      setText("freeSpeechSamples", formatNumber(freeSpeechSamples));
-      setText("avgMinutes", avgMinutes.toLocaleString("en-US", { maximumFractionDigits: 1 }));
-
-      setText("participantsCurrent", formatNumber(totalParticipants));
-      setText("recordingsCurrent", formatNumber(totalRecordings));
-      setText("participantsPercent", `${participantsGoalPercent.toFixed(2)}%`);
-      setText("recordingsPercent", `${recordingsGoalPercent.toFixed(2)}%`);
-
-      setProgress("participantsProgress", participantsGoalPercent);
-      setProgress("recordingsProgress", recordingsGoalPercent);
-
-      const lastUpdatedValue = stats.lastUpdated || text("notConnectedYet");
-      setText("lastUpdated", `${text("lastUpdatedPrefix")}: ${lastUpdatedValue}`);
-
-      renderGenderChart(maleParticipants, femaleParticipants);
-      renderDeviceChart(iphoneUsers, androidUsers);
-
-      const regionItems = Object.entries(stats.regions || {})
-        .map(([label, value]) => ({
-          label,
-          displayLabel: displayRegionLabel(label),
-          value,
-          color: getRegionColor(label)
-        }))
-        .sort((a, b) => Number(b.value || 0) - Number(a.value || 0));
-
-      createBars("regionBars", regionItems.length ? regionItems : [
-        { label: "Central", displayLabel: displayRegionLabel("Central"), value: 0, color: getRegionColor("Central") },
-        { label: "Western", displayLabel: displayRegionLabel("Western"), value: 0, color: getRegionColor("Western") },
-        { label: "Southern", displayLabel: displayRegionLabel("Southern"), value: 0, color: getRegionColor("Southern") },
-        { label: "Eastern", displayLabel: displayRegionLabel("Eastern"), value: 0, color: getRegionColor("Eastern") },
-        { label: "Northern", displayLabel: displayRegionLabel("Northern"), value: 0, color: getRegionColor("Northern") }
-      ]);
-
-      renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples);
-      renderDurationHistogram(stats.durationBins || {});
-    }
-
-    async function loadStats() {
-      try {
-        const response = await fetch("assets/stats.json", { cache: "no-store" });
-        if (!response.ok) {
-          throw new Error("stats.json not found");
-        }
-
-        const stats = await response.json();
-        renderStats(stats);
-      } catch (error) {
-        renderStats(fallbackStats);
-        setText("lastUpdated", text("statsUnavailable"));
-      }
-    }
-
-    async function copyBotLink() {
-      const status = document.getElementById("copyStatus");
-
-      try {
-        await navigator.clipboard.writeText(BOT_LINK);
-        status.textContent = text("copySuccess");
-      } catch (error) {
-        status.textContent = text("copyFailed");
-      }
-    }
-
     const savedTheme = localStorage.getItem("theme") || "dark";
     applyTheme(savedTheme);
 
@@ -1732,6 +2023,7 @@
       const newTheme = themeToggle.checked ? "dark" : "light";
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
+
     });
 
     languageButtons.forEach(function (button) {
@@ -1742,8 +2034,19 @@
       });
     });
 
-    loadStats();
-  </script>
+    function toggleDiagram(frameId, button) {
+      const frame = document.getElementById(frameId);
+      const isExpanded = frame.classList.toggle("expanded");
 
+      if (isExpanded) {
+        button.textContent = translateValue("collapseDiagram");
+        frame.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        button.textContent = translateValue("showFullDiagram");
+        frame.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  </script>
 </body>
 </html>
+
