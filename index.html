@@ -1361,6 +1361,24 @@
       transform: translateX(5px);
     }
 
+
+    /* Mobile-safe Arabic flip for Why This Project Matters icon */
+    h2[data-i18n="whyTitle"]::after {
+      transform: none !important;
+    }
+
+    body.lang-ar h2[data-i18n="whyTitle"]::after {
+      background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%0A%3Cg%20id%3D%22SVGRepo_bgCarrier%22%20stroke-width%3D%220%22%2F%3E%0A%0A%3Cg%20id%3D%22SVGRepo_tracerCarrier%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%0A%3Cg%20id%3D%22SVGRepo_iconCarrier%22%3E%20%3Cpath%20d%3D%22M10.125%208.875C10.125%207.83947%2010.9645%207%2012%207C13.0355%207%2013.875%207.83947%2013.875%208.875C13.875%209.56245%2013.505%2010.1635%2012.9534%2010.4899C12.478%2010.7711%2012%2011.1977%2012%2011.75V13%22%20stroke%3D%22%230f5132%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2216%22%20r%3D%221%22%20fill%3D%22%230f5132%22%2F%3E%20%3Cpath%20d%3D%22M7%203.33782C8.47087%202.48697%2010.1786%202%2012%202C17.5228%202%2022%206.47715%2022%2012C22%2017.5228%2017.5228%2022%2012%2022C6.47715%2022%202%2017.5228%202%2012C2%2010.1786%202.48697%208.47087%203.33782%207%22%20stroke%3D%22%230f5132%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3C%2Fg%3E%0A%0A%3C%2Fsvg%3E") !important;
+      transform: scaleX(-1) !important;
+      transform-origin: center center !important;
+    }
+
+    body.dark-mode.lang-ar h2[data-i18n="whyTitle"]::after {
+      background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%0A%3Cg%20id%3D%22SVGRepo_bgCarrier%22%20stroke-width%3D%220%22%2F%3E%0A%0A%3Cg%20id%3D%22SVGRepo_tracerCarrier%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%0A%3Cg%20id%3D%22SVGRepo_iconCarrier%22%3E%20%3Cpath%20d%3D%22M10.125%208.875C10.125%207.83947%2010.9645%207%2012%207C13.0355%207%2013.875%207.83947%2013.875%208.875C13.875%209.56245%2013.505%2010.1635%2012.9534%2010.4899C12.478%2010.7711%2012%2011.1977%2012%2011.75V13%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2216%22%20r%3D%221%22%20fill%3D%22%2334d399%22%2F%3E%20%3Cpath%20d%3D%22M7%203.33782C8.47087%202.48697%2010.1786%202%2012%202C17.5228%202%2022%206.47715%2022%2012C22%2017.5228%2017.5228%2022%2012%2022C6.47715%2022%202%2017.5228%202%2012C2%2010.1786%202.48697%208.47087%203.33782%207%22%20stroke%3D%22%2334d399%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%20%3C%2Fg%3E%0A%0A%3C%2Fsvg%3E") !important;
+      transform: scaleX(-1) !important;
+      transform-origin: center center !important;
+    }
+
 </style>
 </head>
 <body class="dark-mode">
