@@ -672,7 +672,7 @@
     }
 
     .footer-contact {
-      margin-top: 2px;
+      margin-top: 0;
     }
 
     .ksu-link {
@@ -689,6 +689,7 @@
     @media (max-width: 700px) {
       footer {
         align-items: flex-start;
+        gap: 0;
         padding: 24px 24px 84px;
         font-size: 13px;
         line-height: 1.55;
@@ -1346,6 +1347,12 @@
       background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%3E%0A%20%20%3Ccircle%20cx%3D%2248%22%20cy%3D%2248%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2272%22%20y1%3D%2248%22%20x2%3D%2292%22%20y2%3D%2248%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2264.971%22%20y1%3D%2231.029%22%20x2%3D%2279.113%22%20y2%3D%2216.887%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2248%22%20y1%3D%2224%22%20x2%3D%2248%22%20y2%3D%224%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2231.029%22%20y1%3D%2231.029%22%20x2%3D%2216.887%22%20y2%3D%2216.887%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2224%22%20y1%3D%2248%22%20x2%3D%224%22%20y2%3D%2248%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2231.029%22%20y1%3D%2264.971%22%20x2%3D%2216.887%22%20y2%3D%2279.113%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2248%22%20y1%3D%2272%22%20x2%3D%2248%22%20y2%3D%2292%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%3Cline%20x1%3D%2264.971%22%20y1%3D%2264.971%22%20x2%3D%2279.113%22%20y2%3D%2279.113%22%20fill%3D%22none%22%20stroke%3D%22%2334d399%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%224%22%2F%3E%0A%3C%2Fsvg%3E") !important;
     }
 
+
+    body.lang-ar h2[data-i18n="durationRulesTitle"]::after {
+      margin-inline-start: 4px !important;
+      transform: translateX(5px);
+    }
+
 </style>
 </head>
 <body class="dark-mode">
@@ -1863,7 +1870,7 @@ Total Audio Duration Seconds: 119.4</pre>
             "highlightsTitle": "أبرز مميزات المشروع",
             "statsTitle": "إحصائيات المدونة",
             "viewStatsButton": "عرض إحصائيات المدونة",
-            "botWorkflowTitle": "مسار عمل بوت Telegram",
+            "botWorkflowTitle": "مسار عمل البوت",
             "userDiagramTitle": "مخطط رحلة المستخدم في بوت Telegram",
             "architectureTitle": "معمارية النظام ومسار البيانات",
             "systemWorkflowTitle": "مسار عمل النظام",
