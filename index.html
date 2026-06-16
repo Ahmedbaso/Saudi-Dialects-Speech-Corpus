@@ -580,10 +580,15 @@
     }
 
     footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
       text-align: center;
-      padding: 28px;
+      padding: 30px 24px;
       color: var(--footer-color);
       font-size: 14px;
+      line-height: 1.55;
       direction: ltr;
       unicode-bidi: isolate;
     }
@@ -593,23 +598,43 @@
       unicode-bidi: isolate;
     }
 
+    .footer-line {
+      width: 100%;
+      max-width: 980px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-title {
+      color: var(--footer-color);
+      font-weight: 600;
+      letter-spacing: 0.1px;
+    }
+
+    .footer-meta {
+      gap: 0;
+    }
+
+    .footer-contact {
+      margin-top: 2px;
+    }
+
     .ksu-link {
       color: var(--link-color);
       font-weight: bold;
       border-bottom: 1px dotted var(--link-color);
     }
 
-
-    .footer-title {
-      color: var(--footer-color);
-    }
-
     .footer-separator {
       color: var(--footer-color);
+      margin: 0 8px;
     }
 
     @media (max-width: 700px) {
       footer {
+        align-items: flex-start;
         padding: 24px 24px 84px;
         font-size: 13px;
         line-height: 1.55;
@@ -620,9 +645,14 @@
         text-align: left;
       }
 
-      footer .footer-title {
+      footer .footer-line {
         display: block;
-        margin-bottom: 10px;
+        max-width: 100%;
+        text-align: left;
+      }
+
+      footer .footer-title {
+        margin-bottom: 4px;
         font-weight: 600;
         color: var(--footer-color);
         text-align: left;
@@ -643,7 +673,8 @@
         overflow-wrap: anywhere;
       }
 
-      footer .ksu-link::before {
+      footer .footer-meta .ksu-link::before,
+      footer .footer-contact .ksu-link::before {
         content: "• ";
         color: var(--footer-color);
         font-weight: 600;
@@ -1723,23 +1754,27 @@ Total Audio Duration Seconds: 119.4</pre>
 </section>
 </main>
 <footer>
-    <span class="footer-title">Saudi Dialects Speech Corpus | Graduation Project</span>
-    <span class="footer-separator"> • </span>
-    <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
-      King Saud University
-    </a>
-<span class="footer-separator"> • </span>
-<a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit College of Computer and Information Sciences official website">
-      College: Computer and Information Sciences
-    </a>
-<span class="footer-separator"> • </span>
-<a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
-      Created by Ahmed.Baso
-    </a>
-<span class="footer-separator"> • </span>
-<a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
-      Contact: Saudi.Dialects@outlook.sa
-    </a>
+    <div class="footer-line footer-title">Saudi Dialects Speech Corpus | Graduation Project</div>
+
+    <div class="footer-line footer-meta">
+      <a class="ksu-link" href="https://github.com/ahmedbaso" rel="noopener noreferrer" target="_blank" title="Visit Ahmed.Baso GitHub profile">
+        Created by Ahmed.Baso
+      </a>
+      <span class="footer-separator"> • </span>
+      <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
+        King Saud University
+      </a>
+      <span class="footer-separator"> • </span>
+      <a class="ksu-link" href="https://ccis.ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit College of Computer and Information Sciences official website">
+        College: Computer and Information Sciences
+      </a>
+    </div>
+
+    <div class="footer-line footer-contact">
+      <a class="ksu-link" href="mailto:Saudi.Dialects@outlook.sa" title="Contact the Saudi Dialects Speech Corpus project">
+        Contact: Saudi.Dialects@outlook.sa
+      </a>
+    </div>
 </footer>
 <script>
     const themeToggle = document.getElementById("themeToggle");
