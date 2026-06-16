@@ -344,6 +344,21 @@
       color: var(--muted-text);
     }
 
+    .overview-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-border);
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    body.lang-ar .overview-note {
+      border-left: none;
+      border-right: 4px solid var(--note-border);
+    }
+
     .status-row {
       display: flex;
       justify-content: space-between;
@@ -1003,7 +1018,7 @@
   <main>
 
     <section>
-  <h2 data-i18n="overviewTitle">Corpus Collection Overview</h2>
+  <h2 data-i18n="overviewTitle">Corpus Overview</h2>
   <p class="muted" data-i18n="overviewP1">
     This page shows the current progress of the Saudi Dialects Speech Corpus and how close
     the project is to reaching its collection goals.
@@ -1011,6 +1026,10 @@
 
   <p class="muted" data-i18n="overviewP2">
     Statistics are updated automatically from aggregated dataset records.
+  </p>
+
+  <p class="overview-note" data-i18n="overviewNote">
+    Note: The bot has not been publicly promoted yet, so the current numbers are preliminary and may appear low compared with the final target.
   </p>
 
   <div class="stats-grid">
@@ -1226,9 +1245,10 @@
         openTelegramBot: "Open Telegram Bot",
         displayMode: "Display Mode",
         languageLabel: "Language",
-        overviewTitle: "Corpus Collection Overview",
+        overviewTitle: "Corpus Overview",
         overviewP1: "This page shows the current progress of the Saudi Dialects Speech Corpus and how close the project is to reaching its collection goals.",
         overviewP2: "Statistics are updated automatically from aggregated dataset records.",
+        overviewNote: "Note: The bot has not been publicly promoted yet, so the current numbers are preliminary and may appear low compared with the final target.",
         totalParticipantsLabel: "Total Participants",
         totalParticipantsSub: "Completed contributors",
         totalRecordingsLabel: "Total Recordings",
@@ -1295,9 +1315,10 @@
         openTelegramBot: "فتح Telegram Bot",
         displayMode: "وضع العرض",
         languageLabel: "اللغة",
-        overviewTitle: "نظرة عامة على جمع المدونة",
+        overviewTitle: "نظرة عامة على المدونة",
         overviewP1: "تعرض هذه الصفحة التقدم الحالي لمشروع مدونة اللهجات السعودية ومدى اقتراب المشروع من تحقيق أهدافه.",
         overviewP2: "يتم تحديث الإحصائيات تلقائيًا من سجلات مجموعة البيانات المجمعة.",
+        overviewNote: "ملاحظة: لم يتم نشر البوت بشكل عام حتى الآن؛ لذلك تُعد الأرقام الحالية أولية وقد تبدو منخفضة مقارنة بالهدف النهائي.",
         totalParticipantsLabel: "إجمالي المشاركين",
         totalParticipantsSub: "المساهمون المكتملون",
         totalRecordingsLabel: "إجمالي التسجيلات",
