@@ -1033,9 +1033,9 @@
         </div>
 
         <div class="stat-card">
-          <div class="stat-label" data-i18n="completedSessionsLabel">Completed Sessions</div>
-          <div class="stat-value" id="completedSessions">0</div>
-          <div class="stat-sub" data-i18n="completedSessionsSub">Participants who completed submission</div>
+          <div class="stat-label" data-i18n="mostCommonAgeGroupLabel">Most Common Age Group</div>
+          <div class="stat-value" id="mostCommonAgeGroup">-</div>
+          <div class="stat-sub" id="mostCommonAgeGroupSub">Based on participant age ranges</div>
         </div>
 
         <div class="stat-card">
@@ -1235,8 +1235,9 @@
         totalRecordingsSub: "Approved audio files",
         recordedMinutesLabel: "Recorded Minutes",
         recordedMinutesSub: "Total approved duration",
-        completedSessionsLabel: "Completed Sessions",
-        completedSessionsSub: "Participants who completed submission",
+        mostCommonAgeGroupLabel: "Most Common Age Group",
+        mostCommonAgeGroupSub: "Based on participant age ranges",
+        mostCommonAgeGroupCountSub: "Most common among {count} participants",
         maleParticipantsLabel: "Male Participants",
         femaleParticipantsLabel: "Female Participants",
         aggregatedStatsSub: "Aggregated statistics",
@@ -1303,8 +1304,9 @@
         totalRecordingsSub: "الملفات الصوتية المعتمدة",
         recordedMinutesLabel: "الدقائق المسجلة",
         recordedMinutesSub: "إجمالي المدة المعتمدة",
-        completedSessionsLabel: "الجلسات المكتملة",
-        completedSessionsSub: "مشاركون أكملوا الإرسال",
+        mostCommonAgeGroupLabel: "الفئة العمرية الأكثر تمثيلًا",
+        mostCommonAgeGroupSub: "بناءً على الفئات العمرية للمشاركين",
+        mostCommonAgeGroupCountSub: "الأكثر تكرارًا بين {count} مشارك",
         maleParticipantsLabel: "المشاركون الذكور",
         femaleParticipantsLabel: "المشاركات الإناث",
         aggregatedStatsSub: "إحصائيات مجمعة",
@@ -1363,6 +1365,9 @@
       femaleParticipants: 0,
       freeSpeechSamples: 0,
       completedSessions: 0,
+      mostCommonAgeGroup: "",
+      mostCommonAgeGroupCount: 0,
+      ageGroups: {},
       iphoneUsers: 0,
       androidUsers: 0,
       regions: {
@@ -1450,6 +1455,18 @@
     function setText(id, value) {
       const element = document.getElementById(id);
       if (element) element.textContent = value;
+    }
+
+    function updateMostCommonAgeGroupSub(count) {
+      const element = document.getElementById("mostCommonAgeGroupSub");
+      if (!element) return;
+
+      const ageCount = Number(count || 0);
+      if (ageCount > 0) {
+        element.textContent = text("mostCommonAgeGroupCountSub").replace("{count}", formatNumber(ageCount));
+      } else {
+        element.textContent = text("mostCommonAgeGroupSub");
+      }
     }
 
     function setProgress(id, value) {
@@ -1641,7 +1658,8 @@
       const totalParticipants = Number(stats.totalParticipants || 0);
       const totalRecordings = Number(stats.totalRecordings || 0);
       const totalMinutes = Number(stats.totalMinutes || 0);
-      const completedSessions = Number(stats.completedSessions || 0);
+      const mostCommonAgeGroup = String(stats.mostCommonAgeGroup || "-");
+      const mostCommonAgeGroupCount = Number(stats.mostCommonAgeGroupCount || 0);
       const maleParticipants = Number(stats.maleParticipants || 0);
       const femaleParticipants = Number(stats.femaleParticipants || 0);
       const freeSpeechSamples = Number(stats.freeSpeechSamples || 0);
@@ -1655,7 +1673,8 @@
       setText("totalParticipants", formatNumber(totalParticipants));
       setText("totalRecordings", formatNumber(totalRecordings));
       setText("totalMinutes", formatMinutes(totalMinutes));
-      setText("completedSessions", formatNumber(completedSessions));
+      setText("mostCommonAgeGroup", mostCommonAgeGroup);
+      updateMostCommonAgeGroupSub(mostCommonAgeGroupCount);
       setText("maleParticipants", formatNumber(maleParticipants));
       setText("femaleParticipants", formatNumber(femaleParticipants));
       setText("freeSpeechSamples", formatNumber(freeSpeechSamples));
