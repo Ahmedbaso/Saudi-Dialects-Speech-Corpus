@@ -2,6 +2,7 @@ import os
 import re
 import json
 import time
+from collections import Counter
 from pathlib import Path
 from urllib.parse import quote
 from datetime import datetime
@@ -18,6 +19,7 @@ BASE_ID = os.getenv("AIRTABLE_BASE_ID")
 
 PARTICIPANTS_TABLE = "Participants"
 RECORDINGS_TABLE = "Recordings"
+AGE_FIELD = "Age"
 
 if not AIRTABLE_TOKEN:
     raise SystemExit("Missing AIRTABLE_TOKEN")
@@ -159,6 +161,33 @@ def count_regions(participants):
             regions[region] = regions.get(region, 0) + 1
 
     return regions
+
+
+def count_age_groups(participants):
+    age_counts = Counter()
+
+    for record in participants:
+        fields = record.get("fields", {})
+        age_group = get_first_list_value(fields.get(AGE_FIELD))
+
+        if age_group:
+            age_counts[age_group] += 1
+
+    return dict(age_counts)
+
+
+def get_most_common_age_group(participants):
+    age_groups = count_age_groups(participants)
+
+    if not age_groups:
+        return "", 0, {}
+
+    most_common_age_group, most_common_age_count = sorted(
+        age_groups.items(),
+        key=lambda item: (-item[1], item[0])
+    )[0]
+
+    return most_common_age_group, most_common_age_count, age_groups
 
 
 def count_free_speech(recordings, participants):
@@ -318,6 +347,7 @@ def main():
             "Gender",
             "Device Type",
             "Region",
+            AGE_FIELD,
             "Recordings",
             "Free Topic"
         ]
@@ -344,6 +374,7 @@ def main():
     free_speech_samples = count_free_speech(recordings, participants)
     completed_sessions = count_completed_sessions(participants)
     duration_bins = calculate_duration_bins(recordings)
+    most_common_age_group, most_common_age_group_count, age_groups = get_most_common_age_group(participants)
 
     now_ksa = datetime.now(ZoneInfo("Asia/Riyadh"))
 
@@ -355,6 +386,9 @@ def main():
         "femaleParticipants": female_participants,
         "freeSpeechSamples": free_speech_samples,
         "completedSessions": completed_sessions,
+        "mostCommonAgeGroup": most_common_age_group,
+        "mostCommonAgeGroupCount": most_common_age_group_count,
+        "ageGroups": age_groups,
         "iphoneUsers": iphone_users,
         "androidUsers": android_users,
         "regions": regions,
