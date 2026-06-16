@@ -584,6 +584,13 @@
       padding: 28px;
       color: var(--footer-color);
       font-size: 14px;
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    footer * {
+      direction: ltr;
+      unicode-bidi: isolate;
     }
 
     .ksu-link {
@@ -966,24 +973,35 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px 34px;
       margin-top: 10px;
+      direction: ltr;
     }
 
     .tech-list {
       margin: 0;
       padding-left: 22px;
+      padding-right: 0;
+      direction: ltr;
+      text-align: left;
     }
 
     .tech-list li {
       margin-bottom: 7px;
     }
 
+    body.lang-ar .tech-grid {
+      direction: ltr;
+    }
+
     body.lang-ar .tech-list {
-      padding-left: 0;
-      padding-right: 22px;
+      padding-left: 22px;
+      padding-right: 0;
+      direction: ltr;
+      text-align: left;
     }
 
     body.lang-ar .tech-icons {
       justify-content: center;
+      direction: ltr;
     }
 
     .tech-heading-row {
@@ -995,6 +1013,7 @@
       justify-content: center;
       max-width: 100%;
       margin-top: 20px;
+      direction: ltr;
     }
 
 
@@ -1703,7 +1722,7 @@ Total Audio Duration Seconds: 119.4</pre>
 
 </section>
 </main>
-<footer data-i18n-html="footerText">
+<footer>
     <span class="footer-title">Saudi Dialects Speech Corpus | Graduation Project</span>
     <span class="footer-separator"> • </span>
     <a class="ksu-link" href="https://ksu.edu.sa/en" rel="noopener noreferrer" target="_blank" title="Visit King Saud University official website">
