@@ -481,23 +481,32 @@
       background: var(--card-bg);
     }
 
-    .gender-card {
+    .map-card {
       order: 1;
     }
 
-    .device-card {
+    .gender-card {
       order: 2;
     }
 
-    .region-card {
+    .device-card {
       order: 3;
+      display: flex;
+      flex-direction: column;
     }
 
-    .quality-card {
+    .device-card #deviceChart {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .region-card {
       order: 4;
     }
 
-    .map-card {
+    .quality-card {
       order: 5;
     }
 
@@ -1423,22 +1432,6 @@
       </p>
 
       <div class="distribution-grid">
-        <div class="distribution-card gender-card">
-          <h3 data-i18n="genderDistributionTitle">Gender Distribution</h3>
-          <div id="genderChart"></div>
-        </div>
-
-        <div class="distribution-card device-card">
-          <h3 data-i18n="deviceDistributionTitle">Device Distribution</h3>
-          <div id="deviceChart"></div>
-        </div>
-
-        <div class="distribution-card region-card">
-          <h3 data-i18n="regionDistributionTitle">Region Distribution</h3>
-          <div id="regionBars"></div>
-        </div>
-
-
         <div class="distribution-card wide-card map-card">
           <h3 data-i18n="administrativeRegionMapTitle">Administrative Region Map</h3>
           <p class="muted" data-i18n="administrativeRegionMapP">
@@ -1475,12 +1468,22 @@
         </svg>
       </div>
         </div>
-
+        <div class="distribution-card gender-card">
+          <h3 data-i18n="genderDistributionTitle">Gender Distribution</h3>
+          <div id="genderChart"></div>
+        </div>
+        <div class="distribution-card device-card">
+          <h3 data-i18n="deviceDistributionTitle">Device Distribution</h3>
+          <div id="deviceChart"></div>
+        </div>
+        <div class="distribution-card region-card">
+          <h3 data-i18n="regionDistributionTitle">Region Distribution</h3>
+          <div id="regionBars"></div>
+        </div>
         <div class="distribution-card quality-card">
           <h3 data-i18n="collectionQualityTitle">Collection Quality</h3>
           <div id="qualityMetrics"></div>
         </div>
-
         <div class="distribution-card wide-card duration-card">
           <h3 data-i18n="durationDistributionTitle">Participant Duration Distribution</h3>
           <p class="muted" data-i18n="durationDistributionP">
@@ -1643,7 +1646,7 @@
         regionDistributionTitle: "Region Distribution",
         administrativeRegionMapTitle: "Administrative Region Map",
         administrativeRegionMapP: "Choropleth map showing participant distribution by administrative region.",
-        administrativeRegionsRepresentedLabel: "Administrative Regions Represented",
+        administrativeRegionsRepresentedLabel: "Administrative Regions",
         mapLegendLow: "Lower",
         mapLegendHigh: "Higher",
         collectionQualityTitle: "Collection Quality",
