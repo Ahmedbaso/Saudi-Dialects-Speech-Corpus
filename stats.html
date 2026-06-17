@@ -481,6 +481,30 @@
       background: var(--card-bg);
     }
 
+    .gender-card {
+      order: 1;
+    }
+
+    .device-card {
+      order: 2;
+    }
+
+    .region-card {
+      order: 3;
+    }
+
+    .quality-card {
+      order: 4;
+    }
+
+    .map-card {
+      order: 5;
+    }
+
+    .duration-card {
+      order: 6;
+    }
+
     .bar-row {
       margin-top: 14px;
     }
@@ -1020,6 +1044,15 @@
     }
 
     @media (max-width: 700px) {
+      .gender-card,
+      .device-card,
+      .region-card,
+      .quality-card,
+      .map-card,
+      .duration-card {
+        order: initial;
+      }
+
       footer {
         align-items: flex-start;
         gap: 0;
@@ -1390,23 +1423,23 @@
       </p>
 
       <div class="distribution-grid">
-        <div class="distribution-card">
+        <div class="distribution-card gender-card">
           <h3 data-i18n="genderDistributionTitle">Gender Distribution</h3>
           <div id="genderChart"></div>
         </div>
 
-        <div class="distribution-card">
+        <div class="distribution-card device-card">
           <h3 data-i18n="deviceDistributionTitle">Device Distribution</h3>
           <div id="deviceChart"></div>
         </div>
 
-        <div class="distribution-card">
+        <div class="distribution-card region-card">
           <h3 data-i18n="regionDistributionTitle">Region Distribution</h3>
           <div id="regionBars"></div>
         </div>
 
 
-        <div class="distribution-card wide-card">
+        <div class="distribution-card wide-card map-card">
           <h3 data-i18n="administrativeRegionMapTitle">Administrative Region Map</h3>
           <p class="muted" data-i18n="administrativeRegionMapP">
             Choropleth map showing participant distribution by administrative region.
@@ -1443,12 +1476,12 @@
       </div>
         </div>
 
-        <div class="distribution-card">
+        <div class="distribution-card quality-card">
           <h3 data-i18n="collectionQualityTitle">Collection Quality</h3>
           <div id="qualityMetrics"></div>
         </div>
 
-        <div class="distribution-card wide-card">
+        <div class="distribution-card wide-card duration-card">
           <h3 data-i18n="durationDistributionTitle">Participant Duration Distribution</h3>
           <p class="muted" data-i18n="durationDistributionP">
             Histogram of total recorded minutes per completed participant.
