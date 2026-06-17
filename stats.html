@@ -345,6 +345,16 @@
       background-repeat: no-repeat;
       background-size: contain;
       flex: 0 0 auto;
+      filter:
+        drop-shadow(0 0 1px rgba(15, 81, 50, 0.35))
+        drop-shadow(0 1px 1px rgba(15, 23, 42, 0.12));
+    }
+
+    body.dark-mode h2[data-i18n]::after,
+    body.dark-mode h3[data-i18n]::after {
+      filter:
+        drop-shadow(0 0 1px rgba(226, 232, 240, 0.85))
+        drop-shadow(0 0 2px rgba(52, 211, 153, 0.55));
     }
 
     h3[data-i18n]::after {
@@ -777,6 +787,12 @@
       filter:
         drop-shadow(0 0 1px rgba(226, 232, 240, 0.95))
         drop-shadow(0 0 2px rgba(226, 232, 240, 0.70));
+    }
+
+    body.dark-mode .device-summary-item[title="Android"] .device-icon {
+      filter:
+        drop-shadow(0 0 1px rgba(187, 247, 208, 0.95))
+        drop-shadow(0 0 2px rgba(34, 197, 94, 0.65));
     }
 
     .device-summary-value {
