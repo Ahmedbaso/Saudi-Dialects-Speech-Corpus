@@ -20,6 +20,105 @@ BASE_ID = os.getenv("AIRTABLE_BASE_ID")
 PARTICIPANTS_TABLE = "Participants"
 RECORDINGS_TABLE = "Recordings"
 AGE_FIELD = "Age"
+ADMINISTRATIVE_REGION_FIELD = "Administrative Region"
+
+
+ADMINISTRATIVE_REGION_NAMES = [
+    "Riyadh",
+    "Makkah",
+    "Madinah",
+    "Eastern Province",
+    "Qassim",
+    "Hail",
+    "Tabuk",
+    "Northern Borders",
+    "Jazan",
+    "Najran",
+    "Al Bahah",
+    "Al Jawf",
+    "Asir",
+]
+
+ADMINISTRATIVE_REGION_ALIASES = {
+    "riyadh": "Riyadh",
+    "ar riyad": "Riyadh",
+    "ar riyadh": "Riyadh",
+    "al riyadh": "Riyadh",
+    "منطقة الرياض": "Riyadh",
+    "الرياض": "Riyadh",
+
+    "makkah": "Makkah",
+    "mecca": "Makkah",
+    "makkah al mukarramah": "Makkah",
+    "منطقة مكة المكرمة": "Makkah",
+    "مكة المكرمة": "Makkah",
+    "مكة": "Makkah",
+
+    "madinah": "Madinah",
+    "medina": "Madinah",
+    "al madinah": "Madinah",
+    "al madinah al munawwarah": "Madinah",
+    "منطقة المدينة المنورة": "Madinah",
+    "المدينة المنورة": "Madinah",
+    "المدينة": "Madinah",
+
+    "eastern province": "Eastern Province",
+    "eastern": "Eastern Province",
+    "ash sharqiyah": "Eastern Province",
+    "al sharqiyah": "Eastern Province",
+    "منطقة الشرقية": "Eastern Province",
+    "المنطقة الشرقية": "Eastern Province",
+    "الشرقية": "Eastern Province",
+
+    "qassim": "Qassim",
+    "al qassim": "Qassim",
+    "al quassim": "Qassim",
+    "منطقة القصيم": "Qassim",
+    "القصيم": "Qassim",
+
+    "hail": "Hail",
+    "ha'il": "Hail",
+    "ha il": "Hail",
+    "حائل": "Hail",
+    "منطقة حائل": "Hail",
+
+    "tabuk": "Tabuk",
+    "تبوك": "Tabuk",
+    "منطقة تبوك": "Tabuk",
+
+    "northern borders": "Northern Borders",
+    "northern border": "Northern Borders",
+    "al hudud ash shamaliyah": "Northern Borders",
+    "منطقة الحدود الشمالية": "Northern Borders",
+    "الحدود الشمالية": "Northern Borders",
+
+    "jazan": "Jazan",
+    "jizan": "Jazan",
+    "جازان": "Jazan",
+    "جيزان": "Jazan",
+    "منطقة جازان": "Jazan",
+
+    "najran": "Najran",
+    "نجران": "Najran",
+    "منطقة نجران": "Najran",
+
+    "al bahah": "Al Bahah",
+    "bahah": "Al Bahah",
+    "الباحة": "Al Bahah",
+    "منطقة الباحة": "Al Bahah",
+
+    "al jawf": "Al Jawf",
+    "jawf": "Al Jawf",
+    "الجوف": "Al Jawf",
+    "منطقة الجوف": "Al Jawf",
+
+    "asir": "Asir",
+    "aseer": "Asir",
+    "`asir": "Asir",
+    "عسير": "Asir",
+    "منطقة عسير": "Asir",
+}
+
 
 if not AIRTABLE_TOKEN:
     raise SystemExit("Missing AIRTABLE_TOKEN")
@@ -190,6 +289,38 @@ def get_most_common_age_group(participants):
     return most_common_age_group, most_common_age_count, age_groups
 
 
+def normalize_administrative_region(value):
+    region = get_first_list_value(value)
+
+    if not region:
+        return ""
+
+    key = normalize(region)
+    return ADMINISTRATIVE_REGION_ALIASES.get(key, region)
+
+
+def count_administrative_regions(participants):
+    administrative_regions = {region_name: 0 for region_name in ADMINISTRATIVE_REGION_NAMES}
+
+    for record in participants:
+        fields = record.get("fields", {})
+        region = normalize_administrative_region(fields.get(ADMINISTRATIVE_REGION_FIELD))
+
+        if not region:
+            continue
+
+        administrative_regions[region] = administrative_regions.get(region, 0) + 1
+
+    return administrative_regions
+
+
+def get_administrative_region_summary(participants):
+    administrative_regions = count_administrative_regions(participants)
+    represented = sum(1 for count in administrative_regions.values() if count > 0)
+
+    return administrative_regions, represented, len(ADMINISTRATIVE_REGION_NAMES)
+
+
 def count_free_speech(recordings, participants):
     s31_count = 0
 
@@ -348,7 +479,8 @@ def main():
             "Device Type",
             "Region",
             AGE_FIELD,
-            "Recordings",
+                        ADMINISTRATIVE_REGION_FIELD,
+"Recordings",
             "Free Topic"
         ]
     )
@@ -371,6 +503,7 @@ def main():
     male_participants, female_participants = count_gender(participants)
     iphone_users, android_users = count_devices(participants)
     regions = count_regions(participants)
+    administrative_regions, administrative_regions_represented, administrative_regions_total = get_administrative_region_summary(participants)
     free_speech_samples = count_free_speech(recordings, participants)
     completed_sessions = count_completed_sessions(participants)
     duration_bins = calculate_duration_bins(recordings)
@@ -392,6 +525,9 @@ def main():
         "iphoneUsers": iphone_users,
         "androidUsers": android_users,
         "regions": regions,
+        "administrativeRegions": administrative_regions,
+        "administrativeRegionsRepresented": administrative_regions_represented,
+        "administrativeRegionsTotal": administrative_regions_total,
         "durationBins": duration_bins,
         "lastUpdated": now_ksa.strftime("%Y-%m-%d %H:%M KSA"),
         "lastUpdatedIso": now_ksa.isoformat()
