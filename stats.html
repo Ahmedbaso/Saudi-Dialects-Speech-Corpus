@@ -54,6 +54,9 @@
       --duration-1-2: #22c55e;
       --duration-2-3: #f59e0b;
       --duration-3-plus: #8b5cf6;
+      --map-shell-bg: #e8efea;
+      --map-empty-fill: #d7e0db;
+      --map-stroke: #f8fafc;
     }
 
     body.dark-mode {
@@ -93,6 +96,9 @@
       --duration-1-2: #22c55e;
       --duration-2-3: #f59e0b;
       --duration-3-plus: #8b5cf6;
+      --map-shell-bg: #e8efea;
+      --map-empty-fill: #d7e0db;
+      --map-stroke: #f8fafc;
     }
 
     * {
@@ -685,6 +691,38 @@
     .map-stat-pill strong {
       color: var(--heading-color);
       font-size: 18px;
+      direction: ltr;
+      unicode-bidi: plaintext;
+    }
+
+    .map-stat-button {
+      width: auto;
+      cursor: pointer;
+      justify-content: space-between;
+      transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .map-stat-button:hover,
+    .map-stat-button:focus-visible {
+      border-color: var(--heading-color);
+      box-shadow: 0 0 0 3px rgba(15, 81, 50, 0.12);
+      outline: none;
+    }
+
+    body.dark-mode .map-stat-button:hover,
+    body.dark-mode .map-stat-button:focus-visible {
+      box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.18);
+    }
+
+    .map-stat-caret {
+      color: var(--heading-color);
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .map-stat-button.open .map-stat-caret {
+      transform: rotate(180deg);
     }
 
     .map-legend {
@@ -700,13 +738,90 @@
       height: 12px;
       border-radius: 999px;
       border: 1px solid var(--table-border);
-      background: linear-gradient(90deg, var(--code-bg), var(--heading-color));
+      background: linear-gradient(90deg, var(--map-empty-fill), var(--heading-color));
       overflow: hidden;
+    }
+
+    .administrative-region-list {
+      margin-top: 12px;
+      background: var(--workflow-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 14px;
+      padding: 8px 14px;
+    }
+
+    .administrative-region-list[hidden] {
+      display: none;
+    }
+
+    .administrative-region-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--table-border);
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+      border-radius: 10px;
+    }
+
+    .administrative-region-row:hover,
+    .administrative-region-row:focus-visible {
+      background: rgba(15, 81, 50, 0.06);
+      outline: none;
+    }
+
+    body.dark-mode .administrative-region-row:hover,
+    body.dark-mode .administrative-region-row:focus-visible {
+      background: rgba(52, 211, 153, 0.10);
+    }
+
+    .administrative-region-row.selected {
+      background: rgba(15, 81, 50, 0.10);
+    }
+
+    body.dark-mode .administrative-region-row.selected {
+      background: rgba(52, 211, 153, 0.14);
+    }
+
+    .administrative-region-row:last-child {
+      border-bottom: none;
+    }
+
+    .administrative-region-name {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+
+    .administrative-region-count {
+      color: var(--heading-color);
+      font-weight: bold;
+      direction: ltr;
+      unicode-bidi: plaintext;
+    }
+
+    .administrative-region-selected {
+      margin-top: 12px;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      background: var(--workflow-bg);
+      border: 1px solid var(--table-border);
+      border-radius: 14px;
+      color: var(--text-color);
+    }
+
+    .administrative-region-selected[hidden] {
+      display: none;
+    }
+
+    .administrative-region-selected strong {
+      color: var(--heading-color);
     }
 
     .sa-map-wrap {
       direction: ltr;
-      background: var(--workflow-bg);
+      background: var(--map-shell-bg);
       border: 1px solid var(--table-border);
       border-radius: 16px;
       padding: 18px;
@@ -722,9 +837,9 @@
     }
 
     .sa-map-svg path {
-      fill: var(--code-bg);
-      stroke: var(--card-bg);
-      stroke-width: 1.4;
+      fill: var(--map-empty-fill);
+      stroke: var(--map-stroke);
+      stroke-width: 2;
       outline: none;
       transition: fill 0.25s ease, opacity 0.25s ease, stroke 0.25s ease, filter 0.25s ease;
     }
@@ -739,11 +854,21 @@
       filter: brightness(1.08);
     }
 
-    body.dark-mode .sa-map-svg path {
-      stroke: #0b1220;
+    .sa-map-svg path.selected-region {
+      stroke: var(--heading-color);
+      stroke-width: 3;
+      filter: brightness(1.04);
     }
 
     body.lang-ar .map-summary {
+      direction: rtl;
+    }
+
+    body.lang-ar .map-gradient {
+      background: linear-gradient(90deg, var(--heading-color), var(--map-empty-fill));
+    }
+
+    body.lang-ar .administrative-region-row {
       direction: rtl;
     }
 
@@ -1280,18 +1405,22 @@
           <div id="regionBars"></div>
         </div>
 
+
         <div class="distribution-card wide-card">
           <h3 data-i18n="administrativeRegionMapTitle">Administrative Region Map</h3>
           <p class="muted" data-i18n="administrativeRegionMapP">
             Choropleth map showing participant distribution by administrative region.
           </p>
           <div class="map-summary">
-            <div class="map-stat-pill">
+            <button type="button" class="map-stat-pill map-stat-button" id="administrativeRegionsToggle" aria-expanded="false" aria-controls="administrativeRegionList">
               <span data-i18n="administrativeRegionsRepresentedLabel">Administrative Regions Represented</span>
               <strong id="administrativeRegionsRepresented">0 / 13</strong>
-            </div>
+              <span class="map-stat-caret" aria-hidden="true">▾</span>
+            </button>
             <div class="map-legend" id="administrativeRegionLegend"></div>
           </div>
+          <div class="administrative-region-list" id="administrativeRegionList" hidden></div>
+          <div class="administrative-region-selected" id="administrativeRegionSelectedInfo" hidden></div>
       <div class="sa-map-wrap" id="administrativeRegionMap">
         <svg id="saChoroplethMap" class="sa-map-svg" viewBox="0 0 1000 824" role="img" aria-labelledby="saMapTitle" xmlns="http://www.w3.org/2000/svg">
           <title id="saMapTitle">Saudi Arabia administrative regions choropleth map</title>
@@ -1436,6 +1565,7 @@
 
     let currentLanguage = "en";
     let latestStats = null;
+    let selectedAdministrativeRegion = null;
 
     const translations = {
       en: {
@@ -1829,6 +1959,83 @@
       `;
     }
 
+    function setAdministrativeRegionListOpen(isOpen) {
+      const button = document.getElementById("administrativeRegionsToggle");
+      const list = document.getElementById("administrativeRegionList");
+      if (!button || !list) return;
+
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.classList.toggle("open", isOpen);
+      list.hidden = !isOpen;
+    }
+
+    function updateAdministrativeRegionSelectionDisplay(administrativeRegions) {
+      const infoBox = document.getElementById("administrativeRegionSelectedInfo");
+      const rows = document.querySelectorAll(".administrative-region-row");
+      const paths = document.querySelectorAll("#saChoroplethMap path[data-region-name]");
+
+      rows.forEach(row => {
+        row.classList.toggle("selected", row.dataset.regionName === selectedAdministrativeRegion);
+      });
+
+      paths.forEach(path => {
+        path.classList.toggle("selected-region", path.dataset.regionName === selectedAdministrativeRegion);
+      });
+
+      if (!infoBox || !selectedAdministrativeRegion) {
+        if (infoBox) infoBox.hidden = true;
+        return;
+      }
+
+      const value = Number(administrativeRegions?.[selectedAdministrativeRegion] || 0);
+      const displayName = displayAdministrativeRegionLabel(selectedAdministrativeRegion);
+      infoBox.innerHTML = `<strong>${displayName}</strong> — ${formatNumber(value)} ${text("participantsWord")}`;
+      infoBox.hidden = false;
+    }
+
+    function selectAdministrativeRegion(regionName, administrativeRegions) {
+      selectedAdministrativeRegion = regionName;
+      updateAdministrativeRegionSelectionDisplay(administrativeRegions || latestStats?.administrativeRegions || {});
+    }
+
+    function renderAdministrativeRegionList(administrativeRegions) {
+      const container = document.getElementById("administrativeRegionList");
+      const button = document.getElementById("administrativeRegionsToggle");
+      if (!container || !button) return;
+
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+
+      const rows = Object.keys(ADMIN_REGION_TO_SVG_ID)
+        .map(regionName => ({
+          regionName,
+          displayLabel: displayAdministrativeRegionLabel(regionName),
+          value: Number(administrativeRegions?.[regionName] || 0)
+        }))
+        .sort((a, b) => (b.value - a.value) || a.regionName.localeCompare(b.regionName));
+
+      container.innerHTML = rows.map(item => `
+        <div class="administrative-region-row" data-region-name="${item.regionName}" tabindex="0" role="button" aria-label="${item.displayLabel}: ${formatNumber(item.value)} ${text("participantsWord")}">
+          <span class="administrative-region-name">${item.displayLabel}</span>
+          <span class="administrative-region-count">${formatNumber(item.value)}</span>
+        </div>
+      `).join("");
+
+      container.querySelectorAll(".administrative-region-row").forEach(row => {
+        row.addEventListener("click", function () {
+          selectAdministrativeRegion(row.dataset.regionName, administrativeRegions);
+        });
+        row.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectAdministrativeRegion(row.dataset.regionName, administrativeRegions);
+          }
+        });
+      });
+
+      setAdministrativeRegionListOpen(isOpen);
+      updateAdministrativeRegionSelectionDisplay(administrativeRegions);
+    }
+
     function renderAdministrativeRegionMap(administrativeRegions) {
       const regions = administrativeRegions || {};
       const values = Object.keys(ADMIN_REGION_TO_SVG_ID).map(regionName => Number(regions[regionName] || 0));
@@ -1840,15 +2047,25 @@
 
         const value = Number(regions[regionName] || 0);
         const ratio = value > 0 ? value / maxValue : 0;
-        const opacity = value > 0 ? 0.35 + (ratio * 0.65) : 0.45;
+        const opacity = value > 0 ? 0.35 + (ratio * 0.65) : 1;
         const displayName = displayAdministrativeRegionLabel(regionName);
         const label = `${displayName}: ${formatNumber(value)} ${text("participantsWord")}`;
 
-        path.style.fill = value > 0 ? "var(--heading-color)" : "var(--code-bg)";
+        path.style.fill = value > 0 ? "var(--heading-color)" : "var(--map-empty-fill)";
         path.style.opacity = opacity.toFixed(2);
         path.classList.toggle("has-data", value > 0);
         path.setAttribute("aria-label", label);
         path.setAttribute("title", label);
+
+        path.onclick = function () {
+          selectAdministrativeRegion(regionName, regions);
+        };
+        path.onkeydown = function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectAdministrativeRegion(regionName, regions);
+          }
+        };
 
         let title = path.querySelector("title");
         if (!title) {
@@ -1859,6 +2076,7 @@
       });
 
       renderAdministrativeRegionLegend();
+      updateAdministrativeRegionSelectionDisplay(regions);
     }
 
 
@@ -2004,6 +2222,7 @@
       ]);
 
       renderAdministrativeRegionMap(administrativeRegions);
+      renderAdministrativeRegionList(administrativeRegions);
       renderQualityMetrics(totalParticipants, totalRecordings, totalMinutes, freeSpeechSamples);
       renderDurationHistogram(stats.durationBins || {});
     }
@@ -2053,6 +2272,14 @@
         applyLanguage(newLanguage);
       });
     });
+
+    const administrativeRegionsToggle = document.getElementById("administrativeRegionsToggle");
+    if (administrativeRegionsToggle) {
+      administrativeRegionsToggle.addEventListener("click", function () {
+        const isOpen = administrativeRegionsToggle.getAttribute("aria-expanded") === "true";
+        setAdministrativeRegionListOpen(!isOpen);
+      });
+    }
 
     loadStats();
   </script>
