@@ -1514,7 +1514,9 @@
     }
 
     footer {
+      width: min(1120px, calc(100% - 40px));
       max-width: 1120px;
+      box-sizing: border-box;
       margin: 0 auto 34px;
       padding: 24px 28px;
       color: var(--footer-color);
@@ -1632,7 +1634,9 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
+        width: auto;
         max-width: none;
+        box-sizing: border-box;
         margin: 0;
         padding: 24px 24px 84px;
         font-size: 13px;
