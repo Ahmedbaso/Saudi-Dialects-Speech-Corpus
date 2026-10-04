@@ -1,30 +1,30 @@
 {
-  "totalParticipants": 37,
-  "totalRecordings": 1080,
-  "totalMinutes": 67.3,
-  "maleParticipants": 29,
+  "totalParticipants": 38,
+  "totalRecordings": 1090,
+  "totalMinutes": 67.7,
+  "maleParticipants": 30,
   "femaleParticipants": 8,
   "freeSpeechSamples": 20,
-  "completedSessions": 37,
+  "completedSessions": 38,
   "mostCommonAgeGroup": "18-25",
   "mostCommonAgeGroupCount": 30,
   "ageGroups": {
     "18-25": 30,
+    "26-35": 4,
     "46-60": 1,
-    "26-35": 3,
     "36-45": 3
   },
-  "iphoneUsers": 35,
+  "iphoneUsers": 36,
   "androidUsers": 2,
   "regions": {
-    "Central": 25,
+    "Central": 26,
     "Western": 2,
     "Southern": 6,
     "Eastern": 1,
     "Northern": 3
   },
   "administrativeRegions": {
-    "Riyadh": 24,
+    "Riyadh": 25,
     "Makkah": 2,
     "Madinah": 0,
     "Eastern Province": 1,
@@ -42,11 +42,11 @@
   "administrativeRegionsRepresented": 7,
   "administrativeRegionsTotal": 13,
   "durationBins": {
-    "< 1 min": 3,
+    "< 1 min": 4,
     "1-2 min": 22,
     "2-3 min": 9,
     "3+ min": 2
   },
-  "lastUpdated": "2026-10-04 02:07 KSA",
-  "lastUpdatedIso": "2026-10-04T02:07:42.529119+03:00"
+  "lastUpdated": "2026-10-04 05:38 KSA",
+  "lastUpdatedIso": "2026-10-04T05:38:36.389127+03:00"
 }
